@@ -8,10 +8,14 @@ tm_color_feature=colour4
 tm_color_music=colour203
 
 # separators
-tm_left_separator=''
-tm_left_separator_black=''
-tm_right_separator=''
-tm_right_separator_black=''
+# tm_left_separator=''
+# tm_left_separator_black=''
+# tm_right_separator=''
+# tm_right_separator_black=''
+# tm_left_separator='|'
+# tm_left_separator_black='|'
+# tm_right_separator='|'
+# tm_right_separator_black='|'
 tm_session_symbol=''
 
 set -g status-left-length 32

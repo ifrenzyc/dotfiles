@@ -68,7 +68,7 @@ if g:OS#win
 	autocmd! bufwritepost _vimrc source $VIM/_vimrc
 elseif g:OS#unix || g:OS#mac || g:OS#cygwin
 	nmap <leader>v :e ~/.vimrc<cr>
-	autocmd! bufwritepost .vimrc source ~/.vimrc
+	autocmd! bufwritepost .vimrcu source ~/.vimrc
 endif
 
 
@@ -112,7 +112,7 @@ set novisualbell
 set t_vb=".
 set tm=500
 
-set ambiwidth=double
+" set ambiwidth=double
 
 autocmd BufEnter * let &titlestring=expand("%:t")
 
@@ -189,9 +189,15 @@ if OS#gui
 	cmap <M-Space> <Esc>:simalt ~<cr>
 else
 	set background=dark
+	" set background=light
 " 	colo molokai
 	" colo zenburn
-	colo mustang
+	" colo base16-ocean
+	" colo base16-tomorrow
+	" colo base16-monokai
+	let g:rehash256 = 1
+	colo molokai
+	" colo mustang
 endif
 " }}}
 
@@ -214,7 +220,8 @@ set pfn=Monaco:h12
 "=> Encodings
 "---------------------------------------------------------------------------
 " Encoding
-"set encoding=utf-8
+set encoding=utf-8
+scriptencoding utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=usc-bom,utf-8,gb18030,gbk,gb2312,cp936,big5,euc-jp,euc-kr,latin1
@@ -440,7 +447,7 @@ let g:ctrlp_map='<leader>t'         " command to invoke the plugin
 			" \ 'dir':  '\.git$\|\.hg$\|\.svn$',
 			" \ 'file': '\.exe$\|\.so$\|\.dll$\|\.vcproj$'
 			" \ :}
-nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bb :CtrlPMRUFiles<cr>
 nmap <leader>T :CtrlPClearCache<cr>:CtrlP<cr><cr>
 
 
@@ -633,16 +640,17 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
-"  -----------------
-"  |  vim-airline  |
-"  -----------------
+"  -------------------
+"  |  lightline.vim  |
+"  -------------------
+"  @see https://github.com/itchyny/lightline.vim
 " set guifont=Literation_Mono_Powerline:h14
 " set guifont=Ubuntu_Mono_derivative_Powerline:h15
 set guifont=DejaVu_Sans_Mono_for_Powerline:h14
-let g:airline_theme="light"
+" let g:airline_theme="light"
 
 "这个是安装字体后 必须设置此项"
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 "打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
 "我还省去了minibufexpl插件，因为我习惯在1个Tab下用多个buffer"
@@ -654,9 +662,26 @@ let g:airline_powerline_fonts = 1
 " nnoremap <C-P> :bp<CR>
 
 " 关闭状态显示空白符号计数,这个对我用处不大"
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#symbol = '!'
-
+" let g:airline#extensions#whitespace#enabled = 0
+" let g:airline#extensions#whitespace#symbol = '!'
+set noshowmode
+let g:lightline = {
+			\ 'colorscheme': 'wombat',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component': {
+			\   'readonly': '%{&readonly?"x":""}',
+			\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+			\ },
+			\ 'component_visible_condition': {
+			\   'readonly': '(&filetype!="help"&& &readonly)',
+			\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
+			\ },
+			\ 'separator': { 'left': '', 'right': '' },
+			\ 'subseparator': { 'left': '|', 'right': '|' }
+			\ }
 
 "---------------------------------------------------------------------------
 "=> Key mappings
