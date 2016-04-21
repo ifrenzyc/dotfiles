@@ -68,7 +68,7 @@ if g:OS#win
 	autocmd! bufwritepost _vimrc source $VIM/_vimrc
 elseif g:OS#unix || g:OS#mac || g:OS#cygwin
 	nmap <leader>v :e ~/.vimrc<cr>
-	autocmd! bufwritepost .vimrcu source ~/.vimrc
+	autocmd! bufwritepost .vimrc source ~/.vimrc
 endif
 
 
@@ -640,13 +640,20 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
+
+"  -----------------
+"  |  vim-orgmode  |
+"  -----------------
+let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)'],
+      \ ['REPORT(r)', 'BUG(b)', 'KNOWNCAUSE(k)', '|', 'FIXED(f)'],
+      \ ['CANCELED(c)']]
 "  -------------------
 "  |  lightline.vim  |
 "  -------------------
 "  @see https://github.com/itchyny/lightline.vim
 " set guifont=Literation_Mono_Powerline:h14
 " set guifont=Ubuntu_Mono_derivative_Powerline:h15
-set guifont=DejaVu_Sans_Mono_for_Powerline:h14
+set guifont=DejaVu_Sans_Mono_for_Powerline:h13
 " let g:airline_theme="light"
 
 "这个是安装字体后 必须设置此项"

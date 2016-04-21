@@ -1,0 +1,23 @@
+
+;; ----- smex-history -----
+(
+ neotree
+ toggle-frame-fullscreen
+ eval-region
+ eval-buffer
+ list-packages
+ cd
+ 5x5
+)
+
+;; ----- smex-data -----
+(
+ (list-packages . 11)
+ (toggle-frame-fullscreen . 22)
+ (neotree . 17)
+ (eval-region . 71)
+ (eval-buffer . 18)
+ (org-publish-current-project . 3)
+ (org-publish-current-file . 3)
+ (org-publish-project . 7)
+)
