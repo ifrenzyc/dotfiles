@@ -25,13 +25,16 @@
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)  ;; visible-bell doesn’t work well on OS X, so disable those notifications completely
 
+(global-visual-line-mode t)
+(setq word-wrap t)
+(setq truncate-lines t)
 ;; 取消滚动栏
-;; (use-package yascroll
-;;   :ensure t
-;;   :init
-;;   (set-scroll-bar-mode nil)
-;;  (global-yascroll-bar-mode 1)
-;;  )
+(use-package yascroll
+  :ensure t
+  :init
+  (set-scroll-bar-mode nil)
+ (global-yascroll-bar-mode 1)
+ )
 
 
 ;; @see http://ergoemacs.org/emacs/whitespace-mode.html
@@ -68,6 +71,13 @@
   (newline-mark ?\n    [?↴ ?\n])))
 (setq whitespace-line-column 120)
 
+(if window-system (progn
+		    ;;(setq initial-frame-alist '((width . 202)(height . 58)(top . 0)(left . 48)))
+		    ;;		    (set-background-color "Black")
+		    ;;  (set-foreground-color "White")
+		    (set-cursor-color "Gray")
+		    ))
+(display-battery-mode t)
 
 ;; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
 (global-whitespace-mode t)

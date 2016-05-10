@@ -3,10 +3,11 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
   (setq org-src-fontify-natively t)
-    (setq org-bullets-bullet-list
-  '("•" "◉" "◎" "○" "►" "◇"))
+  (setq org-bullets-bullet-list
+	'("ͽ" "❂" "☀" "⌾" "◌" "◉"))
+  ;; "◎" "○" "►" "◇" "⊛" "✪" "☯" "⊙" "✪" "➲" "⚫" "●" "⬤" "⚉" "￮" "⦾" "⦿" "⦾" "⸖" "ͼ" "￮"
   (setq org-todo-keywords
-	'((sequence "☛ TODO" "○ IN-PROGRESS" "⚑ WAITING" "|" "✗ CANCELED" "✓ DONE")))
+	'((sequence "☛ TODO" "► IN-PROGRESS" "⚑ WAITING" "|" "✗ CANCELED" "✓ DONE")))
   ;;  (setq org-blank-before-new-entry '((heading . t)
   ;;                                     (plain-list-item . t)))
   (setq org-capture-templates
@@ -16,7 +17,7 @@
 ;;; @see http://www.howardism.org/Technical/Emacs/orgmode-wordprocessor.html
   (font-lock-add-keywords 'org-mode
 			  '(("^ +\\([-*]\\) "
-			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "⚫"))))))
 
   (let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
 			       ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
@@ -40,6 +41,9 @@
     ;; `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
     ;; `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
 
+;; (set-face-attribute 'org-level-1 nil :height 1.6 :bold t)
+;; (set-face-attribute 'org-level-2 nil :height 1.4 :bold t)
+;; (set-face-attribute 'org-level-3 nil :height 1.2 :bold t)))
     (custom-theme-set-faces 'user
 			    `(org-level-8 ((t (,@headline ,@variable-tuple))))
 			    `(org-level-7 ((t (,@headline ,@variable-tuple))))
@@ -71,9 +75,9 @@
 ;;(defvar emacs-english-font "Monaco"
 ;; "The font name of English.")
 
-;; (defvar emacs-cjk-font "Hiragino Sans GB W3"
+;; (defvar emacs-cjk-font "WenQuanYi Micro Hei Mono"
 ;; "The font name for CJK.")
-;; (defvar emacs-font-size-pair '(13 . 16)
+;; (defvar emacs-font-size-pair '(12 . 14)
 ;; "Default font size pair for (english . chinese)")
 
 ;; (defvar emacs-font-size-pair-list
@@ -120,6 +124,17 @@
 ;; (defun decrease-emacs-font-size ()
 ;; "Increase emacs's font-size acording emacs-font-size-pair-list."
 ;; (interactive) (emacs-step-font-size -1))
+
+;; @see http://www.cnblogs.com/galaxy-gao/p/4445757.html
+;; @see http://www.sunyour.org/blog/2016/03/07/spacemacs%E9%87%8Corg-mode%E4%B8%AD%E8%8B%B1%E6%96%87%E8%A1%A8%E6%A0%BC%E5%AF%B9%E9%BD%90/
+;;;中文与英文字体设置
+;; Setting English Font
+;; "Source Code Pro" "Hiragino Sans GB" 14 16
+(set-face-attribute 'default nil :font "Source Code Pro 14")
+;; Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+charset (font-spec :family "Hiragino Sans GB" :size 16)))
 
 (use-package htmlize :ensure t)
 

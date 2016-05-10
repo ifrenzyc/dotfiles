@@ -1,23 +1,31 @@
 
 ;; ----- smex-history -----
 (
+ eval-region
+ list-packages
+ emacs-uptime
+ rgrep
+ visual-line-mode
  neotree
  toggle-frame-fullscreen
- eval-region
- eval-buffer
- list-packages
- cd
- 5x5
 )
 
 ;; ----- smex-data -----
 (
- (list-packages . 11)
- (toggle-frame-fullscreen . 22)
- (neotree . 17)
- (eval-region . 71)
- (eval-buffer . 18)
+ (list-packages . 19)
+ (toggle-frame-fullscreen . 23)
+ (neotree . 28)
+ (eval-region . 144)
+ (eval-buffer . 21)
  (org-publish-current-project . 3)
- (org-publish-current-file . 3)
+ (org-publish-current-file . 4)
  (org-publish-project . 7)
+ (org-insert-src-block . 2)
+ (rgrep . 3)
+ (indent-guide-mode . 2)
+ (visual-line-mode . 3)
+ (global-visual-line-mode . 1)
+ (neotree-enter . 1)
+ (emacs-uptime . 1)
+ (neotree-stretch-toggle . 5)
 )

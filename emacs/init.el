@@ -5,7 +5,8 @@
   (require 'package)
   ;; Archives from which to fetch.
   (setq package-archives
-	(append '(("melpa" . "http://melpa.milkbox.net/packages/"))
+	;; ("melpa" . "http://melpa.milkbox.net/packages/")
+	(append '(("popkit" . "http://elpa.popkit.org/packages/"))
 		package-archives))
 
   ;; On-demand installation of packages
@@ -45,6 +46,7 @@ re-downloaded in order to locate PACKAGE."
 
 
 (ensure-package-installed 'evil
+			  'evil-leader
 			  'undo-tree
 			  'yascroll
 			  'ido
@@ -76,6 +78,8 @@ re-downloaded in order to locate PACKAGE."
 			  'smart-mode-line
 			  'zenburn-theme
 			  'hc-zenburn-theme
+			  'pangu-spacing
+			  'magit
 			  'go-mode
 			  'go-complete
 			  'go-direx
@@ -84,8 +88,6 @@ re-downloaded in order to locate PACKAGE."
 			  'go-impl
 			  'go-projectile
 			  'go-snippets)
-
-
 
 (require-package 'use-package)
 (setq use-package-always-ensure t)
@@ -108,9 +110,14 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-indent-guide)
 (require 'init-themes)
 (require 'init-powerline)
+(require 'init-panguspacing)
 (require 'init-rainbow-delimiters)
 (require 'init-linum-relative)
+(require 'init-magit)
 (require 'init-go)
 
+
+(setq default-tab-width 2)
+(setq js-indent-level 2)
 
 (provide 'init)

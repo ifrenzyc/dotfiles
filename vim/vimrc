@@ -168,12 +168,13 @@ if OS#gui
 	set guioptions-=b
 
 	set t_Co=256
-	" set background=light
+	" let g:rehash256 = 1
 	set background=dark
 	if g:OS#win
 		colo mustang
 	else
-		colo desert
+		" colo desert
+		colo base16-ocean
 	endif
 
 	" Maximized GVIM in Windows
@@ -189,15 +190,15 @@ if OS#gui
 	cmap <M-Space> <Esc>:simalt ~<cr>
 else
 	set background=dark
-	" set background=light
-" 	colo molokai
+	" let g:rehash256 = 1
+	colo base16-ocean
+	" colo molokai
 	" colo zenburn
 	" colo base16-ocean
-	" colo base16-tomorrow
 	" colo base16-monokai
-	let g:rehash256 = 1
-	colo molokai
+	" colo molokai
 	" colo mustang
+	" colo tomorrow
 endif
 " }}}
 
@@ -601,14 +602,14 @@ let g:go_highlight_build_constraints = 1
 "  ---------------
 "  |  syntastic  |
 "  ---------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
 
 
 "  -------------
@@ -653,7 +654,7 @@ let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)'],
 "  @see https://github.com/itchyny/lightline.vim
 " set guifont=Literation_Mono_Powerline:h14
 " set guifont=Ubuntu_Mono_derivative_Powerline:h15
-set guifont=DejaVu_Sans_Mono_for_Powerline:h13
+" set guifont=DejaVu_Sans_Mono_for_Powerline:h13
 " let g:airline_theme="light"
 
 "这个是安装字体后 必须设置此项"
