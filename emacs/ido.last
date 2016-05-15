@@ -2,6 +2,28 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/yangc/.dotfiles/emacs/elpa/" . "base16-theme-20151019.711/")
+ ("/Users/yangc/.dotfiles/emacs/" . "lisp/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/mysql/" . "binlog/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/" . "mysql/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/" . "shyiko/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/" . "github/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/" . "com/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/" . "java/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/" . "main/")
+ ("/Users/yangc/src/opensource/" . "mysql-binlog-connector-java/")
+ ("/Users/yangc/Downloads/emacs/emacs.d/" . "emacs.d/")
+ ("/Users/yangc/Downloads/emacs/" . "emacs.d/")
+ ("/Users/yangc/Downloads/" . "emacs/")
+ ("/Users/yangc/src/yangc/itsycnotes/" . "_pub/")
+ ("/Users/yangc/src/yangc/" . "itsycnotes/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/gpinasmgr/" . "gpinasParser/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/" . "gpinasmgr/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/" . "sps/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/" . "com/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/" . "src/")
+ ("/Users/yangc/src/eshore/gpinasproc/" . "gpinasMgr/")
+ ("/Users/yangc/src/eshore/" . "gpinasproc/")
  ("/Users/yangc/src/docker/" . "dbproxy/")
  ("/Users/yangc/src/eshore/mcrm/portal/" . "WebRoot/")
  ("/Users/yangc/src/eshore/mcrm/" . "portal/")
@@ -14,13 +36,13 @@
  ("/Users/yangc/src/go/src/github.com/" . "gogits/")
  ("/Users/yangc/src/go/src/" . "github.com/")
  ("/Users/yangc/src/go/" . "src/")
- ("/Users/yangc/src/" . "docker/")
+ ("/Users/yangc/src/" . "yangc/")
  ("/Users/yangc/Docker/" . "dbproxy/")
  ("/Users/" . "yangc/")
  ("/" . "Users/")
  ("/Users/yangc/emacs.d/emacs.d/" . "lisp/")
  ("/Users/yangc/OneDrive/itsycnotes/" . "tech/")
- ("/Users/yangc/.emacs.d/elpa/" . "smex-20151212.1409/")
+ ("/Users/yangc/.emacs.d/elpa/" . "org-bullets-20140919.237/")
  ("/Users/yangc/emacs.d/" . "emacs.d/")
  ("/Users/yangc/OneDrive/" . "itsycnotes/")
  ("/Users/yangc/" . ".emacs.d/")
@@ -29,23 +51,31 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/yangc/.dotfiles/emacs/lisp/"
- "/Users/yangc/src/docker/dbproxy/"
  "/Users/yangc/.emacs.d/lisp/"
- "/Users/yangc/OneDrive/itsycnotes/tech/git/"
+ "/Users/yangc/.dotfiles/emacs/lisp/"
+ "/Users/yangc/src/yangc/itsycnotes/"
+ "/Users/yangc/.dotfiles/emacs/"
+ "/Users/yangc/.emacs.d/"
+ "/Users/yangc/.dotfiles/emacs/elpa/base16-theme-20151019.711/"
+ "/Users/yangc/.emacs.d/elpa/org-bullets-20140919.237/"
+ "/Users/yangc/src/docker/dbproxy/"
+ "/Users/yangc/"
+ "/Users/yangc/src/go/src/github.com/gogits/gogs/"
+ "/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/mysql/binlog/"
+ "/Users/yangc/src/opensource/mysql-binlog-connector-java/"
+ "/Users/yangc/Downloads/emacs/emacs.d/emacs.d/lisp/"
+ "/Users/yangc/Downloads/emacs/emacs.d/emacs.d/"
+ "/Users/yangc/OneDrive/itsycnotes/eshore/udal/"
+ "/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/gpinasmgr/gpinasParser/"
  "/Users/yangc/OneDrive/itsycnotes/"
+ "/Users/yangc/OneDrive/itsycnotes/tech/git/"
  "/Users/yangc/OneDrive/itsycnotes/eshore/khala/"
  "/Users/yangc/OneDrive/itsycnotes/tech/linux/"
- "/Users/yangc/.emacs.d/"
- "/Users/yangc/"
  "/Users/yangc/src/eshore/mcrm/portal/WebRoot/"
  "/Users/yangc/OneDrive/itsycnotes/inbox/"
- "/Users/yangc/OneDrive/itsycnotes/eshore/udal/"
- "/Users/yangc/src/go/src/github.com/gogits/gogs/"
  "/Users/yangc/GitBook/Library/Import/udal-dev-book/"
  "/Users/yangc/OneDrive/itsycnotes/tech/virtualbox/"
  "/Users/yangc/OneDrive/itsycnotes/tech/emacs/"
- "/Users/yangc/.dotfiles/emacs/"
  "/Users/yangc/src/go/src/github.com/flike/kingshard/"
  "/Users/yangc/OneDrive/itsycnotes/tech/"
  "/Users/yangc/OneDrive/itsycnotes/tech/tools/"
@@ -63,46 +93,128 @@
 
 ;; ----- ido-work-file-list -----
 (
- "init-themes.el"
- "init.sh"
- "init-linum-relative.el"
- "git-fen-zhi-guang-li-chang-yong-cao-zuo.org"
- "draft.org"
- "init-neotree.el"
+ "init-org.el"
+ "init-backup.el"
+ "init-powerline.el"
  "home.org"
- "init-sublimity.el"
  "init-gui.el"
- "wei-xin-fu-wu-hao-diu-shi-session-wen-ti.org"
+ "init.el"
+ "init-themes.el"
+ "best-practices-for-code-review.org"
+ "base16-ocean-dark-theme.el"
+ "org-bullets.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/yangc/.dotfiles/emacs/lisp/" (22318 6854 0 0) "init-which-key.el" "init-themes.el" "init-sublimity.el" "init-smex.el" "init-rainbow-delimiters.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-linum-relative.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
+ ("/Users/yangc/.emacs.d/lisp/" (22328 36602 0 0) "init-which-key.el" "init-themes.el" "init-smex.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.emacs.d/" (22328 36602 0 0) "url/" "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs/lisp/" (22328 31241 0 0) "init-which-key.el" "init-themes.el" "init-smex.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/" (22328 31444 0 0) "work/" "VMs/" "Vagrant/" "src/" "Public/" "Pictures/" "OneDrive/" "Music/" "Movies/" "Library/" "GitBook/" "eshore/" "Downloads/" "Documents/" "Desktop/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zcompdump-itsyc-5.0.8" ".z" ".wget-hsts" ".vimrc" ".viminfo" ".vim/" ".vagrant.d/" ".Trash/" ".tmux.conf" ".subversion/" ".ssh/" ".ShadowsocksX/" ".session.vim" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npm/" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".m2/" ".local/" ".jspm/" ".jprofiler9/" ".IntelliJIdea15/" ".hgignore_global" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".emacs.keyfreq" ".emacs.d/" ".DS_Store" ".dotfiles/" ".docker/" ".dbus-keyrings/" ".config/" ".cache/" ".bash_sessions/" ".bash_history" ".ansible/" ".android/" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs/" (22328 30918 0 0) "url/" "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/" (22328 28651 0 0) "zhi-shi-dian.org" "vim-for-note-taking.org" "use-consistent-hashing-in-mysql-sharding.org" "todolist.org" "templates/" "tech/" "styles/" "setup.org" "life/" "inbox/" "home.org" "footer.org" "eshore/" "draft.org" "best-practices-for-code-review.org" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/eshore/udal/" (22328 21689 0 0) "udal.org" "udal-zi-dong-hua-ce-shi-kuang-jia.org" "udal-to-do-list.org" "udal-kai-fa-huang-jing.org" "udal-guang-dong-dian-zi-qu-dao-shi-dian.org" "udal-fu-jian-crm-shi-dian.org" "udal-fen-bu-shi-shi-wu-fang-an.org" "modules-for-code-review.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/templates/" (22304 37585 0 0) "css/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Downloads/" (22327 57955 0 0) "补偿方式分布式事务的基本原理和测试方法.docx" "编辑5" "组件保障 – 专项汇报 – 重点问题.pptx" "福建现场问题.doc" "新旧gateway性能测试报告_20160317.docx" "分支讲解.mov" "分布式事务系统现状、业务功能需求与建设方案.docx" "关于数据库binlog抽取同步方案的讨论.doc" "zhongxy/" "vim-markdown2/" "udal's grammar.xhtml" "UDAL's Grammar .txt" "Tuxera NTFS 2016 Final + Serial - softasm.com.rar" "trusty-server-cloudimg-amd64-vagrant-disk1.box" "SW_DVD5_Office_Mac_Standard_2016_MultiLang_-3_.iso_MLF_X20-52737.ISO" "perftest的http调用.txt" "Paragon NTFS v14.0.543 MacOSX Cracked - softasm.com/" "OmegaOptions.bak" "notebood apps/" "nginx.cnf" "navicatpremium1118.dmg" "Marked 2.4.8.dmg" "mariadb_repl.log" "Manico_2.0.1.dmg" "licecap125.dmg" "JProfiler/" "javacc.jar" "IT云服务能力平台研发团队工作汇报V0.4(研发进展）_liuxh修改.pptx" "iTerm2-Color-Schemes/" "iStat.Menus.5.11.dmg" "ifrenzyc.manico-license" "GitHub Desktop 217.zip" "gateway.xml" "fonts/" "error_sql.txt" "emacs/" "Dropbox/" "docker_practice.pdf" "docker_practice.mobi" "diagram.xhtml" "deploy_udal-book.sh" "ctg-udal-admin-install.war" "console.log" "CleanMyMac 3.3.0 Final Pre-Cracked.dmg" "checkstyle-checkstyle-6.18.zip" "binlog-connector_repl.log" "bashrc" "bash_profile" "bash_aliases" "analytics-java-benchmark/" "2016-05-03/" "1.2.0版本DBProxy性能测试报告.docx" ".vagrant/" ".tmp/" ".localized" ".DS_Store" "../" "./")
+
+ ("~/.emacs.d/lisp/" (22328 18644 0 0) "init-which-key.el" "init-themes.el" "init-smex.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
+
+ ("~/.emacs.d/" (22328 18322 0 0) "url/" "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs/elpa/base16-theme-20151019.711/" (22328 18537 0 0) "base16-yesterdaynight-light-theme.elc" "base16-yesterdaynight-light-theme.el" "base16-yesterdaynight-dark-theme.elc" "base16-yesterdaynight-dark-theme.el" "base16-yesterdaybright-light-theme.elc" "base16-yesterdaybright-light-theme.el" "base16-yesterdaybright-dark-theme.elc" "base16-yesterdaybright-dark-theme.el" "base16-yesterday-light-theme.elc" "base16-yesterday-light-theme.el" "base16-yesterday-dark-theme.elc" "base16-yesterday-dark-theme.el" "base16-twilight-light-theme.elc" "base16-twilight-light-theme.el" "base16-twilight-dark-theme.elc" "base16-twilight-dark-theme.el" "base16-tomorrow-light-theme.elc" "base16-tomorrow-light-theme.el" "base16-tomorrow-dark-theme.elc" "base16-tomorrow-dark-theme.el" "base16-theme-pkg.el" "base16-theme-autoloads.elc" "base16-theme-autoloads.el" "base16-summerfruit-light-theme.elc" "base16-summerfruit-light-theme.el" "base16-summerfruit-dark-theme.elc" "base16-summerfruit-dark-theme.el" "base16-solarized-light-theme.elc" "base16-solarized-light-theme.el" "base16-solarized-dark-theme.elc" "base16-solarized-dark-theme.el" "base16-shapeshifter-light-theme.elc" "base16-shapeshifter-light-theme.el" "base16-shapeshifter-dark-theme.elc" "base16-shapeshifter-dark-theme.el" "base16-setiui-light-theme.elc" "base16-setiui-light-theme.el" "base16-setiui-dark-theme.elc" "base16-setiui-dark-theme.el" "base16-railscasts-light-theme.elc" "base16-railscasts-light-theme.el" "base16-railscasts-dark-theme.elc" "base16-railscasts-dark-theme.el" "base16-pop-light-theme.elc" "base16-pop-light-theme.el" "base16-pop-dark-theme.elc" "base16-pop-dark-theme.el" "base16-phd-light-theme.elc" "base16-phd-light-theme.el" "base16-phd-dark-theme.elc" "base16-phd-dark-theme.el" "base16-paraiso-light-theme.elc" "base16-paraiso-light-theme.el" "base16-paraiso-dark-theme.elc" "base16-paraiso-dark-theme.el" "base16-oceanicnext-light-theme.elc" "base16-oceanicnext-light-theme.el" "base16-oceanicnext-dark-theme.elc" "base16-oceanicnext-dark-theme.el" "base16-ocean-light-theme.elc" "base16-ocean-light-theme.el" "base16-ocean-dark-theme.elc" "base16-ocean-dark-theme.el" "base16-monokai-light-theme.elc" "base16-monokai-light-theme.el" "base16-monokai-dark-theme.elc" "base16-monokai-dark-theme.el" "base16-mocha-light-theme.elc" "base16-mocha-light-theme.el" "base16-mocha-dark-theme.elc" "base16-mocha-dark-theme.el" "base16-marrakesh-light-theme.elc" "base16-marrakesh-light-theme.el" "base16-marrakesh-dark-theme.elc" "base16-marrakesh-dark-theme.el" "base16-macintosh-light-theme.elc" "base16-macintosh-light-theme.el" "base16-macintosh-dark-theme.elc" "base16-macintosh-dark-theme.el" "base16-londontube-light-theme.elc" "base16-londontube-light-theme.el" "base16-londontube-dark-theme.elc" "base16-londontube-dark-theme.el" "base16-isotope-light-theme.elc" "base16-isotope-light-theme.el" "base16-isotope-dark-theme.elc" "base16-isotope-dark-theme.el" "base16-irblack-light-theme.elc" "base16-irblack-light-theme.el" "base16-irblack-dark-theme.elc" "base16-irblack-dark-theme.el" "base16-hopscotch-light-theme.elc" "base16-hopscotch-light-theme.el" "base16-hopscotch-dark-theme.elc" "base16-hopscotch-dark-theme.el" "base16-harmonic16-light-theme.elc" "base16-harmonic16-light-theme.el" "base16-harmonic16-dark-theme.elc" "base16-harmonic16-dark-theme.el" "base16-greenscreen-light-theme.elc" "base16-greenscreen-light-theme.el" "base16-greenscreen-dark-theme.elc" "base16-greenscreen-dark-theme.el" "base16-grayscale-light-theme.elc" "base16-grayscale-light-theme.el" "base16-grayscale-dark-theme.elc" "base16-grayscale-dark-theme.el" "base16-google-light-theme.elc" "base16-google-light-theme.el" "base16-google-dark-theme.elc" "base16-google-dark-theme.el" "base16-flat-light-theme.elc" "base16-flat-light-theme.el" "base16-flat-dark-theme.elc" "base16-flat-dark-theme.el" "base16-embers-light-theme.elc" "base16-embers-light-theme.el" "base16-embers-dark-theme.elc" "base16-embers-dark-theme.el" "base16-eighties-light-theme.elc" "base16-eighties-light-theme.el" "base16-eighties-dark-theme.elc" "base16-eighties-dark-theme.el" "base16-default-light-theme.elc" "base16-default-light-theme.el" "base16-default-dark-theme.elc" "base16-default-dark-theme.el" "base16-darktooth-light-theme.elc" "base16-darktooth-light-theme.el" "base16-darktooth-dark-theme.elc" "base16-darktooth-dark-theme.el" "base16-colors-light-theme.elc" "base16-colors-light-theme.el" "base16-colors-dark-theme.elc" "base16-colors-dark-theme.el" "base16-codeschool-light-theme.elc" "base16-codeschool-light-theme.el" "base16-codeschool-dark-theme.elc" "base16-codeschool-dark-theme.el" "base16-chalk-light-theme.elc" "base16-chalk-light-theme.el" "base16-chalk-dark-theme.elc" "base16-chalk-dark-theme.el" "base16-bright-light-theme.elc" "base16-bright-light-theme.el" "base16-bright-dark-theme.elc" "base16-bright-dark-theme.el" "base16-brewer-light-theme.elc" "base16-brewer-light-theme.el" "base16-brewer-dark-theme.elc" "base16-brewer-dark-theme.el" "base16-bespin-light-theme.elc" "base16-bespin-light-theme.el" "base16-bespin-dark-theme.elc" "base16-bespin-dark-theme.el" "base16-ateliersulphurpool-light-theme.elc" "base16-ateliersulphurpool-light-theme.el" "base16-ateliersulphurpool-dark-theme.elc" "base16-ateliersulphurpool-dark-theme.el" "base16-atelierseaside-light-theme.elc" "base16-atelierseaside-light-theme.el" "base16-atelierseaside-dark-theme.elc" "base16-atelierseaside-dark-theme.el" "base16-ateliersavanna-light-theme.elc" "base16-ateliersavanna-light-theme.el" "base16-ateliersavanna-dark-theme.elc" "base16-ateliersavanna-dark-theme.el" "base16-atelierplateau-light-theme.elc" "base16-atelierplateau-light-theme.el" "base16-atelierplateau-dark-theme.elc" "base16-atelierplateau-dark-theme.el" "base16-atelierlakeside-light-theme.elc" "base16-atelierlakeside-light-theme.el" "base16-atelierlakeside-dark-theme.elc" "base16-atelierlakeside-dark-theme.el" "base16-atelierheath-light-theme.elc" "base16-atelierheath-light-theme.el" "base16-atelierheath-dark-theme.elc" "base16-atelierheath-dark-theme.el" "base16-atelierforest-light-theme.elc" "base16-atelierforest-light-theme.el" "base16-atelierforest-dark-theme.elc" "base16-atelierforest-dark-theme.el" "base16-atelierestuary-light-theme.elc" "base16-atelierestuary-light-theme.el" "base16-atelierestuary-dark-theme.elc" "base16-atelierestuary-dark-theme.el" "base16-atelierdune-light-theme.elc" "base16-atelierdune-light-theme.el" "base16-atelierdune-dark-theme.elc" "base16-atelierdune-dark-theme.el" "base16-ateliercave-light-theme.elc" "base16-ateliercave-light-theme.el" "base16-ateliercave-dark-theme.elc" "base16-ateliercave-dark-theme.el" "base16-ashes-light-theme.elc" "base16-ashes-light-theme.el" "base16-ashes-dark-theme.elc" "base16-ashes-dark-theme.el" "base16-apathy-light-theme.elc" "base16-apathy-light-theme.el" "base16-apathy-dark-theme.elc" "base16-apathy-dark-theme.el" "base16-3024-light-theme.elc" "base16-3024-light-theme.el" "base16-3024-dark-theme.elc" "base16-3024-dark-theme.el" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs/elpa/" (22328 18531 0 0) "zenburn-theme-20160501.2249/" "yasnippet-20160509.332/" "yascroll-20150315.2105/" "with-editor-20160408.1701/" "which-key-20160507.2007/" "use-package-20160404.229/" "undo-tree-20140509.2022/" "sublimity-20151230.2327/" "smex-20151213.609/" "smart-mode-line-powerline-theme-20160112.132/" "smart-mode-line-20160506.2247/" "selected-20160428.1537/" "s-20160509.1457/" "rich-minority-20151201.2000/" "rainbow-delimiters-20160501.1458/" "projectile-20160508.954/" "powerline-evil-20151112.2310/" "powerline-20160505.1455/" "popup-20160410.1233/" "pkg-info-20150517.1943/" "phoenix-dark-mono-theme-20130307.415/" "pangu-spacing-20150927.1524/" "org-bullets-20140919.237/" "nyan-mode-20160430.423/" "neotree-20160306.2330/" "molokai-theme-readme.txt" "molokai-theme-20151016.2345/" "markdown-toc-20160227.1908/" "markdown-mode-20160510.344/" "markdown-mode+-20120829.2010/" "magit-popup-20160425.1930/" "magit-20160512.613/" "linum-relative-20160510.1618/" "indent-guide-20151119.2317/" "ido-vertical-mode-20160430.137/" "ido-ubiquitous-20160320.1438/" "ido-completing-read+-20160320.1438/" "htmlize-20130208.402/" "highlight-indentation-readme.txt" "highlight-indentation-20150307.1808/" "highlight-indent-guides-readme.txt" "helm-swoop-20160418.557/" "helm-core-20160511.2122/" "helm-20160429.302/" "hc-zenburn-theme-readme.txt" "hc-zenburn-theme-20150929.33/" "goto-chg-20131228.2259/" "go-snippets-20151122.1457/" "go-rename-20160307.2344/" "go-projectile-20160419.717/" "go-mode-20160503.1507/" "go-impl-20160321.616/" "go-guru-20160417.1115/" "go-gopath-20160311.1648/" "go-errcheck-20150829.235/" "go-eldoc-20160307.2216/" "go-direx-20150316.943/" "go-complete-20151015.1728/" "git-commit-20160425.1930/" "flx-ido-20151031.212/" "flx-20151031.212/" "expand-region-20150902.2058/" "evil-surround-20160502.804/" "evil-nerd-commenter-20160209.1649/" "evil-leader-20140606.2043/" "evil-20160416.119/" "epl-20150517.1933/" "eink-theme-20160321.1758/" "ebib-handy-readme.txt" "direx-20151024.706/" "diminish-20151216.115/" "dash-20160511.227/" "company-20160430.439/" "bind-map-20160511.148/" "bind-key-20160227.1648/" "base16-theme-20151019.711/" "async-20160505.1309/" "archives/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.emacs.d/elpa/org-bullets-20140919.237/" (22324 16293 0 0) "org-bullets.elc" "org-bullets.el" "org-bullets-pkg.elc" "org-bullets-pkg.el" "org-bullets-autoloads.el" "../" "./")
+
+ ("/Users/yangc/.emacs.d/elpa/" (22325 9709 0 0) "zenburn-theme-20160501.2249/" "yasnippet-20160509.332/" "yascroll-20150315.2105/" "with-editor-20160408.1701/" "which-key-20160507.2007/" "use-package-20160404.229/" "undo-tree-20140509.2022/" "sublimity-20151230.2327/" "smex-20151213.609/" "smart-mode-line-powerline-theme-20160112.132/" "smart-mode-line-20160506.2247/" "selected-20160428.1537/" "s-20160509.1457/" "rich-minority-20151201.2000/" "rainbow-delimiters-20160501.1458/" "projectile-20160508.954/" "powerline-evil-20151112.2310/" "powerline-20160505.1455/" "popup-20160410.1233/" "pkg-info-20150517.1943/" "phoenix-dark-mono-theme-20130307.415/" "pangu-spacing-20150927.1524/" "org-bullets-20140919.237/" "nyan-mode-20160430.423/" "neotree-20160306.2330/" "molokai-theme-readme.txt" "molokai-theme-20151016.2345/" "markdown-toc-20160227.1908/" "markdown-mode-20160510.344/" "markdown-mode+-20120829.2010/" "magit-popup-20160425.1930/" "magit-20160512.613/" "linum-relative-20160510.1618/" "indent-guide-20151119.2317/" "ido-vertical-mode-20160430.137/" "ido-ubiquitous-20160320.1438/" "ido-completing-read+-20160320.1438/" "htmlize-20130208.402/" "highlight-indentation-readme.txt" "highlight-indentation-20150307.1808/" "highlight-indent-guides-readme.txt" "helm-swoop-20160418.557/" "helm-core-20160511.2122/" "helm-20160429.302/" "hc-zenburn-theme-readme.txt" "hc-zenburn-theme-20150929.33/" "goto-chg-20131228.2259/" "go-snippets-20151122.1457/" "go-rename-20160307.2344/" "go-projectile-20160419.717/" "go-mode-20160503.1507/" "go-impl-20160321.616/" "go-guru-20160417.1115/" "go-gopath-20160311.1648/" "go-errcheck-20150829.235/" "go-eldoc-20160307.2216/" "go-direx-20150316.943/" "go-complete-20151015.1728/" "git-commit-20160425.1930/" "flx-ido-20151031.212/" "flx-20151031.212/" "expand-region-20150902.2058/" "evil-surround-20160502.804/" "evil-nerd-commenter-20160209.1649/" "evil-leader-20140606.2043/" "evil-20160416.119/" "epl-20150517.1933/" "eink-theme-20160321.1758/" "ebib-handy-readme.txt" "direx-20151024.706/" "diminish-20151216.115/" "dash-20160511.227/" "company-20160430.439/" "bind-map-20160511.148/" "bind-key-20160227.1648/" "async-20160505.1309/" "archives/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/docker/" (22322 40818 0 0) "udalAdminWeb/" "udal_docker_images/" "my-cros-test/" "docker-phabricator/" "dbproxy/" "ctg-udal-admin-install/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/tech/" (22298 22352 0 0) "virtualbox/" "vim/" "tools/" "mysql/" "mac/" "linux/" "java/" "git/" "fuck-gfw.org" "emacs/" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/tech/git/" (22323 53887 0 0) "git.org" "git-ru-men-zhong-jie.org" "git-hooks.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/" (22304 37591 0 0) "src/" "pkg/" "bin/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/mysql/binlog/" (22323 61082 0 0) "network/" "jmx/" "io/" "GtidSet.java" "event/" "BinaryLogFileReader.java" "BinaryLogClient.java" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/mysql/" (22221 43331 0 0) "binlog/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/" (22221 43331 0 0) "mysql/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/" (22221 43331 0 0) "shyiko/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/" (22221 43331 0 0) "github/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/" (22221 43331 0 0) "com/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/" (22221 43331 0 0) "java/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/" (22221 43334 0 0) "test/" "main/" "../" "./")
+
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/" (22324 7922 0 0) "target/" "supplement/" "src/" "readme.md" "pom.xml" "mysql-binlog-connector-java.iml" "changelog.md" ".travis.yml" ".travis.settings.xml" ".idea/" ".gitignore" ".git/" ".editorconfig" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/opensource/" (22322 40137 0 0) "zookeeper-benchmark/" "zookeeper/" "zkui/" "zktop/" "z/" "word-to-markdown/" "WizNote-Plugins/" "WizMdEditor/" "vitess/" "vim-themes/" "tpcc-mysql/" "tomcat/" "tddl/" "tb_tddl/" "styleguide/" "sql-parser/" "spring-test-dbunit/" "SOHU-DBProxy/" "snakerflow/" "slf4j-1.7.5.zip" "slf4j-1.7.5/" "shadowsocks/" "seq/" "python-mysql-replication/" "phantomjs/" "phabricator/" "pf4j/" "otter/" "opensesame/" "open-replicator/" "Oceanus/" "nmon/" "mysql-server/" "mysql-connector-j/" "mysql-binlog-connector-java/" "myfox-query-module/" "myfox-load-module/" "Mycat-Web-master/" "Mycat-Web/" "Mycat-Server/" "MariaDB-server/" "maria/" "log4jdbc-log4j2/" "log4jdbc/" "JSqlParser/" "JMPjct/" "jdbc-shards/" "heisenberg/" "hazelcast/" "fix-macosx.py" "exhibitor/" "dubbo/" "druid_bak/" "druid-ha/" "druid-extension/" "druid/" "dbroute/" "datax/" "cobertura/" "cobarclient/" "cobar/" "chnroutes/" "checkstyle/" "canal/" "c3p0-0.9.5-pre6.bin.zip" "Atlas/" "asm-4.0-bin.zip" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/eshore/" (22292 40463 0 0) "udal/" "khala/" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Downloads/emacs/emacs.d/emacs.d/lisp/" (22324 15026 0 0) "init-term.el" "init-smex.el" "init-projectile.el" "init-packages.el" "init-macosx.el" "init-keys.el" "init-helm.el" "init-flycheck.el" "init-avy.el" "init-ag.el" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/" (22288 15633 0 0) "02) khala/" "01) ctg-udal/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Downloads/emacs/emacs.d/emacs.d/" (22324 14849 0 0) "lisp/" ".gitignore" ".git/" ".DS_Store" ".cache/" "../" "./")
+
+ ("/Users/yangc/Downloads/emacs/emacs.d/" (22293 714 0 0) "zilongshanren/" "use_spacemacs.sh" "use_itsyc.sh" "use_aaronbieber.sh" "spacemacs/" "purcell/" "prelude/" "emagicians-starter-kit/" "emacs24-starter-kit/" "emacs.d/" "aaronbieber/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Downloads/emacs/" (22295 9666 0 0) "org-solarized/" "org-html-themes/" "indent-guide/" "emacs.d/" "Emacs-24.5-1-universal.dmg" "cse3521-website/" "config.el" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/_pub/" (22295 44188 0 0) "ubuntu.html" "todolist.html" "tech/" "styles/" "home.html" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/" (22324 13329 0 0) "Xshell/" "simple-service-webapp/" "simple-service/" "my-cros-test/" "java/" "itsycnotes/" "itsyc.io/" "itsyc-workthread/" "hardseed/" "demo-canal/" "crt/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/OneDrive/itsycnotes/tech/git/" (22323 53887 0 0) "git.org" "git-ru-men-zhong-jie.org" "git-hooks.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/OneDrive/itsycnotes/" (22323 15 0 0) "wo-de-bi-ji-xuan-ze.org" "use-consistent-hashing-in-mysql-sharding.org" "ubuntu.org" "todolist.org" "templates/" "tech/" "styles/" "spacemacs.org" "setup.org" "problems-and-solutions.org" "macosx-he-linux-de-xuan-ze-dui-bi.org" "life/" "inbox.org" "inbox/" "home.org" "footer.org" "faq.org" "eshore/" "draft.org" "best-practices-for-code-review.org" "_pub/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/OneDrive/itsycnotes/eshore/udal/" (22324 9562 0 0) "udal.org" "udal-zi-dong-hua-ce-shi-kuang-jia.org" "udal-kai-fa-huang-jing.org" "udal-guang-dong-dian-zi-qu-dao-shi-dian.org" "udal-fu-jian-crm-shi-dian.org" "udal-fen-bu-shi-shi-wu-fang-an.org" ".DS_Store" ".#udal.org" "#udal.org#" "../" "./")
+
+ ("/Users/yangc/GitBook/Library/Import/udal-dev-book/" (22322 63519 0 0) "what_is_paxos.md" "SUMMARY.md" "study/" "README.md" "paxos/" "images/" "guide/" "design/" "book.json" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/gogits/gogs/" (22322 56278 0 0) "templates/" "scripts/" "routers/" "release/" "README_ZH.md" "README.md" "public/" "packager/" "modules/" "models/" "Makefile" "log/" "LICENSE" "gogs.go" "gogs" "Dockerfile.rpi" "Dockerfile" "docker/" "data/" "custom/" "conf/" "cmd/" ".travis.yml" ".pkgr.yml" ".gopmfile" ".gitignore" ".github/" ".git/" ".editorconfig" ".dockerignore" ".bra.toml" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/gpinasmgr/gpinasParser/" (22221 27618 0 0) "GroupActiveTaskSVR.java" "GroupActiveTaskParser.java" "GpinasParserQue.java" "GpinasParserLoader.java" "GpinasParserHandler.java" "GpinasParserConsole.java" "GpinasParserConfig.java" "GpinasParserBase.java" "conf/" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/gpinasmgr/" (22221 27619 0 0) "pub/" "gpinasTfjRehandler/" "gpinasTfjParser/" "gpinasProcess/" "gpinasParser/" "gpinasOrdRet/" "gpinasIntf/" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/" (22221 27618 0 0) "gpinasmgr/" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/" (22221 27618 0 0) "sps/" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/" (22221 27617 0 0) "eshore/" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/" (22221 27619 0 0) "tuxedo.svcs" "sysconfig.props" "sql-map-config.xml" "log4j.xml" "errcodes.props" "datasource.xml" "conf/" "com/" "cache.ccf" "applicationContext.xml" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/" (22221 27619 0 0) "test/" "src/" "run/" "log/" "dist/" "config/" "build.xml" "bin/" ".svn/" ".settings/" ".project" ".classpath" "../" "./")
+
+ ("/Users/yangc/src/eshore/gpinasproc/" (22221 27639 0 0) "spsDao/" "libSpsPub/" "libIbssPub/" "gptfj/" "gpinasMgr/" "gpinasCommon/" "../" "./")
+
+ ("/Users/yangc/OneDrive/itsycnotes/tech/emacs/" (22314 49439 0 0) "emacs.org" "../" "./")
+
+ ("/Users/yangc/OneDrive/" (22319 532 0 0) "文档/" "报账/" "团体保险索赔申请表201502版.xls" "settings.xml" "itsycnotes/" "Icon
+" "google_java_practice/" "deploy_udal-book.sh" "Chat/" ".DS_Store" "../" "./")
 
  ("/Users/yangc/src/docker/dbproxy/" (22304 37573 0 0) "udalAdminWeb/" "init.sh" "Dockerfile" "docker-compose.yml" "data/" ".DS_Store" "../" "./")
 
- ("/Users/yangc/src/docker/" (22312 7871 0 0) "udalAdminWeb/" "udal_docker_images/" "my-cros-test/" "dbproxy/" "ctg-udal-admin-install/" ".DS_Store" "../" "./")
-
  ("/Users/yangc/src/" (22313 54179 0 0) "yangc/" "opensource/" "go/" "eshore/" "docker/" ".vimrc" ".DS_Store" "._mysql-bin.002152" "../" "./")
-
- ("/Users/yangc/" (22316 2653 0 0) "work/" "VMs/" "Vagrant/" "src/" "Public/" "Pictures/" "OneDrive/" "Music/" "Movies/" "Library/" "GitBook/" "eshore/" "Downloads/" "Documents/" "Desktop/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zcompdump-itsyc-5.2" ".zcompdump-itsyc-5.0.8" ".z" ".wget-hsts" ".vimrc" ".viminfo.tmp.h" ".viminfo.tmp.g" ".viminfo.tmp.f" ".viminfo.tmp.e" ".viminfo.tmp.d" ".viminfo.tmp.c" ".viminfo.tmp.b" ".viminfo.tmp.a" ".viminfo" ".vim/" ".vagrant.d/" ".Trash/" ".tmux.conf" ".subversion/" ".ssh/" ".ShadowsocksX/" ".session.vim" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".NERDTreeBookmarks" ".mysql_history" ".m2/" ".local/" ".jprofiler9/" ".IntelliJIdea15/" ".hgignore_global" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".emacs.keyfreq" ".emacs.d/" ".eclipse/" ".DS_Store" ".dotfiles/" ".docker/" ".dbus-keyrings/" ".config/" ".cache/" ".bash_sessions/" ".bash_history" ".ansible/" ".android/" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs/" (22314 49439 0 0) "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.emacs.d/lisp/" (22314 9925 0 0) "init-which-key.el" "init-themes.el" "init-sublimity.el" "init-smex.el" "init-rainbow-delimiters.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-linum-relative.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.emacs.d/" (22314 49439 0 0) "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/OneDrive/" (22315 27722 0 0) "文档/" "报账/" "团体保险索赔申请表201502版.xls" "settings.xml" "itsycnotes/" "Icon
-" "google_java_practice/" "deploy_udal-book.sh" "Chat/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/OneDrive/itsycnotes/" (22315 64088 0 0) "wo-de-bi-ji-xuan-ze.org" "use-consistent-hashing-in-mysql-sharding.org" "ubuntu.org" "todolist.org" "templates/" "tech/" "styles/" "spacemacs.org" "setup.org" "problems-and-solutions.org" "macosx-he-linux-de-xuan-ze-dui-bi.org" "life/" "inbox.org" "inbox/" "home.org" "footer.org" "faq.org" "eshore/" "draft.org" "_pub/" ".git/" ".DS_Store" ".#draft.org" "#draft.org#" "../" "./")
-
- ("/Users/yangc/Downloads/" (22313 54126 0 0) "补偿方式分布式事务的基本原理和测试方法.docx" "组件保障 – 专项汇报 – 重点问题.pptx" "新旧gateway性能测试报告_20160317.docx" "分支讲解.mov" "分布式事务系统现状、业务功能需求与建设方案.docx" "zhongxy/" "vim-markdown2/" "udal's grammar.xhtml" "UDAL's Grammar .txt" "Tuxera NTFS 2016 Final + Serial - softasm.com.rar" "trusty-server-cloudimg-amd64-vagrant-disk1.box" "SW_DVD5_Office_Mac_Standard_2016_MultiLang_-3_.iso_MLF_X20-52737.ISO" "perftest的http调用.txt" "Paragon NTFS v14.0.543 MacOSX Cracked - softasm.com/" "OmegaOptions.bak" "notebood apps/" "navicatpremium1118.dmg" "Marked 2.4.8.dmg" "mariadb_repl.log" "Manico_2.0.1.dmg" "licecap125.dmg" "JProfiler/" "javacc.jar" "IT云服务能力平台研发团队工作汇报V0.4(研发进展）_liuxh修改.pptx" "iTerm2-Color-Schemes/" "iStat.Menus.5.11.dmg" "ifrenzyc.manico-license" "GitHub Desktop 217.zip" "gateway.xml" "fonts/" "emacs/" "Dropbox/" "docker_practice.pdf" "docker_practice.mobi" "diagram.xhtml" "deploy_udal-book.sh" "ctg-udal-admin-install.war" "console.log" "CleanMyMac 3.3.0 Final Pre-Cracked.dmg" "binlog-connector_repl.log" "bashrc" "bash_profile" "bash_aliases" "analytics-java-benchmark/" "2016-05-03/" "1.2.0版本DBProxy性能测试报告.docx" ".vagrant/" ".tmp/" ".localized" ".DS_Store" "../" "./")
-
- ("~/.emacs.d/lisp/" (22313 53842 0 0) "init-which-key.el" "init-themes.el" "init-sublimity.el" "init-smex.el" "init-rainbow-delimiters.el" "init-powerline.el" "init-panguspacing.el" "init-org.el" "init-neotree.el" "init-markdown.el" "init-magit.el" "init-linum-relative.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-go.el" "init-font.el" "init-expand-region.el" "init-evil.el" "init-company.el" "init-backup.el" ".DS_Store" "../" "./")
-
- ("~/.emacs.d/" (22313 56261 0 0) "smex-items" "recentf" "README.md" "lisp/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".DS_Store" "../" "./")
 
  ("/Users/yangc/OneDrive/itsycnotes/eshore/khala/" (22311 64088 0 0) "wei-xin-fu-wu-hao-diu-shi-session-wen-ti.org" "khala.org" "../" "./")
 
@@ -111,10 +223,6 @@
  ("/Users/yangc/src/go/src/github.com/flike/kingshard/" (22304 37591 0 0) "sqltypes/" "sqlparser/" "README_ZH.md" "README.md" "proxy/" "mysql/" "Makefile" "genver.sh" "etc/" "doc/" "dev.sh" "core/" "config/" "cmd/" "backend/" ".travis.yml" ".gitignore" ".git/" ".DS_Store" "../" "./")
 
  ("/Users/yangc/OneDrive/itsycnotes/tech/virtualbox/" (22308 31617 0 0) "xubuntu-14.04.org" "vagrant.org" "vagrant-archlinux.org" "archlinux.org" "../" "./")
-
- ("/Users/yangc/GitBook/Library/Import/udal-dev-book/" (22304 34012 0 0) "what_is_paxos.md" "SUMMARY.md" "study/" "README.md" "paxos/" "images/" "guide/" "design/" "book.json" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/OneDrive/itsycnotes/eshore/udal/" (22304 57563 0 0) "udal.org" "udal-zi-dong-hua-ce-shi-kuang-jia.org" "udal-kai-fa-huang-jing.org" "udal-guang-dong-dian-zi-qu-dao-shi-dian.org" "udal-fu-jian-crm-shi-dian.org" "udal-fen-bu-shi-shi-wu-fang-an.org" ".DS_Store" "../" "./")
 
  ("/Users/yangc/OneDrive/itsycnotes/inbox/" (22304 57564 0 0) "2016-04-26.org" "2016-04-25.org" "2016-04-20.org" "2016-04-19.org" "2016-04-18.org" "2016-04-17.org" "2016-04-16.org" "../" "./")
 
@@ -130,10 +238,6 @@
 
  ("/Users/yangc/OneDrive/itsycnotes/tech/tools/" (22304 54505 0 0) "tmux.org" "intellij_idea.org" "../" "./")
 
- ("/Users/yangc/OneDrive/itsycnotes/tech/git/" (22303 31639 0 0) "git.org" "git-ru-men-zhong-jie.org" "git-hooks.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/gogits/gogs/" (22280 55648 0 0) "templates/" "scripts/" "routers/" "release/" "README_ZH.md" "README.md" "public/" "packager/" "modules/" "models/" "Makefile" "log/" "LICENSE" "gogs.go" "gogs" "glide.yaml" "glide.lock" "Dockerfile.rpi" "Dockerfile" "docker/" "data/" "custom/" "conf/" "cmd/" ".travis.yml" ".pkgr.yml" ".gopmfile" ".gitignore" ".github/" ".git/" ".editorconfig" ".dockerignore" ".bra.toml" "../" "./")
-
  ("/Users/yangc/src/go/src/github.com/gogits/" (22233 43067 0 0) "gogs/" "go-gogs-client/" "git-module/" "cron/" "chardet/" "../" "./")
 
  ("/Users/yangc/GitBook/Library/Import/" (22301 49656 0 0) "udal-dev-book/" "udal-book/" "../" "./")
@@ -141,8 +245,6 @@
  ("/Users/yangc/GitBook/Library/" (22259 46406 0 0) "index.json" "Import/" "../" "./")
 
  ("/Users/yangc/GitBook/" (22231 45522 0 0) "settings.json" "Library/" "../" "./")
-
- ("/Users/yangc/OneDrive/itsycnotes/tech/emacs/" (22300 28695 0 0) "emacs.org" "../" "./")
 
  ("/Users/yangc/src/go/src/github.com/flike/kingshard/mysql/" (22286 316 0 0) "util_test.go" "util.go" "state.go" "sql_fingerprint_test.go" "sql_fingerprint.go" "resultset_sort_test.go" "resultset_sort.go" "resultset.go" "packetio.go" "field.go" "error.go" "errname.go" "errcode.go" "const.go" "charset.go" "../" "./")
 
@@ -153,8 +255,6 @@
  ("/Users/yangc/src/go/src/github.com/" (22286 1580 0 0) "Unknwon/" "ugorji/" "twinj/" "syndtr/" "shurcooL/" "sergi/" "satori/" "russross/" "rogpeppe/" "pingcap/" "petar/" "nsf/" "ngaut/" "nfnt/" "msteinert/" "microcosm-cc/" "mcuadros/" "mattn/" "mailgun/" "lib/" "klauspost/" "kisielk/" "juju/" "jstemmer/" "issue9/" "ifrenzyc/" "google/" "golang/" "gogits/" "go-xorm/" "go-sql-driver/" "go-macaron/" "flike/" "coreos/" "codegangsta/" "bradfitz/" "boltdb/" "alecthomas/" ".DS_Store" "../" "./")
 
  ("/Users/yangc/src/go/src/" (22286 1565 0 0) "gopkg.in/" "golang.org/" "github.com/" "9fans.net/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/" (22233 40317 0 0) "src/" "pkg/" "bin/" "../" "./")
 
  ("/Users/yangc/Docker/dbproxy/" (22287 21972 0 0) "udalAdminWeb/" "init.sh" "Dockerfile" "docker-compose.yml" "data/" "../" "./")
 
@@ -171,8 +271,6 @@
  ("/Users/yangc/OneDrive/itsycnotes/tech/java/" (22295 18951 0 0) "jmeter.org" "java.org" "../" "./")
 
  ("/Users/yangc/Downloads/analytics-java-benchmark/" (22230 36862 0 0) "src/" "README.md" "pom.xml" "lib/" ".project" ".gitignore" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.emacs.d/elpa/" (22295 16715 0 0) "zenburn-theme-20160416.1011/" "yasnippet-20160416.831/" "yascroll-20150315.605/" "which-key-20160417.1358/" "use-package-20160403.1129/" "undo-tree-20140509.522/" "sublimity-20151230.727/" "smex-20151212.1409/" "smart-mode-line-powerline-theme-20160111.932/" "smart-mode-line-20160306.1103/" "s-20160405.920/" "rich-minority-20151201.400/" "rainbow-delimiters-20150320.17/" "projectile-20160404.2251/" "powerline-evil-20151112.710/" "powerline-20160224.2052/" "popup-20160409.2133/" "pkg-info-20150517.443/" "org-bullets-20140918.1137/" "nyan-mode-20151017.2235/" "neotree-20160306.730/" "markdown-toc-20160227.308/" "markdown-mode-20160409.650/" "markdown-mode+-20120829.510/" "linum-relative-20160117.2200/" "indent-guide-20151119.717/" "ido-vertical-mode-20151003.1833/" "ido-ubiquitous-20160319.2338/" "ido-completing-read+-20160319.2338/" "highlight-indentation-readme.txt" "highlight-indentation-20150307.208/" "highlight-indent-guides-readme.txt" "helm-swoop-20160417.1457/" "helm-core-20160419.641/" "helm-20160419.938/" "hc-zenburn-theme-readme.txt" "hc-zenburn-theme-20150928.933/" "goto-chg-20131228.659/" "go-snippets-20151121.2257/" "go-rename-20160307.744/" "go-projectile-20160418.1617/" "go-mode-20160404.2/" "go-impl-20160320.1516/" "go-guru-20160417.1115/" "go-gopath-20160311.48/" "go-errcheck-20150828.1135/" "go-eldoc-20160307.616/" "go-direx-20150315.1843/" "go-complete-20151015.228/" "flx-ido-20151030.1112/" "flx-20151030.1112/" "expand-region-20150902.558/" "evil-20160416.119/" "epl-20150517.433/" "direx-20151023.1606/" "diminish-20151215.915/" "dash-20160306.1222/" "company-20160413.1347/" "bind-key-20160227.48/" "async-20160223.146/" "archives/" ".DS_Store" "../" "./")
 
  ("/Users/yangc/.emacs.d/elpa/go-snippets-20151121.2257/" (22295 16716 0 0) "snippets/" "go-snippets.elc" "go-snippets.el" "go-snippets-pkg.el" "go-snippets-autoloads.el~" "go-snippets-autoloads.el" "../" "./")
 
@@ -209,8 +307,6 @@
  ("/Users/yangc/OneDrive/itsycnotes/tech/vim/" (22293 60826 0 0) "windows-shi-yong-vim-zai-biao-qian-ye-zhong-da-kai-wen-jian.org" "vim.org" "vim-shi-yong-zhong-jie.org" "neovim.org" ".DS_Store" "../" "./")
 
  ("/Users/yangc/.emacs.d/elpa/smex-20151212.1409/" (22293 54808 0 0) "smex.elc" "smex.el" "smex-pkg.elc" "smex-pkg.el" "smex-autoloads.el" "../" "./")
-
- ("/Users/yangc/emacs.d/" (22293 714 0 0) "zilongshanren/" "use_spacemacs.sh" "use_itsyc.sh" "use_aaronbieber.sh" "spacemacs/" "purcell/" "prelude/" "emagicians-starter-kit/" "emacs24-starter-kit/" "emacs.d/" "aaronbieber/" ".DS_Store" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

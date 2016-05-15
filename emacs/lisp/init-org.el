@@ -1,75 +1,81 @@
 (use-package org
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-  (setq org-src-fontify-natively t)
-  (setq org-bullets-bullet-list
-	'("ͽ" "❂" "☀" "⌾" "◌" "◉"))
-  ;; "◎" "○" "►" "◇" "⊛" "✪" "☯" "⊙" "✪" "➲" "⚫" "●" "⬤" "⚉" "￮" "⦾" "⦿" "⦾" "⸖" "ͼ" "￮"
-  (setq org-todo-keywords
-	'((sequence "☛ TODO" "► IN-PROGRESS" "⚑ WAITING" "|" "✗ CANCELED" "✓ DONE")))
-  ;;  (setq org-blank-before-new-entry '((heading . t)
-  ;;                                     (plain-list-item . t)))
-  (setq org-capture-templates
-	'(("a" "My TODO task format." entry
-	   (file "todo.org")
-	   "* ☛ TODO %? DEADLINE: %t")))
-;;; @see http://www.howardism.org/Technical/Emacs/orgmode-wordprocessor.html
-  (font-lock-add-keywords 'org-mode
-			  '(("^ +\\([-*]\\) "
-			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "⚫"))))))
+	:ensure t
+	:init
+	(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+	(setq org-src-fontify-natively t)
+;;	(setq org-hide-emphasis-markers t)
+	(setq org-capture-templates
+				'(("a" "My TODO task format." entry
+					 (file "todo.org")
+					 "* ☛ TODO %? DEADLINE: %t")))
+	;; @see http://www.howardism.org/Technical/Emacs/orgmode-wordprocessor.html
+	(font-lock-add-keywords 'org-mode
+													'(("^ +\\([-*]\\) "
+														 (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "☀"))))))
 
-  (let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
-			       ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-			       ((x-list-fonts "Verdana")         '(:font "Verdana"))
-			       ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-			       (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
-	 (base-font-color     (face-foreground 'default nil 'default))
-	 ;; (headline           `(:inherit default :foreground ,base-font-color))
-	 (headline           `(:inherit default))
-	 ;; (headline-1         `(:inherit default :weight bold :foreground ,base-font-color)))
-	 (headline-1         `(:inherit default :weight bold)))
+	(let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+															 ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+															 ((x-list-fonts "Verdana")         '(:font "Verdana"))
+															 ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+															 (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+				 (base-font-color     (face-foreground 'default nil 'default))
+				 ;; (headline           `(:inherit default :foreground ,base-font-color))
+				 (headline           `(:inherit default))
+				 ;; (headline-1         `(:inherit default :weight bold :foreground ,base-font-color)))
+				 (headline-1         `(:inherit default :weight bold)))
 
-    ;; (custom-theme-set-faces 'user
-    ;; `(org-level-8 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-7 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-6 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-5 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-    ;; `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-    ;; `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-    ;; `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-    ;; `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+		(set-face-attribute 'default nil :font "Source Code Pro 14")
+		;; Chinese Font
+		(dolist (charset '(kana han symbol cjk-misc bopomofo))
+			(set-fontset-font (frame-parameter nil 'font)
+												charset (font-spec :family "Hiragino Sans GB" :size 16)))
 
-;; (set-face-attribute 'org-level-1 nil :height 1.6 :bold t)
-;; (set-face-attribute 'org-level-2 nil :height 1.4 :bold t)
-;; (set-face-attribute 'org-level-3 nil :height 1.2 :bold t)))
-    (custom-theme-set-faces 'user
-			    `(org-level-8 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-7 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-6 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-5 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-4 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-3 ((t (,@headline ,@variable-tuple))))
-			    `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
-			    `(org-level-1 ((t (,@headline-1 ,@variable-tuple :height 1.5))))
-			    `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
-  (setq org-indent-mode t)
-  :config
-  (add-hook 'org-mode-hook 'org-indent-mode)
-  (defcustom org-indent-indentation-per-level 2
-    "Indentation per level in number of characters."
-    :group 'org-indent
-    :type 'integer)
-  )
+		;; (custom-theme-set-faces 'user
+		;; `(org-level-8 ((t (,@headline ,@variable-tuple))))
+		;; `(org-level-7 ((t (,@headline ,@variable-tuple))))
+		;; `(org-level-6 ((t (,@headline ,@variable-tuple))))
+		;; `(org-level-5 ((t (,@headline ,@variable-tuple))))
+		;; `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+		;; `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+		;; `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+		;; `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+		;; `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+
+		;; (set-face-attribute 'org-level-1 nil :height 1.6 :bold t)
+		;; (set-face-attribute 'org-level-2 nil :height 1.4 :bold t)
+		;; (set-face-attribute 'org-level-3 nil :height 1.2 :bold t)))
+		(custom-theme-set-faces 'user
+														`(org-level-8 ((t (,@headline ,@variable-tuple))))
+														`(org-level-7 ((t (,@headline ,@variable-tuple))))
+														`(org-level-6 ((t (,@headline ,@variable-tuple))))
+														`(org-level-5 ((t (,@headline ,@variable-tuple))))
+														`(org-level-4 ((t (,@headline ,@variable-tuple))))
+														`(org-level-3 ((t (,@headline ,@variable-tuple))))
+														`(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
+														`(org-level-1 ((t (,@headline-1 ,@variable-tuple :height 1.5))))
+														`(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+	(setq org-indent-mode t)
+	:config
+	(add-hook 'org-mode-hook 'org-indent-mode)
+	(defcustom org-indent-indentation-per-level 4
+		"Indentation per level in number of characters."
+		:group 'org-indent
+		:type 'integer)
+	(setq org-todo-keywords
+				'((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+	)
 
 
 (use-package org-bullets
-  :ensure t
-  :init
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  )
+	:ensure t
+	:init
+	:config
+	(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+	;; "◎" "○" "►" "◇" "⊛" "✪" "☯" "⊙" "✪" "➲" "●" "⬤" "⚉"  "⸖" "ͼ" "ͽ" "⚬" "◌""￮""""⚫"
+	;; "☉" "⦾" "◦" "∙" "∘" "⚪" "◯" "⦿" "⌾" "◉"
+	(setq org-bullets-bullet-list
+				'("❂" "⊚" "❍"))
+	)
 
 ;; ;; @see http://coldnew.github.io/blog/2013/11-16_d2f3a/
 ;;(defvar emacs-english-font "Monaco"
@@ -130,11 +136,6 @@
 ;;;中文与英文字体设置
 ;; Setting English Font
 ;; "Source Code Pro" "Hiragino Sans GB" 14 16
-(set-face-attribute 'default nil :font "Source Code Pro 14")
-;; Chinese Font
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-(set-fontset-font (frame-parameter nil 'font)
-charset (font-spec :family "Hiragino Sans GB" :size 16)))
 
 (use-package htmlize :ensure t)
 
@@ -143,7 +144,7 @@ charset (font-spec :family "Hiragino Sans GB" :size 16)))
       '(
 	("org-blog-content" ;; 博客内容
 	 ;; Path to your org files.
-	 :base-directory "~/OneDrive/itsycnotes/"
+	 :base-directory "~/src/yangc/itsycnotes/"
 	 :base-extension "org"
 	 ;; Path to your jekyll project.
 	 :publishing-directory "~/Applications/nginx/notes/"
@@ -152,33 +153,37 @@ charset (font-spec :family "Hiragino Sans GB" :size 16)))
 	 :headline-levels 4
 	 :html-extension "html"
 	 :table-of-contents t ;; 导出目录
-	 ;; :body-only t ;; Only export section between <body></body>
-	 )
-	("org-blog-static" ;; 静态文件
-	 :base-directory "~/OneDrive/itsycnotes/"
-	 :base-extension "css\\|ico\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php\\|svg"
-	 :publishing-directory "~/Applications/nginx/notes/"
-	 :recursive t
-	 :publishing-function org-publish-attachment)
-	("blog" :components ("org-blog-content" "org-blog-static"))
-	))
+	 :link-home "home.html"
+	:html-preamble (concat "INSERT HTML CODE HERE FOR PREAMBLE")
+	 :html-postamble (concat "INSERT HTML CODE HERE FOR POSTAMBLE")
+	;; :body-only t ;; Only export section between <body></body>
+	)
+      ("org-blog-static" ;; 静态文件
+       :base-directory "~/src/yangc/itsycnotes/"
+       :base-extension "css\\|ico\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php\\|svg"
+       :publishing-directory "~/Applications/nginx/notes/"
+       :recursive t
+       :publishing-function org-publish-attachment)
+      ("blog" :components ("org-blog-content" "org-blog-static"))
+      ))
 
 (defun org-insert-src-block (src-code-type)
-  "Insert a `SRC-CODE-TYPE' type source code block in org-mode."
-  (interactive
-   (let ((src-code-types
-	  '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
-	    "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
-	    "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
-	    "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
-	    "scheme" "sqlite")))
-     (list (ido-completing-read "Source code type: " src-code-types))))
-  (progn
-    (newline-and-indent)
-    (insert (format "#+BEGIN_SRC %s\n" src-code-type))
-    (newline-and-indent)
-    (insert "#+END_SRC\n")
-    (previous-line 2)
-    (org-edit-src-code)))
+	"Insert a `SRC-CODE-TYPE' type source code block in org-mode."
+	(interactive
+	 (let ((src-code-types
+					'("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
+						"calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
+						"octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
+						"haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
+						"scheme" "sqlite")))
+		 (list (ido-completing-read "Source code type: " src-code-types))))
+	(progn
+		(newline-and-indent)
+		(insert (format "#+BEGIN_SRC %s\n" src-code-type))
+		(newline-and-indent)
+		(insert "#+END_SRC\n")
+		(previous-line 2)
+		(org-edit-src-code)))
 
+;; (use-package ox-gfm :ensure t)
 (provide 'init-org)

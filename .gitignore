@@ -1,6 +1,6 @@
 .DS_Store
 
-./emacs/elpa
+./emacs/elpa/*
 ./emacs/auto-save-list
 ./emacs/ido.last
 ./emacs/recentf

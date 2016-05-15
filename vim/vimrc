@@ -175,6 +175,7 @@ if OS#gui
 	else
 		" colo desert
 		colo base16-ocean
+		" colo zenburn
 	endif
 
 	" Maximized GVIM in Windows
@@ -190,10 +191,11 @@ if OS#gui
 	cmap <M-Space> <Esc>:simalt ~<cr>
 else
 	set background=dark
-	" let g:rehash256 = 1
-	colo base16-ocean
+	let g:rehash256 = 1
+	" colo base16-ocean
+	" colo mustang
 	" colo molokai
-	" colo zenburn
+	colo zenburn
 	" colo base16-ocean
 	" colo base16-monokai
 	" colo molokai
@@ -475,10 +477,14 @@ let g:SuperTabRetainCompletionType=3
 "  ------------------
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java', 'go']
-let g:vim_markdown_toc_autofit=1
-let g:vim_markdown_emphasis_multiline=0
-set conceallevel=2
-let g:vim_markdown_conceal=0
+" let g:vim_markdown_folding_disabled = 0
+" let g:vim_markdown_folding_style_pythonic = 1
+" let g:vim_markdown_folding_level = 6
+" let g:vim_markdown_toc_autofit=1
+" let g:vim_markdown_emphasis_multiline=0
+" set conceallevel=2
+" let g:vim_markdown_conceal=1
+" let g:vim_markdown_new_list_item_indent = 2
 
 
 "  ---------------------------

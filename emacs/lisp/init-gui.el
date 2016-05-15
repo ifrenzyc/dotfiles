@@ -28,13 +28,6 @@
 (global-visual-line-mode t)
 (setq word-wrap t)
 (setq truncate-lines t)
-;; 取消滚动栏
-(use-package yascroll
-  :ensure t
-  :init
-  (set-scroll-bar-mode nil)
- (global-yascroll-bar-mode 1)
- )
 
 
 ;; @see http://ergoemacs.org/emacs/whitespace-mode.html
@@ -51,43 +44,80 @@
 ;; lines lines-tail newline trailing space-before-tab space-afte-tab empty
 ;; indentation-space indentation indentation-tab tabs spaces
 (use-package whitespace
-  :ensure t)
-(setq whitespace-style '(face
-			 ;;trailing
-			 ;;tabs
-			 ;;spaces
-			 ;;tab-mark
-			 ;;space-mark
-			 ;;empty
-			 newline
-			 newline-mark))
+	:ensure t
+	:init
+	(setq whitespace-style '(face
+													 trailing
+													 lines
+													 empty
+													 indentation::space
+													 ;;tabs
+													 ;;spaces
+													 ;;tab-mark
+													 ;;space-mark
+													 newline
+													 newline-mark))
 
-(setq whitespace-display-mappings '(
-  ;; (space-mark   ?\     [?\u00B7]     [?.])
-  ;; (space-mark   ?\xA0  [?\u00A4]     [?_])
-  ;; (newline ?\n    [?↵ ?\n])
-  ;;(newline-mark ?\n    [?↵ ?\n])))
-  (newline ?\n    [?↴ ?\n])
-  (newline-mark ?\n    [?↴ ?\n])))
-(setq whitespace-line-column 120)
+	(setq whitespace-display-mappings '(
+																			;; (space-mark   ?\     [?\u00B7]     [?.])
+																			;; (space-mark   ?\xA0  [?\u00A4]     [?_])
+																			;; (newline ?\n    [?↵ ?\n])
+																			;;(newline-mark ?\n    [?↵ ?\n])))
+																			(newline ?\n    [?↴ ?\n])
+																			(newline-mark ?\n    [?↴ ?\n])))
+	(setq whitespace-line-column 120)
 
-(if window-system (progn
-		    ;;(setq initial-frame-alist '((width . 202)(height . 58)(top . 0)(left . 48)))
-		    ;;		    (set-background-color "Black")
-		    ;;  (set-foreground-color "White")
-		    (set-cursor-color "Gray")
-		    ))
+	;; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
+	(global-whitespace-mode t)
+	(if window-system (progn
+											;;(setq initial-frame-alist '((width . 202)(height . 58)(top . 0)(left . 48)))
+											;;		    (set-background-color "Black")
+											;;  (set-foreground-color "White")
+											(set-cursor-color "Gray")
+											;; make it delete trailing whitespace
+											(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+											(add-hook 'after-init-hook
+																(lambda () (set-face-attribute 'whitespace-newline nil
+																															 :foreground "#AAA"
+																															 :weight 'bold)))
+											)))
 (display-battery-mode t)
 
-;; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
-(global-whitespace-mode t)
-;; make it delete trailing whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(add-hook 'after-init-hook
-	  (lambda () (set-face-attribute 'whitespace-newline nil
-					 :foreground "#AAA"
-					 :weight 'bold)))
+;; show relative linum
+;; (use-package linum-relative
+;;   :ensure t
+;;   :config
+;;   (linum-relative-on))
 
+;; 取消滚动栏
+(use-package yascroll
+	:ensure t
+	:init
+	(set-scroll-bar-mode nil)
+	(global-yascroll-bar-mode 1)
+	)
+
+;; (use-package sublimity
+;;   :ensure t
+;;   :init
+;;   (sublimity-mode 1)
+;;   (set-scroll-bar-mode nil)
+;;   (require 'sublimity-scroll)
+;;   ;; (require 'sublimity-map)
+;;   ;; (require 'sublimity-attractive)
+;;   :config
+;;   (setq sublimity-scroll-weight 10
+;; 	sublimity-scroll-drift-length 5)
+;;   ;; (setq sublimity-map-size 20)
+;;   ;; (setq sublimity-map-fraction 0.3)
+;;   ;; (setq sublimity-map-text-scale -7)
+;;   ;; (add-hook 'sublimity-map-setup-hook
+;; 	    ;; (lambda ()
+;; 	      ;; (setq buffer-face-mode-face '(:family "Monospace"))
+;; 	      ;; (buffer-face-mode)))
+;;   ;; (sublimity-map-set-delay 5)
+;;   )
 
 (provide 'init-gui)

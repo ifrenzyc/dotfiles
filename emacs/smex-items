@@ -2,23 +2,23 @@
 ;; ----- smex-history -----
 (
  eval-region
+ whitespace-mode
  list-packages
- emacs-uptime
- rgrep
- visual-line-mode
+ package-list-packages-no-fetch
  neotree
+ eval-buffer
  toggle-frame-fullscreen
 )
 
 ;; ----- smex-data -----
 (
- (list-packages . 19)
+ (list-packages . 31)
  (toggle-frame-fullscreen . 23)
- (neotree . 28)
- (eval-region . 144)
- (eval-buffer . 21)
- (org-publish-current-project . 3)
- (org-publish-current-file . 4)
+ (neotree . 30)
+ (eval-region . 182)
+ (eval-buffer . 24)
+ (org-publish-current-project . 6)
+ (org-publish-current-file . 28)
  (org-publish-project . 7)
  (org-insert-src-block . 2)
  (rgrep . 3)
@@ -28,4 +28,10 @@
  (neotree-enter . 1)
  (emacs-uptime . 1)
  (neotree-stretch-toggle . 5)
+ (describe-key . 1)
+ (org-insert-columns-dblock . 1)
+ (package-list-packages-no-fetch . 1)
+ (org-md-export-as-markdown . 1)
+ (color-theme-sanityinc-tomorrow-eighties . 1)
+ (whitespace-mode . 2)
 )
