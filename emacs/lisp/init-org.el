@@ -3,7 +3,10 @@
 	:init
 	(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 	(setq org-src-fontify-natively t)
-;;	(setq org-hide-emphasis-markers t)
+	(setq org-hide-emphasis-markers t)
+
+	(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+	(add-hook 'org-mode-hook (lambda () (setq word-wrap t)))
 	(setq org-capture-templates
 				'(("a" "My TODO task format." entry
 					 (file "todo.org")
@@ -53,8 +56,22 @@
 														`(org-level-3 ((t (,@headline ,@variable-tuple))))
 														`(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
 														`(org-level-1 ((t (,@headline-1 ,@variable-tuple :height 1.5))))
-														`(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+														`(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))
+														`(org-link ((t (:underline t))))
+		;;												`(org-block-begin-line ((t (:background ,"grey98" :foreground ,"grey85" :weight bold))))
+	;;													`(org-block-end-line ((t (:background ,"grey98" :foreground ,"grey85" :weight bold))))
+														;; `(org-todo ((t (:weight bold))))
+														;; `(org-done ((t (:weight bold))))
+														;; `(org-block ((,'((class color) (min-colors 89)) (:background ,"grey98"))))
+														;; `(org-block-background ((,class (:background ,"grey98" :foreground ,"grey20"))))
+														))
 	(setq org-indent-mode t)
+	;; Keep the headlines expanded in Org-Mode
+	;; @see http://emacs.stackexchange.com/questions/9709/keep-the-headlines-expanded-in-org-mode
+	(setq org-startup-folded nil)
+	;; Disabling underscore-to-subscript in Emacs Org-Mode export
+	;; @see http://stackoverflow.com/questions/698562/disabling-underscore-to-subscript-in-emacs-org-mode-export/701201#701201
+	(setq org-export-with-sub-superscripts nil)
 	:config
 	(add-hook 'org-mode-hook 'org-indent-mode)
 	(defcustom org-indent-indentation-per-level 4
@@ -63,8 +80,8 @@
 		:type 'integer)
 	(setq org-todo-keywords
 				'((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+	(set-register ?n (cons 'file "~/src/yangc/itsycnotes/home.org"))
 	)
-
 
 (use-package org-bullets
 	:ensure t
@@ -185,5 +202,15 @@
 		(previous-line 2)
 		(org-edit-src-code)))
 
-;; (use-package ox-gfm :ensure t)
+(defun org-toggle-link-display ()
+  "Toggle the literal or descriptive display of links."
+  (interactive)
+  (if org-descriptive-links
+      (progn (org-remove-from-invisibility-spec '(org-link))
+         (org-restart-font-lock)
+         (setq org-descriptive-links nil))
+    (progn (add-to-invisibility-spec '(org-link))
+       (org-restart-font-lock)
+       (setq org-descriptive-links t))))
+
 (provide 'init-org)

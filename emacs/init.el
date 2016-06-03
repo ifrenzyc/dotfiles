@@ -1,16 +1,17 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "elpa/eink" user-emacs-directory))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 (when (>= emacs-major-version 24)
   (require 'package)
   ;; Archives from which to fetch.
   ;; (setq package-archives
-	;; ;; ("melpa" . "http://melpa.milkbox.net/packages/")
-	;; (append '(("popkit" . "http://elpa.popkit.org/packages/"))
-	;; 	package-archives))
-	(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-													 ("marmalade" . "http://marmalade-repo.org/packages/")
-													 ("melpa" . "http://melpa.milkbox.net/packages/")))
+  ;; ;; ("melpa" . "http://melpa.milkbox.net/packages/")
+  ;; (append '(("popkit" . "http://elpa.popkit.org/packages/"))
+  ;; 	package-archives))
+  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			   ("marmalade" . "http://marmalade-repo.org/packages/")
+			   ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 
 	;; On-demand installation of packages
@@ -76,8 +77,8 @@ re-downloaded in order to locate PACKAGE."
 			  'markdown-mode+
 			  'markdown-toc
 			  'powerline
-			  'powerline-evil
-			  'smart-mode-line
+			  ;; 'powerline-evil
+			  ;; 'smart-mode-line
 			  'zenburn-theme
 			  'hc-zenburn-theme
 			  'pangu-spacing
@@ -107,10 +108,8 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-company)
 (require 'init-neotree)
 (require 'init-expand-region)
-(require 'init-which-key)
 (require 'init-indent-guide)
 (require 'init-themes)
-(require 'init-powerline)
 (require 'init-panguspacing)
 (require 'init-magit)
 (require 'init-go)
@@ -123,6 +122,8 @@ re-downloaded in order to locate PACKAGE."
 (unless (server-running-p)
   (server-start))
 
+;; @see http://stackoverflow.com/questions/12558019/shortcut-to-open-a-specific-file-in-emacs
+(set-register ?e (cons 'file "~/.dotfiles/emacs/init.el"))
 
 ;;设置个人信息
 (setq user-full-name "Yang Chuang")
@@ -136,97 +137,3 @@ re-downloaded in order to locate PACKAGE."
 (setq js-indent-level 2)
 
 (provide 'init)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
- '(custom-safe-themes
-	 (quote
-		("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
- '(nrepl-message-colors
-	 (quote
-		("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(sml/mode-width
-	 (if
-			 (eq
-				(powerline-current-separator)
-				(quote arrow))
-			 (quote right)
-		 (quote full)))
- '(sml/pos-id-separator
-	 (quote
-		(""
-		 (:propertize " " face powerline-active1)
-		 (:eval
-			(propertize " "
-									(quote display)
-									(funcall
-									 (intern
-										(format "powerline-%s-%s"
-														(powerline-current-separator)
-														(car powerline-default-separator-dir)))
-									 (quote powerline-active1)
-									 (quote powerline-active2))))
-		 (:propertize " " face powerline-active2))))
- '(sml/pos-minor-modes-separator
-	 (quote
-		(""
-		 (:propertize " " face powerline-active1)
-		 (:eval
-			(propertize " "
-									(quote display)
-									(funcall
-									 (intern
-										(format "powerline-%s-%s"
-														(powerline-current-separator)
-														(cdr powerline-default-separator-dir)))
-									 (quote powerline-active1)
-									 nil)))
-		 (:propertize " " face sml/global))))
- '(sml/pre-id-separator
-	 (quote
-		(""
-		 (:propertize " " face sml/global)
-		 (:eval
-			(propertize " "
-									(quote display)
-									(funcall
-									 (intern
-										(format "powerline-%s-%s"
-														(powerline-current-separator)
-														(car powerline-default-separator-dir)))
-									 nil
-									 (quote powerline-active1))))
-		 (:propertize " " face powerline-active1))))
- '(sml/pre-minor-modes-separator
-	 (quote
-		(""
-		 (:propertize " " face powerline-active2)
-		 (:eval
-			(propertize " "
-									(quote display)
-									(funcall
-									 (intern
-										(format "powerline-%s-%s"
-														(powerline-current-separator)
-														(cdr powerline-default-separator-dir)))
-									 (quote powerline-active2)
-									 (quote powerline-active1))))
-		 (:propertize " " face powerline-active1))))
- '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-document-title ((t (:inherit default :font "Lucida Grande" :height 1.5 :underline nil))))
- '(org-level-1 ((t (:inherit default :weight bold :font "Lucida Grande" :height 1.5))))
- '(org-level-2 ((t (:inherit default :font "Lucida Grande" :height 1.1))))
- '(org-level-3 ((t (:inherit default :font "Lucida Grande"))))
- '(org-level-4 ((t (:inherit default :font "Lucida Grande"))))
- '(org-level-5 ((t (:inherit default :font "Lucida Grande"))))
- '(org-level-6 ((t (:inherit default :font "Lucida Grande"))))
- '(org-level-7 ((t (:inherit default :font "Lucida Grande"))))
- '(org-level-8 ((t (:inherit default :font "Lucida Grande")))))

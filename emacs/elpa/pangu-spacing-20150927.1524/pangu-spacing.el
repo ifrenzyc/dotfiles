@@ -295,7 +295,7 @@ pangu-sapce-mode."
   :group 'pangu-spacing
   :global nil
   :init-value nil
-  :lighter " Ρ"
+  :lighter " P"
   (unless (or (member major-mode pangu-spacing-inhibit-mode-alist)
               (minibufferp (current-buffer)))
     (save-restriction

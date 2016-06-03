@@ -1,27 +1,27 @@
 
 ;; ----- smex-history -----
 (
- eval-region
- whitespace-mode
- list-packages
- package-list-packages-no-fetch
- neotree
- eval-buffer
- toggle-frame-fullscreen
+ rgrep
+ markdown-mode
+ text-mode
+ org-publish-current-project
+ insert-buffer
+ new-frame
+ toggle-debug-on-error
 )
 
 ;; ----- smex-data -----
 (
- (list-packages . 31)
+ (list-packages . 41)
  (toggle-frame-fullscreen . 23)
  (neotree . 30)
- (eval-region . 182)
- (eval-buffer . 24)
- (org-publish-current-project . 6)
- (org-publish-current-file . 28)
+ (eval-region . 305)
+ (eval-buffer . 48)
+ (org-publish-current-project . 13)
+ (org-publish-current-file . 89)
  (org-publish-project . 7)
  (org-insert-src-block . 2)
- (rgrep . 3)
+ (rgrep . 4)
  (indent-guide-mode . 2)
  (visual-line-mode . 3)
  (global-visual-line-mode . 1)
@@ -31,7 +31,28 @@
  (describe-key . 1)
  (org-insert-columns-dblock . 1)
  (package-list-packages-no-fetch . 1)
- (org-md-export-as-markdown . 1)
+ (org-md-export-as-markdown . 5)
  (color-theme-sanityinc-tomorrow-eighties . 1)
  (whitespace-mode . 2)
+ (mode-line-visual-toggle . 1)
+ (linum-mode . 1)
+ (global-linum-mode . 1)
+ (avy-goto-word-or-subword-1 . 1)
+ (whois . 1)
+ (nyan-start-animation . 2)
+ (nyan-mode . 1)
+ (bs-show . 1)
+ (butterfly . 2)
+ (dired . 1)
+ (find-name-dired . 1)
+ (occur-edit-mode . 1)
+ (org-mode . 2)
+ (org-occur . 1)
+ (occur-mode . 1)
+ (org-toggle-link-display . 6)
+ (toggle-debug-on-error . 1)
+ (new-frame . 1)
+ (insert-buffer . 1)
+ (markdown-mode . 2)
+ (text-mode . 1)
 )

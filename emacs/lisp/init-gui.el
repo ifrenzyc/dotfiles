@@ -5,7 +5,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 显示行列号
-(global-linum-mode nil)
+(setq linum-mode nil)
+(setq global-linum-mode nil)
 
 ;; 打开括号匹配显示模式
 (show-paren-mode t)
@@ -48,23 +49,21 @@
 	:init
 	(setq whitespace-style '(face
 													 trailing
-													 lines
-													 empty
-													 indentation::space
 													 ;;tabs
 													 ;;spaces
 													 ;;tab-mark
 													 ;;space-mark
-													 newline
-													 newline-mark))
+;;													 newline
+	;;												 newline-mark))
+													 ))
 
-	(setq whitespace-display-mappings '(
+;;	(setq whitespace-display-mappings '(
 																			;; (space-mark   ?\     [?\u00B7]     [?.])
 																			;; (space-mark   ?\xA0  [?\u00A4]     [?_])
 																			;; (newline ?\n    [?↵ ?\n])
 																			;;(newline-mark ?\n    [?↵ ?\n])))
-																			(newline ?\n    [?↴ ?\n])
-																			(newline-mark ?\n    [?↴ ?\n])))
+																			;;(newline ?\n    [?↴ ?\n])
+																			;;(newline-mark ?\n    [?↴ ?\n])))
 	(setq whitespace-line-column 120)
 
 	;; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
@@ -98,6 +97,11 @@
 	(set-scroll-bar-mode nil)
 	(global-yascroll-bar-mode 1)
 	)
+
+(use-package smooth-scrolling
+	:ensure t
+  :init
+	(smooth-scrolling-mode 1))
 
 ;; (use-package sublimity
 ;;   :ensure t

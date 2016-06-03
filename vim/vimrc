@@ -168,13 +168,23 @@ if OS#gui
 	set guioptions-=b
 
 	set t_Co=256
-	" let g:rehash256 = 1
+	let g:rehash256 = 1
+	" set background=dark
 	set background=dark
 	if g:OS#win
 		colo mustang
 	else
 		" colo desert
-		colo base16-ocean
+		" colo base16-ocean
+		" colo github
+		" @see https://github.com/cocopon/iceberg.vim
+		" @see https://nlknguyen.com/2015/05/21/vim-paper-color-theme/
+		" colo PaperColor
+		" colo mustang
+		" colo nofrils-dark
+		set background=light
+		colo solarized
+		" colo codeschool
 		" colo zenburn
 	endif
 
@@ -191,16 +201,23 @@ if OS#gui
 	cmap <M-Space> <Esc>:simalt ~<cr>
 else
 	set background=dark
-	let g:rehash256 = 1
+	let g:solarized_termtrans = 1
+	" let g:solarized_visibility = "high"
+	" let g:solarized_contrast = "high"
+	" let g:rehash256 = 1
 	" colo base16-ocean
 	" colo mustang
 	" colo molokai
-	colo zenburn
+	" colo basic
+	" colo base16-solarized
+	" colo nofrils-dark
 	" colo base16-ocean
 	" colo base16-monokai
 	" colo molokai
 	" colo mustang
 	" colo tomorrow
+	" colo PaperColor
+	colo solarized
 endif
 " }}}
 
@@ -210,7 +227,8 @@ if g:OS#gui
 		set gfn=Monaco:h10:cANSI
 		set gfw=YaHei_Consolas_Hybrid:h9
 	elseif g:OS#mac || g:OS#cygwin
-		set gfn=Monaco:h12
+		set gfn=Monaco:h14
+		" set gfn=Source_Code_Pro:h15
 	elseif g:OS#unix
 		set gfn=Monospace\ 11
 	endif
@@ -281,6 +299,7 @@ set statusline+=[%l/%L,%c][%p%%]
 " set statusline+=%L\ %p
 
 "  Color function
+" @see http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
 fu! InsertStatuslineColor(mode)
 	if a:mode == 'i'
 		hi statusline guibg=#9b601a
@@ -335,7 +354,7 @@ set magic                   "for regular expressions
 set nowrapscan              "do not wrap around file when looking for a string
 
 " Set invhlsearch
-map <leader>hl :set invhlsearch<cr>
+map <leader>h :set invhlsearch<cr>
 
 " Searching forward/backward the selected string
 " @see https://bitbucket.org/gaowhen/vim/src/67c443f1718e/vimrc
@@ -476,15 +495,20 @@ let g:SuperTabRetainCompletionType=3
 "  |  vim-markdown  |
 "  ------------------
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java', 'go']
-" let g:vim_markdown_folding_disabled = 0
-" let g:vim_markdown_folding_style_pythonic = 1
-" let g:vim_markdown_folding_level = 6
-" let g:vim_markdown_toc_autofit=1
+" @see https://github.com/plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_style_pythonic = 1
+let g:markdown_fold_style = 'nested'
+let g:vim_markdown_folding_level = 6
+
+let g:vim_markdown_toc_autofit = 1
 " let g:vim_markdown_emphasis_multiline=0
-" set conceallevel=2
-" let g:vim_markdown_conceal=1
-" let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 1
+set conceallevel=2
+
+let g:vim_markdown_new_list_item_indent = 2
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java', 'go']
 
 
 "  ---------------------------
@@ -622,18 +646,18 @@ let g:go_highlight_build_constraints = 1
 "  |  vimwiki  |
 "  -------------
 let itsyc_wiki={}
-let itsyc_wiki.path='~/Documents/itsycnotes/'
-let itsyc_wiki.path_html='~/Documents/itsycnotes/_pub/'
-let itsyc_wiki.template_path='~/Documents/itsycnotes/templates/'
+let itsyc_wiki.path='~/Documents/itsycwiki/'
+let itsyc_wiki.path_html='~/Documents/itsycwiki/_pub/'
+let itsyc_wiki.template_path='~/Documents/itsycwiki/templates/'
 let itsyc_wiki.template_default='default'
 let itsyc_wiki.template_ext='.tpl'
 let itsyc_wiki.css_name='css/core.css'
-let itsyc_wiki.index='index'
+let itsyc_wiki.index='home'
 let g:vimwiki_list=[itsyc_wiki]
 
-let g:vimwiki_camel_case=0  "不使用驼峰英文做Wiki词条
-let g:vimwiki_menu=''  "不需要vimwiki菜单项
-let g:vimwiki_hl_cb_checked=1  "标记为完成的Checklist条目有特别的颜色
+let g:vimwiki_camel_case=0  "不使用驼峰英文做 Wiki 词条
+let g:vimwiki_menu=''  "不需要 vimwiki 菜单项
+let g:vimwiki_hl_cb_checked=1  "标记为完成的 Checklist 条目有特别的颜色
 let g:vimwiki_CJK_length=1  "计算字串长度时用考虑中文字符
 
 " @see http://stackoverflow.com/questions/158968/changing-vim-indentation-behavior-by-file-type
@@ -647,6 +671,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
+let g:vimwiki_folding = 'list'
 
 "  -----------------
 "  |  vim-orgmode  |
@@ -697,6 +722,13 @@ let g:lightline = {
 			\ 'subseparator': { 'left': '|', 'right': '|' }
 			\ }
 
+
+"  ---------------
+"  |  pangu.vim  |
+"  ---------------
+autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing()
+
+
 "---------------------------------------------------------------------------
 "=> Key mappings
 "---------------------------------------------------------------------------
@@ -704,6 +736,11 @@ let g:lightline = {
 " @see http://amix.dk/vim/vimrc.html
 nmap <leader>w :w!<cr>
 nmap <leader>q :close<cr>
+
+" press jj to exit from insert mode
+" @see http://learnvimscriptthehardway.stevelosh.com/chapters/10.html
+" :imap jk <Esc>
+:inoremap jk <esc>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 if g:OS#unix || g:OS#mac
