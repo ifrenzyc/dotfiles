@@ -1,0 +1,1 @@
+(define-package   "color-theme-sanityinc-solarized"   "20160914.1706"   "A version of Ethan Schoonover's Solarized themes")

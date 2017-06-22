@@ -9,9 +9,10 @@
   ;; ;; ("melpa" . "http://melpa.milkbox.net/packages/")
   ;; (append '(("popkit" . "http://elpa.popkit.org/packages/"))
   ;; 	package-archives))
-  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			   ("marmalade" . "http://marmalade-repo.org/packages/")
-			   ("melpa" . "http://melpa.milkbox.net/packages/")))
+	(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+													 ("gnu" . "http://elpa.gnu.org/packages/")
+													 ("marmalade" . "http://marmalade-repo.org/packages/")
+													 ))
 
 
 	;; On-demand installation of packages
@@ -113,6 +114,7 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-panguspacing)
 (require 'init-magit)
 (require 'init-go)
+(require 'init-swiper)
 
 
 ;;----------------------------------------------------------------------------

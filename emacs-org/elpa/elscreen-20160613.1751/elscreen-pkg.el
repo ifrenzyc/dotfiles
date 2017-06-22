@@ -1,0 +1,1 @@
+(define-package "elscreen" "20160613.1751" "Emacs window session manager"  'nil  :url "https://github.com/knu/elscreen" )

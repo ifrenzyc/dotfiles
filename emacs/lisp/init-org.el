@@ -1,9 +1,13 @@
 (use-package org
 	:ensure t
 	:init
+	(setq org-directory "~/src/yangc/itsycnotes/")
 	(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 	(setq org-src-fontify-natively t)
 	(setq org-hide-emphasis-markers t)
+	(define-key global-map "\C-ca" 'org-agenda)
+	(setq org-default-notes-file (concat org-directory "inbox.org"))
+	(define-key global-map "\C-cc" 'org-capture)
 
 	(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 	(add-hook 'org-mode-hook (lambda () (setq word-wrap t)))
@@ -212,5 +216,42 @@
     (progn (add-to-invisibility-spec '(org-link))
        (org-restart-font-lock)
        (setq org-descriptive-links t))))
+
+;; Paste an image on clipboard to Emacs Org mode file
+;; @see http://stackoverflow.com/questions/17435995/paste-an-image-on-clipboard-to-emacs-org-mode-file-without-saving-it
+(defun my-org-screenshot ()
+  "Take a screenshot into a time stamped unique-named file in the
+same directory as the org-buffer and insert a link to this file."
+  (interactive)
+  (org-display-inline-images)
+  (setq filename
+        (concat
+         (make-temp-name
+          (concat (file-name-nondirectory (buffer-file-name))
+                  "_imgs/"
+                  (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+  (unless (file-exists-p (file-name-directory filename))
+    (make-directory (file-name-directory filename)))
+  ; take screenshot
+  (if (eq system-type 'darwin)
+      (call-process "screencapture" nil nil nil "-i" filename))
+  (if (eq system-type 'gnu/linux)
+      (call-process "import" nil nil nil filename))
+  ; insert into file if correctly taken
+  (if (file-exists-p filename)
+    (insert (concat "[[file:" filename "]]"))))
+
+;; @see http://orgmode.org/worg/org-hacks.html#orgheadline126
+(defun ogrep (search &optional context)
+	"Search for word in org files.
+
+Prefix argument determines number of lines."
+	(interactive "sSearch for: \nP")
+	(let ((grep-find-ignored-files '("#*" ".#*"))
+				(grep-template (concat "grep <X> -i -nH "
+															 (when context
+																 (concat "-C" (number-to-string context)))
+															 " -e <R> <F>")))
+		(lgrep search "*org*" "~/src/yangc/itsycnotes/")))
 
 (provide 'init-org)

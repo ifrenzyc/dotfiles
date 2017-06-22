@@ -1,0 +1,1 @@
+(define-package "evil-nerd-commenter" "20170309.1649" "Comment/uncomment lines efficiently. Like Nerd Commenter in Vim"  'nil  :url "https://github.com/redguardtoo/evil-nerd-commenter" :keywords '("commenter vim line evil" ))

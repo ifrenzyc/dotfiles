@@ -180,10 +180,10 @@ if OS#gui
 		" @see https://github.com/cocopon/iceberg.vim
 		" @see https://nlknguyen.com/2015/05/21/vim-paper-color-theme/
 		" colo PaperColor
-		" colo mustang
+		colo mustang
 		" colo nofrils-dark
-		set background=light
-		colo solarized
+		" set background=light
+		" colo solarized
 		" colo codeschool
 		" colo zenburn
 	endif
@@ -729,6 +729,49 @@ let g:lightline = {
 autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing()
 
 
+"  --------------
+"  |  Vim-Dict  |
+"  --------------
+let g:dict_hosts = [
+			\["dict.org", ["all"]]
+			\]
+
+
+"  -------------------
+"  |  vim-bookmarks  |
+"  -------------------
+"  @see https://github.com/MattesGroeger/vim-bookmarks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+" let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+
+
+"  ----------------
+"  |  indentLine  |
+"  ----------------
+"缩进指示线"
+let g:indentLine_enabled = 1
+" let g:indentLine_char = 'c'
+let g:indentLine_char='┆'
+" Vim
+" let g:indentLine_color_term = 239
+
+"GVim
+" let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+" let g:indentLine_color_tty_light = 7 " (default: 4)
+" let g:indentLine_color_dark = 1 " (default: 2)
+
+"  ----------------------
+"  |  vim-markmultiple  |
+"  ----------------------
+"  @see https://github.com/adinapoli/vim-markmultiple
+let g:mark_multiple_trigger = "<C-n>"
+" call MarkMultipleClean()
+
+
 "---------------------------------------------------------------------------
 "=> Key mappings
 "---------------------------------------------------------------------------
@@ -878,7 +921,7 @@ fu! GenTags()
 	endif
 
 	if (executable('ctags'))
-		silent! execute "!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q ."
+		silent! execute "!ctags -R --c++-kinds=+p --fields=+ialS --exclude=.git --exclude=.svn --exclude=log --extra=+q ."
 	endif
 
 	if (executable('cscope') && has('cscope'))
@@ -887,7 +930,8 @@ fu! GenTags()
 		else
 			silent! execute "!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.java' > cscope.files"
 		endif
-		silent! execute "!cscope -b"
+		" silent! execute "!cscope -b"
+		silent! execute "!cscope -Rbq"
 		execute "normal :"
 		if filereadable("cscope.out")
 			execute "cs add cscope.out"
@@ -896,6 +940,14 @@ fu! GenTags()
 endfu
 nmap <F12> :call GenTags()<cr>
 
+" s: 查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+" g: 查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
+" d: 查找本函数调用的函数
+" c: 查找调用本函数的函数
+" t: 查找指定的字符串
+" e: 查找egrep模式，相当于egrep功能，但查找速度快多了
+" f: 查找并打开文件，类似vim的find功能
+" i: 查找包含本文件的文件
 nmap <C-_>s :cs find s <C-r>=expand("<cword>")<cr><cr>
 nmap <C-_>g :cs find g <C-r>=expand("<cword>")<cr><cr>
 nmap <C-_>c :cs find c <C-r>=expand("<cword>")<cr><cr>

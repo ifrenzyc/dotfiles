@@ -1,0 +1,1 @@
+(define-package "sublimity" "20170227.1453" "smoothscrolling, minimap and distractionfree mode"  'nil  :url "https://github.com/zk-phi/sublimity" )

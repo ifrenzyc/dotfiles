@@ -1,0 +1,393 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/yangc/Applications/elastic/logstash/" . "config/")
+ ("/Users/yangc/Applications/elastic/" . "filebeat/")
+ ("/sshx:root@132.122.1.16:/root/apps/logstash/" . "config/")
+ ("/sshx:root@132.122.1.16:/root/apps/" . "logstash/")
+ ("/Users/yangc/src/opensource/elasticsearch-playbook/roles/" . "elasticsearch/")
+ ("/Users/yangc/src/opensource/elasticsearch-playbook/" . "roles/")
+ ("/sshx:root@132.122.1.16:/../root/apps/logstash/" . "config/")
+ ("/sshx:root@132.122.1.16:/../root/apps/" . "logstash/")
+ ("/sshx:root@132.122.1.16:/../root/" . "apps/")
+ ("/Users/yangc/Vagrant/Elasticsearch/" . "es_auto_ansible_111/")
+ ("/Users/yangc/notes/00_Notes/" . "tools/")
+ ("/Users/yangc/eshore/02_khala/05_配置中心/" . "01_方案设计/")
+ ("/Users/yangc/eshore/2017/04_CRM+监控系统/" . "01_方案设计/")
+ ("/Users/yangc/Desktop/" . "img/")
+ ("/Users/yangc/eshore/02_khala/" . "05_配置中心/")
+ ("/Users/yangc/src/yangc/itsycblog/source/" . "_posts/")
+ ("/Users/yangc/src/yangc/itsycblog/" . "source/")
+ ("/Users/yangc/eshore/2017/02_CRM+/" . "04_生产监控脚本/")
+ ("/ssh:vagrant@192.168.56.112|sudo:vagrant@192.168.56.112:/" . "/")
+ ("/ssh:vagrant@192.168.56.112|sudo:192.168.56.112:/" . "/")
+ ("/Users/yangc/src/txc-yun-sample/" . "sample-txc-mybatis-drds/")
+ ("/Users/yangc/notes/01_Projects/" . "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/")
+ ("/Users/yangc/notes/" . "00_Notes/")
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/01_总体设计/" . "99_过程文档/")
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/" . "01_总体设计/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/itsyc/" . "sqlslap/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/" . "itsyc/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/" . "com/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/" . "java/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/" . "main/")
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/" . "src/")
+ ("/Users/yangc/src/eshore/ctg-udal/" . "sqlslap-dbpool/")
+ ("/Users/yangc/Documents/itsycnotes/00_Notes/" . "VirtualBox/")
+ ("/Users/yangc/Vagrant/vagrant-hbase/" . "ansible/")
+ ("/Users/yangc/Documents/itsycnotes/01_Projects/" . "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/")
+ ("/Users/yangc/eshore/2017/编写《中国电信 IT 架构互联网化技术白皮书和测试规范》/" . "参考资料/")
+ ("/Users/yangc/eshore/2017/" . "04_CRM+监控系统/")
+ ("/Users/yangc/tmp/activex_for_chrome_ff/nacl_sdk/pepper_49/getting_started/" . "part2/")
+ ("/Users/yangc/tmp/activex_for_chrome_ff/nacl_sdk/pepper_49/" . "getting_started/")
+ ("/Users/yangc/tmp/activex_for_chrome_ff/nacl_sdk/" . "pepper_49/")
+ ("/Users/yangc/tmp/activex_for_chrome_ff/" . "nacl_sdk/")
+ ("/Users/yangc/tmp/" . "activex_for_chrome_ff/")
+ ("/Users/yangc/Documents/itsycnotes/" . "01_Projects/")
+ ("/Users/yangc/Documents/" . "itsycnotes/")
+ ("/Users/yangc/src/eshore/khala/portal_forum/" . "khala/")
+ ("/Users/yangc/src/eshore/khala/" . "portal_forum/")
+ ("/Users/yangc/src/yangc/itsycnotes/01) ESHORE/" . "00) 海量关系型数据库分库分表中间件/")
+ ("/Users/yangc/.dotfiles/" . "emacs-org/")
+ ("/Users/yangc/src/yangc/itsycnotes/00) Tech/" . "Maven/")
+ ("/Users/yangc/Library/Mobile Documents/com~apple~CloudDocs/" . "jmeter+jenkins/")
+ ("/Users/yangc/Library/Mobile Documents/" . "com~apple~CloudDocs/")
+ ("/Users/yangc/Library/" . "Mobile Documents/")
+ ("/Users/yangc/src/ncrm-web/bg/CM/CustMgr/" . "cust_operation/")
+ ("/Users/yangc/src/ncrm-web/bg/CM/" . "CustMgr/")
+ ("/Users/yangc/src/ncrm-web/bg/" . "CM/")
+ ("/Users/yangc/src/ncrm-web/" . "bg/")
+ ("/Users/yangc/src/mule/" . "khala-datahub/")
+ ("/Users/yangc/eshore/" . "2017/")
+ ("/Users/yangc/src/mule/crmdep/crmdep-svc-datasync_ec/" . "src/")
+ ("/Users/yangc/src/mule/crmdep/" . "crmdep-svc-datasync_ec/")
+ ("/Users/yangc/Applications/nginx/" . "notes/")
+ ("/Users/yangc/src/opensource/mule-example/" . "mule-demo/")
+ ("/Users/yangc/GitBook/Library/Import/udal-book2.0/" . "mysql/")
+ ("/Users/yangc/src/go/src/github.com/flike/kingshard/" . "mysql/")
+ ("/Users/yangc/Vagrant/centos64-x86_64/go/src/github.com/gogits/" . "gogs/")
+ ("/Users/yangc/Vagrant/centos64-x86_64/go/src/github.com/" . "gogits/")
+ ("/Users/yangc/Vagrant/centos64-x86_64/go/src/" . "github.com/")
+ ("/Users/yangc/Vagrant/centos64-x86_64/go/" . "src/")
+ ("/Users/yangc/Vagrant/centos64-x86_64/" . "go/")
+ ("/Users/yangc/Vagrant/" . "Elasticsearch/")
+ ("/Users/yangc/src/opensource/MariaDB-server/" . "sql/")
+ ("/Users/yangc/src/yangc/itsycnotes/eshore/" . "khala/")
+ ("/Users/yangc/src/yangc/itsycnotes/tech/" . "emacs/")
+ ("/Users/yangc/Applications/nginx/notes/" . "styles/")
+ ("/Users/yangc/Applications/" . "elastic/")
+ ("/Users/yangc/.dotfiles/emacs/elpa/" . "minimal-theme-20140409.1601/")
+ ("/Users/yangc/.dotfiles/emacs/" . "lisp/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/mysql/" . "binlog/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/shyiko/" . "mysql/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/github/" . "shyiko/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/com/" . "github/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/java/" . "com/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/main/" . "java/")
+ ("/Users/yangc/src/opensource/mysql-binlog-connector-java/src/" . "main/")
+ ("/Users/yangc/src/opensource/" . "elasticsearch-playbook/")
+ ("/Users/yangc/Downloads/emacs/emacs.d/" . "emacs.d/")
+ ("/Users/yangc/Downloads/emacs/" . "emacs.d/")
+ ("/Users/yangc/Downloads/" . "分布式事务设计/")
+ ("/Users/yangc/src/yangc/itsycnotes/" . "00) Tech/")
+ ("/Users/yangc/src/yangc/" . "itsycblog/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/gpinasmgr/" . "gpinasParser/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/sps/" . "gpinasmgr/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/com/eshore/" . "sps/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/src/" . "com/")
+ ("/Users/yangc/src/eshore/gpinasproc/gpinasMgr/" . "src/")
+ ("/Users/yangc/src/eshore/gpinasproc/" . "gpinasMgr/")
+ ("/Users/yangc/src/eshore/" . "ctg-udal/")
+ ("/Users/yangc/src/docker/" . "dbproxy/")
+ ("/Users/yangc/src/eshore/mcrm/portal/" . "WebRoot/")
+ ("/Users/yangc/src/eshore/mcrm/" . "portal/")
+ ("/Users/yangc/src/go/src/github.com/gogits/" . "gogs/")
+ ("/Users/yangc/GitBook/Library/Import/" . "udal-book2.0/")
+ ("/Users/yangc/GitBook/Library/" . "Import/")
+ ("/Users/yangc/GitBook/" . "Library/")
+ ("/Users/yangc/OneDrive/itsycnotes/tech/" . "git/")
+ ("/Users/yangc/src/go/src/github.com/flike/" . "kingshard/")
+ ("/Users/yangc/src/go/src/github.com/" . "gogits/")
+ ("/Users/yangc/src/go/src/" . "github.com/")
+ ("/Users/yangc/src/go/" . "src/")
+ ("/Users/yangc/src/" . "opensource/")
+ ("/Users/yangc/Docker/" . "dbproxy/")
+ ("/Users/" . "yangc/")
+ ("/" . "etc/")
+ ("/Users/yangc/emacs.d/emacs.d/" . "lisp/")
+ ("/Users/yangc/OneDrive/itsycnotes/" . "tech/")
+ ("/Users/yangc/.emacs.d/elpa/" . "minimal-theme-20160608.322/")
+ ("/Users/yangc/emacs.d/" . "emacs.d/")
+ ("/Users/yangc/OneDrive/" . "itsycnotes/")
+ ("/Users/yangc/" . ".emacs.d/")
+ ("/Users/yangc/.emacs.d/" . "elpa/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/yangc/notes/04_PPT/"
+ "/Users/yangc/.emacs.d/"
+ "/Users/yangc/Desktop/"
+ "/Users/yangc/Applications/elastic/filebeat/"
+ "/Users/yangc/Applications/elastic/logstash/config/"
+ "/sshx:vagrant@192.168.15.111:"
+ "/Users/yangc/Vagrant/Elasticsearch/es_auto_ansible_111/"
+ "/sshx:root@132.122.1.16:/root/apps/logstash/config/"
+ "/sshx:root@132.122.1.16:"
+ "/ssh:vagrant@192.168.15.111:"
+ "/ssh:vagrant@"
+ "/sshx:vagrant@"
+ "/Users/yangc/src/opensource/elasticsearch-playbook/roles/elasticsearch/"
+ "/sshx:root@132.122.1.16:/../root/apps/logstash/config/"
+ "/Users/yangc/eshore/2017/04_CRM+监控系统/01_方案设计/"
+ "/Users/yangc/Vagrant/Elasticsearch/es_auto_ansible/"
+ "/Users/yangc/notes/00_Notes/"
+ "/Users/yangc/notes/00_Notes/tools/"
+ "/Users/yangc/eshore/2017/02_CRM+/04_生产监控脚本/"
+ "/Users/yangc/eshore/02_khala/05_配置中心/01_方案设计/"
+ "/Users/yangc/src/yangc/itsycblog/source/_posts/"
+ "/Users/yangc/eshore/02_khala/08_日志平台/"
+ "/Users/yangc/Vagrant/es_auto_ansible/"
+ "/sshx:crmweb@132.121.100.74:"
+ "/Users/yangc/bin/"
+ "/sshx:crmweb@132.121.100.74:/data/crm/crmweb/monitor_by_yangc/"
+ "/sshx:crmweb@132.121.100.74:/data/crm/crmweb/"
+ "/ssh:crmweb@132.121.100.74:"
+ "/sudo::/etc/"
+ "/etc/"
+ "/sshx:vagrant@192.168.56.112:"
+ "/sshx:vagrant@192.168.56.112|sudo:vagrant@"
+ "/sshx:vagrant@192.168.56.112|sudo:root@192.168.56.112:/etc/"
+ "/sshx:vagrant@192.168.56.112|sudo:192.168.56.112:"
+ "/sshx:vagrant@192.168.56.112|sudo:192.168.56.112:/etc/"
+ "/sudo:vagrant:"
+ "/sudo:vagrant@192.168.56.112:"
+ "/sshx:vagrant@192.168.56.112:/etc/"
+ "/ssh:vagrant@192.168.56.112:/"
+ "/ssh:vagrant@192.168.56.112|sudo:/"
+ "/ssh:vagrant@192.168.56.112|sudo:vagrant@192.168.56.112:/"
+ "/ssh:vagrant@192.168.199.112:"
+ "/Users/yangc/notes/01_Projects/"
+ "/Users/yangc/src/txc-yun-sample/sample-txc-mybatis-drds/"
+ "/Users/yangc/notes/"
+ "/Users/yangc/notes/01_Projects/03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/"
+ "/Users/yangc/Applications/nginx/"
+ "/Users/yangc/Applications/apache-tomcat-8.5.6-disconf/conf/"
+ "/Users/yangc/.dotfiles/emacs-org/"
+ "/Users/yangc/Documents/itsycnotes/01_Projects/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "00_Logstash.org"
+ "init.el"
+ "emacs.org"
+ "presentation.org"
+ "filebeat.yml"
+ "crmplus-logs-parser.conf"
+ "Vagrantfile"
+ "local-logfile-to-kafka.conf"
+ "192.168.15.111"
+ "README.md"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/yangc/notes/04_PPT/" (22859 37141 0 0) "00_Logstash.org" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs-org/" (22859 36940 0 0) "url/" "tramp" "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "init.el" "image-dired/" "ido.last" "eshell/" "emacs.org" "emacs.el" "elpa/" "bookmarks" "bin/" "auto-save-list/" ".org-id-locations" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/" (22859 31377 0 0) "我的 Rime 输入设置.org" "大数据学习.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "分布式事务.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "ELK.org" "Dubbo.org" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_大数据学习/" "_images/" "_Elasticsearch/" "634px-PostgreSQL 架构.jpg" "09_软件工程.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/elastic/logstash/config/" (22859 20316 0 0) "startup.options" "logstash.yml" "log4j2.properties" "jvm.options" "crmplus-logs-parser.conf" "../" "./")
+
+ ("/Users/yangc/Applications/elastic/filebeat/" (22859 15193 0 0) "scripts/" "README.md" "NOTICE" "module/" "logs/" "filebeat.yml" "filebeat.template.json" "filebeat.template-es6x.json" "filebeat.template-es2x.json" "filebeat.full.yml" "filebeat" "data/" ".build_hash.txt" "../" "./")
+
+ ("/Users/yangc/Desktop/" (22859 36869 0 0) "presentation.tex" "presentation.pdf" "presentation.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.emacs.d/" (22859 36940 0 0) "url/" "tramp" "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "init.el" "image-dired/" "ido.last" "eshell/" "emacs.org" "emacs.el" "elpa/" "bookmarks" "bin/" "auto-save-list/" ".org-id-locations" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/" (22859 31570 0 0) "todolist.org" "styles/" "setup.org" "index.html" "home.org" "footer.org" "draft.org" "_images/" "_attachments/" "99_Diary/" "03_Life/" "02_Blog/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/" (22859 35516 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zcompdump-itsyc-5.2.itsyc.29377" ".zcompdump-itsyc-5.2.itsyc-mac.local.22625" ".zcompdump-itsyc-5.2" ".z.9793" ".z.25667" ".z" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".vimrc" ".viminfo" ".vim-bookmarks" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf" ".swt/" ".subversion/" ".ssh/" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rediscli_history" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".m2/" ".local/" ".lesshst" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.keyfreq" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".cow/" ".config/" ".cmake/" ".CFUserTextEncoding" ".cache/" ".black-screen-state" ".berkshelf/" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
+
+ ("/Users/yangc/eshore/02_khala/08_日志平台/" (22859 33442 0 0) "日志平台.mindnode/" "日志平台.md" "日志平台.graffle" "_images/" ".DS_Store" "../" "./")
+
+ ("/etc/" (22855 15377 0 0) "zshrc" "zprofile" "xtab" "ttys~previous" "ttys" "syslog.conf~previous" "syslog.conf" "sudoers~orig" "sudoers.d/" "sudoers" "sudo_lecture" "ssl/" "ssh/" "snmp/" "shells~orig" "shells" "services~previous" "services" "security/" "rtadvd.conf~previous" "rtadvd.conf" "rpc~previous" "rpc" "rmtab" "resolv.conf" "rc.netboot" "rc.common~previous" "rc.common" "racoon/" "protocols~previous" "protocols" "profile~orig" "profile" "ppp/" "postfix/" "php.ini.default-previous" "php.ini.default" "php-fpm.conf.default" "pf.os" "pf.conf" "pf.anchors/" "periodic/" "paths~orig" "paths.d/" "paths" "passwd~orig" "passwd" "pam.d/" "openldap/" "ntp_opendirectory.conf" "ntp.conf" "ntp-restrict.conf" "notify.conf" "nfs.conf~orig" "nfs.conf" "newsyslog.d/" "newsyslog.conf" "networks~orig" "networks" "nanorc" "master.passwd~orig" "master.passwd" "manpaths.d/" "manpaths" "man.conf" "mail.rc~orig" "mail.rc" "mach_init_per_user.d/" "mach_init_per_login_session.d/" "mach_init.d/" "locate.rc" "localtime" "krb5.keytab" "kern_loader.conf~previous" "kern_loader.conf" "irbrc" "hosts~orig" "hosts.equiv" "hosts" "group~previous" "group" "gettytab~orig" "gettytab" "ftpusers~orig" "ftpusers" "ftpd.conf.default" "ftpd.conf" "fstab.hd~previous" "fstab.hd" "find.codes~orig" "find.codes" "emond.d/" "efax.rc~previous" "dnsextd.conf" "defaults/" "cups/" "csh.logout~orig" "csh.logout" "csh.login~orig" "csh.login" "csh.cshrc~orig" "csh.cshrc" "com.apple.screensharing.agent.launchd" "com.apple.IPConfiguration.plist" "bashrc~previous" "bashrc_Apple_Terminal" "bashrc" "autofs.conf" "auto_master~orig" "auto_master" "auto_home" "asl.conf" "asl/" "apache2/" "aliases.db" "aliases" "afpovertcp.cfg~orig" "afpovertcp.cfg" "../" "./")
+
+ ("/Users/yangc/Vagrant/Elasticsearch/es_auto_ansible/" (22848 51158 0 0) "Vagrantfile" "playbook.yaml" "files/" "ansible_hosts" ".vagrant/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/04_CRM+监控系统/01_方案设计/" (22855 11319 0 0) "监控平台总体方案.md" "监控平台.mindnode/" "监控平台.graffle" "内部开发环境部署的 Elasticsearch.md" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/elastic/logstash/" (22859 10092 0 0) "vendor/" "NOTICE.TXT" "logstash-core-plugin-api/" "logstash-core/" "LICENSE" "lib/" "Gemfile.jruby-1.9.lock" "Gemfile" "data/" "CONTRIBUTORS" "config/" "CHANGELOG.md" "bin/" "../" "./")
+
+ ("/Users/yangc/Applications/elastic/" (22859 10136 0 0) "logstash-5.4.1/" "logstash/" "filebeat-5.4.1-linux-x86_64/" "filebeat/" "../" "./")
+
+ ("/Users/yangc/Applications/" (22859 9833 0 0) "zookeeper-3.4.8/" "Vagrant Manager.app/" "Typora.app/" "PerfTest/" "nginx/" "mysqldata/" "mule-standalone-3.8.0/" "LICEcap.app/" "kmas/" "Kindle.app/" "JMeter/" "jetty-distribution-9.3.14.v20161028/" "gradle-3.4/" "gogs-repositories/" "go1.4.3/" "Firefox.app/" "elastic/" "data-integration/" "cow/" "Chrome Apps.localized/" "Bear.app/" "apache-tomcat-8.5.6-udal/" "apache-tomcat-8.5.6-kmas/" "apache-tomcat-8.5.6-jenkins/" "apache-tomcat-8.5.6-disconf/" "apache-tomcat-8.0.35/" "apache-tomcat-7.0.73/" "apache-ant-1.9.7/" "AnypointStudio.app/" ".localized" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Vagrant/Elasticsearch/es_auto_ansible_111/" (22859 8676 0 0) "Vagrantfile" "playbook.yaml" "files/" "ansible_hosts" ".vagrant/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/Linux/" (22849 62712 0 0) "nmon-for-linux.org" "linux.org" "gollum.org" "gitbook.org" "docker.org" "../" "./")
+
+ ("/Users/yangc/src/opensource/elasticsearch-playbook/roles/elasticsearch/" (22838 10043 0 0) "vars/" "test/" "templates/" "tasks/" "README.md" "meta/" "LICENSE" "handlers/" "Gemfile.lock" "Gemfile" "filter_plugins/" "files/" "elasticsearch.iml" "defaults/" "ansible.cfg" ".kitchen.yml" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/yangc/src/opensource/elasticsearch-playbook/roles/" (22838 10188 0 0) "elasticsearch/" "../" "./")
+
+ ("/Users/yangc/src/opensource/elasticsearch-playbook/" (22840 48542 0 0) "roles/" "playbook.yaml" "playbook.retry" "playbook-es.yaml" "hosts" "files/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/opensource/" (22850 11538 0 0) "zookeeper-benchmark/" "zookeeper/" "zkui/" "zktop/" "z/" "word-to-markdown/" "WizNote-Plugins/" "WizMdEditor/" "vitess/" "vim-themes/" "tpcc-mysql/" "tomcat/" "tddl/" "tb_tddl/" "styleguide/" "sql-parser/" "spring-test-dbunit/" "spring-framework/" "SOHU-DBProxy/" "snakerflow/" "slf4j-1.7.5.zip" "slf4j-1.7.5/" "shadowsocks/" "seq/" "python-mysql-replication/" "phantomjs/" "phabricator/" "pf4j/" "otter/" "org-minimal-html-theme/" "org-html-themes/" "opensesame/" "open-replicator/" "Oceanus/" "nmon/" "mysql-server/" "mysql-connector-j/" "mysql-binlog-connector-java/" "myfox-query-module/" "myfox-load-module/" "Mycat-Web-master/" "Mycat-Web/" "Mycat-Server/" "MariaDB-server/" "maria/" "log4jdbc-log4j2/" "log4jdbc/" "JSqlParser/" "JMPjct/" "jetty-spring-mvc-jar/" "jetty-demo/" "jdbc-shards/" "iBase4J/" "hive/" "heisenberg/" "hazelcast/" "hadoop/" "guava/" "grammars-v4/" "fix-macosx.py" "firebreath-dev/" "exhibitor/" "elasticsearch-playbook/" "elasticsearch-head/" "elasticsearch-dump/" "dubbo/" "druid_bak/" "druid-ha/" "druid-extension/" "druid/" "dbroute/" "datax/" "cobertura/" "cobarclient/" "cobar/" "chnroutes/" "checkstyle/" "cerebro/" "canal/" "c3p0-0.9.5-pre6.bin.zip" "bigdesk/" "Atlas/" "asm-4.0-bin.zip" "ansible-elasticsearch/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/04_CRM+监控系统/" (22846 4058 0 0) "10_参考资料/" "04_工作安排/" "03_ELK & Hadoop/" "02_环境信息/" "01_方案设计/" "00_原始需求/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/03_智慧运营 BSS/" (22846 4055 0 0) "02_汇报材料/" "01_方案设计/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/" (22847 55333 0 0) "编写《中国电信 IT 架构互联网化技术白皮书和测试规范》/" "04_CRM+监控系统/" "03_智慧运营 BSS/" "02_CRM+/" "01_IT 云服务平台三期项目规划建议/" "00_广东省公共资源交易信息化平台建设项目（二期项目）/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Vagrant/Elasticsearch/es_auto_ansible_test/" (22848 51188 0 0) "Vagrantfile" ".vagrant/" "../" "./")
+
+ ("/Users/yangc/Vagrant/Elasticsearch/" (22838 22676 0 0) "es_auto_ansible_test/" "es_auto_ansible_111/" "es_auto_ansible.tar.gz" "es_auto_ansible/" "elasticsearch_2/" "elasticsearch_1/" "elasticsearch_0/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Vagrant/" (22825 14798 0 0) "Xubuntu-17.04/" "Vagrantfile" "vagrant-mule/" "vagrant-hbase/" "ubuntu-server-16.04/" "playa-mesos/" "mysql-ubuntu-server-16.04/" "IE8_Win7/" "everpeace-vagrant-mesos/" "Elasticsearch/" "CentOS7/" "centos64_mariadb10.1_S2/" "centos64_mariadb10.1_S1/" "centos64_mariadb10.1_M/" "centos64_lepus/" "centos64-x86_64-zabbixbak/" "centos64-x86_64-zabbix/" "centos64-x86_64/" "ansible_jdk/" "ahunnargikar-vagrant-mesos/" "1.2.0版本数据库初始化脚本.sql" ".vagrant/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/tools/" (22848 40238 0 0) "tmux.org" "intellij_idea.org" "../" "./")
+
+ ("/Users/yangc/notes/01_Projects/" (22848 38134 0 0) "微服务生态.org" "open-falcon.org" "mesos.org" "Khala.org" "gogs.org" "dbpool.org" "_images/" "08_发布中心.org" "07_开发平台.org" "06_CRM+.org" "05_机器学习和数据挖掘.org" "04_分布式配置中心.org" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "02_udal/" "01_2016 集团大数据平台入网测试配合/" "00_海量关系型数据库分库分表中间件/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/02_CRM+/" (22847 15620 0 0) "grep.sh" "4月27日故障分析/" "04_生产监控脚本/" "03_环境信息/" "01_项目汇报/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycblog/source/_posts/" (22838 53158 0 0) "using-plantuml-in-emacs.md" "test-hexo-renderer-org.org" "hello-world.md" "elasticsearch-introduction.md" "blogging-with-hexo-orgmode.md" "../" "./")
+
+ ("/Users/yangc/eshore/02_khala/05_配置中心/01_方案设计/" (22838 42794 0 0) "配置中心.rp" "配置中心.mindnode/" "配置中心.md" "配置中心.graffle" "配置中心--数据库模型.md" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/02_khala/05_配置中心/" (22794 55442 0 0) "10_参考资料/" "01_方案设计/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Desktop/img/" (22837 65325 0 0) "test-plantuml.png" "../" "./")
+
+ ("/Users/yangc/eshore/2017/02_CRM+/04_生产监控脚本/" (22831 35132 0 0) "调用量统计脚本使用教程.pdf" "调用量统计脚本使用教程.md" "调用量统计.txt" "trace.sh" "TimeoutException.txt" "test_get_uuid.sh" "output_result.sh" "match_ip.py" "grep_result.sh" "count.py" "../" "./")
+
+ ("/Users/yangc/eshore/02_khala/" (22833 10795 0 0) "khala_list.xlsx" "branches/" "10_交流材料/" "08_日志平台/" "07_oplan_insight/" "06_发布中心/" "05_配置中心/" "04_机器学习相关/" "03_专利申请/" "02_系统设计/" "01_工作汇报/" "00_进度管理/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycblog/source/" (22824 20857 0 0) "_posts/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycblog/" (22824 54734 0 0) "themes/" "source/" "scaffolds/" "public/" "package.json" "node_modules/" "db.json" "_config.yml" ".gitignore" ".DS_Store" ".deploy_git/" "../" "./")
+
+ ("/Users/yangc/src/yangc/" (22824 20664 0 0) "Xshell/" "sqlparser/" "mynotes/" "my-cros-test/" "khala_wiki/" "java/" "itsycnotes/" "itsycblog/" "itsyc.io/" "itsyc-sample/" "hardseed/" "crt/" "crmplus-eye/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Vagrant/es_auto_ansible/" (22825 8308 0 0) "Vagrantfile" "playbook.yaml" "files/" "ansible_hosts" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/bin/" (22802 37352 0 0) "upx" "test_ssh_remote_var.sh" "sshp" "netmon2.sh" "netmon.sh" "mount_hosts.sh" "android-platform-tools/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/" (22740 34386 0 0) "99_杂务/" "2017/" "2016/" "2014年项目/" "2013年项目/" "2012年项目/" "11_业界交流/" "10_proj_dep/" "05_dbpool/" "04_小任务/" "03_kmas/" "02_khala/" "01_ctg-udal/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/" (22777 53614 0 0) "YCM-Generator/" "yangc/" "webpack/" "txc-yun-sample/" "opensource/" "ncrm-web/" "mule/" "ks/" "kmas/" "gogs/" "go/" "ggzy/" "eshore/" "ec_proj/" "docker/" "config-server/" "commons-dbcp/" "AnypointStudio/" "angularjs/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/GitBook/Library/Import/udal-book2.0/mysql/" (22610 19500 0 0) "天兔系统的安装及使用.md" "主从配置.md" "README.md" "MySQL 的版本选择及安装部署.md" "MySQL 的一些日常操作及步骤.md" "MySQL 的 SQL 约束规范及最佳实践.md" "images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Documents/" (22794 55365 0 0) "羽毛球前场上网步法.md" "羽毛球前场上网步法/" "Yang Chuang.bettertouchtool" "WeChat_BAK/" "udalAdminWeb/" "Mule ESB.md" "Kindle/" "ifrenzyc.manico-license" "gititwiki/" "ESB 研究资料.md" "Axure User Data/" "Axure/" "6#-2504/" ".DS_Store" "../" "./")
+
+ ("/Users/" (22499 43547 0 0) "yangc/" "Shared/" "Guest/" ".localized" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/VirtualBox/" (22786 39091 0 0) "xubuntu-14.04.org" "vagrant.org" "archlinux.org" "../" "./")
+
+ ("/Users/yangc/Library/Mobile Documents/com~apple~CloudDocs/zabbix/" (22592 57277 0 0) "zabbix.pdf" "zabbix.md" "img/" "attach/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/99_参考材料/" (22749 12113 0 0) "权限模型设计参考.txt" "服务开通数据模型全局视图.jpg" "数据交换共享.pptx" "在集成架构中确定其系统边界.jpg" "在业务流程中确定其系统边界.jpg" "中国电信BSS融合逻辑模型修订历史记录表_V4.31_lill_20170308.xlsx" "中国电信BSS融合模型场景验证（一分册）V4.0.01_lill_20160718.docx" "中国电信BSS融合模型主数据_V4.0.14_huazx_20161124.xlsx" "中国电信BSS融合模型_V4.31_lill_20170308.ldm" "业务流程全景图.jpg" "Web_API_接口说明书（广东电信）.pdf" "CTG-BSS集约化-流程引擎-用户手册.doc" "crm sysmgr.pdm" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/01_总体设计/99_过程文档/" (22751 2535 0 0) "统一数据服务平台概要设计说明书.pdf" "技术架构.docx" "公共资源二期总体设计概要说明书0309-v0.1含分工，今天下班前出一份初稿.docx" "公共资源二期总体设计概要说明书0303-v0.3.docx" "公共资源二期总体设计概要说明书0303-v0.2.docx" "公共资源二期总体设计概要说明书0303-v0.1.docx" "公共资源二期总体设计概要说明书-v0.6.docx" "公共资源二期总体设计概要说明书(初稿)0308-v0.4_2.docx" "公共资源二期总体设计概要说明书(初稿)0308-v0.4.docx" "“统一数据服务平台”总体设计文档.docx" "“统一数据服务平台”总体设计文档 _增加数据架构.docx" "“统一数据服务平台”总体设计0310-初稿.docx" "2017.03.10会议纪要.org" "../" "./")
+
+ ("/Users/yangc/notes/01_Projects/03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" (22781 26761 0 0) "统一公共服务平台.org" "广东省公共资源交易信息化平台建设项目（二期项目）.org" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/txc-yun-sample/sample-txc-mybatis-drds/" (22738 4549 0 0) "src/" "pom.xml" "../" "./")
+
+ ("/Users/yangc/src/txc-yun-sample/" (22738 4430 0 0) "sql/" "sample-txc-simple/" "sample-txc-mybatis-drds/" "sample-txc-mq/" "sample-txc-edas/" "sample-txc-drds/" "sample-mq-consumer/" "README.md" "lib/" "GTS样例工程.docx" "../" "./")
+
+ ("/Users/yangc/Applications/nginx/" (22747 8493 0 0) "wiki/" "startup.sh" "shutdown.sh" "notes/" "nginx.conf" "mime.types" "logs/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/nginx/notes/" (22741 15821 0 0) "猪肚鸡.html" "奇特的一生.html" "中文文件名测试.html" "zookeeper-disconnected-troubleshooting.html" "zhi-shi-dian.html" "wo-de-bi-ji-xuan-ze.html" "vim-vs-emacs.html" "vim-for-note-taking.html" "use-consistent-hashing-in-mysql-sharding.html" "ubuntu.html" "todolist.html" "todo.html" "templates/" "tech/" "styles/" "spacemacs.html" "setup.html" "projects/" "problems-and-solutions.html" "macosx-he-linux-de-xuan-ze-dui-bi.html" "life/" "index.html" "inbox.html" "inbox/" "images/" "home.html" "gogs.html" "footer.html" "favicon.ico" "faq.html" "eshore/" "draft.html" "diary.html" "diary-2016-11.html" "diary-2016-07.html" "checklist.html" "best-practices-for-code-review.html" "attachments/" "_images/" "_attachments/" "99_Diary/" "99) Diary/" "04) Notes/" "03_Life/" "03_Diary/" "03) Life/" "01_Projects/" "01) ESHORE/" "00_Notes/" "00) Tech/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/nginx/notes/01_Projects/" (22740 54084 0 0) "微服务生态.html" "udal/" "open-falcon.html" "mesos.html" "Khala.html" "gogs.html" "dbpool.html" "crm-web.html" "_images/" "05_机器学习和数据挖掘.html" "04_分布式配置服务.html" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "02_udal/" "01_2016 集团大数据平台入网测试配合/" "00_海量关系型数据库分库分表中间件/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/nginx/notes/01_Projects/03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" (22740 49732 0 0) "广东省公共资源交易信息化平台建设项目（二期项目）.html" "_images/" "../" "./")
+
+ ("/Users/yangc/Applications/apache-tomcat-8.5.6-disconf/" (22747 8150 0 0) "work/" "webapps/" "temp/" "RUNNING.txt" "RELEASE-NOTES" "NOTICE" "logs/" "LICENSE" "lib/" "conf/" "bin/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Applications/apache-tomcat-8.5.6-disconf/conf/" (22747 8253 0 0) "web.xml" "tomcat-users.xsd" "tomcat-users.xml" "server.xml" "logging.properties" "jaspic-providers.xsd" "jaspic-providers.xml" "context.xml" "catalina.properties" "catalina.policy" "Catalina/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/eshore/" (22577 24488 0 0) "udal/" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/00) Tech/Antlr/" (22574 21709 0 0) "Antlr.org" "../" "./")
+
+ ("/Users/yangc/src/yangc/itsycnotes/00) Tech/Maven/" (22573 23450 0 0) "maven.org" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/" (22740 59191 0 0) "猪肚鸡.org" "todolist.org" "styles/" "setup.org_2" "setup.org" "index.html" "home.org" "footer.org" "draft.org" "diary.org" "_images/" "_attachments/" "99_Diary/" "03_Life/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" ".#diary.org" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/01_Projects/" (22740 48858 0 0) "open-falcon.org" "mesos.org" "Khala.org" "gogs.org" "dbpool.org" "crm-web.org" "_images/" "05_机器学习和数据挖掘.org" "04_分布式配置服务.org" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "02_udal/" "01_2016 集团大数据平台入网测试配合/" "00_海量关系型数据库分库分表中间件/" ".DS_Store" "#05_机器学习和数据挖掘.org#" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/01_Projects/03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" (22737 54280 0 0) "广东省公共资源交易信息化平台建设项目（二期项目）.org" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/01_总体设计/" (22716 49839 0 0) "99_过程文档/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/eshore/2017/00_广东省公共资源交易信息化平台建设项目（二期项目）/" (22724 6803 0 0) "REAME.md" "99_参考材料/" "01_总体设计/" "00_原始材料/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/00_Notes/" (22721 6575 0 0) "我的 Rime 输入设置.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_images/" "634px-PostgreSQL 架构.jpg" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/_images/" (22408 23819 0 0) "mule-esb-arch.jpg" "mac-os-x-quick-copy-path-in-finder_1.png" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/itsyc/sqlslap/config/" (22320 40407 0 0) "SqlSlapProperties.java" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/itsyc/sqlslap/" (22720 6896 0 0) "utils/" "sql/" "pref/" "jdbc/" "config/" "Bootstrap.java" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/itsyc/" (22221 26665 0 0) "sqlslap/" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/com/" (22229 44625 0 0) "itsyc/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/java/" (22221 26665 0 0) "com/" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/main/" (22227 59474 0 0) "resources/" "java/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/src/" (22227 56146 0 0) "test/" "main/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/sqlslap-dbpool/" (22719 61611 0 0) "target/" "supplement/" "src/" "sqlslap-dbpool.iws" "sqlslap-dbpool.ipr" "sqlslap-dbpool.iml" "README.md" "pom.xml" "output_log.log" "lib/" "build.sh" "build/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Vagrant/ansible_jdk/" (22715 38235 0 0) "Vagrantfile" "playbook.yaml" "playbook.retry" "files/" "ansible_hosts" ".vagrant/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/广东省公共资源交易信息化平台建设项目（二期项目）/" (22716 65210 0 0) "广东省公共资源交易信息化平台建设项目（二期项目）.org" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/eshore/ctg-udal/" (22718 853 0 0) "udal-data-migration/" "sqlslap-dbpool/" "sqlslap/" "sniffer/" "ctg-version-hub/" "ctg-udal-txc-coordinator/" "ctg-udal-testtools/" "ctg-udal-sqlparser/" "ctg-udal-sdk/" "ctg-udal-perftest/" "ctg-udal-perfshow/" "ctg-udal-performance/" "ctg-udal-loadbalance/" "ctg-udal-guard/" "ctg-udal-giserver/" "ctg-udal-gateway/" "ctg-udal-docs/" "ctg-udal-dbproxy/" "ctg-udal-config-migration/" "ctg-udal-admin/" "ctg-udal/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/GitBook/Library/Import/udal-book2.0/" (22702 43667 0 0) "快速开始.md" "使用 udal.md" "test/" "SUMMARY.md" "styles/" "README.md" "product/" "operation/" "mysql/" "install/" "giserver测试用例.md" "develop/" "book.json" "assets/" "appendix/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/01_Projects/00_海量关系型数据库分库分表中间件/" (22702 23927 0 0) "海量关系型数据库分库分表中间件.org" "_images/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.emacs.d/elpa/" (22709 40304 0 0) "zoom-window-20161123.2005/" "zenburn-theme-20161018.437/" "yasnippet-20161201.1520/" "yascroll-20150315.2105/" "with-editor-20161201.925/" "which-key-20161205.1129/" "use-package-20161031.1025/" "undo-tree-20161012.701/" "try-20160226.730/" "swiper-20161206.1755/" "sublimity-20160822.1856/" "spaceline-20161115.613/" "smooth-scrolling-20161002.1249/" "smex-20151213.609/" "selected-20160428.1537/" "s-20160928.636/" "rich-minority-20160725.1255/" "rainbow-delimiters-20160501.1458/" "quasi-monochrome-theme-20160913.638/" "projectile-20161122.728/" "powerline-evil-20151112.2310/" "powerline-20161121.2320/" "popup-20160709.729/" "pkg-info-20150517.1943/" "phoenix-dark-mono-theme-20130307.415/" "paper-theme-20151231.932/" "pangu-spacing-20150927.1524/" "page-break-lines-20161206.1451/" "org-mac-link-20161126.239/" "org-capture-pop-frame-20160518.308/" "org-bullets-20140919.237/" "nyan-mode-20160429.1323/" "noflet-20141102.2254/" "neotree-20161124.739/" "multi-term-20160619.1733/" "monochrome-theme-20140326.350/" "molokai-theme-readme.txt" "molokai-theme-20151016.2345/" "minimal-theme-readme.txt" "minimal-theme-20160608.322/" "markdown-toc-20160727.908/" "markdown-mode-20160928.932/" "magit-popup-20161206.1703/" "magit-20161206.2039/" "linum-relative-20160510.1618/" "leuven-theme-20161212.255/" "key-chord-20160227.438/" "ivy-20161204.48/" "indent-guide-20160913.1754/" "ido-vertical-mode-20160430.137/" "ido-ubiquitous-20160623.815/" "ido-completing-read+-20160623.815/" "htmlize-20161206.1142/" "highlight-indentation-readme.txt" "highlight-indentation-20161012.209/" "highlight-indent-guides-readme.txt" "highlight-20161127.1729/" "hexrgb-20151231.1332/" "helm-swoop-20160619.953/" "helm-mt-readme.txt" "helm-mt-20160918.1252/" "helm-descbinds-20160916.2213/" "helm-core-20161205.2230/" "helm-ag-20161214.1823/" "helm-20161202.820/" "hc-zenburn-theme-readme.txt" "hc-zenburn-theme-20150929.33/" "goto-chg-20131228.2259/" "go-snippets-20151122.1457/" "go-rename-20161019.1204/" "go-projectile-20160825.1644/" "go-mode-20161110.1750/" "go-impl-20161123.512/" "go-guru-20161103.1316/" "go-gopath-20160705.334/" "go-errcheck-20160722.1743/" "go-eldoc-20161012.616/" "go-direx-20150316.943/" "go-complete-20151015.1728/" "git-commit-20161206.1703/" "flx-ido-20151031.212/" "flx-20151031.212/" "expand-region-20161122.50/" "evil-surround-20161029.606/" "evil-search-highlight-persist-readme.txt" "evil-search-highlight-persist-20160912.807/" "evil-nerd-commenter-20161031.409/" "evil-leader-20140606.2043/" "evil-find-char-pinyin-readme.txt" "evil-easymotion-20161023.2356/" "evil-20160827.1510/" "epl-20150517.1933/" "elscreen-20160613.1751/" "eink-theme-20161111.854/" "ebib-handy-readme.txt" "direx-20151024.706/" "diminish-20151216.115/" "dashboard-20161205.338/" "dash-20161121.55/" "darkroom-0.1/" "company-20161126.1629/" "bind-map-20160606.1343/" "bind-key-20160227.1648/" "basic-theme-20160817.127/" "base16-theme-20161012.1122/" "avy-20160814.250/" "async-20161103.1036/" "archives/" "ace-jump-mode-20140616.115/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.emacs.d/elpa/noflet-20141102.2254/" (22709 40304 0 0) "noflet.elc" "noflet.el" "noflet-pkg.elc" "noflet-pkg.el" "noflet-autoloads.el" "let-while-tests.elc" "let-while-tests.el" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/00_Notes/VirtualBox/" (22615 49212 0 0) "xubuntu-14.04.org" "vagrant.org" "archlinux.org" "../" "./")
+
+ ("/Users/yangc/Documents/itsycnotes/00_Notes/Java/" (22690 53562 0 0) "jmeter.org" "java.org" "../" "./")
+
+ ("/Users/yangc/Vagrant/vagrant-hbase/ansible/" (22689 26653 0 0) "roles/" "playbook.yml" "playbook.retry" "ansible_hosts" "../" "./")
+
+ ("/Users/yangc/Vagrant/vagrant-hbase/" (22689 9102 0 0) "windows/" "Vagrantfile" "test.py" "README.md" "LICENSE" "data/" "ansible/" ".vagrant/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/yangc/src/eshore/khala/portal_forum/khala/" (22685 30666 0 0) "uplan.php" "uplan.html" "splan.php" "splan-uas.php" "splan-sysmgr.php" "splan-sessionshare.php" "splan-mq.php" "splan-kmas.php" "splan-dubbo.php" "splan-dep.php" "splan-dbpool.php" "oplan-tomcat.php" "oplan-nginx.php" "oplan-monitor.php" "oplan-db.php" "mplan.php" "js/" "jplan.php" "index.php" "images/" "home2.php" "home.php" "footer2.html" "fonts/" "dplan-eclipse.php" "dplan-ci.php" "downloads/" "downindex.php" "docindex.php" "css/" "contact.html" "apply.php" "../" "./")
+
+ ("/Users/yangc/src/eshore/khala/portal_forum/" (22685 30313 0 0) "views/" "version.php" "uploads/" "uplan/" "tmp/" "system/" "static/" "robots.txt" "plugins/" "models/" "language/" "khala/" "index.php" "db/" "app/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/angularjs/" (22682 59011 0 0) "demo3/" "demo2/" "demo1/" "angular-phonecat/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/angularjs/demo3/" (22682 58468 0 0) "index.html" "components.js" "bootstrap.css" "app.js" "../" "./")
+
+ ("/Users/yangc/src/angularjs/demo2/" (22682 57678 0 0) "project.js" "list.html" "index.html" "detail.html" "bootstrap.css" "../" "./")
+
+ ("/Users/yangc/src/angularjs/demo1/" (22682 56866 0 0) "todo.js" "todo.css" "index.html" "../" "./")
+
+ ("/Users/yangc/Library/" (22681 12214 0 0) "XMind/" "Workflows/" "WebKit/" "Voices/" "VirtualBox/" "Thunderbird/" "TeX/" "SyncedPreferences/" "Suggestions/" "StickiesDatabase" "Spelling/" "Speech/" "Sounds/" "Sharing/" "Services/" "Scripts/" "Screen Savers/" "Saved Application State/" "Safari/" "Rime/" "PubSub/" "Printers/" "Preferences/" "PreferencePanes/" "PDF Services/" "Passes/" "Mozilla/" "Mobile Documents/" "Metadata/" "Messages/" "Maps/" "Mail/" "Logs/" "LaunchAgents/" "LanguageModeling/" "Keychains/" "KeyboardServices/" "Keyboard Layouts/" "Keyboard/" "iTunes/" "Internet Plug-Ins/" "Input Methods/" "iMovie/" "IdentityServices/" "Group Containers/" "Google/" "GameKit/" "Fonts/" "FontCollections/" "Favorites/" "Eudb_en_free/" "Edraw/" "Dictionaries/" "Developer/" "CoreFollowUp/" "CoreData/" "Cookies/" "Containers/" "Compositions/" "com.apple.nsurlsessiond/" "ColorSync/" "Colors/" "ColorPickers/" "CallServices/" "Calendars/" "Caches/" "Autosave Information/" "autojump/" "Audio/" "Assistants/" "Assistant/" "Application Support/" "Application Scripts/" "Alipay/" "Accounts/" ".localized" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/搜狗小鹤/" (22681 31889 0 0) "搜狗小鹤.txt" "挂接说明.txt" "小鹤双拼入门.CHM" ".#搜狗小鹤.txt" "#搜狗小鹤.txt#" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
