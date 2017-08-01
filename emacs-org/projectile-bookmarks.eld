@@ -1,1 +1,1 @@
-("~/Library/Mobile Documents/com~apple~CloudDocs/itsycnotes/" "~/.dotfiles/" "~/Applications/elastic/logstash-5.4.1/" "~/eshore/2017/" "~/src/opensource/ansible-elasticsearch/")
+("~/.dotfiles/" "~/src/eshore/khala/agent_daemon/" "~/Dropbox/itsycnotes/" "~/eshore/2017/")

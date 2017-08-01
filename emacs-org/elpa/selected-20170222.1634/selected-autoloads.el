@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "selected" "selected.el" (22811 43124 0 0))
-;;; Generated autoloads from selected.el
+;;;### (autoloads nil "selected" "../../../../.emacs.d/elpa/selected-20170222.1634/selected.el"
+;;;;;;  "2418281b503ee4bb389a69ef40aa0bf0")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/selected-20170222.1634/selected.el
 
 (autoload 'selected-minor-mode "selected" "\
 If enabled activates the `selected-keymap' when the region is active.
@@ -32,6 +33,12 @@ Selected minor mode is enabled in all buffers where
 See `selected-minor-mode' for more information on Selected minor mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/selected-20170222.1634/selected-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/selected-20170222.1634/selected.el")
+;;;;;;  (22908 19475 0 0))
 
 ;;;***
 

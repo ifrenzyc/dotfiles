@@ -3,7 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("go-projectile.el") (22811 43273 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/go-projectile-20170303.905/go-projectile-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/go-projectile-20170303.905/go-projectile.el")
+;;;;;;  (22908 19484 0 0))
 
 ;;;***
 

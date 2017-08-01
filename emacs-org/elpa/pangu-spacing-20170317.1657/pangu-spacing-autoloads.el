@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "pangu-spacing" "pangu-spacing.el" (22811 43128
-;;;;;;  0 0))
-;;; Generated autoloads from pangu-spacing.el
+;;;### (autoloads nil "pangu-spacing" "../../../../.emacs.d/elpa/pangu-spacing-20170317.1657/pangu-spacing.el"
+;;;;;;  "978ba3e3b7cf81902bb4fa69c84eae43")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pangu-spacing-20170317.1657/pangu-spacing.el
 
 (autoload 'pangu-spacing-space-current-buffer "pangu-spacing" "\
 Space current buffer.
@@ -40,6 +40,12 @@ Pangu-Spacing mode is enabled in all buffers where
 See `pangu-spacing-mode' for more information on Pangu-Spacing mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/pangu-spacing-20170317.1657/pangu-spacing-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/pangu-spacing-20170317.1657/pangu-spacing.el")
+;;;;;;  (22908 19535 0 0))
 
 ;;;***
 

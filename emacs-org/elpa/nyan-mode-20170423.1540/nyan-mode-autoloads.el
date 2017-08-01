@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "nyan-mode" "nyan-mode.el" (22811 43131 0 0))
-;;; Generated autoloads from nyan-mode.el
+;;;### (autoloads nil "nyan-mode" "../../../../.emacs.d/elpa/nyan-mode-20170423.1540/nyan-mode.el"
+;;;;;;  "5ab8d92a75891517947ed755eab59797")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/nyan-mode-20170423.1540/nyan-mode.el
 
 (defvar nyan-mode nil "\
 Non-nil if Nyan mode is enabled.
@@ -27,7 +28,10 @@ option `scroll-bar-mode'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("nyan-mode-pkg.el") (22811 43131 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/nyan-mode-20170423.1540/nyan-mode-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/nyan-mode-20170423.1540/nyan-mode-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/nyan-mode-20170423.1540/nyan-mode.el")
+;;;;;;  (22908 19546 0 0))
 
 ;;;***
 

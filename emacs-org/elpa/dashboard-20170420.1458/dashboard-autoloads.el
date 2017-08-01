@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "dashboard" "dashboard.el" (22811 43388 0 0))
-;;; Generated autoloads from dashboard.el
+;;;### (autoloads nil "dashboard" "../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard.el"
+;;;;;;  "ae417cdff4832affc6ae14d6e7ec3a46")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard.el
 
 (autoload 'dashboard-setup-startup-hook "dashboard" "\
 Setup post initialization hooks.
@@ -14,8 +15,11 @@ If a command line argument is provided, assume a filename and skip displaying Da
 
 ;;;***
 
-;;;### (autoloads nil nil ("dashboard-pkg.el" "dashboard-widgets.el")
-;;;;;;  (22811 43388 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard-widgets.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170420.1458/dashboard.el")
+;;;;;;  (22908 19446 0 0))
 
 ;;;***
 

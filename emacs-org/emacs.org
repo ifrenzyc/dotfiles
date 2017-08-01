@@ -4,7 +4,6 @@
 这个是我个人的 Emacs 配置文件，采用 Orgmode 方式管理，配置内容借鉴了 gh-pages/Sacha.org][sachac/.emacs.d - GitHub]]
  - [[https://github.com/ivoarch/.dot-org-files/blob/master/emacs.org][ivoarch/.dot-org-files - GitHub]]
 
-
 * init.el
 #+BEGIN_SRC emacs-lisp :tangle yes
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -556,7 +555,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
 #+END_SRC
 
 * helm
-
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package projectile :ensure t)
   (use-package helm
@@ -606,7 +604,7 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
     ;; disable ido faces to see flx highlights.
     (setq ido-enable-flex-matching t))
 
-  (use-package ido-ubiquitous
+  (use-package ido-completing-read+
     :ensure t
     :config
     (ido-ubiquitous-mode 1))
@@ -778,7 +776,6 @@ Config for setting markdown mode and stuff
 #+END_SRC
 
 * neotree
-
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package neotree
     :ensure t
@@ -954,7 +951,8 @@ Config for setting markdown mode and stuff
     ;; (setq org-todo-keywords
     ;;       '((sequence "TODO(t)" "STARTED" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
     (setq org-todo-keywords
-          (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "MAYBE(m)" "|" "DONE(d!/!)")
+          (quote ((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")
+                  (sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "MAYBE(m)" "|" "DONE(d!/!)")
                   (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
                   (sequence "WAITING(w@/!)" "HOLD(h)" "|" "CANCELLED(c@/!)"))))
 
@@ -1094,10 +1092,13 @@ Config for setting markdown mode and stuff
       (lgrep search "*org*" "~/notes/")))
 
   ;; http://cachestocaches.com/2016/9/my-workflow-org-agenda/#capture--refile
-  (setq org-agenda-files (list "~/notes/todolist.org"))
+  (setq org-agenda-files '("~/notes/gtd/inbox.org"
+                           "~/notes/gtd/gtd.org"
+                           "~/notes/gtd/tickler.org"))
 
-  (setq org-refile-targets '((nil :maxlevel . 9)
-                             (org-agenda-files :maxlevel . 9)))
+  (setq org-refile-targets '(("~/notes/gtd/gtd.org" :maxlevel . 3)
+                             ("~/notes/gtd/someday.org" :level . 1)
+                             ("~/notes/gtd/tickler.org" :maxlevel . 2)))
   (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
   (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
@@ -1130,9 +1131,7 @@ Config for setting markdown mode and stuff
 #+END_SRC
 
 ** TODO org-mac-link
-
 参考这篇内容：[[http://orgmode.org/worg/org-contrib/org-mac-link.html][org-mac-link.el – Grab links from open Mac applications]]，完成配置 org-mac-link
-
 #+BEGIN_SRC emacs-lisp :tangle yes
   ;; (use-package org-mac-link
   ;;   :ensure t
@@ -1141,32 +1140,33 @@ Config for setting markdown mode and stuff
   ;;                              (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link))))
 #+END_SRC
 
-
 ** org-capture
 使用弹出一个 frame 方式打开 org-capture。
 #+BEGIN_SRC emacs-lisp :tangle yes
-  ;; (use-package org-capture-pop-frame
-  ;;   :ensure t)
-
   ;; Set default column view headings: Task Total-Time Time-Stamp
-  (setq org-default-notes-file (concat org-directory "todolist.org"))
+  (setq org-default-notes-file (concat org-directory "gtd/inbox.org"))
   (setq org-columns-default-format "%50ITEM(Task) %10CLOCKSUM %16TIMESTAMP_IA")
   (define-key global-map "\C-ca" 'org-agenda)
   (define-key global-map "\C-cc" 'org-capture)
   ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
   ;; :empty-lines 2
+  ;; %u -- 插入当前日志[2017-07-17 Mon]
+  ;; %U -- 插入当前日志，并有具体时间[2017-07-17 Mon 16:48]
+  ;; %T -- 时间格式不同而已<2017-07-17 Mon 16:48>
+  ;; %a -- 插入当前所在文档的 link 地址
+  ;; :empty-lines 1
   (setq org-capture-templates
-        '(("t" "todo" entry (file+headline "todolist.org" "To Do Items")
-           "* TODO %?\n%u\n%a\nDEADLINE: %t" :clock-in t :clock-resume t :prepend t)
-          ("t" "TODO" entry (file (concat org-directory "todolist.org"))
-           "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-          ("t" "To Do Item" entry (file+headline "todolist.org" "To Do Items")
-           "* %?\n%T" :prepend t)
-          ("w" "Work TODO" entry (file+olp "todolist.org" "Work" "Tasks")
+        '(("t" "todo [inbox]" entry (file+headline "gtd/inbox.org" "Tasks")
+           "* TODO %i%?\n%U\n" :clock-in t :clock-resume t :prepend t)
+          ;; ("t" "TODO" entry (file (concat org-directory "gtd/inbox.org"))
+          ;;  "* TODO %?\n%u\n%a\nDEADLINE: %t" :clock-in t :clock-resume t)
+          ("T" "Tickler" entry (file+headline "gtd/tickler.org" "Tickler")
+           "* %i%? \n %U")
+          ("w" "Work TODO" entry (file+olp "gtd/inbox.org" "Work" "Tasks")
            "* TODO %? :work:\n:PROPERTIES:\n:CREATED: %U\n:END:" :clock-in t :clock-resume t)
-          ("a" "Appointment" entry (file  "todolist.org" "Appointments")
+          ("a" "Appointment" entry (file  "gtd/inbox.org" "Appointments")
            "* TODO %?\n:PROPERTIES:\n\n:END:\nDEADLINE: %^T \n %i\n")
-          ("m" "Meeting" entry (file+headline "todolist.org" "Meeting")
+          ("m" "Meeting" entry (file+headline "gtd/inbox.org" "Meeting")
            "* DONE MEETING with %? :MEETING:\n:SUBJECT:\n%U\n" :clock-in t :clock-resume t)
           ("d" "Diary" entry (file+datetree "diary.org")
            "* %?\n%U\n" :clock-in t :clock-resume t)
@@ -1174,17 +1174,17 @@ Config for setting markdown mode and stuff
            "* %? :IDEA: \n%t" :clock-in t :clock-resume t)
           ("n" "Next Task" entry (file+headline org-default-notes-file "Tasks")
            "** NEXT %? \nDEADLINE: %t")
-          ("l" "Link" entry (file+headline "todolist.org" "Links")
+          ("l" "Link" entry (file+headline "gtd/inbox.org" "Links")
            "* %? %^L %^g \n%T" :prepend t)
-          ("l" "A link, for reading later." entry (file+headline "todolist.org" "Reading List")
+          ("l" "A link, for reading later." entry (file+headline "gtd/inbox.org" "Reading List")
            "* %:description\n%u\n\n%c\n\n%i")
-          ("n" "Note" entry (file+headline "todolist.org" "Notes")
+          ("n" "Note" entry (file+headline "gtd/inbox.org" "Notes")
            "* Note %?\n%T")
-          ("b" "Blog idea" entry (file+headline "todolist.org" "Blog Topics:")
+          ("b" "Blog idea" entry (file+headline "gtd/inbox.org" "Blog Topics:")
            "* %?\n%T" :prepend t)
-          ("j" "Journal" entry (file+datetree "todolist.org")
+          ("j" "Journal" entry (file+datetree "gtd/inbox.org")
            "* %?\nEntered on %U\n  %i\n  %a")
-          ("s" "Screencast" entry (file "todolist.org")
+          ("s" "Screencast" entry (file "gtd/inbox.org")
            "* %?\n%i\n")
           ("r" "RESPONED" entry  (file (concat org-directory "/refile.org"))
            "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
@@ -1202,7 +1202,6 @@ Config for setting markdown mode and stuff
 #+END_SRC
 
 *** TODO 还可以参考这里用于快速粘贴网页书签。
-
 [[https://github.com/tumashu/org-capture-pop-frame][tumashu/org-capture-pop-frame - GitHub]]
 
 ** org mode todo
@@ -1226,6 +1225,14 @@ Config for setting markdown mode and stuff
 
   (eval-after-load "org"
     (add-hook 'org-add-hook 'modify-org-done-face))
+#+END_SRC
+
+** MobileOrg
+#+BEGIN_SRC emacs-lisp :tangle yes
+  ;; Set to the name of the file where new notes will be stored
+  (setq org-mobile-inbox-for-pull "~/notes/gtd/inbox.org")
+  ;; Set to <your Dropbox root directory>/MobileOrg.
+  (setq org-mobile-directory "~/Dropbox/应用/MobileOrg")
 #+END_SRC
 
 * panguspacing
@@ -1299,18 +1306,48 @@ Config for setting markdown mode and stuff
 * themes
 #+BEGIN_SRC emacs-lisp :tangle yes
   ;; @see https://github.com/gorakhargosh/emacs.d/blob/master/themes/color-theme-less.el
-  (use-package hc-zenburn-theme
-    :ensure t
-    :init
-    (defvar zenburn-override-colors-alist
-      '(("zenburn-bg+05" . "#282828")
-        ("zenburn-bg+1"  . "#2F2F2F")
-        ("zenburn-bg+2"  . "#3F3F3F")
-        ("zenburn-bg+3"  . "#4F4F4F")))
-    (load-theme 'zenburn t)
-    :config
-    (set-face-attribute 'region nil :background "#666"))
+  ;; (use-package hc-zenburn-theme
+  ;;   :ensure t
+  ;;   :init
+  ;;   (defvar zenburn-override-colors-alist
+  ;;     '(("zenburn-bg+05" . "#282828")
+  ;;       ("zenburn-bg+1"  . "#2F2F2F")
+  ;;       ("zenburn-bg+2"  . "#3F3F3F")
+  ;;       ("zenburn-bg+3"  . "#4F4F4F")))
+  ;;   (load-theme 'zenburn t)
+  ;;   :config
+  ;;   (set-face-attribute 'region nil :background "#666"))
 
+  (use-package gruvbox-theme
+    :ensure t
+    :config
+    ;; (load-theme  'gruvbox-dark-medium t))
+    (load-theme  'gruvbox-dark-soft t))
+    ;; (load-theme  'gruvbox-dark-hard t))
+  ;; (load-theme  'gruvbox-light-medium t))
+  ;; (load-theme  'gruvbox-light-soft t))
+  ;; (load-theme  'gruvbox-light-hard t))
+
+  ;; (use-package zerodark-theme
+  ;;   :demand t
+  ;;   :config
+  ;;   (progn
+  ;;     (defun set-selected-frame-dark ()
+  ;;       (interactive)
+  ;;       (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
+  ;;         (call-process-shell-command
+  ;;          (format
+  ;;           "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
+  ;;           frame-name))))
+
+  ;;     (when (window-system)
+  ;;       (load-theme 'zerodark t)
+  ;;       (zerodark-setup-modeline-format)
+  ;;       (set-selected-frame-dark)
+  ;;       (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
+
+  ;; (use-package all-the-icons
+  ;;   :ensure t)
   ;; Solarized
   ;; https://github.com/sellout/emacs-color-theme-solarized/pull/187
   ;; (use-package color-theme
@@ -1553,6 +1590,21 @@ Config for setting markdown mode and stuff
                 :config (nyan-start-animation)
                 )))
 #+END_SRC
+
+** set org-code-block color
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (custom-set-faces
+   '(org-block-begin-line
+     ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+   '(org-block-end-line
+     ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+   '(org-block
+     ((t (:background "#333333"))))
+   '(org-block-background
+     ((t (:background "#333333"))))
+   )
+#+END_SRC
+
 * ELScreen & window-zoom
 like tmux
 
@@ -1786,56 +1838,85 @@ org-mode 默认调用的是 pdflatex, 因此需要重新设置编译引擎为 xe
   ;; allow for export=>beamer by placing
 
   ;; #+LaTeX_CLASS: beamer in org files
-  (unless (boundp 'org-export-latex-classes)
-    (setq org-export-latex-classes nil))
-  (add-to-list 'org-export-latex-classes
-               ;; beamer class, for presentations
-               '("beamer"
-                 "\\documentclass[11pt]{beamer}\n
-        \\mode<{{{beamermode}}}>\n
-        \\usetheme{{{{beamertheme}}}}\n
-        \\usecolortheme{{{{beamercolortheme}}}}\n
-        \\beamertemplateballitem\n
-        \\setbeameroption{show notes}
-        \\usepackage[utf8]{inputenc}\n
-        \\usepackage[T1]{fontenc}\n
-        \\usepackage{hyperref}\n
-        \\usepackage{color}
-        \\usepackage{listings}
-        \\lstset{numbers=none,language=[ISO]C++,tabsize=4,
-    frame=single,
-    basicstyle=\\small,
-    showspaces=false,showstringspaces=false,
-    showtabs=false,
-    keywordstyle=\\color{blue}\\bfseries,
-    commentstyle=\\color{red},
-    }\n
-        \\usepackage{verbatim}\n
-        \\institute{{{{beamerinstitute}}}}\n
-         \\subject{{{{beamersubject}}}}\n"
+  ;; (unless (boundp 'org-export-latex-classes)
+  ;;   (setq org-export-latex-classes nil))
+  ;; (add-to-list 'org-export-latex-classes
+  ;;              ;; beamer class, for presentations
+  ;;              '("beamer"
+  ;;                "\\documentclass[11pt]{beamer}\n
+  ;;       \\mode<{{{beamermode}}}>\n
+  ;;       \\usetheme{{{{beamertheme}}}}\n
+  ;;       \\usecolortheme{{{{beamercolortheme}}}}\n
+  ;;       \\beamertemplateballitem\n
+  ;;       \\setbeameroption{show notes}
+  ;;       \\usepackage[utf8]{inputenc}\n
+  ;;       \\usepackage[T1]{fontenc}\n
+  ;;       \\usepackage{hyperref}\n
+  ;;       \\usepackage{color}
+  ;;       \\usepackage{listings}
+  ;;       \\lstset{numbers=none,language=[ISO]C++,tabsize=4,
+  ;;   frame=single,
+  ;;   basicstyle=\\small,
+  ;;   showspaces=false,showstringspaces=false,
+  ;;   showtabs=false,
+  ;;   keywordstyle=\\color{blue}\\bfseries,
+  ;;   commentstyle=\\color{red},
+  ;;   }\n
+  ;;       \\usepackage{verbatim}\n
+  ;;       \\institute{{{{beamerinstitute}}}}\n
+  ;;        \\subject{{{{beamersubject}}}}\n"
+  ;;                ("\\section{%s}" . "\\section*{%s}")
+  ;;                ("\\begin{frame}[fragile]\\frametitle{%s}"
+  ;;                 "\\end{frame}"
+  ;;                 "\\begin{frame}[fragile]\\frametitle{%s}"
+  ;;                 "\\end{frame}")))
+  ;; (add-to-list 'org-export-latex-classes
+  ;;              ;; beamer class, for presentations
+  ;;              '("beamer"
+  ;;                "\\documentclass[11pt,professionalfonts]{beamer}
+  ;; \\mode
+  ;; \\usetheme{{{{Warsaw}}}}
+  ;; %\\usecolortheme{{{{beamercolortheme}}}}
+  ;; \\beamertemplateballitem
+  ;; \\setbeameroption{show notes}
+  ;; \\usepackage{graphicx}
+  ;; \\usepackage{tikz}
+  ;; \\usepackage{xcolor}
+  ;; \\usepackage{xeCJK}
+  ;; \\usepackage{amsmath}
+  ;; \\usepackage{lmodern}
+  ;; \\usepackage{fontspec,xunicode,xltxtra}
+  ;; \\usepackage{polyglossia}
+  ;; \\setmainfont{Times New Roman}
+  ;; \\setCJKmainfont{DejaVu Sans YuanTi}
+  ;; \\setCJKmonofont{DejaVu Sans YuanTi Mono}
+  ;; \\usepackage{verbatim}
+  ;; \\usepackage{listings}
+  ;; \\institute{{{{beamerinstitute}}}}
+  ;; \\subject{{{{beamersubject}}}}"
+  ;;                ("\\section{%s}" . "\\section*{%s}")
+  ;;                ("\\begin{frame}[fragile]\\frametitle{%s}"
+  ;;                 "\\end{frame}"
+  ;;                 "\\begin{frame}[fragile]\\frametitle{%s}"
+  ;;                 "\\end{frame}")))
 
-                 ("\\section{%s}" . "\\section*{%s}")
-
-                 ("\\begin{frame}[fragile]\\frametitle{%s}"
-                  "\\end{frame}"
-                  "\\begin{frame}[fragile]\\frametitle{%s}"
-                  "\\end{frame}")))
+  ;; (setq ps-paper-type 'a4
+  ;;       ps-font-size 16.0
+  ;;       ps-print-header nil
+  ;;       ps-landscape-mode nil)
 
   ;; letter class, for formal letters
-
-  (add-to-list 'org-export-latex-classes
-
-               '("letter"
-                 "\\documentclass[11pt]{letter}\n
-        \\usepackage[utf8]{inputenc}\n
-        \\usepackage[T1]{fontenc}\n
-        \\usepackage{color}"
-
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  ;; (add-to-list 'org-export-latex-classes
+  ;;              '("letter"
+  ;;                "\\documentclass[11pt]{letter}\n
+  ;;       \\usepackage[utf8]{inputenc}\n
+  ;;       \\usepackage[T1]{fontenc}\n
+  ;;       \\usepackage{color}"
+  ;;                ("\\section{%s}" . "\\section*{%s}")
+  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 #+END_SRC
 
 * 使用 PlantUML
@@ -1880,4 +1961,26 @@ org-mode 默认调用的是 pdflatex, 因此需要重新设置编译引擎为 xe
     :config
     (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
     (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+#+END_SRC
+
+* logstash
+修改默认的缩进，原来的是 4 个空格，改成 2 个空格。
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq logstash-indent 2)
+#+END_SRC
+
+* hexo 博客系统
+我的 hexo 设置
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (require 'ox-publish)
+  (defun org-custom-link-img-follow (path)
+    (org-open-file-with-emacs
+     (format "../source/assets/%s" path)))   ;the path of the image in local dic
+
+  (defun org-custom-link-img-export (path desc format)
+    (cond
+     ((eq format 'html)
+      (format "<img src=\"/assets/%s\" alt=\"%s\"/>" path desc)))) ;the path of the image in webserver
+
+  (org-add-link-type "img" 'org-custom-link-img-follow 'org-custom-link-img-export)
 #+END_SRC

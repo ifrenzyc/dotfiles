@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "git-gutter" "git-gutter.el" (22716 51055 0
-;;;;;;  0))
-;;; Generated autoloads from git-gutter.el
+;;;### (autoloads nil "git-gutter" "../../../../.emacs.d/elpa/git-gutter-20161105.2156/git-gutter.el"
+;;;;;;  "865be5b8fc0e28efa9d7734589fbe303")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/git-gutter-20161105.2156/git-gutter.el
 
 (autoload 'git-gutter:linum-setup "git-gutter" "\
 Setup for linum-mode.
@@ -48,6 +48,12 @@ Show diff information in gutter
 Toggle to show diff information.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/git-gutter-20161105.2156/git-gutter-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/git-gutter-20161105.2156/git-gutter.el")
+;;;;;;  (22908 19547 0 0))
 
 ;;;***
 

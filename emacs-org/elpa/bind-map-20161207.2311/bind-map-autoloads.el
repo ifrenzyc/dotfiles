@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "bind-map" "bind-map.el" (22811 43393 0 0))
-;;; Generated autoloads from bind-map.el
+;;;### (autoloads nil "bind-map" "../../../../.emacs.d/elpa/bind-map-20161207.2311/bind-map.el"
+;;;;;;  "b74fc6a9cf7f25f13c7199f2616919f1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/bind-map-20161207.2311/bind-map.el
 
 (autoload 'bind-map "bind-map" "\
 Bind keymap MAP in multiple locations.
@@ -139,6 +140,12 @@ series of KEY DEF pairs. Each KEY should be a string suitable for
 `kbd'.
 
 \(fn MAP KEY DEF &rest BINDINGS)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/bind-map-20161207.2311/bind-map-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/bind-map-20161207.2311/bind-map.el")
+;;;;;;  (22908 19516 0 0))
 
 ;;;***
 

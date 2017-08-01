@@ -1,1 +1,0 @@
-(define-package "minimal-theme" "20160608.1822" "A light/dark minimalistic Emacs 24 theme."  'nil  :url "https://github.com/ikame/minimal-theme" :keywords '("color" "theme" "minimal" ))

@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "direx" "direx.el" (22811 43387 0 0))
-;;; Generated autoloads from direx.el
+;;;### (autoloads nil "direx" "../../../../.emacs.d/elpa/direx-20170422.2127/direx.el"
+;;;;;;  "ed9bba48297cece331d889f9ec84da66")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/direx-20170422.2127/direx.el
 
 (autoload 'direx:jump-to-directory "direx" "\
 
@@ -18,9 +19,9 @@
 
 ;;;***
 
-;;;### (autoloads nil "direx-project" "direx-project.el" (22811 43387
-;;;;;;  0 0))
-;;; Generated autoloads from direx-project.el
+;;;### (autoloads nil "direx-project" "../../../../.emacs.d/elpa/direx-20170422.2127/direx-project.el"
+;;;;;;  "e01cd07712b6727236eae425360a0e9f")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/direx-20170422.2127/direx-project.el
 
 (autoload 'direx-project:jump-to-project-root "direx-project" "\
 
@@ -34,7 +35,11 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("direx-pkg.el") (22811 43387 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/direx-20170422.2127/direx-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/direx-20170422.2127/direx-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/direx-20170422.2127/direx-project.el"
+;;;;;;  "../../../../.emacs.d/elpa/direx-20170422.2127/direx.el")
+;;;;;;  (22908 19478 0 0))
 
 ;;;***
 

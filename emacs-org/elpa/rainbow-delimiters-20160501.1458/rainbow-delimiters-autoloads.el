@@ -1,11 +1,11 @@
 ;;; rainbow-delimiters-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "rainbow-delimiters" "rainbow-delimiters.el"
-;;;;;;  (22324 16291 0 0))
-;;; Generated autoloads from rainbow-delimiters.el
+;;;### (autoloads nil "rainbow-delimiters" "../../../../.emacs.d/elpa/rainbow-delimiters-20160501.1458/rainbow-delimiters.el"
+;;;;;;  "60609abb535268546b18ca4461a151c5")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/rainbow-delimiters-20160501.1458/rainbow-delimiters.el
 
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "\
 Highlight nested parentheses, brackets, and braces according to their depth.
@@ -21,6 +21,13 @@ Enable `rainbow-delimiters-mode'.
 Disable `rainbow-delimiters-mode'.
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/rainbow-delimiters-20160501.1458/rainbow-delimiters-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/rainbow-delimiters-20160501.1458/rainbow-delimiters-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/rainbow-delimiters-20160501.1458/rainbow-delimiters.el")
+;;;;;;  (22908 19541 0 0))
 
 ;;;***
 

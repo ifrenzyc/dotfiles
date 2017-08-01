@@ -1,1 +1,0 @@
-(define-package "monochrome-theme" "20140903.1743" "A dark Emacs 24 theme for your focused hacking sessions"  'nil  :url "https://github.com/fxn/monochrome-theme.el" )

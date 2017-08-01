@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "page-break-lines" "page-break-lines.el" (22820
-;;;;;;  65322 0 0))
-;;; Generated autoloads from page-break-lines.el
+;;;### (autoloads nil "page-break-lines" "../../../../.emacs.d/elpa/page-break-lines-20170517.1735/page-break-lines.el"
+;;;;;;  "12ac471b68c42e899dd6bbda4ea1d42b")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/page-break-lines-20170517.1735/page-break-lines.el
 
 (defvar page-break-lines-char 9472 "\
 Character used to render page break lines.")
@@ -66,6 +66,12 @@ Page-Break-Lines mode is enabled in all buffers where
 See `page-break-lines-mode' for more information on Page-Break-Lines mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/page-break-lines-20170517.1735/page-break-lines-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/page-break-lines-20170517.1735/page-break-lines.el")
+;;;;;;  (22908 19445 0 0))
 
 ;;;***
 

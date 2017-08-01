@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "yascroll" "yascroll.el" (22811 43119 0 0))
-;;; Generated autoloads from yascroll.el
+;;;### (autoloads nil "yascroll" "../../../../.emacs.d/elpa/yascroll-20170316.306/yascroll.el"
+;;;;;;  "5b955005e72f9c36335722e4691707bf")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/yascroll-20170316.306/yascroll.el
 
 (autoload 'yascroll:show-scroll-bar "yascroll" "\
 Show scroll bar in BUFFER.
@@ -42,6 +43,12 @@ Yascroll-Bar mode is enabled in all buffers where
 See `yascroll-bar-mode' for more information on Yascroll-Bar mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/yascroll-20170316.306/yascroll-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/yascroll-20170316.306/yascroll.el")
+;;;;;;  (22908 19445 0 0))
 
 ;;;***
 
