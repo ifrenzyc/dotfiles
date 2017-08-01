@@ -1,141 +1,60 @@
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "elpa/eink" user-emacs-directory))
-(defconst *is-a-mac* (eq system-type 'darwin))
-
 (when (>= emacs-major-version 24)
   (require 'package)
-  ;; Archives from which to fetch.
-  ;; (setq package-archives
-  ;; ;; ("melpa" . "http://melpa.milkbox.net/packages/")
-  ;; (append '(("popkit" . "http://elpa.popkit.org/packages/"))
-  ;; 	package-archives))
-	(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-													 ("gnu" . "http://elpa.gnu.org/packages/")
-													 ("marmalade" . "http://marmalade-repo.org/packages/")
-													 ))
-
-
-	;; On-demand installation of packages
-  (defun require-package (package &optional min-version no-refresh)
-    "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
-re-downloaded in order to locate PACKAGE."
-    (if (package-installed-p package min-version)
-	t
-      (if (or (assoc package package-archive-contents) no-refresh)
-	  (if (boundp 'package-selected-packages)
-	      ;; Record this as a package the user installed explicitly
-	      (package-install package nil)
-	    (package-install package))
-	(progn
-	  (package-refresh-contents)
-	  (require-package package min-version t)))))
-
-  (defun ensure-package-installed (&rest packages)
-    "Assure every package is installed, ask for installation if it’s not.
-  Return a list of installed packages or nil for every skipped package."
-    (mapcar
-     (lambda (package)
-       (if (package-installed-p package)
-	   nil
-	 (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-	     (package-install package)
-	   package)))
-     packages))
-
-  ;; Make sure to have downloaded archive description.
-  (or (file-exists-p package-user-dir)
-      (package-refresh-contents))
-
   (setq package-enable-at-startup nil)
-  (package-initialize))
+  (setq package-archives '(("popkit" . "http://elpa.popkit.org/packages/")  ;; 选用国内源
+                           ("melpa" . "https://melpa.org/packages/")
+                           ("gnu" . "http://elpa.gnu.org/packages/")
+                           ("org" . "http://orgmode.org/elpa/")
+                           ("marmalade" . "http://marmalade-repo.org/packages/")))
+  (package-initialize)
 
+  ;; Bootstrap `use-package'
+  ;; 更新本地仓库里面的package
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package)
+    (setq use-package-always-ensure t))
 
-(ensure-package-installed 'evil
-			  'evil-leader
-			  'undo-tree
-			  'ido
-			  'ido-ubiquitous
-			  'ido-vertical-mode
-			  'flx-ido
-			  'smex
-			  'helm
-			  'helm-swoop
-			  'company
-			  'neotree
-			  'expand-region
-			  'yascroll
-			  'sublimity
-			  'rainbow-delimiters
-			  'indent-guide
-			  'linum-relative
-			  'highlight-indentation
-			  'bind-map
-			  'which-key
-			  'org
-			  'org-bullets
-			  'markdown-mode
-			  'markdown-mode+
-			  'markdown-toc
-			  'powerline
-			  ;; 'powerline-evil
-			  ;; 'smart-mode-line
-			  'zenburn-theme
-			  'hc-zenburn-theme
-			  'pangu-spacing
-			  'magit
-			  'go-mode
-			  'go-complete
-			  'go-direx
-			  'go-errcheck
-			  'go-gopath
-			  'go-impl
-			  'go-projectile
-			  'go-snippets)
+  ;;----------------------------------------------------------------------------
+  ;; Allow access from emacsclient
+  ;;----------------------------------------------------------------------------
+  (require 'server)
+  (unless (server-running-p)
+    (server-start))
 
-(require-package 'use-package)
-(setq use-package-always-ensure t)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (org . t)
+     (shell . t)))
 
-(require 'init-evil)
-(require 'init-keys)
-(require 'init-gui)
-(require 'init-font)
-(require 'init-backup)
-(require 'init-ido)
-(require 'init-smex)
-(require 'init-helm)
-(require 'init-org)  ; orgmode 这里设置有点问题，应该在加载 theme 之前加载好，考虑改用 hook 方式
-(require 'init-markdown)
-(require 'init-company)
-(require 'init-neotree)
-(require 'init-expand-region)
-(require 'init-indent-guide)
-(require 'init-themes)
-(require 'init-panguspacing)
-(require 'init-magit)
-(require 'init-go)
-(require 'init-swiper)
-
-
-;;----------------------------------------------------------------------------
-;; Allow access from emacsclient
-;;----------------------------------------------------------------------------
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
-;; @see http://stackoverflow.com/questions/12558019/shortcut-to-open-a-specific-file-in-emacs
-(set-register ?e (cons 'file "~/.dotfiles/emacs/init.el"))
-
-;;设置个人信息
-(setq user-full-name "Yang Chuang")
-(setq user-mail-address "ifrenzyc@gmail.com")
-
-;; 自动的在文件末增加一新行
-(setq require-final-newline t)
-
-
-(setq default-tab-width 2)
-(setq js-indent-level 2)
-
-(provide 'init)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/emacs.org")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (logstash-mode org zoom-window yascroll yaml-mode which-key use-package swiper spaceline smooth-scrolling smex selected scratch rainbow-delimiters plantuml-mode pangu-spacing org-bullets nyan-mode neotree markdown-toc logstash-conf key-chord ido-vertical-mode ido-completing-read+ htmlize highlight-indentation helm-swoop helm-mt helm-descbinds helm-ag gruvbox-theme go-snippets go-projectile go-impl go-gopath go-errcheck go-direx go-complete git-gutter flx-ido expand-region evil-surround evil-search-highlight-persist evil-nerd-commenter evil-leader evil-goggles dashboard company bind-map avy))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-block ((t (:background "#333333"))))
+ '(org-block-background ((t (:background "#333333"))))
+ '(org-block-begin-line ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-block-end-line ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-document-title ((t (:inherit default :font "Lucida Grande" :height 1.5 :underline nil))))
+ '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+ '(org-level-1 ((t (:inherit default :weight bold :font "Lucida Grande" :height 1.5))))
+ '(org-level-2 ((t (:inherit default :font "Lucida Grande" :height 1.1))))
+ '(org-level-3 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-level-4 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-level-5 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-level-6 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-level-7 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-level-8 ((t (:inherit default :font "Lucida Grande"))))
+ '(org-link ((t (:underline t)))))

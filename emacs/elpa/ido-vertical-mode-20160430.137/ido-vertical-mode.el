@@ -5,7 +5,6 @@
 ;; Author: Steven Degutis
 ;; Maintainer: Christopher Reichert <creichert07@gmail.com>
 ;; Version: 1.0.0
-;; Package-Version: 20160430.137
 ;; Keywords: convenience
 ;; URL: https://github.com/creichert/ido-vertical-mode.el
 

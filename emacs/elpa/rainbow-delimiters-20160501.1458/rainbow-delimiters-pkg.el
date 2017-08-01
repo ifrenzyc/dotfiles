@@ -1,1 +1,1 @@
-(define-package "rainbow-delimiters" "20160501.1458" "Highlight brackets according to their depth" 'nil :url "https://github.com/Fanael/rainbow-delimiters" :keywords '("faces" "convenience" "lisp" "tools"))
+(define-package "rainbow-delimiters" "20160501.1458" "Highlight brackets according to their depth * lexicalbinding: t *"  'nil  :url "https://github.com/Fanael/rainbow-delimiters" :keywords '("faces" "convenience" "lisp" "tools" ))

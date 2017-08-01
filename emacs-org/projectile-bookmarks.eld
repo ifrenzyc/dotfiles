@@ -1,1 +1,0 @@
-("~/.dotfiles/" "~/src/eshore/khala/agent_daemon/" "~/Dropbox/itsycnotes/" "~/eshore/2017/")

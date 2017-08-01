@@ -1,0 +1,660 @@
+"
+"          ifrenzyc's vimrc file
+"
+"     Maintained: ifrenzyc <ifrenzyc@gmail.com>
+"        Website: http://ifrenzyc.iteye.com
+"          Since: 2012/02/01
+"  Last Modified: 2012/06/14 23:28:49
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+
+" IMPORTANT: Plugins manager, auto load all plugins in .vim/bundle or vimfiles/bundle
+" pathogen - http://www.vim.org/scripts/script.php?script_id=2332
+execute pathogen#infect()
+
+" Enable detection, plugins and indenting
+syntax on
+filetype plugin indent on
+
+" Change the mapleader from '\' to ','
+let mapleader=','
+let g:mapleader=','
+
+" @see https://github.com/hotoo/vimrc
+if has("win32") || has("win32unix")
+	let g:OS#name="win"
+	let g:OS#win=1
+	let g:OS#mac=0
+	let g:OS#unix=0
+elseif has("mac")
+	let g:OS#name="mac"
+	let g:OS#mac=1
+	let g:OS#win=0
+	let g:OS#unix=0
+elseif has("unix")
+	let g:OS#name="unix"
+	let g:OS#unix=1
+	let g:OS#win=0
+	let g:OS#mac=0
+endif
+
+if has("gui_running")
+	let g:OS#gui=1
+else
+	let g:OS#gui=0
+endif
+
+" Make it easy to update and reload _vimrc/.vimrc file
+if g:OS#win
+	" Fast editing of _vimrc
+	nmap <leader>v :e $VIM/_vimrc<cr>
+
+	" When _vimrc is edited, reload it
+	autocmd! bufwritepost _vimrc source $VIM/_vimrc
+elseif g:OS#unix || g:OS#mac
+	nmap <leader>v :e ~/.vimrc<cr>
+	autocmd! bufwritepost .vimrc source ~/.vimrc
+endif
+
+
+"---------------------------------------------------------------------------
+"=> General
+"---------------------------------------------------------------------------
+set history=700
+
+" Use mouse in all modes
+set mouse=a
+set mousehide  "hide mouse when typing
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+
+"---------------------------------------------------------------------------
+"=> Vim user interface
+"---------------------------------------------------------------------------
+set shortmess=atI        " Quick startup mode
+set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+
+" Show line numbers
+set nonumber
+
+set cc=120
+hi colorcolumn guibg=red
+set shellslash
+
+" Highlight cursor line
+"set cursorline
+
+" Don't redraw while executing macros
+set nolazyredraw
+
+
+" Disable sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=".
+set tm=500
+
+set ambiwidth=double
+
+autocmd BufEnter * let &titlestring=expand("%:t")
+
+
+"---------------------------------------------------------------------------
+"=> Text, tab and indent
+"---------------------------------------------------------------------------
+" Indent {{{
+set autoindent  "indent at the same level of the previous line
+set smartindent
+" }}}
+
+" TAB setting {{{
+set smarttab
+set softtabstop=4
+set tabstop=4      "show tab indent word space
+set shiftwidth=4   "tab length
+set noexpandtab    "do not replace tab to whitespace
+" }}}
+
+" C/C++ specific settings
+autocmd FileType c,cpp set cindent
+
+set foldenable
+set foldmethod=syntax
+set foldcolumn=0
+setlocal foldlevel=1
+set foldlevelstart=99
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<cr>
+
+
+"---------------------------------------------------------------------------
+"=> Colors and Fonts
+"---------------------------------------------------------------------------
+syntax enable
+
+" GUI {{{
+if OS#gui
+	" Using vim warning style in gvim
+	" @see http://stackoverflow.com/questions/4193654/using-vim-warning-style-in-gvim
+	set guioptions+=c
+
+	set guioptions-=m
+	set guioptions-=T
+	set guioptions-=l
+	set guioptions-=L
+	set guioptions-=r
+	set guioptions-=R
+	set guioptions-=b
+
+	set t_Co=256
+	" set background=light
+	set background=dark
+	if g:OS#win
+		colo github
+	else
+		colo desert
+	endif
+
+	" Maximized GVIM in Windows
+	" @see http://vimdoc.sourceforge.net/htmldoc/gui_w32.html
+	if g:OS#win
+		au GUIEnter * simalt ~x
+	endif
+
+	" <M-Space> is System menu, only work in GUI
+	" @see http://nootn.com/blog/Tool/21/
+	nmap <M-Space> :simalt ~<cr>
+	imap <M-Space> <Esc>:simalt ~<cr>
+	cmap <M-Space> <Esc>:simalt ~<cr>
+else
+	set background=dark
+	colo molokai
+endif
+" }}}
+
+" Font
+if g:OS#gui
+	if g:OS#win
+		set gfn=Consolas:h10:cANSI
+		set guifontwide=YaHei_Consolas_Hybrid:h9
+	elseif g:OS#unix || g:OS#mac
+		set gfn=Monaco:h12
+	endif
+endif
+
+
+"---------------------------------------------------------------------------
+"=> Encodings
+"---------------------------------------------------------------------------
+" Encoding
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=usc-bom,utf-8,gb18030,gbk,gb2312,cp936,big5,euc-jp,euc-kr,latin1
+set langmenu=zh_CN.utf-8
+language messages zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" File format
+set fileformat=unix
+set fileformats=unix,dos,mac
+if g:OS#win
+	set fileencoding=cp936
+	set fileformat=dos
+elseif g:OS#unix || g:OS#mac
+	set fileformat=unix
+endif
+
+
+"---------------------------------------------------------------------------
+"=> Files, backups and undo
+"---------------------------------------------------------------------------
+" Disabling swap files creation
+set noswapfile
+
+" No backup files
+set nobackup
+set nowb
+
+
+"---------------------------------------------------------------------------
+"=> Statusline
+"---------------------------------------------------------------------------
+" Statusline {{{
+set laststatus=2
+
+set statusline=
+set statusline+=\ %<%f
+set statusline+=%w%m%r%h
+set statusline+=\ \ [%{strlen(&ft)?&ft:'none'}/%{&fileformat}][%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]
+set statusline+=\ \ [%b:0x%B]
+set statusline+=%=
+set statusline+=[%l/%L,%c][%p%%]
+
+
+" hi statusline guibg=#b1d631
+hi statusline guibg=#FF6E01
+
+" "  Color function
+" fu! InsertStatuslineColor(mode)
+	" if a:mode == 'i'
+		" hi statusline guibg=#9b601a
+	" elseif a:mode == 'r'
+		" hi statusline guibg=#9b3535
+	" elseif a:mode == 'v'
+		" hi statusline guibg=#a7a863
+	" else
+		" hi statusline guibg=#727272
+	" endif
+" endfu
+
+" "  Insert mode defines the color of the statusline
+" au InsertEnter * call InsertStatuslineColor(v:insertmode)
+" au InsertLeave * call InsertStatuslineColor('n')
+" }}}
+
+" Make the splitters between windows be blank
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+
+
+"---------------------------------------------------------------------------
+"=> Moving around, tabs and buffer
+"---------------------------------------------------------------------------
+set backspace=indent,eol,start
+set whichwrap+=b,s,<,>,[,]
+
+set wrap
+
+set linebreak  "break full word
+set showbreak=>>
+
+set showmatch          "display matching bracets when text indicator is over them
+
+set matchtime=1        "how many tenths of a second to blink
+set matchpairs+=<:>    "show matching <> (html mainly) as well
+
+set hidden
+
+
+"---------------------------------------------------------------------------
+"=> Search and substitute
+"---------------------------------------------------------------------------
+" Search option {{{
+set hlsearch                "show search matches highlighted
+set incsearch               "show search matches while typing
+set ignorecase smartcase    "ignore case when search, except when capital letters used
+set magic                   "for regular expressions
+set nowrapscan              "do not wrap around file when looking for a string
+
+" Set invhlsearch
+map <leader>hl :set invhlsearch<cr>
+
+" Searching forward/backward the selected string
+" @see https://bitbucket.org/gaowhen/vim/src/67c443f1718e/vimrc
+vmap <leader>f y/<C-r>=escape(@", '\\/.*$^~[]')<cr><cr>
+vmap <leader>F y?<C-r>=escape(@", '\\/.*$^~[]')<cr><cr>
+" }}}
+
+
+"---------------------------------------------------------------------------
+"=> Command line
+"---------------------------------------------------------------------------
+set cmdheight=1
+
+set wildmenu  "autocompletion with tabbed search on command line
+set wildmode=longest:full,full
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.svn,*.exe
+set guicursor=a:blinkon0 " remove blinking cursor
+set omnifunc=syntaxcomplete#Complete
+
+" Bash like keys for the command line
+cnoremap <C-a>      <Home>
+cnoremap <C-e>      <End>
+cnoremap <C-k>      <C-u>
+
+if has('cmdline_info')
+	set ruler                  	" show the ruler
+	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+	set showcmd                	" show partial commands in status line and
+endif
+
+
+"---------------------------------------------------------------------------
+"=> Plugins
+"---------------------------------------------------------------------------
+" a.vim {{{
+" }}}
+
+" EasyMotion {{{
+" }}}
+
+" bufExplorer {{{
+let g:bufExplorerSortBy='mru'
+let g:bufExplorerSplitOutPathName=1
+let g:bufExplorerSplitBelow=1
+let g:bufExplorerSplitVertical=1
+let g:bufExplorerSplitVertSize=30
+let g:bufExplorerUseCurrentWindow=1
+
+autocmd BufWinEnter \[Buf\ List\] setl nonu
+" }}}
+
+" NERD_tree {{{
+let NERDTreeIgnore=['\.pyc$','\.svn$','\.tmp$','\.bak','\~$','\.swp$','\Thumbs\.db','\.vcproj$','\.exe$','\.dsw$','\.dsp$','\.sdf$','\.sln$','\.suo$','\.vcxproj$','\.vcxproj.filters$','\.vcxproj.user$','^tags$','^cscope.files$','^cscope.out$','\.opt$','\.plg$','\.ncb$','\.positions$','^.viminfo$','^.session.vim$','^.Trash$','^.dropbox','^.bash_history']
+let NERDChristmasTree=0
+let NERDTreeHighlightCursorline=1
+let NERDTreeMouseMode=1
+let NERDTreeShowBookmarks=1
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=0
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=35
+
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+nmap <silent> <leader>d :NERDTreeToggle<cr>
+" }}}
+
+" Tagbar {{{
+let g:tagbar_ctags_bin='ctags'
+let g:tagbar_width=35
+let g:tagbar_autofocus=1               "move the cursor to Tagbar window when it is opened
+let g:tagbar_iconchars=['+', '-']      "use Windows icons
+nmap <silent> <leader>] :TagbarToggle<cr>
+" }}}
+
+fu! ToggleNERDTreeAndTagbar()
+	silent! NERDTreeToggle
+	silent! TagbarToggle
+endfu
+nmap <F5> :call ToggleNERDTreeAndTagbar()<cr>
+
+" CtrlP {{{
+let g:ctrlp_working_path_mode=0     " don't manage working directory
+let g:ctrlp_max_height=20           " maximum size of match window
+let g:ctrlp_map='<leader>t'         " command to invoke the plugin
+let g:ctrlp_custom_ignore={
+			\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+			\ 'file': '\.exe$\|\.so$\|\.dll$\|\.vcproj$'
+			\ }
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>T :CtrlPClearCache<cr>:CtrlP<cr><cr>
+" }}}
+
+" The NERD Commenter {{{
+let NERDSpaceDelims=1
+let NERDCompactSexyComs=1
+" }}}
+
+" scratch {{{
+" }}}
+
+" SuperTab {{{
+let g:SuperTabRetainCompletionType=3
+" }}}
+
+" Markdown {{{
+" }}}
+
+" OmniCppComplete {{{
+" @see http://vim.wikia.com/wiki/VimTip1608
+" @see http://vim.wikia.com/wiki/C%2B%2B_code_completion
+" @see http://teuton.blogspot.com/2008/07/using-omnicppcomplete-and-vim-for-c.html
+" @see http://www.youtube.com/watch?v=MQy2rVOf-z0
+" @see http://design.liberta.co.za/articles/code-completion-intellisense-for-cpp-in-vim-with-omnicppcomplete/
+au BufNewFile,BufRead,BufEnter *.cpp set omnifunc=omni#cpp#complete#Main
+au BufNewFile,BufRead,BufEnter *.hpp set omnifunc=omni#cpp#complete#Main
+au BufNewFile,BufRead,BufEnter *.cc  set omnifunc=omni#cpp#complete#Main
+
+if g:OS#win
+	set tags+=$VIM/vimfiles/tags/cpp
+elseif g:OS#unix || g:OS#mac
+	set tags+=~/.vim/tags/cpp
+endif
+
+let OmniCpp_NamespaceSearch=1
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_ShowAccess=1
+let OmniCpp_ShowPrototypeInAbbr=1  "show function parameters
+let OmniCpp_MayCompleteDot=1       "autocomplete after .
+let OmniCpp_MayCompleteArrow=1     "autocomplete after ->
+let OmniCpp_MayCompleteScope=1     "autocomplete after ::
+let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD"]
+
+" Automatically open and close the popup menu/preview window
+au CursorMovedI,InsertLeave * if pumvisible()==0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+" }}}
+
+" OmniComplete {{{
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+				\if &omnifunc == "" |
+				\setlocal omnifunc=syntaxcomplete#Complete |
+				\endif
+endif
+
+hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+
+" Some convenient mappings
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
+" Enable omni completion.(Ctrl-X Ctrl-O)
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+" }}}
+
+" echofunc {{{
+let g:EchoFuncShowOnStatus=1
+let g:EchoFuncLangsUsed = ['h', 'c', 'java', 'cpp']
+" }}}
+
+" Mark {{{
+" }}}
+
+" tabular {{{
+nmap <leader>a= :Tabularize /=<cr>
+vmap <leader>a= :Tabularize /=<cr>
+nmap <leader>a: :Tabularize /:<cr>
+vmap <leader>a: :Tabularize /:<cr>
+nmap <leader>a:: :Tabularize /:\zs<cr>
+vmap <leader>a:: :Tabularize /:\zs<cr>
+" }}}
+
+" ZoomWin {{{
+" }}}
+
+" Emmet {{{
+" }}}
+
+
+"---------------------------------------------------------------------------
+"=> Key mappings
+"---------------------------------------------------------------------------
+" Fast saving
+" @see http://amix.dk/vim/vimrc.html
+nmap <leader>w :w!<cr>
+nmap <leader>q :close<cr>
+
+" @see http://www.commandlinefu.com/commands/view/1204/save-a-file-you-edited-in-vim-without-the-needed-permissions
+if g:OS#unix
+	cmap w!! %!sudo tee > /dev/null %
+endif
+
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
+nmap <leader>bd :bd<cr>
+nmap <leader>ba :1,300 bd!<cr>
+
+" Make Ctrl+Backspace delete previous word in Insert Mode and command-line mode
+imap <C-BS> <C-w>
+cmap <C-BS> <C-w>
+
+" Copy/paste to System clipboard
+" if has ('x') && has ('gui') " On Linux use + register for copy-paste
+	" set clipboard=unnamedplus
+" elseif has ('gui')          " On mac and Windows, use * register for copy-paste
+	" set clipboard=unnamed
+" endif
+nmap <leader>pp "+p
+vmap <leader>yy "+y
+
+nmap <leader><space> :call StripTrailingWhitespace()<cr>
+fu! StripTrailingWhitespace()
+	if &ft != "diff"
+		let b:curcol=col(".")
+		let b:curline=line(".")
+		silent! %s/\s\+$//
+		silent! %s/\s*$//g<cr>:noh<cr>''
+		silent! %s/\r\(\n\)/\1/g
+		silent! %s/\(\s*\n\)\+\%$//
+		call cursor(b:curline, b:curcol)
+	endif
+endfu
+
+" Switch CWD to the directory of the open buffer
+nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+"Restore cursor to file position in previous editing session
+set viminfo='10,\"100,:20,%,n~/.viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+set sessionoptions=buffers,sesdir,help,tabpages,winsize
+au VimLeave * mks! ~/.session.vim
+
+" @see http://vim.wikia.com/wiki/Find_in_files_within_Vim
+command! GREP :execute 'vimgrep /' . expand('<cword>') . '/j **/*.{cpp,c,h,umk,ini,xml,java}' | copen
+" command! GREP :execute 'vimgrep /'.expand('<cword>').'/gj '.expand('%') | copen
+
+" Emacs like cursor move
+imap <C-f> <Right>
+imap <C-b> <Left>
+
+imap <f4> <C-r>=GetTimeStamp()<cr>
+fu! GetTimeStamp()
+	return strftime('20%y/%m/%d %H:%M:%S')
+endfu
+
+" map <leader>cw :cw<cr>
+" map <leader>cn :cn<cr>
+" map <leader>cp :cp<cr>
+
+" Always show tab bar
+" set showtabline=2
+
+set guitablabel=%{ShortTabLabelName()}
+function! ShortTabLabelName()
+    let bufnrlist=tabpagebuflist(v:lnum)
+    let label=bufname(bufnrlist[tabpagewinnr(v:lnum) -1])
+    let filename=fnamemodify(label, ':t')
+    return filename
+endfunction
+
+map <C-Tab> :tabnext<cr>
+map <C-S-Tab> :tabprevious<cr>
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+
+fu! FileName()
+	return expand("%:t")
+endfu
+
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+
+"---------------------------------------------------------------------------
+"=> Ctags & Cscope
+"---------------------------------------------------------------------------
+if has("cscope")
+	set cscopequickfix=s-,c-,d-,i-,t-,e-
+	set csto=0
+	set cst csverb
+endif
+
+fu! GenTags()
+	let _dir = getcwd()
+	if filereadable("tags")
+		if g:OS#win
+			let _tagsDeleted=delete(_dir."\\"."tags")
+		else
+			let _tagsDeleted=delete("./"."tags")
+		endif
+
+		if (_tagsDeleted!=0)
+			echohl WarningMsg | echo "Fail to do tags!" | echohl None
+			return
+		endif
+	endif
+
+	if has("cscope")
+		silent! execute "cs kill -1"
+	endif
+	if filereadable("cscope.files")
+		if g:OS#win
+			let _csFilesDeleted=delete(_dir."\\"."cscope.files")
+		else
+			let _csFilesDeleted=delete("./"."cscope.files")
+		endif
+		if (_csFilesDeleted!=0)
+			echohl WarningMsg | echo "Fail to do cscope.files!" | echohl None
+			return
+		endif
+	endif
+	if filereadable("cscope.out")
+		if g:OS#win
+			let _csOutDeleted=delete(_dir."\\"."cscope.out")
+		else
+			let _csOutDeleted=delete("./"."cscope.out")
+		endif
+		if (_csOutDeleted!=0)
+			echohl WarningMsg | echo "Fail to do cscope.out!" | echohl None
+			return
+		endif
+	endif
+
+	if (executable('ctags'))
+		silent! execute "!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q ."
+	endif
+
+	if (executable('cscope') && has('cscope'))
+		if g:OS#win
+			silent! execute "!dir /s/b *.c,*.cpp,*.h,*.java >> cscope.files"
+		else
+			silent! execute "!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.java' > cscope.files"
+		endif
+		silent! execute "!cscope -b"
+		execute "normal :"
+		if filereadable("cscope.out")
+			execute "cs add cscope.out"
+		endif
+	endif
+endfu
+nmap <F12> :call GenTags()<cr>
+
+nmap <C-_>s :cs find s <C-r>=expand("<cword>")<cr><cr>
+nmap <C-_>g :cs find g <C-r>=expand("<cword>")<cr><cr>
+nmap <C-_>c :cs find c <C-r>=expand("<cword>")<cr><cr>
+nmap <C-_>t :cs find t <C-r>=expand("<cword>")<cr><cr>
+nmap <C-_>e :cs find e <C-r>=expand("<cword>")<cr><cr>
+nmap <C-_>f :cs find f <C-r>=expand("<cfile>")<cr><cr>
+nmap <C-_>i :cs find i ^<C-r>=expand("<cfile>")<cr>$<cr>
+nmap <C-_>d :cs find d <C-r>=expand("<cword>")<cr><cr>

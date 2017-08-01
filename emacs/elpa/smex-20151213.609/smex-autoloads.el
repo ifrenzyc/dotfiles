@@ -1,10 +1,11 @@
 ;;; smex-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "smex" "smex.el" (22324 16289 0 0))
-;;; Generated autoloads from smex.el
+;;;### (autoloads nil "smex" "../../../../.emacs.d/elpa/smex-20151213.609/smex.el"
+;;;;;;  "c1c16212415149f62f6b4b1305b6aad7")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/smex-20151213.609/smex.el
 
 (autoload 'smex "smex" "\
 
@@ -20,6 +21,12 @@ Like `smex', but limited to commands that are relevant to the active major mode.
 
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/smex-20151213.609/smex-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/smex-20151213.609/smex.el") (22908
+;;;;;;  19535 0 0))
 
 ;;;***
 
