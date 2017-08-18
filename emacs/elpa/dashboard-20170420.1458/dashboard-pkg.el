@@ -1,1 +1,0 @@
-(define-package "dashboard" "20170420.1458" "A startup screen extracted from Spacemacs"  '((emacs "24.4") (page-break-lines "0.11") ) :url "https://github.com/rakanalh/emacs-dashboard" :keywords '("startup screen tools" ))

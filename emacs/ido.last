@@ -2,31 +2,59 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/yangc/notes/00_Notes/" . "Golang/")
  ("/Users/yangc/notes/" . "gtd/")
+ ("/Users/yangc/src/go/src/github.com/ifrenzyc/" . "hellogo/")
+ ("/Users/yangc/src/go/src/github.com/" . "ifrenzyc/")
+ ("/Users/yangc/src/go/src/" . "github.com/")
+ ("/Users/yangc/src/go/" . "src/")
+ ("/Users/yangc/src/" . "gogs/")
  ("/Users/yangc/" . "notes/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/yangc/.dotfiles/emacs/"
  "/Users/yangc/notes/gtd/"
+ "/Users/yangc/.emacs.d/"
+ "/Users/yangc/notes/00_Notes/Golang/"
+ "/Users/yangc/src/go/src/github.com/ifrenzyc/hellogo/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "emacs.org"
  "inbox.org"
+ "emacs.org"
+ "搭建 Emacs 开发环境.org"
+ "int_to_string.go"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/yangc/.dotfiles/emacs/" (22912 41945 0 0) "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "bin/" "auto-save-list/" ".org-id-locations" ".DS_Store" "../" "./")
+ ("/Users/yangc/" (22934 34824 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zprofile" ".zcompdump-itsyc-5.2" ".z" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".vimrc/" ".viminfo" ".vim-bookmarks" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf/" ".swt/" ".subversion/" ".ssh/" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rustup/" ".rediscli_history" ".rally/" ".python_history" ".profile" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".multirust/" ".m2/" ".local/" ".lesshst" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java_history" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".cow/" ".config/" ".cmake/" ".clj_completions" ".CFUserTextEncoding" ".cargo/" ".cache/" ".bundle/" ".black-screen-state" ".berkshelf/" ".bastetrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
 
- ("/Users/yangc/" (22912 41311 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zprofile" ".z" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".vimrc/" ".viminfo" ".vim-bookmarks" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf/" ".swt/" ".subversion/" ".ssh/" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rustup/" ".rediscli_history" ".rally/" ".profile" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".multirust/" ".m2/" ".local/" ".lesshst" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".cow/" ".config/" ".cmake/" ".CFUserTextEncoding" ".cargo/" ".cache/" ".bundle/" ".black-screen-state" ".berkshelf/" ".bastetrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
+ ("/Users/yangc/notes/gtd/" (22934 34300 0 0) "tickler.org" "someday.org" "inbox.org" "gtd.org_archive" "gtd.org" ".DS_Store" "#inbox.org#" "../" "./")
 
- ("/Users/yangc/notes/gtd/" (22912 39055 0 0) "tickler.org" "someday.org" "inbox.org" "gtd.org_archive" "gtd.org" ".DS_Store" "#inbox.org#" "../" "./")
+ ("/Users/yangc/src/go/src/github.com/" (22934 29873 0 0) "yayua/" "urfave/" "Unknwon/" "ugorji/" "twinj/" "tpng/" "toolkits/" "syndtr/" "stretchr/" "sqs/" "siddontang/" "shurcooL/" "sergi/" "satori/" "russross/" "rogpeppe/" "ramya-rao-a/" "pingcap/" "petar/" "open-falcon/" "nsf/" "ngaut/" "nfnt/" "msteinert/" "microcosm-cc/" "mcuadros/" "mattn/" "mailgun/" "lib/" "klauspost/" "kisielk/" "khala/" "juju/" "jstemmer/" "josharian/" "jaytaylor/" "issue9/" "ifrenzyc/" "google/" "golang/" "gogits/" "go-xorm/" "go-sql-driver/" "go-macaron/" "flike/" "fatih/" "dougm/" "cweill/" "coreos/" "coraldane/" "codegangsta/" "bradfitz/" "boltdb/" "astaxie/" "alecthomas/" "acroca/" ".DS_Store" "../" "./")
 
- ("/Users/yangc/notes/" (22888 30089 0 0) "todolist.org" "styles/" "setup.org" "index.html" "home.org" "gtd/" "footer.org" "draft.org" "_images/" "_attachments/" "99_Diary/" "04_PPT/" "03_Life/" "02_Blog/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+ ("/Users/yangc/src/go/src/github.com/ifrenzyc/hellogo/" (22934 32265 0 0) "vars_default_val.go" "vars.go" "vars" "temp.go" "main.tmpl" "int_to_string.go" "hello_web.go" "hello_beego.go" "hello_beego" "hello.go" "hello" ".idea/" "../" "./")
+
+ ("/Users/yangc/.emacs.d/" (22934 33989 0 0) "snippets/" "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "bin/" "auto-save-list/" ".org-id-locations" ".last-package-update-day" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/Golang/" (22933 19445 0 0) "搭建 Emacs 开发环境.org" "go.org" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/" (22933 3232 0 0) "我的 Rime 输入设置.org" "大数据学习.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "分布式事务.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "Python/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "Elastic Stack.org" "Dubbo.org" "Coljure/" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_大数据学习/" "_images/" "_Elastic Stack/" "634px-PostgreSQL 架构.jpg" "09_软件工程.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/" (22919 57468 0 0) "todolist.org" "styles/" "setup.org" "index.html" "home.org" "gtd/" "footer.org" "draft.org" "_images/" "_attachments/" "99_Diary/" "04_PPT/" "03_Life/" "02_Blog/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/ifrenzyc/" (22372 9673 0 0) "hellogo/" "../" "./")
+
+ ("/Users/yangc/src/go/src/" (22933 447 0 0) "sourcegraph.com/" "gopkg.in/" "golang.org/" "github.com/" "9fans.net/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/" (22440 17319 0 0) "src/" "pkg/" "bin/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/gogs/" (22377 28404 0 0) "gogs_v0.9.13_linux_amd64.tar.gz" "gogs_udal/" "gogs_master.tar.gz" "gogs_dev_new.tar.gz" "gogs_dev.tar.gz" "gogs_bak20160518.tar.gz" "gogs/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/" (22777 53614 0 0) "YCM-Generator/" "yangc/" "webpack/" "txc-yun-sample/" "opensource/" "ncrm-web/" "mule/" "ks/" "kmas/" "gogs/" "go/" "ggzy/" "eshore/" "ec_proj/" "docker/" "config-server/" "commons-dbcp/" "AnypointStudio/" "angularjs/" ".DS_Store" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

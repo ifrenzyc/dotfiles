@@ -1,16 +1,20 @@
 
 ;; ----- smex-history -----
 (
+ vc-git-stash-pop
+ compile
  package-list-packages
+ go
+ customize-variable
  cd
  5x5
- arp
- dbx
- dig
- erc
 )
 
 ;; ----- smex-data -----
 (
+ (go . 2)
+ (customize-variable . 1)
  (package-list-packages . 1)
+ (compile . 1)
+ (vc-git-stash-pop . 1)
 )

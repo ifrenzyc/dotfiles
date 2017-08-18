@@ -1,1 +1,0 @@
-(define-package "direx" "20170422.2127" "Simple Directory Explorer"  'nil  :url "https://github.com/m2ym/direx-el" :keywords '("convenience" ))

@@ -1,1 +1,1 @@
-("~/.dotfiles/" "~/Dropbox/itsycnotes/")
+("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/src/go/src/github.com/khala/easy-deploy/")

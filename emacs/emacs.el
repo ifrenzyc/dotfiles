@@ -14,6 +14,28 @@
 ;; tabs are truly evil
 (setq-default indent-tabs-mode nil)
 
+;;; warn when opening files bigger than 100MB (default is 10MB)
+(setq large-file-warning-threshold 100000000)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "GOPATH"))
+  )
+
+;; start the emacs server
+(use-package server
+  :commands (server-running-p server-start)
+  :init (unless (server-running-p)
+          (server-start)))
+
+(use-package auto-package-update
+  :ensure t
+  :init (progn (setq auto-package-update-interval 3)
+               (with-demoted-errors (auto-package-update-maybe))))
+
 ;; 设置个人信息
 (setq user-full-name "Yang Chuang")
 (setq user-mail-address "ifrenzyc@gmail.com")
@@ -34,6 +56,9 @@
 
 ;; 改变 Emacs 固执的要你回答 yes 的行为。按 y 或空格键表示 yes，n 表示 no。
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;;; show human readable file sizes in dired
+(setq dired-listing-switches "-alh")
 
 ;; 显示行列号
 (setq linum-mode nil)
@@ -60,7 +85,6 @@
 (global-visual-line-mode nil)
 (setq word-wrap t)
 (setq truncate-lines t)
-
 
 ;; @see http://ergoemacs.org/emacs/whitespace-mode.html
 ;; @see http://xahlee.info/comp/unicode_arrows.html
@@ -154,6 +178,16 @@
 ;;   ;; (sublimity-map-set-delay 5)
 ;;   )
 
+;;; respect ansi colors
+(ansi-color-for-comint-mode-on)
+
+;;; ansi colors in compilation mode
+(ignore-errors
+  (defun itsyc-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  (add-hook 'compilation-filter-hook itsyc-colorize-compilation-buffer))
+
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook)
@@ -162,16 +196,380 @@
                           (bookmarks . 5)))
   )
 
+;; @see https://github.com/gorakhargosh/emacs.d/blob/master/themes/color-theme-less.el
+;; (use-package hc-zenburn-theme
+;;   :ensure t
+;;   :init
+;;   (defvar zenburn-override-colors-alist
+;;     '(("zenburn-bg+05" . "#282828")
+;;       ("zenburn-bg+1"  . "#2F2F2F")
+;;       ("zenburn-bg+2"  . "#3F3F3F")
+;;       ("zenburn-bg+3"  . "#4F4F4F")))
+;;   (load-theme 'zenburn t)
+;;   :config
+;;   (set-face-attribute 'region nil :background "#666"))
+
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  ;; (load-theme  'gruvbox-dark-medium t))
+  (load-theme  'gruvbox-dark-soft t))
+;; (load-theme  'gruvbox-dark-hard t))
+;; (load-theme  'gruvbox-light-medium t))
+;; (load-theme  'gruvbox-light-soft t))
+;; (load-theme  'gruvbox-light-hard t))
+
+;; (use-package zerodark-theme
+;;   :demand t
+;;   :config
+;;   (progn
+;;     (defun set-selected-frame-dark ()
+;;       (interactive)
+;;       (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
+;;         (call-process-shell-command
+;;          (format
+;;           "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
+;;           frame-name))))
+
+;;     (when (window-system)
+;;       (load-theme 'zerodark t)
+;;       (zerodark-setup-modeline-format)
+;;       (set-selected-frame-dark)
+;;       (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
+
+;; (use-package all-the-icons
+;;   :ensure t)
+;; Solarized
+;; https://github.com/sellout/emacs-color-theme-solarized/pull/187
+;; (use-package color-theme
+;;   :ensure t)
+;; (setq color-themes '())
+;; (use-package color-theme-solarized
+;;   :ensure t
+;;   :config
+;;   (customize-set-variable 'frame-background-mode 'light)
+;;   (load-theme 'solarized t))
+
+;; (use-package color-theme
+;;   :ensure t)
+;; (setq color-themes '())
+;; (load-theme 'adwaita t)
+
+;; (use-package molokai-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'molokai t))
+
+;; (use-package monochrome-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'monochrome t))
+
+;; (use-package quasi-monochrome-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'quasi-monochrome t))
+
+;; @see https://github.com/dmand/eink.el
+;; (use-package eink-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'eink t))
+
+;; (use-package phoenix-dark-mono-theme
+;; :ensure t
+;;  :init
+;;  (load-theme 'phoenix-dark-mono t))
+
+;; @see https://github.com/anler/minimal-theme
+;; (use-package minimal-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'minimal t))
+
+;; @see https://github.com/fgeller/basic-theme.el
+;; (use-package basic-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'basic t))
+
+;; (defun mode-line-visual-toggle ()
+;;  (interactive)
+;;  (let ((faces-to-toggle '(mode-line mode-line-inactive))
+;;        (invisible-color "#e8e8e8")
+;;        (visible-color "#a1b56c"))
+;;    (cond ((string= visible-color (face-attribute 'mode-line :background))
+;;           (mapcar (lambda (face)
+;;                     (set-face-background face invisible-color)
+;;                     (set-face-attribute face nil :height 20))
+;;                   faces-to-toggle))
+;;          (t
+;;           (mapcar (lambda (face)
+;;                     (set-face-background face visible-color)
+;;                     (set-face-attribute face nil :height (face-attribute 'default :height)))
+;;                   faces-to-toggle)))))
+
+;; (use-package paper-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'paper t))
+
+;; (use-package base16-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'base16-monokai t))
+;; (load-theme 'base16-google-dark t))
+;; (load-theme 'base16-solarized-light t))
+;; (load-theme 'base16-tomorrow-night t))
+;; (load-theme 'base16-grayscale-dark t))
+;; (load-theme 'base16-spacemacs-theme t))
+
+;; (use-package leuven-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'leuven t)
+;;   :config
+;;   ;; Fontify the whole line for headings (with a background color).
+;;   (setq org-fontify-whole-heading-line t))
+
+;; (use-package kaolin-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'kaolin t))
+
+;; Got following from Purcell's emacs configuration
+;; From https://github.com/purcell/emacs.d
+
+;; (use-package color-theme-sanityinc-solarized
+;;   :ensure t
+;;   :defer t)
+;; (use-package color-theme-sanityinc-tomorrow
+;;   :ensure t
+;;   :defer t)
+;; ;;------------------------------------------------------------------------------
+;; ;; Old-style color theming support (via color-theme.el)
+;; ;;------------------------------------------------------------------------------
+;; (defcustom window-system-color-theme 'color-theme-sanityinc-solarized-dark
+;;   "Color theme to use in window-system frames.
+;;   If Emacs' native theme support is available, this setting is
+;;   ignored: use `custom-enabled-themes' instead."
+;;   :type 'symbol)
+
+;; (defcustom tty-color-theme 'color-theme-terminal
+;;   "Color theme to use in TTY frames.
+;;   If Emacs' native theme support is available, this setting is
+;;   ignored: use `custom-enabled-themes' instead."
+;;   :type 'symbol)
+
+;; (unless (boundp 'custom-enabled-themes)
+;;   (defun color-theme-terminal ()
+;;     (interactive)
+;;     (color-theme-sanityinc-solarized-dark))
+
+;;   (defun apply-best-color-theme-for-frame-type (frame)
+;;     (with-selected-frame frame
+;;       (funcall (if window-system
+;;                    window-system-color-theme
+;;                  tty-color-theme))))
+
+;;   (defun reapply-color-themes ()
+;;     (interactive)
+;;     (mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
+
+;;   (set-variable 'color-theme-is-global nil)
+;;   (add-hook 'after-make-frame-functions 'apply-best-color-theme-for-frame-type)
+;;   (add-hook 'after-init-hook 'reapply-color-themes)
+;;   (apply-best-color-theme-for-frame-type (selected-frame)))
+
+;; ;;------------------------------------------------------------------------------
+;; ;; New-style theme support, in which per-frame theming is not possible
+;; ;;------------------------------------------------------------------------------
+
+;; ;; If you don't customize it, this is the theme you get.
+;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
+
+;; ;; Ensure that themes will be applied even if they have not been customized
+;; (defun reapply-themes ()
+;;   "Forcibly load the themes listed in `custom-enabled-themes'."
+;;   (dolist (theme custom-enabled-themes)
+;;     (unless (custom-theme-p theme)
+;;       (load-theme theme)))
+;;   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
+
+;; (add-hook 'after-init-hook 'reapply-themes)
+
+
+;; ;;------------------------------------------------------------------------------
+;; ;; Toggle between light and dark
+;; ;;------------------------------------------------------------------------------
+;; (defun light ()
+;;   "Activate a light color theme."
+;;   (interactive)
+;;   (color-theme-sanityinc-solarized-light))
+
+;; (defun dark ()
+;;   "Activate a dark color theme."
+;;   (interactive)
+;;   (color-theme-sanityinc-solarized-dark))
+
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+;; M-x color-theme-sanityinc-tomorrow-day
+;; M-x color-theme-sanityinc-tomorrow-night
+;; M-x color-theme-sanityinc-tomorrow-blue
+;; M-x color-theme-sanityinc-tomorrow-bright
+;; M-x color-theme-sanityinc-tomorrow-eighties
+;; (use-package color-theme-sanityinc-tomorrow
+;;  :ensure t
+;;  :config
+;;  (color-theme-sanityinc-tomorrow--define-theme day))
+
+;; (use-package powerline
+;;  :ensure t
+;;  :init
+;;  (powerline-vim-theme)
+;;  )
+
+;; (use-package powerline-evil
+;;  :ensure t
+;;  :init
+;;  (powerline-evil-vim-color-theme))
+
+;; (use-package smart-mode-line-powerline-theme :ensure t)
+
+;; (use-package smart-mode-line
+;;  :ensure t
+;;  :init
+;;  (setq powerline-arrow-shape 'arrow)
+;;  (setq ns-use-srgb-colorspace t)
+;;  (setq powerline-default-separator-dir '(left . right))
+;;  (setq sml/no-confirm-load-theme t)
+;;  ;; (setq sml/theme 'dark)
+;;  ;; (setq sml/theme 'light)
+;;  ;; (setq sml/theme 'respectful)
+;;  (setq sml/theme 'powerline)
+;;  (sml/setup))
+
+(use-package powerline
+  :ensure t
+  :config (progn
+            ;; Wave seperators please
+            ;; wave
+            ;; arrow
+            ;; rounded
+            ;; zigzag
+            ;; These two lines are just examples
+            (setq powerline-arrow-shape 'nil)
+            (setq powerline-default-separator-dir '(right . left))
+            (setq powerline-default-separator 'nil)
+            (powerline-vim-theme)))
+
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (setq sml/theme 'dark)
+  (sml/setup))
+
+(use-package smart-mode-line-powerline-theme
+  :ensure t
+  :config (setq sml/theme 'powerline))
+
+(use-package nyan-mode
+  :ensure t
+  :init
+  (progn
+    (nyan-mode)
+    (setq nyan-wavy-trail t))
+  :config (nyan-start-animation))
+
+;; 目前这个有 bug，会导致 emacs 卡死，但不知道具体原因
+;; Use spacemacs' mode line
+;; @see https://libraries.io/emacs/spaceline
+;; @see https://github.com/TeMPOraL/nyan-mode
+;; @see https://github.com/TheBB/spaceline
+;; (use-package spaceline
+;;   :ensure t
+;;   :config (progn (use-package spaceline-config
+;;   :ensure spaceline
+;;   :config
+;;   (spaceline-helm-mode 1)
+;;   (spaceline-emacs-theme))
+;;             (require 'spaceline-segments)
+;;             (spaceline-spacemacs-theme)
+;;             (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+;;             ))
+
+;; (use-package spaceline-all-the-icons
+;;   :after spaceline
+;;   :config
+;;   (spaceline-all-the-icons-theme)
+;;   (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
+;;   (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
+;;   (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
+;;   (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
+;;   (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line)
+;;   )
+
+(custom-set-faces
+ '(org-block-begin-line
+   ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-block-end-line
+   ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-block
+   ((t (:background "#333333"))))
+ '(org-block-background
+   ((t (:background "#333333"))))
+ )
+
+(use-package smartparens
+  :ensure t
+  :init (use-package smartparens-config)
+  :config (progn (smartparens-global-mode t)
+                 ;; highlights matching pairs
+                 (show-smartparens-global-mode t)
+                 ;; custom keybindings for smartparens mode
+                 (define-key smartparens-mode-map (kbd "C-<left>") 'sp-forward-barf-sexp)
+                 (define-key smartparens-mode-map (kbd "M-(") 'sp-forward-barf-sexp)
+                 (define-key smartparens-mode-map (kbd "C-<right>") 'sp-forward-slurp-sexp)
+                 (define-key smartparens-mode-map (kbd "M-)") 'sp-forward-slurp-sexp)
+
+                 (define-key smartparens-strict-mode-map (kbd "M-d") 'kill-sexp)
+                 (define-key smartparens-strict-mode-map (kbd "M-D") 'sp-kill-sexp)
+                 (define-key smartparens-mode-map (kbd "s-S") 'sp-split-sexp)
+
+
+                 (sp-with-modes '(clojure-mode cider-repl-mode)
+                   (sp-local-pair "#{" "}")
+                   (sp-local-pair "`" nil :actions nil)
+                   (sp-local-pair "@(" ")")
+                   (sp-local-pair "#(" ")"))
+
+                 (sp-local-pair 'markdown-mode "`" nil :actions nil)
+                 (sp-local-pair 'gfm-mode "`" nil :actions nil)
+
+                 (sp-local-pair 'web-mode "{" "}" :actions nil)
+                 ;; (-each sp--lisp-modes 'enable-lisp-hooks)
+                 ))
+
 (use-package company
   :ensure t
   :defer t
+  :commands global-company-mode
+  :diminish "comp"
   :init
+  (global-company-mode)
   (add-hook 'after-init-hook 'global-company-mode)
   (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
   :config
   ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
   ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
   (setq company-idle-delay 0.2)
+  (setq company-tooltip-flip-when-above t)
   (setq company-selection-wrap-around t)
   (define-key company-active-map [tab] 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
@@ -444,6 +842,18 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :init
   (setq avy-background t))
 
+(use-package yasnippet
+  :ensure t
+  :defer 2
+  :diminish yas-minor-mode
+  :config
+  (progn
+    ;; Suppress excessive log messages
+    (setq yas-verbosity 1
+          yas-prompt-functions '(yas-ido-prompt)
+          yas-snippet-dir (expand-file-name "snippets" user-emacs-directory))
+    (yas-global-mode t)))
+
 (use-package expand-region
   :ensure t
   :init
@@ -464,6 +874,18 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
               ("m" . apply-macro-to-region-lines)
               :map selected-org-mode-map
               ("t" . org-table-convert-region)))
+
+;;; highlight-symbol
+(use-package highlight-symbol
+  :ensure t
+  :diminish ""
+  :bind (("C-<f3>" . highlight-symbol-at-point)
+         ("<f3>" . highlight-symbol-next)
+         ("S-<f3>" . highlight-symbol-prev)
+         ("M-<f3>" . highlight-symbol-prev))
+  :config (progn (setq highlight-symbol-idle-delay 0.5)
+                 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+                 (highlight-symbol-mode)))
 
 ;; frame font
 ;; Setting English Font
@@ -492,21 +914,220 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
+(use-package direx
+  :ensure t
+  :init
+  (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory))
+
+(use-package projectile
+  :ensure t
+  :init (projectile-global-mode)
+       :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+                 ;; add to the globally ignored files
+                 (dolist (file-name '("*~" "*.elc"))
+                 (add-to-list 'projectile-globally-ignored-files file-name))))
+
 (use-package go-mode
   :ensure t
-  :config
-  ;; 保存文件的时候对该源文件做一下 gofmt
-  (add-hook 'before-save-hook #'gofmt-before-save))
+  :mode ("\\.go" . go-mode)
+  :commands go-mode
+  :init (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+  :config (progn (use-package company-go
+                   :ensure t
+                   :if (executable-find "gocode")
+                   :commands company-go
+                   :init (add-hook 'after-init-hook
+                                   (lambda ()(add-to-list 'company-backends 'company-go)))
+                   )
+                 (use-package go-direx
+                   :ensure t
+                   :init
+                   (define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer))
+                 (use-package go-eldoc
+                   :ensure t
+                   :if (executable-find "gocode")
+                   :commands go-eldoc-setup
+                   :init (add-to-list 'go-mode-hook 'go-eldoc-setup))
+                 (bind-key "M-." 'godef-jump go-mode-map)
+                 (bind-key "M-," 'pop-tag-mark go-mode-map)
+                 (bind-key "C-S-F" 'gofmt go-mode-map)
+                 (bind-key "M-<return>" 'godef-describe go-mode-map)
+
+                 (add-hook 'go-mode-hook 'flycheck-mode)
+                 (add-hook 'go-mode-hook 'yas-minor-mode)
+                 (add-hook 'go-mode-hook 'highlight-symbol-mode)
+
+                 ;; 保存文件的时候对该源文件做一下 gofmt
+                 (add-hook 'before-save-hook 'gofmt-before-save)
+                 (add-hook 'go-mode-hook
+                           (lambda ()
+                             (setq tab-width 4)
+                             (setq indent-tabs-mode 1))))
+  )
 
 (use-package go-complete :ensure t)
-(use-package go-direx :ensure t)
 (use-package go-errcheck :ensure t)
 (use-package go-gopath :ensure t)
 (use-package go-impl :ensure t)
 (use-package go-projectile :ensure t)
-(use-package go-snippets :ensure t)
+(use-package go-snippets
+  :ensure go-snippets
+  :init (go-snippets-initialize))
 
-(use-package projectile :ensure t)
+;; Quick run current buffer
+(defun go ()
+  "run current buffer"
+  (interactive)
+  (compile (concat "go run " (buffer-file-name))))
+
+;; use goimports instead of gofmt ::super
+(setq gofmt-command "goimports")
+
+(defun itsyc-run-current-file ()
+  "Execute the current file.
+For example, if the current buffer is x.py, then it'll call「python x.py」in a shell. Output is printed to message buffer.
+
+The file can be Emacs Lisp, PHP, Perl, Python, Ruby, JavaScript, TypeScript, golang, Bash, Ocaml, Visual Basic, TeX, Java, Clojure.
+File suffix is used to determine what program to run.
+
+If the file is modified or not saved, save it automatically before run.
+
+URL `http://ergoemacs.org/emacs/elisp_run_current_file.html'
+Version 2017-07-31"
+  (interactive)
+  (let (
+        ($suffix-map
+         ;; (‹extension› . ‹shell program name›)
+         `(
+           ("php" . "php")
+           ("pl" . "perl")
+           ("py" . "python")
+           ("py3" . ,(if (string-equal system-type "windows-nt") "c:/Python32/python.exe" "python3"))
+           ("rb" . "ruby")
+           ("go" . "/usr/local/bin/go run")
+           ("hs" . "runhaskell")
+           ("js" . "node") ; node.js
+           ("ts" . "tsc --alwaysStrict --lib DOM,ES2015,DOM.Iterable,ScriptHost --target ES5") ; TypeScript
+           ("sh" . "bash")
+           ("clj" . "java -cp /home/xah/apps/clojure-1.6.0/clojure-1.6.0.jar clojure.main")
+           ("rkt" . "racket")
+           ("ml" . "ocaml")
+           ("vbs" . "cscript")
+           ("tex" . "pdflatex")
+           ("latex" . "pdflatex")
+           ("java" . "javac")
+           ;; ("pov" . "/usr/local/bin/povray +R2 +A0.1 +J1.2 +Am2 +Q9 +H480 +W640")
+           ))
+        $fname
+        $fSuffix
+        $prog-name
+        $cmd-str)
+    (when (not (buffer-file-name)) (save-buffer))
+    (when (buffer-modified-p) (save-buffer))
+    (setq $fname (buffer-file-name))
+    (setq $fSuffix (file-name-extension $fname))
+    (setq $prog-name (cdr (assoc $fSuffix $suffix-map)))
+    (setq $cmd-str (concat $prog-name " \""   $fname "\""))
+    (cond
+     ((string-equal $fSuffix "el") (load $fname))
+     ((string-equal $fSuffix "go")
+      (when (fboundp 'gofmt)
+        (gofmt)
+        (shell-command $cmd-str "*xah-run-current-file output*" )))
+     ((string-equal $fSuffix "java")
+      (progn
+        (shell-command $cmd-str "*xah-run-current-file output*" )
+        (shell-command
+         (format "java %s" (file-name-sans-extension (file-name-nondirectory $fname))))))
+     (t (if $prog-name
+            (progn
+              (message "Running…")
+              (shell-command $cmd-str "*xah-run-current-file output*" ))
+          (message "No recognized program file suffix for this file."))))))
+
+(use-package clojure-mode
+  :ensure t
+  :commands clojure-mode
+  :init (add-to-list 'auto-mode-alist '("\\.\\(clj[sx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
+  :config (progn (use-package cider
+                   :ensure t
+                   :init (progn (add-hook 'clojure-mode-hook 'cider-turn-on-eldoc-mode)
+                                (add-hook 'cider-repl-mode-hook 'subword-mode))
+                   :config (progn (setq cider-annotate-completion-candidates t
+                                        cider-mode-line " cider")
+                                  (define-key cider-repl-mode-map (kbd "M-RET") 'cider-doc)
+                                  (define-key cider-mode-map (kbd "M-RET") 'cider-doc)))
+                 (use-package clj-refactor
+                   :ensure t
+                   :init (progn (add-hook 'clojure-mode-hook (lambda ()
+                                                               (clj-refactor-mode 1)
+                                                               (cljr-add-keybindings-with-prefix "C-c C-m")))
+                                (define-key clojure-mode-map (kbd "C-:") 'clojure-toggle-keyword-string)
+                                (define-key clojure-mode-map (kbd "C->") 'cljr-cycle-coll)))
+                 (add-hook 'clojure-mode-hook (lambda () (setq buffer-save-without-query t)))
+                 (add-hook 'clojure-mode-hook 'subword-mode)
+                 ;; Fancy docstrings for schema/defn when in the form:
+                 ;; (schema/defn NAME :- TYPE "DOCSTRING" ...)
+                 (put 'schema/defn 'clojure-doc-string-elt 4)))
+
+(use-package js2-mode
+  :ensure t
+  :init (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  :config (use-package tern
+            :commands tern-mode
+            :init (add-hook 'js2-mode-hook 'tern-mode)
+            :config (progn (use-package company-tern
+                             :ensure t
+                             :init (add-to-list 'company-backends 'company-tern))
+                           (define-key tern-mode-keymap (kbd "M-.") 'tern-find-definition)
+                           (define-key tern-mode-keymap (kbd "C-M-.") 'tern-find-definition-by-name)
+                           (define-key tern-mode-keymap (kbd "M-,") 'tern-pop-find-definition)
+                           (define-key tern-mode-keymap (kbd "C-c C-r") 'tern-rename-variable)
+                           (define-key tern-mode-keymap (kbd "C-c C-c") 'tern-get-type)
+                           (define-key tern-mode-keymap (kbd "C-c C-d") 'tern-get-docs)
+                           (define-key tern-mode-keymap (kbd "M-<return>") 'tern-get-docs))))
+
+(use-package web-mode
+  :ensure t
+  :commands web-mode
+  :init (progn (add-to-list 'auto-mode-alist '("\\.phtml$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.tpl\\.php$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.[gj]sp$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.as[cp]x$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.erb$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.mustache$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.djhtml$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.html$'" . web-mode)))
+  :config ;; Autocomplete end tag when finished writing opening tag
+  (setq web-mode-auto-close-style 2))
+
+(use-package json-mode
+  :ensure t
+  :defer t
+  :init (progn (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+               (add-to-list 'auto-mode-alist '("\\.jsonld$" . json-mode))
+               (add-to-list 'auto-mode-alist '(".tern-project" . json-mode))
+               (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode)))
+  :config (progn (add-hook 'json-mode-hook 'flycheck-mode)
+                 (bind-key "C-S-f" 'json-mode-beautify json-mode-map)))
+
+(use-package nxml-mode
+  :defer t
+  :init (progn (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
+               (add-to-list 'auto-mode-alist '("\\.gapp$" . nxml-mode)))
+  :config (progn (bind-key "C-S-f" 'beautify-xml nxml-mode-map)))
+
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+
+(use-package logstash-conf
+  :ensure t
+  :config
+  (setq logstash-indent 2))
+
 (use-package helm
   :ensure t
   :config
@@ -573,6 +1194,32 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
   (global-set-key (kbd "C-c f") 'ido-recentf-open))
 
+;;; spell checking
+(use-package ispell
+  :config (setq ispell-program-name "aspell" ; use aspell instead of ispell
+                ispell-extra-args '("--sug-mode=ultra")))
+
+(use-package flyspell
+  :ensure t
+  :defer 2
+  :commands flyspell-mode
+  :init (add-hook 'text-mode-hook 'flyspell-mode))
+
+;;; flycheck mode
+(use-package flycheck
+  :ensure t
+  :commands global-flycheck-mode
+  :config (progn (use-package popup
+                   :ensure t)
+                 (use-package flycheck-pos-tip
+                   :ensure t)
+                 (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
+                 ;; (use-package flycheck-clojure
+                 ;;   :ensure t
+                 ;;   :init (flycheck-clojure-setup))
+                 (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
+                 (global-flycheck-mode)))
+
 ;; (use-package indent-guide
 ;; :ensure t
 ;; :init
@@ -582,7 +1229,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; (setq indent-guide-recursive t)
 ;; )
 
-
 (use-package highlight-indentation
   :ensure t
   :init
@@ -590,6 +1236,15 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :config
   (set-face-background 'highlight-indentation-face "#e3e3d3")
   (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
+
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("C-c SPC" . ace-jump-mode))
+
+;;; ace-window
+(use-package ace-window
+  :ensure t
+  :bind ("C-x o" . ace-window))
 
 ;; (bind-map my-base-leader-map
 ;;  :keys ("M-m")
@@ -1043,14 +1698,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key global-map "\C-cc" 'org-capture)
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 ;; :empty-lines 2
-;; %u -- 插入当前日志[2017-07-17 Mon]
-;; %U -- 插入当前日志，并有具体时间[2017-07-17 Mon 16:48]
-;; %T -- 时间格式不同而已<2017-07-17 Mon 16:48>
-;; %a -- 插入当前所在文档的 link 地址
-;; :empty-lines 1
 (setq org-capture-templates
       '(("t" "todo [inbox]" entry (file+headline "gtd/inbox.org" "Tasks")
-         "* TODO %i%?\n%U\n" :clock-in t :clock-resume t :prepend t)
+         "* TODO %i%?\n%U\n" :clock-in t :clock-resume t :prepend t :empty-lines 1)
         ;; ("t" "TODO" entry (file (concat org-directory "gtd/inbox.org"))
         ;;  "* TODO %?\n%u\n%a\nDEADLINE: %t" :clock-in t :clock-resume t)
         ("T" "Tickler" entry (file+headline "gtd/tickler.org" "Tickler")
@@ -1115,6 +1765,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; Set to <your Dropbox root directory>/MobileOrg.
 (setq org-mobile-directory "~/Dropbox/应用/MobileOrg")
 
+(use-package org-super-agenda
+  :ensure t
+  :config (org-super-agenda-mode))
+
+;; (use-package outline-toc
+;;   :ensure t)
+
 ;; @see http://coldnew.github.io/blog/2013/05-20_5cbb7/
 (use-package pangu-spacing
   :ensure t
@@ -1169,302 +1826,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
      :defer t
      :bind ("M-s s" . helm-ag))
 
-;; @see https://github.com/gorakhargosh/emacs.d/blob/master/themes/color-theme-less.el
-;; (use-package hc-zenburn-theme
-;;   :ensure t
-;;   :init
-;;   (defvar zenburn-override-colors-alist
-;;     '(("zenburn-bg+05" . "#282828")
-;;       ("zenburn-bg+1"  . "#2F2F2F")
-;;       ("zenburn-bg+2"  . "#3F3F3F")
-;;       ("zenburn-bg+3"  . "#4F4F4F")))
-;;   (load-theme 'zenburn t)
-;;   :config
-;;   (set-face-attribute 'region nil :background "#666"))
-
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  ;; (load-theme  'gruvbox-dark-medium t))
-  (load-theme  'gruvbox-dark-soft t))
-  ;; (load-theme  'gruvbox-dark-hard t))
-;; (load-theme  'gruvbox-light-medium t))
-;; (load-theme  'gruvbox-light-soft t))
-;; (load-theme  'gruvbox-light-hard t))
-
-;; (use-package zerodark-theme
-;;   :demand t
-;;   :config
-;;   (progn
-;;     (defun set-selected-frame-dark ()
-;;       (interactive)
-;;       (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
-;;         (call-process-shell-command
-;;          (format
-;;           "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
-;;           frame-name))))
-
-;;     (when (window-system)
-;;       (load-theme 'zerodark t)
-;;       (zerodark-setup-modeline-format)
-;;       (set-selected-frame-dark)
-;;       (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
-
-;; (use-package all-the-icons
-;;   :ensure t)
-;; Solarized
-;; https://github.com/sellout/emacs-color-theme-solarized/pull/187
-;; (use-package color-theme
-;;   :ensure t)
-;; (setq color-themes '())
-;; (use-package color-theme-solarized
-;;   :ensure t
-;;   :config
-;;   (customize-set-variable 'frame-background-mode 'light)
-;;   (load-theme 'solarized t))
-
-;; (use-package color-theme
-;;   :ensure t)
-;; (setq color-themes '())
-;; (load-theme 'adwaita t)
-
-;; (use-package molokai-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'molokai t))
-
-;; (use-package monochrome-theme
-;;  :ensure t
-;;  :init
-;;  (load-theme 'monochrome t))
-
-;; (use-package quasi-monochrome-theme
-;;  :ensure t
-;;  :init
-;;  (load-theme 'quasi-monochrome t))
-
-;; @see https://github.com/dmand/eink.el
-;; (use-package eink-theme
-;;  :ensure t
-;;  :init
-;;  (load-theme 'eink t))
-
-;; (use-package phoenix-dark-mono-theme
-;; :ensure t
-;;  :init
-;;  (load-theme 'phoenix-dark-mono t))
-
-;; @see https://github.com/anler/minimal-theme
-;; (use-package minimal-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'minimal t))
-
-;; @see https://github.com/fgeller/basic-theme.el
-;; (use-package basic-theme
-;;  :ensure t
-;;  :init
-;;  (load-theme 'basic t))
-
-;; (defun mode-line-visual-toggle ()
-;;  (interactive)
-;;  (let ((faces-to-toggle '(mode-line mode-line-inactive))
-;;        (invisible-color "#e8e8e8")
-;;        (visible-color "#a1b56c"))
-;;    (cond ((string= visible-color (face-attribute 'mode-line :background))
-;;           (mapcar (lambda (face)
-;;                     (set-face-background face invisible-color)
-;;                     (set-face-attribute face nil :height 20))
-;;                   faces-to-toggle))
-;;          (t
-;;           (mapcar (lambda (face)
-;;                     (set-face-background face visible-color)
-;;                     (set-face-attribute face nil :height (face-attribute 'default :height)))
-;;                   faces-to-toggle)))))
-
-;; (use-package paper-theme
-;;  :ensure t
-;;  :init
-;;  (load-theme 'paper t))
-
-;; (use-package base16-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'base16-monokai t))
-;; (load-theme 'base16-google-dark t))
-;; (load-theme 'base16-solarized-light t))
-;; (load-theme 'base16-tomorrow-night t))
-;; (load-theme 'base16-grayscale-dark t))
-;; (load-theme 'base16-spacemacs-theme t))
-
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'leuven t)
-;;   :config
-;;   ;; Fontify the whole line for headings (with a background color).
-;;   (setq org-fontify-whole-heading-line t))
-
-;; (use-package kaolin-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'kaolin t))
-
-;; Got following from Purcell's emacs configuration
-;; From https://github.com/purcell/emacs.d
-
-;; (use-package color-theme-sanityinc-solarized
-;;   :ensure t
-;;   :defer t)
-;; (use-package color-theme-sanityinc-tomorrow
-;;   :ensure t
-;;   :defer t)
-;; ;;------------------------------------------------------------------------------
-;; ;; Old-style color theming support (via color-theme.el)
-;; ;;------------------------------------------------------------------------------
-;; (defcustom window-system-color-theme 'color-theme-sanityinc-solarized-dark
-;;   "Color theme to use in window-system frames.
-;;   If Emacs' native theme support is available, this setting is
-;;   ignored: use `custom-enabled-themes' instead."
-;;   :type 'symbol)
-
-;; (defcustom tty-color-theme 'color-theme-terminal
-;;   "Color theme to use in TTY frames.
-;;   If Emacs' native theme support is available, this setting is
-;;   ignored: use `custom-enabled-themes' instead."
-;;   :type 'symbol)
-
-;; (unless (boundp 'custom-enabled-themes)
-;;   (defun color-theme-terminal ()
-;;     (interactive)
-;;     (color-theme-sanityinc-solarized-dark))
-
-;;   (defun apply-best-color-theme-for-frame-type (frame)
-;;     (with-selected-frame frame
-;;       (funcall (if window-system
-;;                    window-system-color-theme
-;;                  tty-color-theme))))
-
-;;   (defun reapply-color-themes ()
-;;     (interactive)
-;;     (mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
-
-;;   (set-variable 'color-theme-is-global nil)
-;;   (add-hook 'after-make-frame-functions 'apply-best-color-theme-for-frame-type)
-;;   (add-hook 'after-init-hook 'reapply-color-themes)
-;;   (apply-best-color-theme-for-frame-type (selected-frame)))
-
-;; ;;------------------------------------------------------------------------------
-;; ;; New-style theme support, in which per-frame theming is not possible
-;; ;;------------------------------------------------------------------------------
-
-;; ;; If you don't customize it, this is the theme you get.
-;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
-
-;; ;; Ensure that themes will be applied even if they have not been customized
-;; (defun reapply-themes ()
-;;   "Forcibly load the themes listed in `custom-enabled-themes'."
-;;   (dolist (theme custom-enabled-themes)
-;;     (unless (custom-theme-p theme)
-;;       (load-theme theme)))
-;;   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
-
-;; (add-hook 'after-init-hook 'reapply-themes)
-
-
-;; ;;------------------------------------------------------------------------------
-;; ;; Toggle between light and dark
-;; ;;------------------------------------------------------------------------------
-;; (defun light ()
-;;   "Activate a light color theme."
-;;   (interactive)
-;;   (color-theme-sanityinc-solarized-light))
-
-;; (defun dark ()
-;;   "Activate a dark color theme."
-;;   (interactive)
-;;   (color-theme-sanityinc-solarized-dark))
-
-
-(use-package rainbow-delimiters
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-
-;; M-x color-theme-sanityinc-tomorrow-day
-;; M-x color-theme-sanityinc-tomorrow-night
-;; M-x color-theme-sanityinc-tomorrow-blue
-;; M-x color-theme-sanityinc-tomorrow-bright
-;; M-x color-theme-sanityinc-tomorrow-eighties
-;; (use-package color-theme-sanityinc-tomorrow
-;;  :ensure t
-;;  :config
-;;  (color-theme-sanityinc-tomorrow--define-theme day))
-
-;; (use-package powerline
-;;  :ensure t
-;;  :init
-;;  (powerline-vim-theme)
-;;  )
-
-;; (use-package powerline-evil
-;;  :ensure t
-;;  :init
-;;  (powerline-evil-vim-color-theme))
-
-;; (use-package smart-mode-line-powerline-theme :ensure t)
-
-;; (use-package smart-mode-line
-;;  :ensure t
-;;  :init
-;;  (setq powerline-arrow-shape 'arrow)
-;;  (setq ns-use-srgb-colorspace t)
-;;  (setq powerline-default-separator-dir '(left . right))
-;;  (setq sml/no-confirm-load-theme t)
-;;  ;; (setq sml/theme 'dark)
-;;  ;; (setq sml/theme 'light)
-;;  ;; (setq sml/theme 'respectful)
-;;  (setq sml/theme 'powerline)
-;;  (sml/setup))
-
-(use-package powerline
-  :ensure t
-  :config (progn
-            ;; Wave seperators please
-            (setq powerline-default-separator 'wave)
-
-            ;; Use spacemacs' mode line
-            ;; @see https://libraries.io/emacs/spaceline
-            ;; @see https://github.com/TeMPOraL/nyan-mode
-            ;; @see https://github.com/TheBB/spaceline
-            (use-package spaceline
-              :ensure t
-              :config (progn
-                        (require 'spaceline-config)
-                        (require 'spaceline-segments)
-                        (spaceline-spacemacs-theme)
-                        (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-                        ))
-            (use-package nyan-mode
-              :ensure t
-              :init
-              (progn
-                (nyan-mode)
-                (setq nyan-wavy-trail t))
-              :config (nyan-start-animation)
-              )))
-
-(custom-set-faces
- '(org-block-begin-line
-   ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
- '(org-block-end-line
-   ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
- '(org-block
-   ((t (:background "#333333"))))
- '(org-block-background
-   ((t (:background "#333333"))))
- )
-
 ;; (use-package elscreen
 ;;   :init
 ;;   (progn
@@ -1518,7 +1879,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (global-set-key (kbd "<C-next>") 'multi-term-next)
     (global-set-key (kbd "<C-prior>") 'multi-term-prev)
     (setq multi-term-buffer-name "term"
-          multi-term-program "/bin/zsh"))
+          multi-term-program "/bin/bash"))
   :config
   (when (require 'term nil t) ; only if term can be loaded..
     (setq term-bind-key-alist
@@ -1554,6 +1915,30 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :ensure t
   :diminish git-gutter-mode
   :config (global-git-gutter-mode))
+
+;;; magit
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status))
+  :config (progn (add-hook 'magit-log-edit-mode-hook
+                           (lambda ()
+                             (set-fill-column 72)
+                             (auto-fill-mode 1)))
+                 ;; (add-hook 'magit-mode-hook '(lambda () (auto-complete-mode 0)))
+                 (setq
+                  ;; use ido to look for branches
+                  magit-completing-read-function 'magit-ido-completing-read
+                  ;; don't put "origin-" in front of new branch names by default
+                  magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+                  ;; highlight word/letter changes in hunk diffs
+                  magit-diff-refine-hunk t
+                  ;; don't attempt to save unsaved buffers
+                  magit-save-some-buffers nil)
+                 (diminish 'magit-auto-revert-mode "")
+                 (use-package gitconfig-mode
+                   :ensure t)
+                 (use-package gitignore-mode
+                   :ensure t)))
 
 ;; scratch
 (use-package scratch
@@ -1759,14 +2144,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (condition-case nil
       (org-display-inline-images)
     (error nil)))
-
-(use-package yaml-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
-
-(setq logstash-indent 2)
 
 (require 'ox-publish)
 (defun org-custom-link-img-follow (path)
