@@ -6,28 +6,40 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "dashboard" "dashboard.el" (0 0 0 0))
-;;; Generated autoloads from dashboard.el
+;;;### (autoloads nil "dashboard" "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard.el"
+;;;;;;  "aa73c011ad8ca8849704b5be85af496b")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard.el
 
 (autoload 'dashboard-setup-startup-hook "dashboard" "\
 Setup post initialization hooks.
 If a command line argument is provided, assume a filename and skip displaying Dashboard
 
 \(fn)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "dashboard" "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dashboard" '("dashboard-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "dashboard-widgets" "dashboard-widgets.el"
+;;;### (autoloads "actual autoloads are elsewhere" "dashboard-widgets"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard-widgets.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from dashboard-widgets.el
+;;; Generated autoloads from ../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard-widgets.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dashboard-widgets" '("dashboard-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("dashboard-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard-widgets.el"
+;;;;;;  "../../../../.emacs.d/elpa/dashboard-20170810.1025/dashboard.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

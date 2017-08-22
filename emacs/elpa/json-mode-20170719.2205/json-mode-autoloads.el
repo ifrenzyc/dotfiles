@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "json-mode" "json-mode.el" (0 0 0 0))
-;;; Generated autoloads from json-mode.el
+;;;### (autoloads nil "json-mode" "../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode.el"
+;;;;;;  "fc38c2babcc4123401bd2bbd0cda52e9")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode.el
 
 (defconst json-mode-standard-file-ext '(".json" ".jsonld") "\
 List of JSON file extensions.")
@@ -49,8 +50,20 @@ Major mode for editing JSON files
 Beautify / pretty-print the active region (or the entire buffer if no active region).
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "json-mode" "../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "json-mode" '("json-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/json-mode-20170719.2205/json-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

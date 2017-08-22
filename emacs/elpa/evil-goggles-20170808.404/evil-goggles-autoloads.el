@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "evil-goggles" "evil-goggles.el" (0 0 0 0))
-;;; Generated autoloads from evil-goggles.el
+;;;### (autoloads nil "evil-goggles" "../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles.el"
+;;;;;;  "8eb0d1c68a1a7588fc74409f0847092c")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles.el
 
 (defvar evil-goggles-mode nil "\
 Non-nil if Evil-Goggles mode is enabled.
@@ -23,8 +24,21 @@ or call the function `evil-goggles-mode'.")
 evil-goggles global minor mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "evil-goggles"
+;;;;;;  "../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-goggles" '("evil-goggles-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/evil-goggles-20170808.404/evil-goggles.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

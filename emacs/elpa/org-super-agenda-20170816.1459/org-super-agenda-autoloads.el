@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "org-super-agenda" "org-super-agenda.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from org-super-agenda.el
+;;;### (autoloads nil "org-super-agenda" "../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda.el"
+;;;;;;  "8e44128555068503671f66b5507687c5")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda.el
 
 (defvar org-super-agenda-mode nil "\
 Non-nil if Org-Super-Agenda mode is enabled.
@@ -25,8 +25,21 @@ Global minor mode to group items in Org agenda views according to `org-super-age
 With prefix argument ARG, turn on if positive, otherwise off.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-super-agenda"
+;;;;;;  "../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-super-agenda" '("org-super-agenda-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-super-agenda-20170816.1459/org-super-agenda.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

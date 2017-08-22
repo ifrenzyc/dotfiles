@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "avy" "avy.el" (0 0 0 0))
-;;; Generated autoloads from avy.el
+;;;### (autoloads nil "avy" "../../../../.emacs.d/elpa/avy-20170813.254/avy.el"
+;;;;;;  "e2d8cdc7f455ad32d02bf71202d547d3")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/avy-20170813.254/avy.el
 
 (autoload 'avy-goto-char "avy" "\
 Jump to the currently visible CHAR.
@@ -238,8 +239,20 @@ Read one or many consecutive chars and jump to the first one.
 The window scope is determined by `avy-all-windows' (ARG negates it).
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "avy" "../../../../.emacs.d/elpa/avy-20170813.254/avy.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/avy-20170813.254/avy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "avy" '("avy-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/avy-20170813.254/avy-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/avy-20170813.254/avy.el") (0 0
+;;;;;;  0 0))
 
 ;;;***
 

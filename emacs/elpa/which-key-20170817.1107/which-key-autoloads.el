@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "which-key" "which-key.el" (0 0 0 0))
-;;; Generated autoloads from which-key.el
+;;;### (autoloads nil "which-key" "../../../../.emacs.d/elpa/which-key-20170817.1107/which-key.el"
+;;;;;;  "2da0309809e3335efbae58570cf768ca")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/which-key-20170817.1107/which-key.el
 
 (defvar which-key-mode nil "\
 Non-nil if Which-Key mode is enabled.
@@ -132,8 +133,20 @@ Dispatch C-h commands by looking up key in
 prefix) if `which-key-use-C-h-commands' is non nil.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "which-key" "../../../../.emacs.d/elpa/which-key-20170817.1107/which-key.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/which-key-20170817.1107/which-key.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "which-key" '("which-key-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/which-key-20170817.1107/which-key-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/which-key-20170817.1107/which-key.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

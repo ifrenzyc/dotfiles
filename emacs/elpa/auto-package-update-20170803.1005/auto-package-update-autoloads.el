@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "auto-package-update" "auto-package-update.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from auto-package-update.el
+;;;### (autoloads nil "auto-package-update" "../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update.el"
+;;;;;;  "c8d904b0b430d260bb637a80a87d51f1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update.el
 
 (autoload 'auto-package-update-now "auto-package-update" "\
 Update installed Emacs packages.
@@ -24,8 +24,21 @@ Try to update every day at the specified TIME.
 Update installed Emacs packages if at least `auto-package-update-interval' days have passed since the last update.
 
 \(fn)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "auto-package-update"
+;;;;;;  "../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto-package-update" '("apu--" "auto-package-update-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/auto-package-update-20170803.1005/auto-package-update.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

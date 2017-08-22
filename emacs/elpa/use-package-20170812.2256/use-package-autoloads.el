@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "use-package" "use-package.el" (0 0 0 0))
-;;; Generated autoloads from use-package.el
+;;;### (autoloads nil "use-package" "../../../../.emacs.d/elpa/use-package-20170812.2256/use-package.el"
+;;;;;;  "e3609881c1b364e6232061441268a97e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/use-package-20170812.2256/use-package.el
 
 (autoload 'use-package-autoload-keymap "use-package" "\
 Loads PACKAGE and then binds the key sequence used to invoke
@@ -82,8 +83,21 @@ this file.  Usage:
 \(fn NAME &rest ARGS)" nil t)
 
 (function-put 'use-package 'lisp-indent-function '1)
+
+;;;### (autoloads "actual autoloads are elsewhere" "use-package"
+;;;;;;  "../../../../.emacs.d/elpa/use-package-20170812.2256/use-package.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/use-package-20170812.2256/use-package.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "use-package" '("use-package-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/use-package-20170812.2256/use-package-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/use-package-20170812.2256/use-package.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

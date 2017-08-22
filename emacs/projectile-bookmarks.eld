@@ -1,1 +1,1 @@
-("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/src/go/src/github.com/khala/easy-deploy/")
+("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/src/go/src/github.com/khala/gopub/" "~/src/go/src/github.com/lisijie/gopub/" "~/src/go/src/github.com/astaxie/beego/" "~/src/go/src/github.com/khala/easy-deploy/")

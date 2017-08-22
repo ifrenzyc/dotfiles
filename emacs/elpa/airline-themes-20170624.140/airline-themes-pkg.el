@@ -1,0 +1,1 @@
+(define-package "airline-themes" "20170624.140" "vimairline themes for emacs powerline"  '((powerline "2.3") ) :url "https://github.com/AnthonyDiGirolamo/airline-themes" :keywords '("evil" "mode-line" "powerline" "airline" "themes" ))

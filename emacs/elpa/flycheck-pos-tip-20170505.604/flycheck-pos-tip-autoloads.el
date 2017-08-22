@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "flycheck-pos-tip" "flycheck-pos-tip.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from flycheck-pos-tip.el
+;;;### (autoloads nil "flycheck-pos-tip" "../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip.el"
+;;;;;;  "69d4f0da9151f4a9e41c211bb396f071")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip.el
 
 (defvar flycheck-pos-tip-mode nil "\
 Non-nil if Flycheck-Pos-Tip mode is enabled.
@@ -37,8 +37,21 @@ GUI tooltip.  Falls back to `flycheck-display-error-messages' on
 TTY frames.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "flycheck-pos-tip"
+;;;;;;  "../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-pos-tip" '("flycheck-pos-tip-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/flycheck-pos-tip-20170505.604/flycheck-pos-tip.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

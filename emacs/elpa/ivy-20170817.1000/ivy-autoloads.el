@@ -6,15 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "colir" "colir.el" (0 0 0 0))
-;;; Generated autoloads from colir.el
+;;;### (autoloads "actual autoloads are elsewhere" "colir" "../../../../.emacs.d/elpa/ivy-20170817.1000/colir.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ivy-20170817.1000/colir.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "colir" '("colir-")))
 
 ;;;***
 
-;;;### (autoloads nil "ivy" "ivy.el" (0 0 0 0))
-;;; Generated autoloads from ivy.el
+;;;### (autoloads nil "ivy" "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy.el"
+;;;;;;  "3ffc92f9194926da3f23cd388be0712a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ivy-20170817.1000/ivy.el
 
 (autoload 'ivy-resume "ivy" "\
 Resume the last completion session.
@@ -129,19 +131,32 @@ Switch to one of the window views stored by `ivy-push-view'.
 Switch to another buffer in another window.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ivy" "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ivy-20170817.1000/ivy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ivy" '("ivy-" "with-ivy-window")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "ivy-overlay" "ivy-overlay.el" (0 0 0 0))
-;;; Generated autoloads from ivy-overlay.el
+;;;### (autoloads "actual autoloads are elsewhere" "ivy-overlay"
+;;;;;;  "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy-overlay.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ivy-20170817.1000/ivy-overlay.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ivy-overlay" '("ivy-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("ivy-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ivy-20170817.1000/colir.el"
+;;;;;;  "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy-overlay.el"
+;;;;;;  "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/ivy-20170817.1000/ivy.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

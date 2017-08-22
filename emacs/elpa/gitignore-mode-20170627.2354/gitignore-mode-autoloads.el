@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "gitignore-mode" "gitignore-mode.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from gitignore-mode.el
+;;;### (autoloads nil "gitignore-mode" "../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode.el"
+;;;;;;  "87cd755e281d59ffe8f00e48ea19c227")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode.el
 
 (autoload 'gitignore-mode "gitignore-mode" "\
 A major mode for editing .gitignore files.
@@ -16,8 +16,21 @@ A major mode for editing .gitignore files.
 \(fn)" t nil)
 
 (dolist (pattern (list "/\\.gitignore\\'" "/info/exclude\\'" "/git/ignore\\'")) (add-to-list 'auto-mode-alist (cons pattern 'gitignore-mode)))
+
+;;;### (autoloads "actual autoloads are elsewhere" "gitignore-mode"
+;;;;;;  "../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gitignore-mode" '("gitignore-mode-font-lock-keywords")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/gitignore-mode-20170627.2354/gitignore-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

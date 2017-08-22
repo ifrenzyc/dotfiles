@@ -1,6 +1,8 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "elpa/eink" user-emacs-directory))
 (defconst *is-a-mac* (eq system-type 'darwin))
+(when (memq window-system '(mac ns))
+  (setq ns-use-srgb-colorspace nil))
 
 ;; @see http://stackoverflow.com/questions/12558019/shortcut-to-open-a-specific-file-in-emacs
 (set-register ?e (cons 'file "~/.dotfiles/emacs/init.el"))
@@ -16,6 +18,15 @@
 
 ;;; warn when opening files bigger than 100MB (default is 10MB)
 (setq large-file-warning-threshold 100000000)
+
+(use-package bind-key
+  :ensure t)
+
+(use-package diminish
+  :ensure t)
+
+(use-package autothemer
+  :ensure t)
 
 (use-package exec-path-from-shell
   :ensure t
@@ -48,6 +59,10 @@
 (setq auto-save-mode nil)
 
 (setq backup-by-copying nil)
+
+;; Save a list of recent files visited. (open recent file with C-x f)
+(recentf-mode 1)
+(setq recentf-max-saved-items 1000) ;; just 20 is too recent
 
 (save-place-mode 1)
 
@@ -189,6 +204,7 @@
   (add-hook 'compilation-filter-hook itsyc-colorize-compilation-buffer))
 
 (use-package dashboard
+  :ensure t
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-items '((recents  . 5)
@@ -398,7 +414,6 @@
 
 ;; (add-hook 'after-init-hook 'reapply-themes)
 
-
 ;; ;;------------------------------------------------------------------------------
 ;; ;; Toggle between light and dark
 ;; ;;------------------------------------------------------------------------------
@@ -411,7 +426,6 @@
 ;;   "Activate a dark color theme."
 ;;   (interactive)
 ;;   (color-theme-sanityinc-solarized-dark))
-
 
 (use-package rainbow-delimiters
   :ensure t
@@ -429,63 +443,47 @@
 ;;  (color-theme-sanityinc-tomorrow--define-theme day))
 
 ;; (use-package powerline
-;;  :ensure t
-;;  :init
-;;  (powerline-vim-theme)
-;;  )
+;;   :ensure t
+;;   :config (progn
+;;             ;; Wave seperators please
+;;             ;; wave
+;;             ;; arrow
+;;             ;; rounded
+;;             ;; zigzag
+;;             ;; These two lines are just examples
+;;             (setq powerline-arrow-shape 'wave)
+;;             ;; (setq powerline-default-separator-dir '(right . left))
+;;             ;; (setq powerline-default-separator 'nil)
+;;             (powerline-vim-theme)))
 
 ;; (use-package powerline-evil
-;;  :ensure t
-;;  :init
-;;  (powerline-evil-vim-color-theme))
-
-;; (use-package smart-mode-line-powerline-theme :ensure t)
+;;   :ensure t
+;;   :config
+;;   (powerline-evil-vim-color-theme))
 
 ;; (use-package smart-mode-line
-;;  :ensure t
-;;  :init
-;;  (setq powerline-arrow-shape 'arrow)
-;;  (setq ns-use-srgb-colorspace t)
-;;  (setq powerline-default-separator-dir '(left . right))
-;;  (setq sml/no-confirm-load-theme t)
-;;  ;; (setq sml/theme 'dark)
-;;  ;; (setq sml/theme 'light)
-;;  ;; (setq sml/theme 'respectful)
-;;  (setq sml/theme 'powerline)
-;;  (sml/setup))
+;;   :ensure t
+;;   :config
+;;   (setq sml/no-confirm-load-theme t)
+;;   (setq sml/theme 'dark)
+;;   (sml/setup))
 
-(use-package powerline
-  :ensure t
-  :config (progn
-            ;; Wave seperators please
-            ;; wave
-            ;; arrow
-            ;; rounded
-            ;; zigzag
-            ;; These two lines are just examples
-            (setq powerline-arrow-shape 'nil)
-            (setq powerline-default-separator-dir '(right . left))
-            (setq powerline-default-separator 'nil)
-            (powerline-vim-theme)))
+;; (use-package smart-mode-line-powerline-theme
+;;   :ensure t
+;;   :config (setq sml/theme 'powerline))
 
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (setq sml/theme 'dark)
-  (sml/setup))
+;; ;; (use-package airline-themes
+;; ;;   :ensure t
+;; ;;   :config
+;; ;;   (load-theme 'airline-molokai))
 
-(use-package smart-mode-line-powerline-theme
-  :ensure t
-  :config (setq sml/theme 'powerline))
-
-(use-package nyan-mode
-  :ensure t
-  :init
-  (progn
-    (nyan-mode)
-    (setq nyan-wavy-trail t))
-  :config (nyan-start-animation))
+;; (use-package nyan-mode
+;;   :ensure t
+;;   :init
+;;   (progn
+;;     (nyan-mode)
+;;     (setq nyan-wavy-trail t))
+;;   :config (nyan-start-animation))
 
 ;; 目前这个有 bug，会导致 emacs 卡死，但不知道具体原因
 ;; Use spacemacs' mode line
@@ -514,6 +512,96 @@
 ;;   (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
 ;;   (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line)
 ;;   )
+
+(defface my-pl-segment1-active
+  '((t (:foreground "#000000" :background "#E1B61A")))
+  "Powerline first segment active face.")
+(defface my-pl-segment1-inactive
+  '((t (:foreground "#CEBFF3" :background "#3A2E58")))
+  "Powerline first segment inactive face.")
+(defface my-pl-segment2-active
+  '((t (:foreground "#F5E39F" :background "#8A7119")))
+  "Powerline second segment active face.")
+(defface my-pl-segment2-inactive
+  '((t (:foreground "#CEBFF3" :background "#3A2E58")))
+  "Powerline second segment inactive face.")
+(defface my-pl-segment3-active
+  '((t (:foreground "#CEBFF3" :background "#3A2E58")))
+  "Powerline third segment active face.")
+(defface my-pl-segment3-inactive
+  '((t (:foreground "#CEBFF3" :background "#3A2E58")))
+  "Powerline third segment inactive face.")
+
+(defun air--powerline-default-theme ()
+  "Set up my custom Powerline with Evil indicators."
+  (interactive)
+  (setq-default mode-line-format
+                '("%e"
+                  (:eval
+                   (let* ((active (powerline-selected-window-active))
+                          (seg1 (if active 'my-pl-segment1-active 'my-pl-segment1-inactive))
+                          (seg2 (if active 'my-pl-segment2-active 'my-pl-segment2-inactive))
+                          (seg3 (if active 'my-pl-segment3-active 'my-pl-segment3-inactive))
+                          (separator-left (intern (format "powerline-%s-%s"
+                                                          (powerline-current-separator)
+                                                          (car powerline-default-separator-dir))))
+                          (separator-right (intern (format "powerline-%s-%s"
+                                                           (powerline-current-separator)
+                                                           (cdr powerline-default-separator-dir))))
+                          (lhs (list (let ((evil-face (powerline-evil-face)))
+                                       (if evil-mode
+                                           (powerline-raw (powerline-evil-tag) evil-face)
+                                         ))
+                                     (if evil-mode
+                                         (funcall separator-left (powerline-evil-face) seg1))
+                                     ;;(when powerline-display-buffer-size
+                                     ;;  (powerline-buffer-size nil 'l))
+                                     ;;(when powerline-display-mule-info
+                                     ;;  (powerline-raw mode-line-mule-info nil 'l))
+                                     (powerline-buffer-id seg1 'l)
+                                     (powerline-raw "[%*]" seg1 'l)
+                                     (when (and (boundp 'which-func-mode) which-func-mode)
+                                       (powerline-raw which-func-format seg1 'l))
+                                     (powerline-raw " " seg1)
+                                     (funcall separator-left seg1 seg2)
+                                     (when (boundp 'erc-modified-channels-object)
+                                       (powerline-raw erc-modified-channels-object seg2 'l))
+                                     (powerline-major-mode seg2 'l)
+                                     (powerline-process seg2)
+                                     (powerline-minor-modes seg2 'l)
+                                     (powerline-narrow seg2 'l)
+                                     (powerline-raw " " seg2)
+                                     (funcall separator-left seg2 seg3)
+                                     (powerline-vc seg3 'r)
+                                     (when (bound-and-true-p nyan-mode)
+                                       (powerline-raw (list (nyan-create)) seg3 'l))))
+                          (rhs (list (powerline-raw global-mode-string seg3 'r)
+                                     (funcall separator-right seg3 seg2)
+                                     (unless window-system
+                                       (powerline-raw (char-to-string #xe0a1) seg2 'l))
+                                     (powerline-raw "%4l" seg2 'l)
+                                     (powerline-raw ":" seg2 'l)
+                                     (powerline-raw "%3c" seg2 'r)
+                                     (funcall separator-right seg2 seg1)
+                                     (powerline-raw " " seg1)
+                                     (powerline-raw "%6p" seg1 'r)
+                                     (when powerline-display-hud
+                                       (powerline-hud seg1 seg3)))))
+                     (concat (powerline-render lhs)
+                             (powerline-fill seg3 (powerline-width rhs))
+                             (powerline-render rhs)))))))
+
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme)
+  (setq powerline-default-separator (if (display-graphic-p) 'slant
+                                      nil))
+  (air--powerline-default-theme)
+  )
+
+(use-package powerline-evil
+ :ensure t)
 
 (custom-set-faces
  '(org-block-begin-line
@@ -556,25 +644,6 @@
                  ;; (-each sp--lisp-modes 'enable-lisp-hooks)
                  ))
 
-(use-package company
-  :ensure t
-  :defer t
-  :commands global-company-mode
-  :diminish "comp"
-  :init
-  (global-company-mode)
-  (add-hook 'after-init-hook 'global-company-mode)
-  (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
-  :config
-  ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
-  ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
-  (setq company-idle-delay 0.2)
-  (setq company-tooltip-flip-when-above t)
-  (setq company-selection-wrap-around t)
-  (define-key company-active-map [tab] 'company-complete)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
-
 (use-package evil-leader
   :ensure t
   :init
@@ -582,7 +651,9 @@
   :config
   (evil-leader/set-leader ",")
   (evil-leader/set-key
-    "a" 'ack-and-a-half
+    ;; "a" 'ack-and-a-half
+    "aa" 'ag
+    "ap" 'ag-project
     ;; "bb" 'ido-switch-buffer
     ;; "bb" 'helm-buffers-list
     "b" 'helm-mini
@@ -598,6 +669,8 @@
     "s" 'swiper
     "w" 'save-buffer
     "<tab>" 'mode-line-other-buffer
+    "pf" 'projectile-find-file
+      "ps" 'helm-projectile-switch-project
     ;; "wh" 'windmove-left
     ;; "wl" 'windmove-right
     ;; "wk" 'windmove-up
@@ -842,6 +915,25 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :init
   (setq avy-background t))
 
+(use-package company
+  :ensure t
+  :defer t
+  :commands global-company-mode
+  :diminish "comp"
+  :init
+  (global-company-mode)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
+  :config
+  ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
+  ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
+  (setq company-idle-delay 0.2)
+  (setq company-tooltip-flip-when-above t)
+  (setq company-selection-wrap-around t)
+  (define-key company-active-map [tab] 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
 (use-package yasnippet
   :ensure t
   :defer 2
@@ -921,11 +1013,25 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (use-package projectile
   :ensure t
+  :commands (projectile-project-root)
   :init (projectile-global-mode)
-       :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+  :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+
+                 (setq projectile-enable-caching t)
+                 (setq projectile-completion-system 'default)
+                 (setq projectile-indexing-method 'alien)
+
                  ;; add to the globally ignored files
                  (dolist (file-name '("*~" "*.elc"))
-                 (add-to-list 'projectile-globally-ignored-files file-name))))
+                   (add-to-list 'projectile-globally-ignored-files file-name))))
+
+(defun itsyc/helm-project-do-ag ()
+  "Search in current project with `ag'."
+  (interactive)
+  (let ((dir (projectile-project-root)))
+    (if dir
+        (helm-do-ag dir)
+      (message "error: Not in a project."))))
 
 (use-package go-mode
   :ensure t
@@ -948,10 +1054,24 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                    :if (executable-find "gocode")
                    :commands go-eldoc-setup
                    :init (add-to-list 'go-mode-hook 'go-eldoc-setup))
-                 (bind-key "M-." 'godef-jump go-mode-map)
-                 (bind-key "M-," 'pop-tag-mark go-mode-map)
+                 (bind-key "M-]" 'godef-jump go-mode-map)
+                 (bind-key "M-[" 'pop-tag-mark go-mode-map)
                  (bind-key "C-S-F" 'gofmt go-mode-map)
                  (bind-key "M-<return>" 'godef-describe go-mode-map)
+                 ;;                (setq go-mode-map
+                 ;; (let ((m (make-sparse-keymap)))
+                 ;;   (define-key m "}" #'go-mode-insert-and-indent)
+                 ;;   (define-key m ")" #'go-mode-insert-and-indent)
+                 ;;   (define-key m "," #'go-mode-insert-and-indent)
+                 ;;   (define-key m ":" #'go-mode-insert-and-indent)
+                 ;;   (define-key m "=" #'go-mode-insert-and-indent)
+                 ;;   (define-key m (kbd "C-c C-a") #'go-import-add)
+                 ;;   (define-key m (kbd "C-c C-j") #'godef-jump)
+                 ;;   ;; go back to point after called godef-jump.  ::super
+                 ;;   (define-key m (kbd "C-c C-b") #'pop-tag-mark)
+                 ;;   (define-key m (kbd "C-x 4 C-c C-j") #'godef-jump-other-window)
+                 ;;   (define-key m (kbd "C-c C-d") #'godef-describe)
+                 ;;   m))
 
                  (add-hook 'go-mode-hook 'flycheck-mode)
                  (add-hook 'go-mode-hook 'yas-minor-mode)
@@ -1128,9 +1248,36 @@ Version 2017-07-31"
   :config
   (setq logstash-indent 2))
 
+(use-package markdown-mode
+  :ensure t
+  :commands
+  (markdown-mode gfm-mode)
+  :mode
+  (("README\\.md\\'" . gfm-mode)
+   ("\\.md\\'" . markdown-mode)
+   ("\\.markdown\\'" . markdown-mode))
+  :init
+  (setq markdown-command "/usr/local/Cellar/multimarkdown/5*/bin/multimarkdown")
+  :config
+  ;; Turn on flyspell mode when editing markdown files
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
+  (add-hook 'gfm-mode-hook 'flyspell-mode))
+
+(use-package markdown-toc :ensure t)
+(use-package markdown-mode+ :ensure t)
+
 (use-package helm
   :ensure t
   :config
+  (helm-mode 1)
+  (helm-fuzzier-mode 1)
+  (helm-autoresize-mode 1)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t)
+  (setq helm-buffer-max-length 100)
+  (set-face-attribute 'helm-selection nil
+                      :background "yellow"
+                      :foreground "black")
   (define-key helm-map (kbd "C-j") 'helm-next-line)
   (define-key helm-map (kbd "C-k") 'helm-previous-line)
   (define-key helm-map (kbd "C-h") 'helm-next-source)
@@ -1150,6 +1297,23 @@ Version 2017-07-31"
   (setq helm-swoop-move-to-line-cycle t)
   ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
   (setq helm-swoop-split-direction 'split-window-vertically))
+
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on)
+  (setq projectile-indexing-method 'native)
+  (setq projectile-enable-caching t)
+  )
+
+(use-package helm-fuzzier :ensure t
+  :ensure t
+  :config
+  (helm-fuzzier-mode 1)
+  (setq helm-mode-fuzzy-match t)
+  (setq helm-M-x-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-recentf-fuzzy-match t))
 
 (use-package ido-vertical-mode
   :ensure t)
@@ -1340,26 +1504,20 @@ Version 2017-07-31"
   (add-to-list 'which-key-key-replacement-alist '("SPC" . "␣"))
   (setq which-key-sort-order 'which-key-key-order))
 
-(use-package markdown-mode
+;; use 'keyfreq-show'
+;; @see https://github.com/dacap/keyfreq
+(use-package keyfreq
   :ensure t
-  :commands
-  (markdown-mode gfm-mode)
-  :mode
-  (("README\\.md\\'" . gfm-mode)
-   ("\\.md\\'" . markdown-mode)
-   ("\\.markdown\\'" . markdown-mode))
   :init
-  (setq markdown-command "/usr/local/Cellar/multimarkdown/5*/bin/multimarkdown"))
-  ;; (setq markdown-command "/usr/local/bin/pandoc --smart -f markdown -t html"))
-;; (setq markdown-css-paths `(,(expand-file-name "markdown.css" abedra/vendor-dir))))
-
-(use-package markdown-toc
-  :ensure t)
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  )
 
 (use-package neotree
   :ensure t
   :config
   (setq neo-smart-open t)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
   (setq-default neo-dont-be-alone t)  ; Don't allow neotree to be the only open window
   ;; Use with evil mode
   ;; @see https://www.emacswiki.org/emacs/NeoTree
@@ -1821,6 +1979,9 @@ Version 2017-07-31"
     ;; (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
     ))
 
+(use-package ag
+  :ensure t)
+
 (use-package helm-ag
      :ensure t
      :defer t
@@ -1879,7 +2040,7 @@ Version 2017-07-31"
     (global-set-key (kbd "<C-next>") 'multi-term-next)
     (global-set-key (kbd "<C-prior>") 'multi-term-prev)
     (setq multi-term-buffer-name "term"
-          multi-term-program "/bin/bash"))
+          multi-term-program "/bin/zsh"))
   :config
   (when (require 'term nil t) ; only if term can be loaded..
     (setq term-bind-key-alist
