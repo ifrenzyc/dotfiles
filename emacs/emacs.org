@@ -1435,9 +1435,6 @@ Config for setting markdown mode and stuff
     (setq helm-recentf-fuzzy-match t))
 #+END_SRC
 
-#+RESULTS:
-: t
-
 * ido
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package ido-vertical-mode

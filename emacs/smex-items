@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ go
+ package-autoremove
+ package-list-packages
  org-publish-current-file
  gofmt
- package-list-packages
  describe-key
  multi-term
- multi-term-prev
- cd
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,9 @@
  (multi-term . 6)
  (multi-term-prev . 1)
  (describe-key . 5)
- (package-list-packages . 3)
+ (package-list-packages . 4)
  (org-publish-current-file . 6)
  (gofmt . 2)
+ (package-autoremove . 1)
+ (go . 9)
 )
