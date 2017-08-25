@@ -1,0 +1,1 @@
+(define-package "ng2-mode" "20170505.1119" "Major modes for editing Angular 2"  '((typescript-mode "0.1") ) :url "https://github.com/AdamNiederer/ng2-mode" :keywords '("typescript angular angular2 template" ))

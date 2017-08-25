@@ -1,0 +1,1 @@
+(define-package "angular-snippets" "20140514.1323"   "Yasnippets for AngularJS"   '((s "1.4.0") (dash "1.2.0")))

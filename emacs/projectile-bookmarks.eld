@@ -1,1 +1,1 @@
-("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/src/go/src/github.com/khala/gopub/" "~/src/go/src/github.com/khala/easy-deploy/" "~/src/go/src/github.com/lisijie/gopub/" "~/src/go/src/github.com/astaxie/beego/")
+("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/src/go/src/github.com/khala/easy-deploy/" "~/src/go/src/github.com/khala/gopub/" "~/src/opensource/bootstrap/ace/" "~/src/angularjs/angularjs2-by-cli/" "~/src/go/src/github.com/gogits/gogs/" "~/src/yangc/khala_wiki/" "~/src/go/src/github.com/lisijie/gopub/" "~/src/go/src/github.com/astaxie/beego/")

@@ -2,23 +2,31 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/yangc/src/go/src/github.com/gogits/" . "gogs/")
+ ("/Users/yangc/src/angularjs/" . "angularjs2-by-cli/")
+ ("/Users/yangc/src/" . "angularjs/")
  ("/Users/yangc/src/go/src/github.com/khala/" . "gopub/")
  ("/Users/yangc/src/go/src/github.com/lisijie/" . "gopub/")
- ("/Users/yangc/src/go/src/github.com/" . "khala/")
+ ("/Users/yangc/src/go/src/github.com/" . "gogits/")
  ("/Users/yangc/src/go/src/" . "github.com/")
  ("/Users/yangc/src/go/" . "src/")
  ("/Users/yangc/.dotfiles/emacs.d/" . "lisp/")
  ("/Users/yangc/.dotfiles/emacs_bak/" . "lisp/")
  ("/Users/yangc/.dotfiles/" . "emacs/")
  ("/Users/yangc/notes/00_Notes/" . "Git/")
- ("/Users/yangc/notes/" . "00_Notes/")
- ("/Users/yangc/" . ".dotfiles/")
+ ("/Users/yangc/notes/" . "01_Projects/")
+ ("/Users/yangc/" . "src/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/yangc/.dotfiles/emacs/"
  "/Users/yangc/notes/00_Notes/"
+ "/Users/yangc/src/go/src/github.com/gogits/gogs/"
+ "/Users/yangc/src/angularjs/angularjs2-by-cli/"
+ "/Users/yangc/src/angularjs/demo1/"
+ "/Users/yangc/.dotfiles/emacs/"
+ "/Users/yangc/.ssh/"
+ "/Users/yangc/notes/01_Projects/"
  "/Users/yangc/src/go/src/github.com/khala/gopub/views/app/"
  "/Users/yangc/notes/00_Notes/Git/"
  "/Users/yangc/src/go/src/github.com/khala/gopub/app/controllers/"
@@ -35,43 +43,79 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "AngularJS.org"
+ "gogs.go"
+ "package.json"
+ "index.html"
  "emacs.org"
+ "sshp_pass"
  "VIM.org"
  "git.org"
  "app.go"
  "main.go"
- "edit.html"
- "listNew.html"
- "new.html"
- "go.org"
- "draft.org"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/yangc/src/go/src/github.com/khala/gopub/app/controllers/" (22939 56161 0 0) "user.go" "types.go" "task.go" "server.go" "role.go" "review.go" "project.go" "main.go" "mailtpl.go" "env.go" "base.go" "app.go" "agent.go" "#project.go#" "../" "./")
+ ("/Users/yangc/notes/00_Notes/Golang/" (22940 61929 0 0) "搭建 Emacs 开发环境.org" "go.org" ".#go.org" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/gogits/gogs/" (22940 60480 0 0) "vendor/" "templates/" "scripts/" "routes/" "README_ZH.md" "README.md" "public/" "pkg/" "packager/" "models/" "Makefile" "LICENSE" "gogs.go" "Dockerfile.rpihub" "Dockerfile.rpi" "Dockerfile.aarch64" "Dockerfile" "docker/" "conf/" "cmd/" "appveyor.yml" ".travis.yml" ".pkgr.yml" ".mailmap" ".gopmfile" ".gitignore" ".github/" ".gitattributes" ".git/" ".editorconfig" ".dockerignore" ".codebeatsettings" ".codebeatignore" ".bra.toml" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/gogits/" (22940 60408 0 0) "gogs/" "go-gogs-client/" "git-module/" "cron/" "chardet/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/Unknwon/" (22934 63013 0 0) "paginater/" "i18n/" "goconfig/" "com/" "cae/" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/" (22940 9882 0 0) "yayua/" "urfave/" "Unknwon/" "ugorji/" "twinj/" "tpng/" "toolkits/" "syndtr/" "stretchr/" "sqs/" "siddontang/" "shurcooL/" "sergi/" "satori/" "russross/" "rogpeppe/" "ramya-rao-a/" "pkg/" "pingcap/" "petar/" "open-falcon/" "nsf/" "ngaut/" "nfnt/" "msteinert/" "mingzhehao/" "microcosm-cc/" "mcuadros/" "mattn/" "mailgun/" "lisijie/" "lib/" "kr/" "klauspost/" "kisielk/" "khala/" "juju/" "jstemmer/" "josharian/" "jaytaylor/" "issue9/" "ifrenzyc/" "gorilla/" "google/" "golang/" "gogits/" "go-xorm/" "go-sql-driver/" "go-macaron/" "flike/" "featen/" "fatih/" "emicklei/" "dougm/" "cweill/" "coreos/" "coraldane/" "codegangsta/" "bradfitz/" "boltdb/" "beego/" "astaxie/" "alecthomas/" "acroca/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/angularjs/angularjs2-by-cli/src/" (22940 58122 0 0) "typings.d.ts" "tsconfig.spec.json" "tsconfig.app.json" "test.ts" "styles.css" "polyfills.ts" "main.ts" "index.html" "favicon.ico" "environments/" "assets/" "app/" "../" "./")
+
+ ("/Users/yangc/src/angularjs/angularjs2-by-cli/src/app/" (22940 59482 0 0) "app.module.ts" "app.component.ts" "app.component.spec.ts" "app.component.html" "app.component.css" "../" "./")
+
+ ("/Users/yangc/" (22940 58784 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zprofile" ".zcompdump-itsyc-5.2" ".z" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".vimrc/" ".viminfo" ".vim-bookmarks" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf/" ".swt/" ".subversion/" ".ssh/" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rustup/" ".rediscli_history" ".rally/" ".python_history" ".profile" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".multirust/" ".m2/" ".local/" ".lesshst" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java_history" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.keyfreq" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".cow/" ".config/" ".cmake/" ".clj_completions" ".CFUserTextEncoding" ".cargo/" ".cache/" ".bundle/" ".black-screen-state" ".berkshelf/" ".bastetrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
+
+ ("/Users/yangc/src/angularjs/angularjs2-by-cli/" (22940 58142 0 0) "tslint.json" "tsconfig.json" "src/" "README.md" "protractor.conf.js" "package.json" "package-lock.json" "node_modules/" "karma.conf.js" "e2e/" ".gitignore" ".git/" ".editorconfig" ".angular-cli.json" "../" "./")
+
+ ("/Users/yangc/src/angularjs/" (22940 58122 0 0) "official-quickstart/" "demo3/" "demo2/" "demo1/" "angularjs2-by-cli/" "angular2-quickstart/" "angular-phonecat/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/angularjs/angular2-quickstart/" (22940 57710 0 0) "../" "./")
+
+ ("/Users/yangc/src/AnypointStudio/" (22681 6305 0 0) "studio_id.xml" ".mule/" ".metadata/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/angularjs/demo2/" (22940 57661 0 0) "project.js" "list.html" "index.html" "detail.html" "bootstrap.css" "../" "./")
+
+ ("/Users/yangc/src/angularjs/demo1/" (22682 56866 0 0) "todo.js" "todo.css" "index.html" "../" "./")
+
+ ("/Users/yangc/.dotfiles/emacs/" (22940 57304 0 0) "snippets/" "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "lisp/" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "bin/" "auto-save-list/" ".org-id-locations" ".last-package-update-day" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.dotfiles/vim/" (22506 46809 0 0) "vimrc" "tags/" "README.md" "init.vim/" "colors/" "bundle/" "autoload/" ".netrwhist" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/.ssh/" (22939 64391 0 0) "sshp_pass" "known_hosts" "id_rsa.pub" "id_rsa" "config" "authorized_keys" "../" "./")
+
+ ("/Users/yangc/notes/01_Projects/" (22939 60163 0 0) "微服务生态.org" "open-falcon.org" "mesos.org" "Khala.org" "gogs.org" "dbpool.org" "_images/" "09_2017年广东公司IT运营创新技能竞赛，内部培训使用的机器.org" "08_发布中心.org" "07_开发平台.org" "06_CRM+.org" "05_机器学习和数据挖掘.org" "04_分布式配置中心.org" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "02_udal/" "01_2016 集团大数据平台入网测试配合/" "00_海量关系型数据库分库分表中间件/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/khala/gopub/" (22939 59723 0 0) "views/" "service.sh" "screenshot.png" "README.md" "pack.sh" "main.go" "logs/" "install.sql" "gopub.pid" "docker-compose.yaml" "docker/" "data/" "conf/" "assets/" "app/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/khala/gopub/app/controllers/" (22939 58317 0 0) "user.go" "types.go" "task.go" "server.go" "role.go" "review.go" "project.go" "main.go" "mailtpl.go" "env.go" "base.go" "app_test.go" "app.go" "agent.go" "#project.go#" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/Git/" (22938 39344 0 0) "git.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" ".#git.org" "#git.org#" "../" "./")
+
+ ("/Users/yangc/src/go/src/github.com/khala/gopub/views/app/" (22939 58535 0 0) "list.html" "add.html" "../" "./")
+
+ ("/Users/yangc/notes/00_Notes/" (22939 1093 0 0) "我的 Rime 输入设置.org" "大数据学习.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "分布式事务.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "Python/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "Elastic Stack.org" "Dubbo.org" "Coljure/" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_大数据学习/" "_images/" "_Elastic Stack/" "634px-PostgreSQL 架构.jpg" "09_软件工程.org" ".DS_Store" "../" "./")
+
+ ("/Users/yangc/notes/gtd/" (22939 35027 0 0) "tickler.org" "someday.org" "inbox.org" "gtd.org_archive" "gtd.org" ".DS_Store" "#inbox.org#" "../" "./")
 
  ("/Users/yangc/src/go/src/github.com/khala/easy-deploy/http/api/" (22929 19064 0 0) "heartbeat_controller.go" "health_controller.go" "frame_controller.go" "config_controller.go" "api_routes.go" "../" "./")
 
- ("/Users/yangc/.dotfiles/emacs/" (22939 36450 0 0) "snippets/" "smex-items" "recentf" "projectile-bookmarks.eld" "places" "network-security.data" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "bin/" "auto-save-list/" ".org-id-locations" ".last-package-update-day" ".DS_Store" "../" "./")
-
  ("/Users/yangc/.dotfiles/" (22939 36446 0 0) "vim/" "tmux/" "README.md" "myvimrc_2013/" "git/" "emacs/" ".gitignore" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/" (22939 36896 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zprofile" ".zcompdump-itsyc-5.2" ".z" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".vimrc/" ".viminfo" ".vim-bookmarks" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf/" ".swt/" ".subversion/" ".ssh/" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rustup/" ".rediscli_history" ".rally/" ".python_history" ".profile" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".multirust/" ".m2/" ".local/" ".lesshst" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java_history" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.keyfreq" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".cow/" ".config/" ".cmake/" ".clj_completions" ".CFUserTextEncoding" ".cargo/" ".cache/" ".bundle/" ".black-screen-state" ".berkshelf/" ".bastetrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
 
  ("/Users/yangc/.dotfiles/emacs.d/" (22939 36006 0 0) "lisp/" "init.el" ".DS_Store" "../" "./")
 
  ("/Users/yangc/work/" (22928 3394 0 0) "鹰眼/" "大型网站/" "团队/" "分布式数据库/" "zookeeper/" "Zabbix/" "Tomcat/" "Storm/" "Spark/" "Rime/" "Redis/" "Python/" "otter/" "nmon/" "MySQL/" "MyCat/" "mule/" "MQ/" "maven/" "JMeter/" "Jetty/" "Jenkins/" "Java/" "iptables/" "Hazelcast/" "Hadoop/" "Greenplum/" "Golang/" "Git/" "Elastic Stack/" "Dubbo(X)/" "Clojure/" "antlr4-4.5.3/" "Ansible/" ".DS_Store" "../" "./")
 
- ("/Users/yangc/src/go/src/github.com/khala/gopub/views/app/" (22938 38260 0 0) "list.html" "add.html" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/Git/" (22796 41835 0 0) "git.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" "../" "./")
-
  ("/Users/yangc/src/go/src/github.com/khala/gopub/app/service/" (22938 37115 0 0) "user.go" "task.go" "system.go" "server.go" "role.go" "repository.go" "project.go" "mail.go" "init.go" "env.go" "deploy_job.go" "deploy.go" "auth.go" "app.go" "action.go" "../" "./")
 
  ("/Users/yangc/src/go/src/github.com/lisijie/gopub/views/project/" (22938 21657 0 0) "new.html" "listnew.html" "list.html" "edit.html" "add.html" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/" (22938 34902 0 0) "views/" "service.sh" "screenshot.png" "README.md" "pack.sh" "main.go" "logs/" "install.sql" "gopub.pid" "gopub" "docker-compose.yaml" "docker/" "data/" "conf/" "assets/" "app/" ".gitignore" ".git/" "../" "./")
 
  ("/Users/yangc/src/go/src/github.com/khala/gopub/app/entity/" (22938 33462 0 0) "user.go" "task.go" "server.go" "role.go" "project.go" "perm.go" "mail_tpl.go" "log.go" "env.go" "action.go" ".#server.go" "#server.go#" "../" "./")
 
@@ -89,17 +133,9 @@
 
  ("/Users/yangc/.dotfiles/emacs_bak/lisp/" (22936 24518 0 0) "init-swiper.el" "init-panguspacing.el" "init-neotree.el" "init-magit.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-font.el" "init-evil.el" ".DS_Store" "../" "./")
 
- ("/Users/yangc/notes/00_Notes/Golang/" (22938 16992 0 0) "搭建 Emacs 开发环境.org" "go.org" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/" (22934 63095 0 0) "yayua/" "urfave/" "Unknwon/" "ugorji/" "twinj/" "tpng/" "toolkits/" "syndtr/" "stretchr/" "sqs/" "siddontang/" "shurcooL/" "sergi/" "satori/" "russross/" "rogpeppe/" "ramya-rao-a/" "pkg/" "pingcap/" "petar/" "open-falcon/" "nsf/" "ngaut/" "nfnt/" "msteinert/" "microcosm-cc/" "mcuadros/" "mattn/" "mailgun/" "lisijie/" "lib/" "kr/" "klauspost/" "kisielk/" "khala/" "juju/" "jstemmer/" "josharian/" "jaytaylor/" "issue9/" "ifrenzyc/" "google/" "golang/" "gogits/" "go-xorm/" "go-sql-driver/" "go-macaron/" "flike/" "fatih/" "dougm/" "cweill/" "coreos/" "coraldane/" "codegangsta/" "bradfitz/" "boltdb/" "beego/" "astaxie/" "alecthomas/" "acroca/" ".DS_Store" "../" "./")
-
  ("/Users/yangc/notes/" (22938 15227 0 0) "todolist.org" "styles/" "setup.org" "index.html" "home.org" "gtd/" "footer.org" "draft.org" "diary.org" "_images/" "_attachments/" "99_Diary/" "04_PPT/" "03_Life/" "02_Blog/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" "../" "./")
 
- ("/Users/yangc/notes/gtd/" (22938 12219 0 0) "tickler.org" "someday.org" "inbox.org" "gtd.org_archive" "gtd.org" ".DS_Store" "#inbox.org#" "../" "./")
-
  ("/Users/yangc/.dotfiles/emacs_bak/" (22936 19010 0 0) "lisp/" "init.el" ".DS_Store" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/" (22933 3232 0 0) "我的 Rime 输入设置.org" "大数据学习.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "分布式事务.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "Python/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "Elastic Stack.org" "Dubbo.org" "Coljure/" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_大数据学习/" "_images/" "_Elastic Stack/" "634px-PostgreSQL 架构.jpg" "09_软件工程.org" ".DS_Store" "../" "./")
 
  ("/Users/yangc/src/" (22777 53614 0 0) "YCM-Generator/" "yangc/" "webpack/" "txc-yun-sample/" "opensource/" "ncrm-web/" "mule/" "ks/" "kmas/" "gogs/" "go/" "ggzy/" "eshore/" "ec_proj/" "docker/" "config-server/" "commons-dbcp/" "AnypointStudio/" "angularjs/" ".DS_Store" "../" "./")
 

@@ -1,23 +1,41 @@
 
 ;; ----- smex-history -----
 (
- go
  package-autoremove
  package-list-packages
- org-publish-current-file
- gofmt
+ describe-symbol
  describe-key
+ emacs-uptime
  multi-term
+ ace-window
 )
 
 ;; ----- smex-data -----
 (
- (multi-term . 6)
+ (multi-term . 8)
  (multi-term-prev . 1)
- (describe-key . 5)
- (package-list-packages . 4)
+ (describe-key . 10)
+ (package-list-packages . 11)
  (org-publish-current-file . 6)
  (gofmt . 2)
- (package-autoremove . 1)
+ (package-autoremove . 5)
  (go . 9)
+ (org-version . 1)
+ (ace-jump-mode . 1)
+ (itsyc/dired-open-in-filemanager . 2)
+ (ivy-avy . 2)
+ (swiper-avy . 4)
+ (swiper . 1)
+ (swoop . 1)
+ (helm-ag . 1)
+ (avy-isearch . 1)
+ (outline-mode . 1)
+ (org-mode . 1)
+ (outline-toc-mode . 2)
+ (helm-swoop . 1)
+ (helm-M-x . 1)
+ (highlight-symbol . 2)
+ (ace-window . 3)
+ (emacs-uptime . 1)
+ (describe-symbol . 1)
 )

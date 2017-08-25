@@ -11,16 +11,12 @@
 (setq require-final-newline t)
 
 (setq default-tab-width 2)
-(setq js-indent-level 2)
 
 ;; tabs are truly evil
 (setq-default indent-tabs-mode nil)
 
 ;;; warn when opening files bigger than 100MB (default is 10MB)
 (setq large-file-warning-threshold 100000000)
-
-(use-package bind-key
-  :ensure t)
 
 (use-package diminish
   :ensure t)
@@ -198,10 +194,10 @@
 
 ;;; ansi colors in compilation mode
 (ignore-errors
-  (defun itsyc-colorize-compilation-buffer ()
+  (defun itsyc/colorize-compilation-buffer ()
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
-  (add-hook 'compilation-filter-hook itsyc-colorize-compilation-buffer))
+  (add-hook 'compilation-filter-hook itsyc/colorize-compilation-buffer))
 
 (use-package dashboard
   :ensure t
@@ -209,8 +205,7 @@
   (dashboard-setup-startup-hook)
   (setq dashboard-items '((recents  . 5)
                           (projects . 5)
-                          (bookmarks . 5)))
-  )
+                          (bookmarks . 5))))
 
 ;; @see https://github.com/gorakhargosh/emacs.d/blob/master/themes/color-theme-less.el
 ;; (use-package hc-zenburn-theme
@@ -644,6 +639,585 @@
                  ;; (-each sp--lisp-modes 'enable-lisp-hooks)
                  ))
 
+;; (use-package indent-guide
+;; :ensure t
+;; :init
+;; (indent-guide-global-mode)
+;; :config
+;; (set-face-background 'indent-guide-face "dimgray")
+;; (setq indent-guide-recursive t)
+;; )
+
+(use-package highlight-indentation
+  :ensure t
+  :init
+  (highlight-indentation-mode t)
+  :config
+  (set-face-background 'highlight-indentation-face "#e3e3d3")
+  (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
+
+;; (use-package elscreen
+;;   :init
+;;   (progn
+;;     ;; (set-face-attribute 'elscreen-tab-background-face nil :inherit 'default :background nil)
+;;     (setq elscreen-tab-display-control nil)
+;;     (setq elscreen-tab-display-kill-screen nil)
+;;     (setq elscreen-prefix-key "\C-a")
+;;     (elscreen-start)))
+
+(use-package zoom-window
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+  (setq zoom-window-mode-line-color "DarkGreen"))
+
+;;; ace-window
+(use-package ace-window
+  :ensure t
+  :bind ("C-x o" . ace-window))
+
+;; (use-package auto-dim-other-buffers
+;;   :ensure t
+;;   :init
+;;   (add-hook 'after-init-hook (lambda ()
+;;   (when (fboundp 'auto-dim-other-buffers-mode)
+;;     (auto-dim-other-buffers-mode t)))))
+
+;; frame font
+;; Setting English Font
+;; (if (member "Monaco" (font-family-list))
+;;    (set-face-attribute
+;;     'default nil :font "Monaco 13"))
+(if (member "Source Code Pro" (font-family-list))
+    (set-face-attribute
+     'default nil :font "Source Code Pro 14"))
+
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+
+;; set the default encoding system
+(prefer-coding-system 'utf-8)
+(setq default-file-name-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+;; backwards compatibility as default-buffer-file-coding-system
+;; is deprecated in 23.2.
+(if (boundp buffer-file-coding-system)
+    (setq buffer-file-coding-system 'utf-8)
+  (setq default-buffer-file-coding-system 'utf-8))
+
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+(use-package all-the-icons
+  :ensure t)
+
+;; @see http://coldnew.github.io/blog/2013/05-20_5cbb7/
+(use-package pangu-spacing
+  :ensure t
+  :config
+  (global-pangu-spacing-mode 1)
+  ;; (setq pangu-spacing-real-insert-separtor t)
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+
+(use-package direx
+  :ensure t
+  :init
+  (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory))
+
+(use-package projectile
+  :ensure t
+  :commands (projectile-project-root)
+  :init (projectile-global-mode)
+  :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+
+                 (setq projectile-enable-caching t)
+                 (setq projectile-completion-system 'default)
+                 (setq projectile-indexing-method 'alien)
+
+                 ;; add to the globally ignored files
+                 (dolist (file-name '("*~" "*.elc"))
+                   (add-to-list 'projectile-globally-ignored-files file-name))))
+
+(defun itsyc/helm-project-do-ag ()
+  "Search in current project with `ag'."
+  (interactive)
+  (let ((dir (projectile-project-root)))
+    (if dir
+        (helm-do-ag dir)
+      (message "error: Not in a project."))))
+
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-smart-open t)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  (setq-default neo-dont-be-alone t)  ; Don't allow neotree to be the only open window
+  ;; Use with evil mode
+  ;; @see https://www.emacswiki.org/emacs/NeoTree
+  (add-hook 'neotree-mode-hook
+            (lambda ()
+              (visual-line-mode -1)
+              (setq truncate-lines t)
+              (hl-line-mode 1)
+              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)))
+  ;; 'classic, 'nerd, 'ascii, 'arrow
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  ;; (setq neo-theme 'nerd)
+  )
+
+(defun neotree-copy-file ()
+  (interactive)
+  (let* ((current-path (neo-buffer--get-filename-current-line))
+         (msg (format "Copy [%s] to: "
+                      (neo-path--file-short-name current-path)))
+         (to-path (read-file-name msg (file-name-directory current-path))))
+    (dired-copy-file current-path to-path t))
+  (neo-buffer--refresh t))
+
+(define-minor-mode neotree-evil
+  "Use NERDTree bindings on neotree."
+  :lighter " NT"
+  :keymap (progn
+            (evil-make-overriding-map neotree-mode-map 'normal t)
+            (evil-define-key 'normal neotree-mode-map
+              "C" 'neotree-change-root
+              "U" 'neotree-select-up-node
+              "r" 'neotree-refresh
+              "o" 'neotree-enter
+              (kbd "<return>") 'neotree-enter
+              "i" 'neotree-enter-horizontal-split
+              "s" 'neotree-enter-vertical-split
+              "n" 'evil-search-next
+              "N" 'evil-search-previous
+              "ma" 'neotree-create-node
+              "mc" 'neotree-copy-file
+              "md" 'neotree-delete-node
+              "mm" 'neotree-rename-node
+              "gg" 'evil-goto-first-line
+              "gi" (lambda ()
+                     (interactive)
+                     (if (string= pe/get-directory-tree-external-command
+                                  nt/gitignore-files-cmd)
+                         (progn (setq pe/get-directory-tree-external-command
+                                      nt/all-files-cmd))
+                       (progn (setq pe/get-directory-tree-external-command
+                                    nt/gitignore-files-cmd)))
+                     (nt/refresh))
+              "I" (lambda ()
+                    (interactive)
+                    (if pe/omit-enabled
+                        (progn (setq pe/directory-tree-function
+                                     'pe/get-directory-tree-async)
+                               (pe/toggle-omit nil))
+                      (progn (setq pe/directory-tree-function
+                                   'pe/get-directory-tree-external)
+                             (pe/toggle-omit t)))))
+            neotree-mode-map))
+
+(use-package go-mode
+  :ensure t
+  :mode ("\\.go" . go-mode)
+  :commands go-mode
+  :init (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+  :config (progn (use-package company-go
+                   :ensure t
+                   :if (executable-find "gocode")
+                   :commands company-go
+                   :init (add-hook 'after-init-hook
+                                   (lambda ()(add-to-list 'company-backends 'company-go)))
+                   )
+                 (use-package go-direx
+                   :ensure t
+                   :init
+                   (define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer))
+                 (use-package go-eldoc
+                   :ensure t
+                   :if (executable-find "gocode")
+                   :commands go-eldoc-setup
+                   :init (add-to-list 'go-mode-hook 'go-eldoc-setup))
+                 (bind-key "M-]" 'godef-jump go-mode-map)
+                 (bind-key "M-[" 'pop-tag-mark go-mode-map)
+                 (bind-key "C-S-F" 'gofmt go-mode-map)
+                 (bind-key "M-<return>" 'godef-describe go-mode-map)
+                 ;;                (setq go-mode-map
+                 ;; (let ((m (make-sparse-keymap)))
+                 ;;   (define-key m "}" #'go-mode-insert-and-indent)
+                 ;;   (define-key m ")" #'go-mode-insert-and-indent)
+                 ;;   (define-key m "," #'go-mode-insert-and-indent)
+                 ;;   (define-key m ":" #'go-mode-insert-and-indent)
+                 ;;   (define-key m "=" #'go-mode-insert-and-indent)
+                 ;;   (define-key m (kbd "C-c C-a") #'go-import-add)
+                 ;;   (define-key m (kbd "C-c C-j") #'godef-jump)
+                 ;;   ;; go back to point after called godef-jump.  ::super
+                 ;;   (define-key m (kbd "C-c C-b") #'pop-tag-mark)
+                 ;;   (define-key m (kbd "C-x 4 C-c C-j") #'godef-jump-other-window)
+                 ;;   (define-key m (kbd "C-c C-d") #'godef-describe)
+                 ;;   m))
+
+                 (add-hook 'go-mode-hook 'flycheck-mode)
+                 (add-hook 'go-mode-hook 'yas-minor-mode)
+                 (add-hook 'go-mode-hook 'highlight-symbol-mode)
+
+                 ;; 保存文件的时候对该源文件做一下 gofmt
+                 (add-hook 'before-save-hook 'gofmt-before-save)
+                 (add-hook 'go-mode-hook
+                           (lambda ()
+                             (setq tab-width 4)
+                             (setq indent-tabs-mode 1))))
+  )
+
+(use-package go-complete :ensure t)
+(use-package go-errcheck :ensure t)
+(use-package go-gopath :ensure t)
+(use-package go-impl :ensure t)
+(use-package go-projectile :ensure t)
+(use-package go-snippets
+  :ensure go-snippets
+  :init (go-snippets-initialize))
+
+;; Quick run current buffer
+(defun itsyc/go ()
+  "run current buffer"
+  (interactive)
+  (compile (concat "go run " (buffer-file-name))))
+
+;; use goimports instead of gofmt ::super
+(setq gofmt-command "goimports")
+
+(defun itsyc/run-current-file ()
+  "Execute the current file.
+For example, if the current buffer is x.py, then it'll call「python x.py」in a shell. Output is printed to message buffer.
+
+The file can be Emacs Lisp, PHP, Perl, Python, Ruby, JavaScript, TypeScript, golang, Bash, Ocaml, Visual Basic, TeX, Java, Clojure.
+File suffix is used to determine what program to run.
+
+If the file is modified or not saved, save it automatically before run.
+
+URL `http://ergoemacs.org/emacs/elisp_run_current_file.html'
+Version 2017-07-31"
+  (interactive)
+  (let (
+        ($suffix-map
+         ;; (‹extension› . ‹shell program name›)
+         `(
+           ("php" . "php")
+           ("pl" . "perl")
+           ("py" . "python")
+           ("py3" . ,(if (string-equal system-type "windows-nt") "c:/Python32/python.exe" "python3"))
+           ("rb" . "ruby")
+           ("go" . "/usr/local/bin/go run")
+           ("hs" . "runhaskell")
+           ("js" . "node") ; node.js
+           ("ts" . "tsc --alwaysStrict --lib DOM,ES2015,DOM.Iterable,ScriptHost --target ES5") ; TypeScript
+           ("sh" . "bash")
+           ("clj" . "java -cp /home/xah/apps/clojure-1.6.0/clojure-1.6.0.jar clojure.main")
+           ("rkt" . "racket")
+           ("ml" . "ocaml")
+           ("vbs" . "cscript")
+           ("tex" . "pdflatex")
+           ("latex" . "pdflatex")
+           ("java" . "javac")
+           ;; ("pov" . "/usr/local/bin/povray +R2 +A0.1 +J1.2 +Am2 +Q9 +H480 +W640")
+           ))
+        $fname
+        $fSuffix
+        $prog-name
+        $cmd-str)
+    (when (not (buffer-file-name)) (save-buffer))
+    (when (buffer-modified-p) (save-buffer))
+    (setq $fname (buffer-file-name))
+    (setq $fSuffix (file-name-extension $fname))
+    (setq $prog-name (cdr (assoc $fSuffix $suffix-map)))
+    (setq $cmd-str (concat $prog-name " \""   $fname "\""))
+    (cond
+     ((string-equal $fSuffix "el") (load $fname))
+     ((string-equal $fSuffix "go")
+      (when (fboundp 'gofmt)
+        (gofmt)
+        (shell-command $cmd-str "*xah-run-current-file output*" )))
+     ((string-equal $fSuffix "java")
+      (progn
+        (shell-command $cmd-str "*xah-run-current-file output*" )
+        (shell-command
+         (format "java %s" (file-name-sans-extension (file-name-nondirectory $fname))))))
+     (t (if $prog-name
+            (progn
+              (message "Running…")
+              (shell-command $cmd-str "*xah-run-current-file output*" ))
+          (message "No recognized program file suffix for this file."))))))
+
+(use-package clojure-mode
+  :ensure t
+  :commands clojure-mode
+  :init (add-to-list 'auto-mode-alist '("\\.\\(clj[sx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
+  :config (progn (use-package cider
+                   :ensure t
+                   :init (progn (add-hook 'clojure-mode-hook 'cider-turn-on-eldoc-mode)
+                                (add-hook 'cider-repl-mode-hook 'subword-mode))
+                   :config (progn (setq cider-annotate-completion-candidates t
+                                        cider-mode-line " cider")
+                                  (define-key cider-repl-mode-map (kbd "M-RET") 'cider-doc)
+                                  (define-key cider-mode-map (kbd "M-RET") 'cider-doc)))
+                 (use-package clj-refactor
+                   :ensure t
+                   :init (progn (add-hook 'clojure-mode-hook (lambda ()
+                                                               (clj-refactor-mode 1)
+                                                               (cljr-add-keybindings-with-prefix "C-c C-m")))
+                                (define-key clojure-mode-map (kbd "C-:") 'clojure-toggle-keyword-string)
+                                (define-key clojure-mode-map (kbd "C->") 'cljr-cycle-coll)))
+                 (add-hook 'clojure-mode-hook (lambda () (setq buffer-save-without-query t)))
+                 (add-hook 'clojure-mode-hook 'subword-mode)
+                 ;; Fancy docstrings for schema/defn when in the form:
+                 ;; (schema/defn NAME :- TYPE "DOCSTRING" ...)
+                 (put 'schema/defn 'clojure-doc-string-elt 4)))
+
+(use-package js2-mode
+  :ensure t
+  :init (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  :config (use-package tern
+            :commands tern-mode
+            :init (add-hook 'js2-mode-hook 'tern-mode)
+            :config (progn (use-package company-tern
+                             :ensure t
+                             :init (add-to-list 'company-backends 'company-tern))
+                           (define-key tern-mode-keymap (kbd "M-.") 'tern-find-definition)
+                           (define-key tern-mode-keymap (kbd "C-M-.") 'tern-find-definition-by-name)
+                           (define-key tern-mode-keymap (kbd "M-,") 'tern-pop-find-definition)
+                           (define-key tern-mode-keymap (kbd "C-c C-r") 'tern-rename-variable)
+                           (define-key tern-mode-keymap (kbd "C-c C-c") 'tern-get-type)
+                           (define-key tern-mode-keymap (kbd "C-c C-d") 'tern-get-docs)
+                           (define-key tern-mode-keymap (kbd "M-<return>") 'tern-get-docs))))
+
+(setq js-indent-level 2)
+(setq typescript-indent-level 2)
+
+(use-package typescript
+  :ensure t)
+
+(add-to-list 'load-path (expand-file-name "lisp/angularjs-mode" user-emacs-directory))
+(add-to-list 'yas-snippet-dirs (expand-file-name "lisp/angularjs-mode/snippets" user-emacs-directory))
+;; (add-to-list 'ac-dictionary-directories (expand-file-name "lisp/angularjs-mode/ac-dict" user-emacs-directory))
+;; (add-to-list 'ac-modes 'angular-mode)
+;; (add-to-list 'ac-modes 'angular-html-mode)
+
+(use-package angular-snippets
+  :ensure t
+  :config
+  (eval-after-load "sgml-mode"
+    '(define-key html-mode-map (kbd "C-c C-d") 'ng-snip-show-docs-at-point)))
+
+(use-package js-comint
+  :ensure t
+  :config
+  (defun whitespace-clean-and-compile ()
+    (interactive)
+    (whitespace-cleanup-all)
+    (compile compile-command))
+
+  ;; Configure jshint for JS style checking.
+  ;;   - Install: $ npm install -g jshint
+  ;;   - Usage: Hit C-cC-u within any emacs buffer visiting a .js file
+  (setq jshint-cli "jshint --show-non-errors ")
+  (setq compilation-error-regexp-alist-alist
+        (cons '(jshint-cli "^\\([a-zA-Z\.0-9_/-]+\\): line \\([0-9]+\\), col \\([0-9]+\\)"
+                           1 ;; file
+                           2 ;; line
+                           3 ;; column
+                           )
+              compilation-error-regexp-alist-alist))
+  (setq compilation-error-regexp-alist
+        (cons 'jshint-cli compilation-error-regexp-alist))
+
+  (add-hook 'js-mode-hook '(lambda ()
+                             (local-set-key "\C-x\C-e" 'eval-last-sexp)
+                             (local-set-key "\C-cb" 'js-send-buffer)
+                             (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+                             (local-set-key "\C-cl" 'js-load-file-and-go)
+                             (local-set-key "\C-c!" 'run-js)
+                             (local-set-key "\C-c\C-r" 'js-send-region)
+                             (local-set-key "\C-c\C-j" 'js-send-line)
+                             (set (make-local-variable 'compile-command)
+                                  (let ((file buffer-file-name)) (concat jshint-cli file)))
+                             (set (make-local-variable 'compilation-read-command) nil)
+                             (local-set-key "\C-c\C-u" 'whitespace-clean-and-compile)
+                             ))
+
+  (defun node-repl-comint-preoutput-filter (output)
+    "This function fixes the escape issue with node-repl in js-comint.el.
+  Heavily adapted from http://www.squidoo.com/emacs-comint (which
+  is in emacs/misc/comint_ticker)
+  Basically, by adding this preoutput filter to the
+  comint-preoutput-filter-functions list we take the output of
+  comint in a *js* buffer and do a find/replace to replace the
+  ANSI escape noise with a reasonable prompt.
+"
+    (if (equal (buffer-name) "*js*")
+        (progn
+          ;; Uncomment these to debug the IO of the node process
+          ;; (setq js-node-output output)
+          ;; (message (concat "\n----------\n" output "\n----------\n"))
+
+          ;; Replaced ^ with \^ to indicate that doesn't have to be
+          ;; at start of line
+          (replace-regexp-in-string
+           "\\\[0K" ""
+           (replace-regexp-in-string
+            "\\\[1G" ""
+            (replace-regexp-in-string
+             "\\\[0J" ""
+             (replace-regexp-in-string
+              "\\\[3G" ""
+              (replace-regexp-in-string
+               "\\\[0G" ""
+               (replace-regexp-in-string
+                "\\[2C" ""
+                (replace-regexp-in-string
+                 "\\[0K" ""
+                 (replace-regexp-in-string
+                  "" "" output))))))))
+          )
+      output
+      )
+    )
+
+  (add-hook 'comint-preoutput-filter-functions 'node-repl-comint-preoutput-filter)
+  (add-hook 'comint-output-filter-functions 'node-repl-comint-preoutput-filter))
+
+(use-package web-mode
+  :ensure t
+  :commands web-mode
+  :init (progn (add-to-list 'auto-mode-alist '("\\.phtml$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.tpl\\.php$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.[gj]sp$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.as[cp]x$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.erb$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.mustache$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.djhtml$'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.html$'" . web-mode)))
+  :config ;; Autocomplete end tag when finished writing opening tag
+  (setq web-mode-auto-close-style 2))
+
+(use-package emmet-mode
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+  (setq emmet-expand-jsx-className? t))
+
+(use-package json-mode
+  :ensure t
+  :defer t
+  :init (progn (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+               (add-to-list 'auto-mode-alist '("\\.jsonld$" . json-mode))
+               (add-to-list 'auto-mode-alist '(".tern-project" . json-mode))
+               (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode)))
+  :config (progn (add-hook 'json-mode-hook 'flycheck-mode)
+                 (bind-key "C-S-f" 'json-mode-beautify json-mode-map)))
+
+(use-package nxml-mode
+  :defer t
+  :init (progn (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
+               (add-to-list 'auto-mode-alist '("\\.gapp$" . nxml-mode)))
+  :config (progn (bind-key "C-S-f" 'beautify-xml nxml-mode-map)))
+
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
+
+(use-package logstash-conf
+  :ensure t
+  :config
+  (setq logstash-indent 2))
+
+(use-package markdown-mode
+  :ensure t
+  :commands
+  (markdown-mode gfm-mode)
+  :mode
+  (("README\\.md\\'" . gfm-mode)
+   ("\\.md\\'" . markdown-mode)
+   ("\\.markdown\\'" . markdown-mode))
+  :init
+  (setq markdown-command "/usr/local/Cellar/multimarkdown/5*/bin/multimarkdown")
+  :config
+  ;; Turn on flyspell mode when editing markdown files
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
+  (add-hook 'gfm-mode-hook 'flyspell-mode))
+
+(use-package markdown-toc :ensure t)
+(use-package markdown-mode+ :ensure t)
+
+(use-package company
+  :ensure t
+  :defer t
+  :commands global-company-mode
+  :diminish "comp"
+  :init
+  (global-company-mode)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
+  :config
+  ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
+  ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
+  (setq company-idle-delay 0.2)
+  (setq company-tooltip-flip-when-above t)
+  (setq company-selection-wrap-around t)
+  (define-key company-active-map [tab] 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
+(use-package company-quickhelp
+  :disabled t
+  :config
+  (company-quickhelp-mode 1))
+
+(use-package yasnippet
+  :ensure t
+  :defer 2
+  :diminish yas-minor-mode
+  :config
+  (progn
+    ;; Suppress excessive log messages
+    (setq yas-verbosity 1
+          yas-prompt-functions '(yas-ido-prompt)
+          yas-snippet-dir (expand-file-name "snippets" user-emacs-directory))
+    (yas-global-mode t)))
+
+;;; spell checking
+(use-package ispell
+  :config (setq ispell-program-name "aspell" ; use aspell instead of ispell
+                ispell-extra-args '("--sug-mode=ultra")))
+
+(use-package flyspell
+  :ensure t
+  :defer 2
+  :commands flyspell-mode
+  :init (add-hook 'text-mode-hook 'flyspell-mode))
+
+;;; flycheck mode
+(use-package flycheck
+  :ensure t
+  :commands global-flycheck-mode
+  :config (progn (use-package popup
+                   :ensure t)
+                 (use-package flycheck-pos-tip
+                   :ensure t)
+                 (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
+                 ;; (use-package flycheck-clojure
+                 ;;   :ensure t
+                 ;;   :init (flycheck-clojure-setup))
+                 (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
+                 (global-flycheck-mode)))
+
 (use-package evil-leader
   :ensure t
   :init
@@ -910,506 +1484,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :init
   (global-evil-search-highlight-persist t))
 
-(use-package avy
-  :ensure t
-  :init
-  (setq avy-background t))
-
-(use-package company
-  :ensure t
-  :defer t
-  :commands global-company-mode
-  :diminish "comp"
-  :init
-  (global-company-mode)
-  (add-hook 'after-init-hook 'global-company-mode)
-  (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
-  :config
-  ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
-  ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
-  (setq company-idle-delay 0.2)
-  (setq company-tooltip-flip-when-above t)
-  (setq company-selection-wrap-around t)
-  (define-key company-active-map [tab] 'company-complete)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
-
-(use-package yasnippet
-  :ensure t
-  :defer 2
-  :diminish yas-minor-mode
-  :config
-  (progn
-    ;; Suppress excessive log messages
-    (setq yas-verbosity 1
-          yas-prompt-functions '(yas-ido-prompt)
-          yas-snippet-dir (expand-file-name "snippets" user-emacs-directory))
-    (yas-global-mode t)))
-
-(use-package expand-region
-  :ensure t
-  :init
-  (pending-delete-mode t)
-  :config
-  (global-set-key (kbd "C-=") 'er/expand-region))
-
-(use-package selected
-  :ensure t
-  :commands selected-minor-mode
-  :init
-  (setq selected-org-mode-map (make-sparse-keymap))
-  :bind (:map selected-keymap
-              ("q" . selected-off)
-              ("u" . upcase-region)
-              ("d" . downcase-region)
-              ("w" . count-words-region)
-              ("m" . apply-macro-to-region-lines)
-              :map selected-org-mode-map
-              ("t" . org-table-convert-region)))
-
-;;; highlight-symbol
-(use-package highlight-symbol
-  :ensure t
-  :diminish ""
-  :bind (("C-<f3>" . highlight-symbol-at-point)
-         ("<f3>" . highlight-symbol-next)
-         ("S-<f3>" . highlight-symbol-prev)
-         ("M-<f3>" . highlight-symbol-prev))
-  :config (progn (setq highlight-symbol-idle-delay 0.5)
-                 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-                 (highlight-symbol-mode)))
-
-;; frame font
-;; Setting English Font
-;; (if (member "Monaco" (font-family-list))
-;;    (set-face-attribute
-;;     'default nil :font "Monaco 13"))
-(if (member "Source Code Pro" (font-family-list))
-    (set-face-attribute
-     'default nil :font "Source Code Pro 14"))
-
-(set-language-environment 'utf-8)
-(setq locale-coding-system 'utf-8)
-
-;; set the default encoding system
-(prefer-coding-system 'utf-8)
-(setq default-file-name-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-;; backwards compatibility as default-buffer-file-coding-system
-;; is deprecated in 23.2.
-(if (boundp buffer-file-coding-system)
-    (setq buffer-file-coding-system 'utf-8)
-  (setq default-buffer-file-coding-system 'utf-8))
-
-;; Treat clipboard input as UTF-8 string first; compound text next, etc.
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
-
-(use-package direx
-  :ensure t
-  :init
-  (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory))
-
-(use-package projectile
-  :ensure t
-  :commands (projectile-project-root)
-  :init (projectile-global-mode)
-  :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
-
-                 (setq projectile-enable-caching t)
-                 (setq projectile-completion-system 'default)
-                 (setq projectile-indexing-method 'alien)
-
-                 ;; add to the globally ignored files
-                 (dolist (file-name '("*~" "*.elc"))
-                   (add-to-list 'projectile-globally-ignored-files file-name))))
-
-(defun itsyc/helm-project-do-ag ()
-  "Search in current project with `ag'."
-  (interactive)
-  (let ((dir (projectile-project-root)))
-    (if dir
-        (helm-do-ag dir)
-      (message "error: Not in a project."))))
-
-(use-package go-mode
-  :ensure t
-  :mode ("\\.go" . go-mode)
-  :commands go-mode
-  :init (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
-  :config (progn (use-package company-go
-                   :ensure t
-                   :if (executable-find "gocode")
-                   :commands company-go
-                   :init (add-hook 'after-init-hook
-                                   (lambda ()(add-to-list 'company-backends 'company-go)))
-                   )
-                 (use-package go-direx
-                   :ensure t
-                   :init
-                   (define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer))
-                 (use-package go-eldoc
-                   :ensure t
-                   :if (executable-find "gocode")
-                   :commands go-eldoc-setup
-                   :init (add-to-list 'go-mode-hook 'go-eldoc-setup))
-                 (bind-key "M-]" 'godef-jump go-mode-map)
-                 (bind-key "M-[" 'pop-tag-mark go-mode-map)
-                 (bind-key "C-S-F" 'gofmt go-mode-map)
-                 (bind-key "M-<return>" 'godef-describe go-mode-map)
-                 ;;                (setq go-mode-map
-                 ;; (let ((m (make-sparse-keymap)))
-                 ;;   (define-key m "}" #'go-mode-insert-and-indent)
-                 ;;   (define-key m ")" #'go-mode-insert-and-indent)
-                 ;;   (define-key m "," #'go-mode-insert-and-indent)
-                 ;;   (define-key m ":" #'go-mode-insert-and-indent)
-                 ;;   (define-key m "=" #'go-mode-insert-and-indent)
-                 ;;   (define-key m (kbd "C-c C-a") #'go-import-add)
-                 ;;   (define-key m (kbd "C-c C-j") #'godef-jump)
-                 ;;   ;; go back to point after called godef-jump.  ::super
-                 ;;   (define-key m (kbd "C-c C-b") #'pop-tag-mark)
-                 ;;   (define-key m (kbd "C-x 4 C-c C-j") #'godef-jump-other-window)
-                 ;;   (define-key m (kbd "C-c C-d") #'godef-describe)
-                 ;;   m))
-
-                 (add-hook 'go-mode-hook 'flycheck-mode)
-                 (add-hook 'go-mode-hook 'yas-minor-mode)
-                 (add-hook 'go-mode-hook 'highlight-symbol-mode)
-
-                 ;; 保存文件的时候对该源文件做一下 gofmt
-                 (add-hook 'before-save-hook 'gofmt-before-save)
-                 (add-hook 'go-mode-hook
-                           (lambda ()
-                             (setq tab-width 4)
-                             (setq indent-tabs-mode 1))))
-  )
-
-(use-package go-complete :ensure t)
-(use-package go-errcheck :ensure t)
-(use-package go-gopath :ensure t)
-(use-package go-impl :ensure t)
-(use-package go-projectile :ensure t)
-(use-package go-snippets
-  :ensure go-snippets
-  :init (go-snippets-initialize))
-
-;; Quick run current buffer
-(defun go ()
-  "run current buffer"
-  (interactive)
-  (compile (concat "go run " (buffer-file-name))))
-
-;; use goimports instead of gofmt ::super
-(setq gofmt-command "goimports")
-
-(defun itsyc-run-current-file ()
-  "Execute the current file.
-For example, if the current buffer is x.py, then it'll call「python x.py」in a shell. Output is printed to message buffer.
-
-The file can be Emacs Lisp, PHP, Perl, Python, Ruby, JavaScript, TypeScript, golang, Bash, Ocaml, Visual Basic, TeX, Java, Clojure.
-File suffix is used to determine what program to run.
-
-If the file is modified or not saved, save it automatically before run.
-
-URL `http://ergoemacs.org/emacs/elisp_run_current_file.html'
-Version 2017-07-31"
-  (interactive)
-  (let (
-        ($suffix-map
-         ;; (‹extension› . ‹shell program name›)
-         `(
-           ("php" . "php")
-           ("pl" . "perl")
-           ("py" . "python")
-           ("py3" . ,(if (string-equal system-type "windows-nt") "c:/Python32/python.exe" "python3"))
-           ("rb" . "ruby")
-           ("go" . "/usr/local/bin/go run")
-           ("hs" . "runhaskell")
-           ("js" . "node") ; node.js
-           ("ts" . "tsc --alwaysStrict --lib DOM,ES2015,DOM.Iterable,ScriptHost --target ES5") ; TypeScript
-           ("sh" . "bash")
-           ("clj" . "java -cp /home/xah/apps/clojure-1.6.0/clojure-1.6.0.jar clojure.main")
-           ("rkt" . "racket")
-           ("ml" . "ocaml")
-           ("vbs" . "cscript")
-           ("tex" . "pdflatex")
-           ("latex" . "pdflatex")
-           ("java" . "javac")
-           ;; ("pov" . "/usr/local/bin/povray +R2 +A0.1 +J1.2 +Am2 +Q9 +H480 +W640")
-           ))
-        $fname
-        $fSuffix
-        $prog-name
-        $cmd-str)
-    (when (not (buffer-file-name)) (save-buffer))
-    (when (buffer-modified-p) (save-buffer))
-    (setq $fname (buffer-file-name))
-    (setq $fSuffix (file-name-extension $fname))
-    (setq $prog-name (cdr (assoc $fSuffix $suffix-map)))
-    (setq $cmd-str (concat $prog-name " \""   $fname "\""))
-    (cond
-     ((string-equal $fSuffix "el") (load $fname))
-     ((string-equal $fSuffix "go")
-      (when (fboundp 'gofmt)
-        (gofmt)
-        (shell-command $cmd-str "*xah-run-current-file output*" )))
-     ((string-equal $fSuffix "java")
-      (progn
-        (shell-command $cmd-str "*xah-run-current-file output*" )
-        (shell-command
-         (format "java %s" (file-name-sans-extension (file-name-nondirectory $fname))))))
-     (t (if $prog-name
-            (progn
-              (message "Running…")
-              (shell-command $cmd-str "*xah-run-current-file output*" ))
-          (message "No recognized program file suffix for this file."))))))
-
-(use-package clojure-mode
-  :ensure t
-  :commands clojure-mode
-  :init (add-to-list 'auto-mode-alist '("\\.\\(clj[sx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
-  :config (progn (use-package cider
-                   :ensure t
-                   :init (progn (add-hook 'clojure-mode-hook 'cider-turn-on-eldoc-mode)
-                                (add-hook 'cider-repl-mode-hook 'subword-mode))
-                   :config (progn (setq cider-annotate-completion-candidates t
-                                        cider-mode-line " cider")
-                                  (define-key cider-repl-mode-map (kbd "M-RET") 'cider-doc)
-                                  (define-key cider-mode-map (kbd "M-RET") 'cider-doc)))
-                 (use-package clj-refactor
-                   :ensure t
-                   :init (progn (add-hook 'clojure-mode-hook (lambda ()
-                                                               (clj-refactor-mode 1)
-                                                               (cljr-add-keybindings-with-prefix "C-c C-m")))
-                                (define-key clojure-mode-map (kbd "C-:") 'clojure-toggle-keyword-string)
-                                (define-key clojure-mode-map (kbd "C->") 'cljr-cycle-coll)))
-                 (add-hook 'clojure-mode-hook (lambda () (setq buffer-save-without-query t)))
-                 (add-hook 'clojure-mode-hook 'subword-mode)
-                 ;; Fancy docstrings for schema/defn when in the form:
-                 ;; (schema/defn NAME :- TYPE "DOCSTRING" ...)
-                 (put 'schema/defn 'clojure-doc-string-elt 4)))
-
-(use-package js2-mode
-  :ensure t
-  :init (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  :config (use-package tern
-            :commands tern-mode
-            :init (add-hook 'js2-mode-hook 'tern-mode)
-            :config (progn (use-package company-tern
-                             :ensure t
-                             :init (add-to-list 'company-backends 'company-tern))
-                           (define-key tern-mode-keymap (kbd "M-.") 'tern-find-definition)
-                           (define-key tern-mode-keymap (kbd "C-M-.") 'tern-find-definition-by-name)
-                           (define-key tern-mode-keymap (kbd "M-,") 'tern-pop-find-definition)
-                           (define-key tern-mode-keymap (kbd "C-c C-r") 'tern-rename-variable)
-                           (define-key tern-mode-keymap (kbd "C-c C-c") 'tern-get-type)
-                           (define-key tern-mode-keymap (kbd "C-c C-d") 'tern-get-docs)
-                           (define-key tern-mode-keymap (kbd "M-<return>") 'tern-get-docs))))
-
-(use-package web-mode
-  :ensure t
-  :commands web-mode
-  :init (progn (add-to-list 'auto-mode-alist '("\\.phtml$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.tpl\\.php$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.[gj]sp$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.as[cp]x$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.erb$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.mustache$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.djhtml$'" . web-mode))
-               (add-to-list 'auto-mode-alist '("\\.html$'" . web-mode)))
-  :config ;; Autocomplete end tag when finished writing opening tag
-  (setq web-mode-auto-close-style 2))
-
-(use-package json-mode
-  :ensure t
-  :defer t
-  :init (progn (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
-               (add-to-list 'auto-mode-alist '("\\.jsonld$" . json-mode))
-               (add-to-list 'auto-mode-alist '(".tern-project" . json-mode))
-               (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode)))
-  :config (progn (add-hook 'json-mode-hook 'flycheck-mode)
-                 (bind-key "C-S-f" 'json-mode-beautify json-mode-map)))
-
-(use-package nxml-mode
-  :defer t
-  :init (progn (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
-               (add-to-list 'auto-mode-alist '("\\.gapp$" . nxml-mode)))
-  :config (progn (bind-key "C-S-f" 'beautify-xml nxml-mode-map)))
-
-(use-package yaml-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
-
-(use-package logstash-conf
-  :ensure t
-  :config
-  (setq logstash-indent 2))
-
-(use-package markdown-mode
-  :ensure t
-  :commands
-  (markdown-mode gfm-mode)
-  :mode
-  (("README\\.md\\'" . gfm-mode)
-   ("\\.md\\'" . markdown-mode)
-   ("\\.markdown\\'" . markdown-mode))
-  :init
-  (setq markdown-command "/usr/local/Cellar/multimarkdown/5*/bin/multimarkdown")
-  :config
-  ;; Turn on flyspell mode when editing markdown files
-  (add-hook 'markdown-mode-hook 'flyspell-mode)
-  (add-hook 'gfm-mode-hook 'flyspell-mode))
-
-(use-package markdown-toc :ensure t)
-(use-package markdown-mode+ :ensure t)
-
-(use-package helm
-  :ensure t
-  :config
-  (helm-mode 1)
-  (helm-fuzzier-mode 1)
-  (helm-autoresize-mode 1)
-  (setq helm-buffers-fuzzy-matching t)
-  (setq helm-autoresize-mode t)
-  (setq helm-buffer-max-length 100)
-  (set-face-attribute 'helm-selection nil
-                      :background "yellow"
-                      :foreground "black")
-  (define-key helm-map (kbd "C-j") 'helm-next-line)
-  (define-key helm-map (kbd "C-k") 'helm-previous-line)
-  (define-key helm-map (kbd "C-h") 'helm-next-source)
-  (define-key helm-map (kbd "C-S-h") 'describe-key)
-  (define-key helm-map (kbd "C-l") (kbd "RET"))
-  (define-key helm-map [escape] 'helm-keyboard-quit))
-
-(use-package helm-swoop
-  :ensure t
-  :config
-  (global-set-key (kbd "M-i") 'helm-swoop)
-  (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
-  (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-  ;; Save buffer when helm-multi-swoop-edit complete
-  (setq helm-multi-swoop-edit-save t)
-  ;; Go to the opposite side of line from the end or beginning of line
-  (setq helm-swoop-move-to-line-cycle t)
-  ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
-  (setq helm-swoop-split-direction 'split-window-vertically))
-
-(use-package helm-projectile
-  :ensure t
-  :config
-  (helm-projectile-on)
-  (setq projectile-indexing-method 'native)
-  (setq projectile-enable-caching t)
-  )
-
-(use-package helm-fuzzier :ensure t
-  :ensure t
-  :config
-  (helm-fuzzier-mode 1)
-  (setq helm-mode-fuzzy-match t)
-  (setq helm-M-x-fuzzy-match t)
-  (setq helm-buffers-fuzzy-matching t)
-  (setq helm-recentf-fuzzy-match t))
-
-(use-package ido-vertical-mode
-  :ensure t)
-
-(use-package ido
-  :ensure t
-  :init
-  (ido-mode 1)
-  (ido-vertical-mode 1)
-  (setq ido-use-faces nil)
-  (ido-everywhere 1)
-  :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-  (global-set-key (kbd "C-x C-f") 'ido-find-file))
-
-(use-package flx-ido
-  :ensure t
-  :config
-  (flx-ido-mode 1)
-  ;; disable ido faces to see flx highlights.
-  (setq ido-enable-flex-matching t))
-
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-ubiquitous-mode 1))
-
-(use-package recentf
-  :ensure t
-  :init
-  (recentf-mode 1)
-  (setq recentf-max-saved-items 0) ;; just 50 is too recent
-
-  ;; Save a list of recent files visited. (open recent file with C-c f)
-  :config
-  (defun ido-recentf-open ()
-    "Use `ido-completing-read' to \\[find-file] a recent file"
-    (interactive)
-    (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-        (message "Opening file...")
-      (message "Aborting")))
-
-  (global-set-key (kbd "C-c f") 'ido-recentf-open))
-
-;;; spell checking
-(use-package ispell
-  :config (setq ispell-program-name "aspell" ; use aspell instead of ispell
-                ispell-extra-args '("--sug-mode=ultra")))
-
-(use-package flyspell
-  :ensure t
-  :defer 2
-  :commands flyspell-mode
-  :init (add-hook 'text-mode-hook 'flyspell-mode))
-
-;;; flycheck mode
-(use-package flycheck
-  :ensure t
-  :commands global-flycheck-mode
-  :config (progn (use-package popup
-                   :ensure t)
-                 (use-package flycheck-pos-tip
-                   :ensure t)
-                 (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
-                 ;; (use-package flycheck-clojure
-                 ;;   :ensure t
-                 ;;   :init (flycheck-clojure-setup))
-                 (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
-                 (global-flycheck-mode)))
-
-;; (use-package indent-guide
-;; :ensure t
-;; :init
-;; (indent-guide-global-mode)
-;; :config
-;; (set-face-background 'indent-guide-face "dimgray")
-;; (setq indent-guide-recursive t)
-;; )
-
-(use-package highlight-indentation
-  :ensure t
-  :init
-  (highlight-indentation-mode t)
-  :config
-  (set-face-background 'highlight-indentation-face "#e3e3d3")
-  (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
-
-(use-package ace-jump-mode
-  :ensure t
-  :bind ("C-c SPC" . ace-jump-mode))
-
-;;; ace-window
-(use-package ace-window
-  :ensure t
-  :bind ("C-x o" . ace-window))
-
 ;; (bind-map my-base-leader-map
 ;;  :keys ("M-m")
 ;; (bind-map my-elisp-map
@@ -1417,6 +1491,8 @@ Version 2017-07-31"
 ;;  :major-modes (emacs-lisp-mode
 ;;                lisp-interaction-mode))
 
+(use-package bind-key
+  :ensure t)
 
 ;; (bind-keys :prefix-map itsyc/leader-map :prefix "M-SPC")
 (use-package bind-map
@@ -1466,7 +1542,7 @@ Version 2017-07-31"
 ;; ...
 
 ;; mac switch meta key
-(defun mac-switch-meta nil
+(defun itsyc/mac-switch-meta nil
   "switch meta between Option and Command"
   (interactive)
   (if (eq mac-option-modifier nil)
@@ -1510,77 +1586,7 @@ Version 2017-07-31"
   :ensure t
   :init
   (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1)
-  )
-
-(use-package neotree
-  :ensure t
-  :config
-  (setq neo-smart-open t)
-  (setq projectile-switch-project-action 'neotree-projectile-action)
-  (setq-default neo-dont-be-alone t)  ; Don't allow neotree to be the only open window
-  ;; Use with evil mode
-  ;; @see https://www.emacswiki.org/emacs/NeoTree
-  (add-hook 'neotree-mode-hook
-            (lambda ()
-              (visual-line-mode -1)
-              (setq truncate-lines t)
-              (hl-line-mode 1)
-              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)))
-  ;; 'classic, 'nerd, 'ascii, 'arrow
-  (setq neo-theme 'nerd))
-
-(defun neotree-copy-file ()
-  (interactive)
-  (let* ((current-path (neo-buffer--get-filename-current-line))
-         (msg (format "Copy [%s] to: "
-                      (neo-path--file-short-name current-path)))
-         (to-path (read-file-name msg (file-name-directory current-path))))
-    (dired-copy-file current-path to-path t))
-  (neo-buffer--refresh t))
-
-(define-minor-mode neotree-evil
-  "Use NERDTree bindings on neotree."
-  :lighter " NT"
-  :keymap (progn
-            (evil-make-overriding-map neotree-mode-map 'normal t)
-            (evil-define-key 'normal neotree-mode-map
-              "C" 'neotree-change-root
-              "U" 'neotree-select-up-node
-              "r" 'neotree-refresh
-              "o" 'neotree-enter
-              (kbd "<return>") 'neotree-enter
-              "i" 'neotree-enter-horizontal-split
-              "s" 'neotree-enter-vertical-split
-              "n" 'evil-search-next
-              "N" 'evil-search-previous
-              "ma" 'neotree-create-node
-              "mc" 'neotree-copy-file
-              "md" 'neotree-delete-node
-              "mm" 'neotree-rename-node
-              "gg" 'evil-goto-first-line
-              "gi" (lambda ()
-                     (interactive)
-                     (if (string= pe/get-directory-tree-external-command
-                                  nt/gitignore-files-cmd)
-                         (progn (setq pe/get-directory-tree-external-command
-                                      nt/all-files-cmd))
-                       (progn (setq pe/get-directory-tree-external-command
-                                    nt/gitignore-files-cmd)))
-                     (nt/refresh))
-              "I" (lambda ()
-                    (interactive)
-                    (if pe/omit-enabled
-                        (progn (setq pe/directory-tree-function
-                                     'pe/get-directory-tree-async)
-                               (pe/toggle-omit nil))
-                      (progn (setq pe/directory-tree-function
-                                   'pe/get-directory-tree-external)
-                             (pe/toggle-omit t)))))
-            neotree-mode-map))
+  (keyfreq-autosave-mode 1))
 
 (require 'org)
 ;;;; use-package org
@@ -1927,18 +1933,8 @@ Version 2017-07-31"
   :ensure t
   :config (org-super-agenda-mode))
 
-;; (use-package outline-toc
-;;   :ensure t)
-
-;; @see http://coldnew.github.io/blog/2013/05-20_5cbb7/
-(use-package pangu-spacing
-  :ensure t
-  :config
-  (global-pangu-spacing-mode 1)
-  ;; (setq pangu-spacing-real-insert-separtor t)
-  (add-hook 'org-mode-hook
-            '(lambda ()
-               (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+(use-package outline-toc
+  :ensure t)
 
 (use-package smex
   :ensure t
@@ -1950,9 +1946,103 @@ Version 2017-07-31"
   ;; This is your old M-x.
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
 
-(use-package ivy
+(use-package ido-vertical-mode
+  :ensure t)
+
+(use-package ido
   :ensure t
+  :init
+  (ido-mode 1)
+  (ido-vertical-mode 1)
+  (setq ido-use-faces nil)
+  (ido-everywhere 1)
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (global-set-key (kbd "C-x C-f") 'ido-find-file))
+
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode 1)
+  ;; disable ido faces to see flx highlights.
+  (setq ido-enable-flex-matching t))
+
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-ubiquitous-mode 1))
+
+(use-package recentf
+  :ensure t
+  :init
+  (recentf-mode 1)
+  (setq recentf-max-saved-items 0) ;; just 50 is too recent
+
+  ;; Save a list of recent files visited. (open recent file with C-c f)
+  :config
+  (defun ido-recentf-open ()
+    "Use `ido-completing-read' to \\[find-file] a recent file"
+    (interactive)
+    (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+        (message "Opening file...")
+      (message "Aborting")))
+
+  (global-set-key (kbd "C-c f") 'ido-recentf-open))
+
+(use-package helm
+  :ensure t
+  :config
+  (helm-mode 1)
+  (helm-fuzzier-mode 1)
+  (helm-autoresize-mode 1)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t)
+  (setq helm-buffer-max-length 100)
+  (set-face-attribute 'helm-selection nil
+                      :background "yellow"
+                      :foreground "black")
+  (define-key helm-map (kbd "C-j") 'helm-next-line)
+  (define-key helm-map (kbd "C-k") 'helm-previous-line)
+  (define-key helm-map (kbd "C-h") 'helm-next-source)
+  (define-key helm-map (kbd "C-S-h") 'describe-key)
+  (define-key helm-map (kbd "C-l") (kbd "RET"))
+  (define-key helm-map [escape] 'helm-keyboard-quit))
+
+(use-package swoop
+  :ensure t)
+
+(use-package helm-swoop
+  :ensure t
+  :config
+  (global-set-key (kbd "M-i") 'helm-swoop)
+  (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+  (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+  ;; Save buffer when helm-multi-swoop-edit complete
+  (setq helm-multi-swoop-edit-save t)
+  ;; Go to the opposite side of line from the end or beginning of line
+  (setq helm-swoop-move-to-line-cycle t)
+  ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
+  (setq helm-swoop-split-direction 'split-window-vertically))
+
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on)
+  (setq projectile-indexing-method 'native)
+  (setq projectile-enable-caching t)
   )
+
+(use-package helm-fuzzier :ensure t
+  :ensure t
+  :config
+  (helm-fuzzier-mode 1)
+  (setq helm-mode-fuzzy-match t)
+  (setq helm-M-x-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-recentf-fuzzy-match t))
+
+(use-package ivy
+  :ensure t)
 
 (use-package swiper
   :ensure t
@@ -1987,22 +2077,48 @@ Version 2017-07-31"
      :defer t
      :bind ("M-s s" . helm-ag))
 
-;; (use-package elscreen
-;;   :init
-;;   (progn
-;;     ;; (set-face-attribute 'elscreen-tab-background-face nil :inherit 'default :background nil)
-;;     (setq elscreen-tab-display-control nil)
-;;     (setq elscreen-tab-display-kill-screen nil)
-;;     (setq elscreen-prefix-key "\C-a")
-;;     (elscreen-start)))
-
-(use-package zoom-window
+(use-package avy
   :ensure t
-  :config
-  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
-  (setq zoom-window-mode-line-color "DarkGreen"))
+  :init
+  (setq avy-background t))
 
-(defun move-file (new-location)
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("C-c SPC" . ace-jump-mode))
+
+;;; highlight-symbol
+(use-package highlight-symbol
+  :ensure t
+  :diminish ""
+  :bind (("M-<f3>" . highlight-symbol-at-point)
+         ("<f3>" . highlight-symbol-next)
+         ("S-<f3>" . highlight-symbol-prev))
+  :config (progn (setq highlight-symbol-idle-delay 0.5)
+                 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+                 (highlight-symbol-mode)))
+
+(use-package expand-region
+  :ensure t
+  :init
+  (pending-delete-mode t)
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
+(use-package selected
+  :ensure t
+  :commands selected-minor-mode
+  :init
+  (setq selected-org-mode-map (make-sparse-keymap))
+  :bind (:map selected-keymap
+              ("q" . selected-off)
+              ("u" . upcase-region)
+              ("d" . downcase-region)
+              ("w" . count-words-region)
+              ("m" . apply-macro-to-region-lines)
+              :map selected-org-mode-map
+              ("t" . org-table-convert-region)))
+
+(defun itsyc/move-file (new-location)
   "Write this file to NEW-LOCATION, and delete the old one."
   (interactive (list (expand-file-name
                       (if buffer-file-name
@@ -2023,9 +2139,9 @@ Version 2017-07-31"
                (not (string-equal old-location new-location)))
       (delete-file old-location))))
 
-(bind-key "C-x C-m" #'move-file)
+(bind-key "C-x C-m" #'itsyc/move-file)
 
-(defun dired-open-in-filemanager ()
+(defun itsyc/dired-open-in-filemanager ()
   "Show current file in OS's file manager."
   (interactive)
   (let ((process-connection-type nil))
@@ -2066,6 +2182,8 @@ Version 2017-07-31"
   :defer t
   :bind ("C-x t" . helm-mt))
 
+(setq tramp-default-method "ssh")
+
 (use-package helm-descbinds
   :ensure t
   :bind (("C-h b" . helm-descbinds)
@@ -2105,8 +2223,6 @@ Version 2017-07-31"
 (use-package scratch
   :ensure t
   :commands (scratch))
-
-(setq tramp-default-method "ssh")
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2017/bin/x86_64-darwin/"))
 (setq exec-path (append exec-path '("/usr/local/texlive/2017/bin/x86_64-darwin/")))
