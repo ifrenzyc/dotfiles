@@ -5,14 +5,16 @@
  - [[https://github.com/sachac/.emacs.d/blob/gh-pages/Sacha.org][sachac/.emacs.d - GitHub]]
  - [[https://github.com/ivoarch/.dot-org-files/blob/master/emacs.org][ivoarch/.dot-org-files - GitHub]]
 
+优秀的配置参考：
+- [[https://github.com/sam217pa/emacs-config][sam217pa/emacs-config - GitHub]]
+
 整个配置采用了 Org-babel 和 use-package。
 - 关于 org-babel 的使用：[[http://orgmode.org/worg/org-contrib/babel/intro.html][Babel: Introduction]]
 - 关于 use-package 的使用：[[https://github.com/jwiegley/use-package][jwiegley/use-package - GitHub]]
 
-* init.el
+* Init
 #+BEGIN_SRC emacs-lisp :tangle yes
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-  (add-to-list 'load-path (expand-file-name "elpa/eink" user-emacs-directory))
   (defconst *is-a-mac* (eq system-type 'darwin))
   (when (memq window-system '(mac ns))
     (setq ns-use-srgb-colorspace nil))
@@ -30,12 +32,6 @@
 
   ;;; warn when opening files bigger than 100MB (default is 10MB)
   (setq large-file-warning-threshold 100000000)
-
-  (use-package diminish
-    :ensure t)
-
-  (use-package autothemer
-    :ensure t)
 #+END_SRC
 
 ** 加载环境变量
@@ -112,6 +108,8 @@ Restore cursor to file position in previous editing session.
   (setq linum-mode nil)
   (setq global-linum-mode nil)
 
+  (hl-line-mode t)
+
   ;; 打开括号匹配显示模式
   (show-paren-mode t)
 
@@ -149,32 +147,14 @@ Restore cursor to file position in previous editing session.
   ;; indentation-space indentation indentation-tab tabs spaces
   (use-package whitespace
     :ensure t
+    :diminish ""
     :init
-    (setq whitespace-style '(face
-                             trailing
-                             ;;tabs
-                             ;;spaces
-                             ;;tab-mark
-                             ;;space-mark
-                             ;;                           newline
-                             ;;                         newline-mark))
-                             ))
+    (setq whitespace-style '(face trailing))
 
-    ;;  (setq whitespace-display-mappings '(
-    ;; (space-mark   ?\     [?\u00B7]     [?.])
-    ;; (space-mark   ?\xA0  [?\u00A4]     [?_])
-    ;; (newline ?\n    [?↵ ?\n])
-    ;;(newline-mark ?\n    [?↵ ?\n])))
-    ;;(newline ?\n    [?↴ ?\n])
-    ;;(newline-mark ?\n    [?↴ ?\n])))
     (setq whitespace-line-column 120)
 
-    ;; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
     (global-whitespace-mode t)
     (if window-system (progn
-                        ;;(setq initial-frame-alist '((width . 202)(height . 58)(top . 0)(left . 48)))
-                        ;;        (set-background-color "Black")
-                        ;;  (set-foreground-color "White")
                         (set-cursor-color "Gray")
                         ;; make it delete trailing whitespace
                         (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -184,14 +164,6 @@ Restore cursor to file position in previous editing session.
                                                                  :foreground "#AAA"
                                                                  :weight 'bold)))
                         )))
-  (display-battery-mode t)
-
-
-  ;; show relative linum
-  ;; (use-package linum-relative
-  ;;   :ensure t
-  ;;   :config
-  ;;   (linum-relative-on))
 
   ;; 取消滚动栏
   (use-package yascroll
@@ -204,27 +176,6 @@ Restore cursor to file position in previous editing session.
     :ensure t
     :init
     (smooth-scrolling-mode 1))
-
-  ;; (use-package sublimity
-  ;;   :ensure t
-  ;;   :init
-  ;;   (sublimity-mode 1)
-  ;;   (set-scroll-bar-mode nil)
-  ;;   (require 'sublimity-scroll)
-  ;;   ;; (require 'sublimity-map)
-  ;;   ;; (require 'sublimity-attractive)
-  ;;   :config
-  ;;   (setq sublimity-scroll-weight 10
-  ;;  sublimity-scroll-drift-length 5)
-  ;;   ;; (setq sublimity-map-size 20)
-  ;;   ;; (setq sublimity-map-fraction 0.3)
-  ;;   ;; (setq sublimity-map-text-scale -7)
-  ;;   ;; (add-hook 'sublimity-map-setup-hook
-  ;;      ;; (lambda ()
-  ;;        ;; (setq buffer-face-mode-face '(:family "Monospace"))
-  ;;        ;; (buffer-face-mode)))
-  ;;   ;; (sublimity-map-set-delay 5)
-  ;;   )
 
   ;;; respect ansi colors
   (ansi-color-for-comint-mode-on)
@@ -266,117 +217,12 @@ Restore cursor to file position in previous editing session.
   (use-package gruvbox-theme
     :ensure t
     :config
-    ;; (load-theme  'gruvbox-dark-medium t))
     (load-theme  'gruvbox-dark-soft t))
+  ;; (load-theme  'gruvbox-dark-medium t))
   ;; (load-theme  'gruvbox-dark-hard t))
   ;; (load-theme  'gruvbox-light-medium t))
   ;; (load-theme  'gruvbox-light-soft t))
   ;; (load-theme  'gruvbox-light-hard t))
-
-  ;; (use-package zerodark-theme
-  ;;   :demand t
-  ;;   :config
-  ;;   (progn
-  ;;     (defun set-selected-frame-dark ()
-  ;;       (interactive)
-  ;;       (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
-  ;;         (call-process-shell-command
-  ;;          (format
-  ;;           "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
-  ;;           frame-name))))
-
-  ;;     (when (window-system)
-  ;;       (load-theme 'zerodark t)
-  ;;       (zerodark-setup-modeline-format)
-  ;;       (set-selected-frame-dark)
-  ;;       (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
-
-  ;; (use-package all-the-icons
-  ;;   :ensure t)
-  ;; Solarized
-  ;; https://github.com/sellout/emacs-color-theme-solarized/pull/187
-  ;; (use-package color-theme
-  ;;   :ensure t)
-  ;; (setq color-themes '())
-  ;; (use-package color-theme-solarized
-  ;;   :ensure t
-  ;;   :config
-  ;;   (customize-set-variable 'frame-background-mode 'light)
-  ;;   (load-theme 'solarized t))
-
-  ;; (use-package color-theme
-  ;;   :ensure t)
-  ;; (setq color-themes '())
-  ;; (load-theme 'adwaita t)
-
-  ;; (use-package molokai-theme
-  ;;   :ensure t
-  ;;   :init
-  ;;   (load-theme 'molokai t))
-
-  ;; (use-package monochrome-theme
-  ;;  :ensure t
-  ;;  :init
-  ;;  (load-theme 'monochrome t))
-
-  ;; (use-package quasi-monochrome-theme
-  ;;  :ensure t
-  ;;  :init
-  ;;  (load-theme 'quasi-monochrome t))
-
-  ;; @see https://github.com/dmand/eink.el
-  ;; (use-package eink-theme
-  ;;  :ensure t
-  ;;  :init
-  ;;  (load-theme 'eink t))
-
-  ;; (use-package phoenix-dark-mono-theme
-  ;; :ensure t
-  ;;  :init
-  ;;  (load-theme 'phoenix-dark-mono t))
-
-  ;; @see https://github.com/anler/minimal-theme
-  ;; (use-package minimal-theme
-  ;;   :ensure t
-  ;;   :init
-  ;;   (load-theme 'minimal t))
-
-  ;; @see https://github.com/fgeller/basic-theme.el
-  ;; (use-package basic-theme
-  ;;  :ensure t
-  ;;  :init
-  ;;  (load-theme 'basic t))
-
-  ;; (defun mode-line-visual-toggle ()
-  ;;  (interactive)
-  ;;  (let ((faces-to-toggle '(mode-line mode-line-inactive))
-  ;;        (invisible-color "#e8e8e8")
-  ;;        (visible-color "#a1b56c"))
-  ;;    (cond ((string= visible-color (face-attribute 'mode-line :background))
-  ;;           (mapcar (lambda (face)
-  ;;                     (set-face-background face invisible-color)
-  ;;                     (set-face-attribute face nil :height 20))
-  ;;                   faces-to-toggle))
-  ;;          (t
-  ;;           (mapcar (lambda (face)
-  ;;                     (set-face-background face visible-color)
-  ;;                     (set-face-attribute face nil :height (face-attribute 'default :height)))
-  ;;                   faces-to-toggle)))))
-
-  ;; (use-package paper-theme
-  ;;  :ensure t
-  ;;  :init
-  ;;  (load-theme 'paper t))
-
-  ;; (use-package base16-theme
-  ;;   :ensure t
-  ;;   :init
-  ;;   (load-theme 'base16-monokai t))
-  ;; (load-theme 'base16-google-dark t))
-  ;; (load-theme 'base16-solarized-light t))
-  ;; (load-theme 'base16-tomorrow-night t))
-  ;; (load-theme 'base16-grayscale-dark t))
-  ;; (load-theme 'base16-spacemacs-theme t))
 
   ;; (use-package leuven-theme
   ;;   :ensure t
@@ -386,99 +232,10 @@ Restore cursor to file position in previous editing session.
   ;;   ;; Fontify the whole line for headings (with a background color).
   ;;   (setq org-fontify-whole-heading-line t))
 
-  ;; (use-package kaolin-theme
-  ;;   :ensure t
-  ;;   :init
-  ;;   (load-theme 'kaolin t))
-
-  ;; Got following from Purcell's emacs configuration
-  ;; From https://github.com/purcell/emacs.d
-
-  ;; (use-package color-theme-sanityinc-solarized
-  ;;   :ensure t
-  ;;   :defer t)
-  ;; (use-package color-theme-sanityinc-tomorrow
-  ;;   :ensure t
-  ;;   :defer t)
-  ;; ;;------------------------------------------------------------------------------
-  ;; ;; Old-style color theming support (via color-theme.el)
-  ;; ;;------------------------------------------------------------------------------
-  ;; (defcustom window-system-color-theme 'color-theme-sanityinc-solarized-dark
-  ;;   "Color theme to use in window-system frames.
-  ;;   If Emacs' native theme support is available, this setting is
-  ;;   ignored: use `custom-enabled-themes' instead."
-  ;;   :type 'symbol)
-
-  ;; (defcustom tty-color-theme 'color-theme-terminal
-  ;;   "Color theme to use in TTY frames.
-  ;;   If Emacs' native theme support is available, this setting is
-  ;;   ignored: use `custom-enabled-themes' instead."
-  ;;   :type 'symbol)
-
-  ;; (unless (boundp 'custom-enabled-themes)
-  ;;   (defun color-theme-terminal ()
-  ;;     (interactive)
-  ;;     (color-theme-sanityinc-solarized-dark))
-
-  ;;   (defun apply-best-color-theme-for-frame-type (frame)
-  ;;     (with-selected-frame frame
-  ;;       (funcall (if window-system
-  ;;                    window-system-color-theme
-  ;;                  tty-color-theme))))
-
-  ;;   (defun reapply-color-themes ()
-  ;;     (interactive)
-  ;;     (mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
-
-  ;;   (set-variable 'color-theme-is-global nil)
-  ;;   (add-hook 'after-make-frame-functions 'apply-best-color-theme-for-frame-type)
-  ;;   (add-hook 'after-init-hook 'reapply-color-themes)
-  ;;   (apply-best-color-theme-for-frame-type (selected-frame)))
-
-  ;; ;;------------------------------------------------------------------------------
-  ;; ;; New-style theme support, in which per-frame theming is not possible
-  ;; ;;------------------------------------------------------------------------------
-
-  ;; ;; If you don't customize it, this is the theme you get.
-  ;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
-
-  ;; ;; Ensure that themes will be applied even if they have not been customized
-  ;; (defun reapply-themes ()
-  ;;   "Forcibly load the themes listed in `custom-enabled-themes'."
-  ;;   (dolist (theme custom-enabled-themes)
-  ;;     (unless (custom-theme-p theme)
-  ;;       (load-theme theme)))
-  ;;   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
-
-  ;; (add-hook 'after-init-hook 'reapply-themes)
-
-  ;; ;;------------------------------------------------------------------------------
-  ;; ;; Toggle between light and dark
-  ;; ;;------------------------------------------------------------------------------
-  ;; (defun light ()
-  ;;   "Activate a light color theme."
-  ;;   (interactive)
-  ;;   (color-theme-sanityinc-solarized-light))
-
-  ;; (defun dark ()
-  ;;   "Activate a dark color theme."
-  ;;   (interactive)
-  ;;   (color-theme-sanityinc-solarized-dark))
-
   (use-package rainbow-delimiters
     :ensure t
     :config
     (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-
-  ;; M-x color-theme-sanityinc-tomorrow-day
-  ;; M-x color-theme-sanityinc-tomorrow-night
-  ;; M-x color-theme-sanityinc-tomorrow-blue
-  ;; M-x color-theme-sanityinc-tomorrow-bright
-  ;; M-x color-theme-sanityinc-tomorrow-eighties
-  ;; (use-package color-theme-sanityinc-tomorrow
-  ;;  :ensure t
-  ;;  :config
-  ;;  (color-theme-sanityinc-tomorrow--define-theme day))
 #+END_SRC
 
 ** mode-line
@@ -502,29 +259,13 @@ Restore cursor to file position in previous editing session.
   ;;   :config
   ;;   (powerline-evil-vim-color-theme))
 
-  ;; (use-package smart-mode-line
-  ;;   :ensure t
-  ;;   :config
-  ;;   (setq sml/no-confirm-load-theme t)
-  ;;   (setq sml/theme 'dark)
-  ;;   (sml/setup))
-
-  ;; (use-package smart-mode-line-powerline-theme
-  ;;   :ensure t
-  ;;   :config (setq sml/theme 'powerline))
-
-  ;; ;; (use-package airline-themes
-  ;; ;;   :ensure t
-  ;; ;;   :config
-  ;; ;;   (load-theme 'airline-molokai))
-
-  ;; (use-package nyan-mode
-  ;;   :ensure t
-  ;;   :init
-  ;;   (progn
-  ;;     (nyan-mode)
-  ;;     (setq nyan-wavy-trail t))
-  ;;   :config (nyan-start-animation))
+  (use-package nyan-mode
+    :ensure t
+    :init
+    (progn
+      (nyan-mode)
+      (setq nyan-wavy-trail t))
+    :config (nyan-start-animation))
 
   ;; 目前这个有 bug，会导致 emacs 卡死，但不知道具体原因
   ;; Use spacemacs' mode line
@@ -645,24 +386,11 @@ Restore cursor to file position in previous editing session.
    :ensure t)
 #+END_SRC
 
-** set org-code-block color
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (custom-set-faces
-   '(org-block-begin-line
-     ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
-   '(org-block-end-line
-     ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
-   '(org-block
-     ((t (:background "#333333"))))
-   '(org-block-background
-     ((t (:background "#333333"))))
-   )
-#+END_SRC
-
 ** parens
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package smartparens
     :ensure t
+    :diminish ""
     :init (use-package smartparens-config)
     :config (progn (smartparens-global-mode t)
                    ;; highlights matching pairs
@@ -694,15 +422,6 @@ Restore cursor to file position in previous editing session.
 
 ** indent-guide
 #+BEGIN_SRC emacs-lisp :tangle yes
-  ;; (use-package indent-guide
-  ;; :ensure t
-  ;; :init
-  ;; (indent-guide-global-mode)
-  ;; :config
-  ;; (set-face-background 'indent-guide-face "dimgray")
-  ;; (setq indent-guide-recursive t)
-  ;; )
-
   (use-package highlight-indentation
     :ensure t
     :init
@@ -713,21 +432,8 @@ Restore cursor to file position in previous editing session.
 #+END_SRC
 
 ** ELScreen & window-zoom
-like tmux
-#+BEGIN_SRC emacs-lisp :tangle yes
-  ;; (use-package elscreen
-  ;;   :init
-  ;;   (progn
-  ;;     ;; (set-face-attribute 'elscreen-tab-background-face nil :inherit 'default :background nil)
-  ;;     (setq elscreen-tab-display-control nil)
-  ;;     (setq elscreen-tab-display-kill-screen nil)
-  ;;     (setq elscreen-prefix-key "\C-a")
-  ;;     (elscreen-start)))
-#+END_SRC
-
 类似于 tmux 的最大化当前窗口功能，保持和我在 tmux 下的习惯一致。
 https://github.com/syohex/emacs-zoom-window
-
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package zoom-window
     :ensure t
@@ -742,16 +448,6 @@ https://github.com/syohex/emacs-zoom-window
   (use-package ace-window
     :ensure t
     :bind ("C-x o" . ace-window))
-#+END_SRC
-
-** auto dim inactive buffers
-#+BEGIN_SRC emacs-lisp :tangle yes
-  ;; (use-package auto-dim-other-buffers
-  ;;   :ensure t
-  ;;   :init
-  ;;   (add-hook 'after-init-hook (lambda ()
-  ;;   (when (fboundp 'auto-dim-other-buffers-mode)
-  ;;     (auto-dim-other-buffers-mode t)))))
 #+END_SRC
 
 * Font
@@ -786,8 +482,7 @@ https://github.com/syohex/emacs-zoom-window
 
 ** icons
 #+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package all-the-icons
-    :ensure t)
+  (use-package all-the-icons :ensure t)
 #+END_SRC
 
 ** panguspacing
@@ -795,12 +490,364 @@ https://github.com/syohex/emacs-zoom-window
   ;; @see http://coldnew.github.io/blog/2013/05-20_5cbb7/
   (use-package pangu-spacing
     :ensure t
+    :diminish ""
     :config
     (global-pangu-spacing-mode 1)
-    ;; (setq pangu-spacing-real-insert-separtor t)
     (add-hook 'org-mode-hook
               '(lambda ()
                  (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+#+END_SRC
+
+* Global key bindings
+** key binding functions
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package diminish :ensure t)
+
+  (use-package autothemer :ensure t)
+
+  (use-package which-key
+    :ensure t
+    :diminish which-key-mode
+    :init
+    (which-key-mode)
+    (which-key-setup-minibuffer)
+    (which-key-setup-side-window-bottom)
+    :config
+    (setq which-key-sort-order 'which-key-key-order-alpha)
+    (setq which-key-use-C-h-commands nil)
+    (setq which-key-idle-delay 0.2)
+    (add-to-list 'which-key-key-replacement-alist '("TAB" . "↹"))
+    (add-to-list 'which-key-key-replacement-alist '("RET" . "⏎"))
+    (add-to-list 'which-key-key-replacement-alist '("DEL" . "⇤"))
+    (add-to-list 'which-key-key-replacement-alist '("SPC" . "␣")))
+#+END_SRC
+
+** evil
+#+BEGIN_SRC emacs-lisp :tangle yes
+  ;; @see http://wikemacs.org/wiki/Evil
+  (use-package evil
+    :ensure t
+    :init
+    (evil-mode 1)
+    :config
+
+    ;; @see http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
+    ;; (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+    ;; (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+    ;; (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+    ;; (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+    ;; esc quits
+    ;; @see http://stackoverflow.com/questions/8483182/evil-mode-best-practice
+    (defun minibuffer-keyboard-quit ()
+      "Abort recursive edit.
+  In Delete Selection mode, if the mark is active, just deactivate it;
+  then it takes a second \\[keyboard-quit] to abort the minibuffer."
+      (interactive)
+      (if (and delete-selection-mode transient-mark-mode mark-active)
+          (setq deactivate-mark  t)
+        (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+        (abort-recursive-edit)))
+    (define-key evil-normal-state-map [escape] 'keyboard-quit)
+    (define-key evil-visual-state-map [escape] 'keyboard-quit)
+    (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+    (define-key evil-normal-state-map "\C-y" 'yank)
+    (define-key evil-insert-state-map "\C-y" 'yank)
+    (define-key evil-visual-state-map "\C-y" 'yank)
+    (define-key evil-insert-state-map "\C-e" 'end-of-line)
+
+    ;; Split and move the cursor to the new split
+    (define-key evil-normal-state-map (kbd "-")
+      (lambda ()
+        (interactive)
+        (split-window-vertically)
+        (other-window 1)))
+    (define-key evil-normal-state-map (kbd "|")
+      (lambda ()
+        (interactive)
+        (split-window-horizontally)
+        (other-window 1)))
+
+    (add-hook 'evil-after-load-hook
+              (lambda ()
+                ;; config
+                ))
+    ;; C-a for redo the last insertion
+    ;; @see http://emacs.stackexchange.com/questions/14521/insert-mode-make-c-a-insert-previously-inserted-text
+    (defun itsyc/evil-paste-last-insertion ()
+      (interactive)
+      (evil-paste-from-register ?.))
+
+    (eval-after-load 'evil-maps
+      '(define-key evil-insert-state-map (kbd "C-a") 'itsyc/evil-paste-last-insertion))
+
+    ;; @see https://github.com/rime/squirrel/wiki/vim%E7%94%A8%E6%88%B7%E4%B8%8Eemacs-evil-mode%E7%94%A8%E6%88%B7-%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%88%90%E8%8B%B1%E6%96%87%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%9E%E7%8E%B0
+    (defadvice keyboard-quit (before evil-insert-to-nornal-state activate)
+      "C-g back to normal state"
+      (when  (evil-insert-state-p)
+        (cond
+         ((equal (evil-initial-state major-mode) 'normal)
+          (evil-normal-state))
+         ((equal (evil-initial-state major-mode) 'insert)
+          (evil-normal-state))
+         ((equal (evil-initial-state major-mode) 'motion)
+          (evil-motion-state))
+         (t
+          (if (equal last-command 'keyboard-quit)
+              (evil-normal-state)           ;如果初始化 state 不是 normal，按两次才允许转到 normal state
+            (evil-change-to-initial-state)) ;如果初始化 state 不是 normal，按一次 转到初始状态
+          ))))
+
+    ;; C-u to scroll up or delete indent
+    ;; @see http://stackoverflow.com/questions/14302171/ctrl-u-in-emacs-when-using-evil-key-bindings
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-i-jump t)
+    (set-cursor-color "DarkCyan")
+
+    ;; Great evil org mode keyboard shortcuts cribbed from cofi
+    (evil-define-key 'normal org-mode-map
+      (kbd "RET") 'org-open-at-point
+      "za"        'org-cycle
+      "zA"        'org-shifttab
+      "zm"        'hide-body
+      "zr"        'show-all
+      "zo"        'show-subtree
+      "zO"        'show-all
+      "zc"        'hide-subtree
+      "zC"        'hide-all
+      (kbd "M-h") 'org-metaleft
+      (kbd "M-j") 'org-shiftleft
+      (kbd "M-k") 'org-shiftright
+      (kbd "M-l") 'org-metaright
+      (kbd "M-H") 'org-metaleft
+      (kbd "M-J") 'org-metadown
+      (kbd "M-K") 'org-metaup
+      (kbd "M-L") 'org-metaright)
+
+    (evil-define-key 'normal orgstruct-mode-map
+      (kbd "RET") 'org-open-at-point
+      "za"        'org-cycle
+      "zA"        'org-shifttab
+      "zm"        'hide-body
+      "zr"        'show-all
+      "zo"        'show-subtree
+      "zO"        'show-all
+      "zc"        'hide-subtree
+      "zC"        'hide-all
+      (kbd "M-h") 'org-metaleft
+      (kbd "M-j") 'org-shiftleft
+      (kbd "M-k") 'org-shiftright
+      (kbd "M-l") 'org-metaright
+      (kbd "M-H") 'org-metaleft
+      (kbd "M-J") 'org-metadown
+      (kbd "M-K") 'org-metaup
+      (kbd "M-L") 'org-metaright)
+
+    (evil-define-key 'insert org-mode-map
+      (kbd "M-h") 'org-metaleft
+      (kbd "M-j") 'org-shiftleft
+      (kbd "M-k") 'org-shiftright
+      (kbd "M-l") 'org-metaright
+      (kbd "M-H") 'org-metaleft
+      (kbd "M-J") 'org-metadown
+      (kbd "M-K") 'org-metaup
+      (kbd "M-L") 'org-metaright)
+
+    (evil-define-key 'insert orgstruct-mode-map
+      (kbd "M-j") 'org-shiftleft
+      (kbd "M-k") 'org-shiftright
+      (kbd "M-H") 'org-metaleft
+      (kbd "M-J") 'org-metadown
+      (kbd "M-K") 'org-metaup
+      (kbd "M-L") 'org-metaright)
+    )
+
+  (use-package key-chord
+    :ensure t
+    :init
+    (key-chord-mode 1)
+    :config
+    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
+
+  (use-package evil-nerd-commenter
+    :ensure t
+    :init
+    (evilnc-default-hotkeys)
+    :config
+    ;; Emacs key bindings
+    (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
+    (global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
+    (global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
+    (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
+
+    (evil-leader/set-key
+      "ci" 'evilnc-comment-or-uncomment-lines
+      "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "cc" 'evilnc-copy-and-comment-lines
+      "cp" 'evilnc-comment-or-uncomment-paragraphs
+      "cr" 'comment-or-uncomment-region
+      "cv" 'evilnc-toggle-invert-comment-line-by-line
+      "\\" 'evilnc-comment-operator ; if you prefer backslash key
+      ))
+
+  (use-package evil-surround
+    :ensure t
+    :after org
+    :init
+    (global-evil-surround-mode 1))
+
+  (use-package evil-goggles
+    :ensure t
+    :diminish ""
+    :after org
+    :config
+    (evil-goggles-mode))
+
+  (use-package evil-search-highlight-persist
+    :ensure t
+    :init
+    (global-evil-search-highlight-persist t))
+#+END_SRC
+
+** general
+参考这篇文章重新定义自己的 key bindings：[[https://leiyue.wordpress.com/2012/07/04/use-org-mode-and-taskjuggler-to-manage-to-project-information/][larstvei/dot-emacs - GitHub]]
+#+BEGIN_SRC emacs-lisp :tangle yes
+  ;; mac switch meta key
+  (defun itsyc/mac-switch-meta nil
+    "switch meta between Option and Command"
+    (interactive)
+    (if (eq mac-option-modifier nil)
+        (progn
+          (setq mac-option-modifier 'meta)
+          (setq mac-command-modifier 'hyper)
+          )
+      (progn
+        (setq mac-option-modifier nil)
+        (setq mac-command-modifier 'meta)
+        )
+      )
+    )
+
+  ;; switch meta key
+  (setq mac-option-key-is-meta nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil)
+
+  ;; 修改后的设定 Mark 的绑定，由于经常忘了放住 Control 键，就给这个功能两个绑定了
+  (global-set-key (kbd "M-n") 'set-mark-command)
+
+  ;; use 'keyfreq-show'
+  ;; @see https://github.com/dacap/keyfreq
+  (use-package keyfreq
+    :ensure t
+    :init
+    (keyfreq-mode 1)
+    (keyfreq-autosave-mode 1))
+
+  (use-package general
+    :ensure t
+    :config
+    (general-evil-setup t)
+
+    (general-define-key
+     :states '(normal motion visual)
+     :prefix "SPC"
+     :global-prefix "M-SPC"
+     "SPC" 'helm-M-x
+     "TAB" 'mode-line-other-buffer
+     "a"   '(:ignore t :which-key "applications")
+     "ai"  '(:ignore t :which-key "irc")
+     "as"  '(:ignore t :which-key "shells")
+     "ar" '(ranger :which-key "call ranger")
+     "gs" '(magit-status :which-key "git status")
+     "b"   '(:ignore t :which-key "buffers")
+     "bb" 'helm-mini
+     "bk" 'kill-this-buffer
+     "be" 'ibuffer
+     "c"   '(:ignore t :which-key "compile/comments")
+     "C"   '(:ignore t :which-key "capture/colors")
+     "cl" 'evilnc-comment-or-uncomment-lines
+     "e"   '(:ignore t :which-key "errors")
+     "f"   '(:ignore t :which-key "files")
+     "fC"  '(:ignore t :which-key "files/convert")
+     "fe"  '(:ignore t :which-key "emacs(spacemacs)")
+     "fv"  '(:ignore t :which-key "variables")
+     "fh"  'helm-find-files
+     "fc" 'helm-recentf
+     "ff" 'ido-find-file
+     "ft" 'neotree-toggle
+     "fs" 'save-buffer
+     "fo" 'itsyc/dired-open-in-filemanager
+     "g"   '(:ignore t :which-key "git/versions-control")
+     "gs"  'magit-status
+     "h"   '(:ignore t :which-key "help")
+     "hb" 'helm-descbinds
+     "hd"  '(:ignore t :which-key "help-describe")
+     "i"   '(:ignore t :which-key "insertion")
+     "j"   '(:ignore t :which-key "jump/join/split")
+     "jj" 'avy-goto-word-or-subword-1
+     "k"   '(:ignore t :which-key "lisp")
+     "kd"  '(:ignore t :which-key "delete")
+     "kD"  '(:ignore t :which-key "delete-backward")
+     "k`"  '(:ignore t :which-key "hybrid")
+     "n"   '(:ignore t :which-key "narrow/numbers")
+     "p"   '(:ignore t :which-key "projects")
+     "p$"  '(:ignore t :which-key "projects/shell")
+     "pf" 'projectile-find-file
+     "ps" 'helm-projectile-switch-project
+     "q"   '(:ignore t :which-key "quit")
+     "r"   '(:ignore t :which-key "registers/rings/resume")
+     "Re"  '(:ignore t :which-key "elisp")
+     "Rp"  '(:ignore t :which-key "pcre")
+     "s"   '(:ignore t :which-key "search/symbol")
+     "sa"  '(:ignore t :which-key "ag")
+     "sg"  '(:ignore t :which-key "grep")
+     "sk"  '(:ignore t :which-key "ack")
+     "st"  '(:ignore t :which-key "pt")
+     "sw"  '(:ignore t :which-key "web")
+     "saa" 'ag
+     "sap" 'ag-project
+     "sas" 'helm-ag
+     "saf" 'helm-do-ag
+     "sap" 'helm-do-ag-project-root
+     "sc"  'evil-search-highlight-persist-remove-all
+     "ss"  'helm-swoop
+     "sS" 'helm-swoop-region-or-symbol
+     "w"   '(:ignore t :which-key "windows")
+     "wp"  '(:ignore t :which-key "popup")
+     "wh" 'windmove-left
+     "wl" 'windmove-right
+     "wk" 'windmove-up
+     "wj" 'windmove-down
+     "w/" 'split-window-right
+     "w-" 'split-window-below
+     "wc" 'delete-window
+     "t"   '(:ignore t :which-key "toggles")
+     "tC"  '(:ignore t :which-key "colors")
+     "tE"  '(:ignore t :which-key "editing-styles")
+     "th"  '(:ignore t :which-key "highlight")
+     "tm"  '(:ignore t :which-key "modeline")
+     "T"   '(:ignore t :which-key "UI toggles/themes")
+     "Tf" 'toggle-frame-fullscreen
+     "Tm" 'toggle-frame-maximized
+     "x"   '(:ignore t :which-key "text")
+     "xa"  '(:ignore t :which-key "align")
+     "xd"  '(:ignore t :which-key "delete")
+     "xg"  '(:ignore t :which-key "google-translate")
+     "xl"  '(:ignore t :which-key "lines")
+     "xm"  '(:ignore t :which-key "move")
+     "xt"  '(:ignore t :which-key "transpose")
+     "xw"  '(:ignore t :which-key "words")
+     "z"   '(:ignore t :which-key "zoom")
+     "C-t" '(:ignore t :which-key "other toggles")
+     ))
 #+END_SRC
 
 * File Manager & Projects
@@ -841,6 +888,7 @@ https://github.com/syohex/emacs-zoom-window
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package neotree
     :ensure t
+    :diminish ""
     :config
     (setq neo-smart-open t)
     (setq projectile-switch-project-action 'neotree-projectile-action)
@@ -858,7 +906,6 @@ https://github.com/syohex/emacs-zoom-window
                 (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)))
     ;; 'classic, 'nerd, 'ascii, 'arrow
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-    ;; (setq neo-theme 'nerd)
     )
 
   (defun neotree-copy-file ()
@@ -912,7 +959,7 @@ https://github.com/syohex/emacs-zoom-window
 #+END_SRC
 
 * Languages
-** golang
+** Go
 Go 语言开发环境设置。
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package go-mode
@@ -975,6 +1022,7 @@ Go 语言开发环境设置。
   (use-package go-snippets
     :ensure go-snippets
     :init (go-snippets-initialize))
+  (use-package go-rename :ensure t)
 
   ;; Quick run current buffer
   (defun itsyc/go ()
@@ -984,6 +1032,88 @@ Go 语言开发环境设置。
 
   ;; use goimports instead of gofmt ::super
   (setq gofmt-command "goimports")
+
+  (defun itsyc/go-run-tests (args)
+    (interactive)
+    (save-selected-window
+      (async-shell-command (concat "go test " args))))
+
+  (defun itsyc/go-run-package-tests ()
+    (interactive)
+    (itsyc/go-run-tests ""))
+
+  (defun itsyc/go-run-package-tests-nested ()
+    (interactive)
+    (itsyc/go-run-tests "./..."))
+
+  (defun itsyc/go-run-test-current-function ()
+    (interactive)
+    (if (string-match "_test\\.go" buffer-file-name)
+        (let ((test-method (if go-use-gocheck-for-testing
+                               "-check.f"
+                             "-run")))
+          (save-excursion
+            (re-search-backward "^func[ ]+\\(([[:alnum:]]*?[ ]?[*]?[[:alnum:]]+)[ ]+\\)?\\(Test[[:alnum:]_]+\\)(.*)")
+            (itsyc/go-run-tests (concat test-method "='" (match-string-no-properties 2) "'"))))
+      (message "Must be in a _test.go file to run go-run-test-current-function")))
+
+  (defun itsyc/go-run-test-current-suite ()
+    (interactive)
+    (if (string-match "_test\.go" buffer-file-name)
+        (if go-use-gocheck-for-testing
+            (save-excursion
+              (re-search-backward "^func[ ]+\\(([[:alnum:]]*?[ ]?[*]?\\([[:alnum:]]+\\))[ ]+\\)?Test[[:alnum:]_]+(.*)")
+              (itsyc/go-run-tests (concat "-check.f='" (match-string-no-properties 2) "'")))
+          (message "Gocheck is needed to test the current suite"))
+      (message "Must be in a _test.go file to run go-test-current-suite")))
+
+  (defun itsyc/go-run-main ()
+    (interactive)
+    (shell-command
+     (format "go run %s"
+             (shell-quote-argument (buffer-file-name)))))
+
+  (general-define-key
+   :keymaps 'go-mode-map
+   :states '(normal motion visual)
+   :prefix "SPC"
+   :global-prefix "M-SPC"
+   "m" '(:ignore t :which-key "major-mode-cmd")
+   "mh" '(:ignore t :which-key "help")
+   "mhh" 'godoc-at-point
+   "mi" '(:ignore t :which-key "imports")
+   "mig" 'go-goto-imports
+   "mia" 'go-import-add
+   "mir" 'go-remove-unused-imports
+   "me" '(:ignore t :which-key "playground")
+   "meb" 'go-play-buffer
+   "mer" 'go-play-region
+   "med" 'go-download-play
+   "mx" '(:ignore t :which-key "execute")
+   "mxx" 'itsyc/go-run-main
+   "mg" '(:ignore t :which-key "goto")
+   "mga" 'ff-find-other-file
+   "mgc" 'go-coverage
+   "mt" '(:ignore t :which-key "test")
+   "mtt" 'itsyc/go-run-test-current-function
+   "mts" 'itsyc/go-run-test-current-suite
+   "mtp" 'itsyc/go-run-package-tests
+   "mtP" 'itsyc/go-run-package-tests-nested
+   "mf" '(:ignore t :which-key "guru")
+   "mfd" 'go-guru-describe
+   "mff" 'go-guru-freevars
+   "mfi" 'go-guru-implements
+   "mfc" 'go-guru-peers
+   "mfr" 'go-guru-referrers
+   "mfj" 'go-guru-definition
+   "mfp" 'go-guru-pointsto
+   "mfs" 'go-guru-callstack
+   "mfe" 'go-guru-whicherrs
+   "mf<" 'go-guru-callers
+   "mf>" 'go-guru-callees
+   "mfo" 'go-guru-set-scope
+   "mr" '(:ignore t :which-key "rename")
+   "mrn" 'go-rename)
 #+END_SRC
 *问题* ：这里需要设置为 ="/usr/local/bin/go"= ，可能应为某些环境变量没有设置成功，暂时还不知道具体哪里没设置，先配置成这样。
 用上面的 =exec-path-from-shell= 包暂时解决了这个问题
@@ -1057,7 +1187,26 @@ http://ergoemacs.org/emacs/elisp_run_current_file.html
 ** Java
 Java 环境设置参考这个：https://searchcode.com/codesearch/view/87114678/
 
-** clojure
+** Python
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package elpy
+    :ensure t
+    :init
+    (elpy-enable))
+
+  (use-package anaconda-mode
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook 'anaconda-mode)
+    (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+    (use-package company-anaconda
+      :ensure t
+      :config
+      (eval-after-load "company"
+        '(add-to-list 'company-backends '(company-anaconda :with company-capf)))))
+#+END_SRC
+
+** Clojure
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package clojure-mode
     :ensure t
@@ -1270,7 +1419,7 @@ GitHub: https://github.com/smihica/emmet-mode
     (setq emmet-expand-jsx-className? t))
 #+END_SRC
 
-** json
+** JSON
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package json-mode
     :ensure t
@@ -1283,7 +1432,7 @@ GitHub: https://github.com/smihica/emmet-mode
                    (bind-key "C-S-f" 'json-mode-beautify json-mode-map)))
 #+END_SRC
 
-** xml
+** XML
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package nxml-mode
     :defer t
@@ -1292,7 +1441,7 @@ GitHub: https://github.com/smihica/emmet-mode
     :config (progn (bind-key "C-S-f" 'beautify-xml nxml-mode-map)))
 #+END_SRC
 
-** yaml
+** YAML
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package yaml-mode
     :ensure t
@@ -1301,7 +1450,7 @@ GitHub: https://github.com/smihica/emmet-mode
     (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode)))
 #+END_SRC
 
-** logstash
+** Logstash
 修改默认的缩进，原来的是 4 个空格，改成 2 个空格。
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package logstash-conf
@@ -1309,6 +1458,7 @@ GitHub: https://github.com/smihica/emmet-mode
     :config
     (setq logstash-indent 2))
 #+END_SRC
+
 ** markdown
 Config for setting markdown mode and stuff
 参考：http://aaronbedra.com/emacs.d/
@@ -1331,8 +1481,42 @@ Config for setting markdown mode and stuff
   (use-package markdown-toc :ensure t)
   (use-package markdown-mode+ :ensure t)
 #+END_SRC
+* Auto Completion
+** smex
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package smex
+    :ensure t
+    :init
+    (smex-initialize)
+    :config
+    (global-set-key (kbd "M-x") 'smex)
+    (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+    ;; This is your old M-x.
+    (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
+#+END_SRC
 
-* company
+** helm
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package helm
+    :ensure t
+    :diminish ""
+    :config
+    (helm-mode 1)
+    (helm-fuzzier-mode 1)
+    (helm-autoresize-mode 1)
+    (setq helm-buffers-fuzzy-matching t)
+    (setq helm-autoresize-mode t)
+    (setq helm-buffer-max-length 100)
+    (set-face-attribute 'helm-selection nil :background "yellow" :foreground "black")
+    (define-key helm-map (kbd "C-j") 'helm-next-line)
+    (define-key helm-map (kbd "C-k") 'helm-previous-line)
+    (define-key helm-map (kbd "C-h") 'helm-next-source)
+    (define-key helm-map (kbd "C-S-h") 'describe-key)
+    (define-key helm-map (kbd "C-l") (kbd "RET"))
+    (define-key helm-map [escape] 'helm-keyboard-quit))
+#+END_SRC
+
+** company
 company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类似。
 这里需要参考[[http://emacs.stackexchange.com/questions/10837/how-to-make-company-mode-be-case-sensitive-on-plain-text][这篇 StackExchange 文章]]，解决 company-mode 自动完成是转换为小写的问题，具体原因参考[[https://emacs-china.org/t/company/187][这里]]。
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -1340,28 +1524,65 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
     :ensure t
     :defer t
     :commands global-company-mode
-    :diminish "comp"
+    :diminish ""
     :init
-    (global-company-mode)
+    (global-company-mode t)
     (add-hook 'after-init-hook 'global-company-mode)
-    (setq company-dabbrev-downcase nil)  ;; fix case-sensitive
+    (setq company-show-numbers t)
+    (setq company-require-match nil)
+    (setq company-dabbrev-downcase nil) ;; make company-complete care about case
+    (setq company-dabbrev-ignore-case nil) ;; fix case-sensitive, default is keep-prefix
     :config
-    ;; (setq company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "yellow2" :foreground "#c82829"))))
-    ;; (setq company-tooltip-selection ((t (:background "yellow2"))))
     (setq company-idle-delay 0.2)
     (setq company-tooltip-flip-when-above t)
     (setq company-selection-wrap-around t)
-    (define-key company-active-map [tab] 'company-complete)
+    (define-key company-active-map [tab] 'company-select-next)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
-    (define-key company-active-map (kbd "C-p") 'company-select-previous))
+    (define-key company-active-map (kbd "C-p") 'company-select-previous)
+    (define-key company-active-map [return] 'company-complete-selection)
+    (define-key company-active-map (kbd "C-/") 'helm-company)
+
+    ;; (global-set-key (kbd "M-/") 'hippie-expand)
+    ;; (define-key evil-insert-state-map [remap evil-complete-previous] 'hippie-expand)
+    (setq hippie-expand-try-functions-list
+          '(
+            ;; Try to expand word "dynamically", searching the current buffer.
+            try-expand-dabbrev
+            ;; Try to expand word "dynamically", searching all other buffers.
+            try-expand-dabbrev-all-buffers
+            ;; Try to expand word "dynamically", searching the kill ring.
+            try-expand-dabbrev-from-kill
+            ;; Try to complete text as a file name, as many characters as unique.
+            try-complete-file-name-partially
+            ;; Try to complete text as a file name.
+            try-complete-file-name
+            ;; Try to expand word before point according to all abbrev tables.
+            try-expand-all-abbrevs
+            ;; Try to complete the current line to an entire line in the buffer.
+            try-expand-list
+            ;; Try to complete the current line to an entire line in the buffer.
+            try-expand-line
+            ;; Try to complete as an Emacs Lisp symbol, as many characters as
+            ;; unique.
+            try-complete-lisp-symbol-partially
+            ;; Try to complete word as an Emacs Lisp symbol.
+            try-complete-lisp-symbol))
+    )
+
+  (use-package fuzzy :defer t)
 
   (use-package company-quickhelp
-    :disabled t
+    :ensure t
     :config
-    (company-quickhelp-mode 1))
+    (company-quickhelp-mode t))
+
+  (use-package company-statistics
+    :ensure t
+    :config
+    (company-statistics-mode))
 #+END_SRC
 
-* yasnippet
+** yasnippet
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package yasnippet
     :ensure t
@@ -1376,7 +1597,7 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
       (yas-global-mode t)))
 #+END_SRC
 
-* spell check
+** spell check
 #+BEGIN_SRC emacs-lisp :tangle yes
   ;;; spell checking
   (use-package ispell
@@ -1390,402 +1611,23 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
     :init (add-hook 'text-mode-hook 'flyspell-mode))
 #+END_SRC
 
-* flycheck
+** flycheck
 #+BEGIN_SRC emacs-lisp :tangle yes
   ;;; flycheck mode
   (use-package flycheck
     :ensure t
+    :diminish ""
     :commands global-flycheck-mode
     :config (progn (use-package popup
                      :ensure t)
                    (use-package flycheck-pos-tip
                      :ensure t)
                    (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
-                   ;; (use-package flycheck-clojure
-                   ;;   :ensure t
-                   ;;   :init (flycheck-clojure-setup))
                    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
                    (global-flycheck-mode)))
 #+END_SRC
 
-* Global key bindings
-** evil
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package evil-leader
-    :ensure t
-    :init
-    (global-evil-leader-mode)
-    :config
-    (evil-leader/set-leader ",")
-    (evil-leader/set-key
-      ;; "a" 'ack-and-a-half
-      "aa" 'ag
-      "ap" 'ag-project
-      ;; "bb" 'ido-switch-buffer
-      ;; "bb" 'helm-buffers-list
-      "b" 'helm-mini
-      "e" 'helm-find-files
-      ;; "be" 'ibuffer
-      "cf" 'helm-recentf
-      "d" 'neotree
-      "f" 'ido-find-file
-      "g" 'magit-status
-      "h" 'evil-search-highlight-persist-remove-all
-      "jj" 'avy-goto-word-or-subword-1
-      "q" 'delete-window
-      "s" 'swiper
-      "w" 'save-buffer
-      "<tab>" 'mode-line-other-buffer
-      "pf" 'projectile-find-file
-      "ps" 'helm-projectile-switch-project
-      ;; "wh" 'windmove-left
-      ;; "wl" 'windmove-right
-      ;; "wk" 'windmove-up
-      ;; "wj" 'windmove-down
-      ;; "w|" 'split-window-right
-      ;; "w-" 'split-window-below
-      ;; "wc" 'delete-window
-      ;; "xb" 'ido-switch-buffer
-      ;; "xc" 'save-buffers-kill-terminal
-      ;; "jj" 'w3mext-search-js-api-mdn
-      ;; "xz" 'suspend-frame
-      ;; "xvv" 'vc-next-action
-      ;; "xv=" 'vc-diff
-      ;; "xvl" 'vc-print-log
-      ;; "j" 'dired-jump
-      ;; "SPC" 'evil-buffer
-      ;; "F" 'find-file
-      ;; "f" 'projectile-find-file
-      ;; "b" 'bs-show
-      ;; "B" 'ibuffer
-      ;; "x" 'execute-extended-command
-      ;; "d" 'kill-this-buffer
-      ;; "q" 'kill-buffer-and-window
-      ))
-
-  ;; @see http://wikemacs.org/wiki/Evil
-  (use-package evil
-    :ensure t
-    :init
-    (evil-mode 1)
-    :config
-    ;;	(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
-    ;; or (setq-default evil-escape-key-sequence "jj")
-    ;; use evil-escape
-
-    ;; @see http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
-    (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-    (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-    (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-    (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-
-    ;; esc quits
-    ;; @see http://stackoverflow.com/questions/8483182/evil-mode-best-practice
-    (defun minibuffer-keyboard-quit ()
-      "Abort recursive edit.
-  In Delete Selection mode, if the mark is active, just deactivate it;
-  then it takes a second \\[keyboard-quit] to abort the minibuffer."
-      (interactive)
-      (if (and delete-selection-mode transient-mark-mode mark-active)
-          (setq deactivate-mark  t)
-        (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
-        (abort-recursive-edit)))
-    (define-key evil-normal-state-map [escape] 'keyboard-quit)
-    (define-key evil-visual-state-map [escape] 'keyboard-quit)
-    (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-    (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-    (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-    (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-    (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-
-    (define-key evil-normal-state-map "\C-y" 'yank)
-    (define-key evil-insert-state-map "\C-y" 'yank)
-    (define-key evil-visual-state-map "\C-y" 'yank)
-    (define-key evil-insert-state-map "\C-e" 'end-of-line)
-    ;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
-    ;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
-    ;; (define-key evil-visual-state-map "\C-w" 'evil-delete)
-    ;; (define-key evil-insert-state-map "\C-r" 'search-backward)
-
-    ;; Split and move the cursor to the new split
-    (define-key evil-normal-state-map (kbd "-")
-      (lambda ()
-        (interactive)
-        (split-window-vertically)
-        (other-window 1)))
-    (define-key evil-normal-state-map (kbd "|")
-      (lambda ()
-        (interactive)
-        (split-window-horizontally)
-        (other-window 1)))
-
-    (add-hook 'evil-after-load-hook
-              (lambda ()
-                ;; config
-                ))
-    ;; C-a for redo the last insertion
-    ;; @see http://emacs.stackexchange.com/questions/14521/insert-mode-make-c-a-insert-previously-inserted-text
-    (defun my-evil-paste-last-insertion ()
-      (interactive)
-      (evil-paste-from-register ?.))
-
-    (eval-after-load 'evil-maps
-      '(define-key evil-insert-state-map (kbd "C-a") 'my-evil-paste-last-insertion))
-
-    ;; @see https://github.com/rime/squirrel/wiki/vim%E7%94%A8%E6%88%B7%E4%B8%8Eemacs-evil-mode%E7%94%A8%E6%88%B7-%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%88%90%E8%8B%B1%E6%96%87%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%9E%E7%8E%B0
-    (defadvice keyboard-quit (before evil-insert-to-nornal-state activate)
-      "C-g back to normal state"
-      (when  (evil-insert-state-p)
-        (cond
-         ((equal (evil-initial-state major-mode) 'normal)
-          (evil-normal-state))
-         ((equal (evil-initial-state major-mode) 'insert)
-          (evil-normal-state))
-         ((equal (evil-initial-state major-mode) 'motion)
-          (evil-motion-state))
-         (t
-          (if (equal last-command 'keyboard-quit)
-              (evil-normal-state)           ;如果初始化 state 不是 normal，按两次才允许转到 normal state
-            (evil-change-to-initial-state)) ;如果初始化 state 不是 normal，按一次 转到初始状态
-          ))))
-
-    ;; C-u to scroll up or delete indent
-    ;; @see http://stackoverflow.com/questions/14302171/ctrl-u-in-emacs-when-using-evil-key-bindings
-    (setq evil-want-C-u-scroll t)
-    (setq evil-want-C-i-jump t)
-    (set-cursor-color "DarkCyan")
-    ;; (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-    ;; (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-    ;; (define-key evil-insert-state-map (kbd "C-u")
-    ;; 	(lambda ()
-    ;; 		(interactive)
-    ;; 		(evil-delete (point-at-bol) (point))))
-    ;; (setq evil-normal-state-tag   (propertize " N " 'face '((:background "green" :foreground "black"))) ;; NORMAL
-    ;; 			evil-emacs-state-tag    (propertize " E " 'face '((:background "orange" :foreground "black"))) ;; EMACS
-    ;; 			evil-insert-state-tag   (propertize " I " 'face '((:background "red")))  ;; INSERT
-    ;; 			evil-motion-state-tag   (propertize " M " 'face '((:background "blue")))  ;; MOTION
-    ;; 			evil-visual-state-tag   (propertize " V " 'face '((:background "grey80" :foreground "black"))) ;; VISUAL
-    ;; 			evil-operator-state-tag (propertize " O " 'face '((:background "purple")))) ;; OPER
-
-    ;; Great evil org mode keyboard shortcuts cribbed from cofi
-    (evil-define-key 'normal org-mode-map
-      (kbd "RET") 'org-open-at-point
-      "za"        'org-cycle
-      "zA"        'org-shifttab
-      "zm"        'hide-body
-      "zr"        'show-all
-      "zo"        'show-subtree
-      "zO"        'show-all
-      "zc"        'hide-subtree
-      "zC"        'hide-all
-      (kbd "M-h") 'org-metaleft
-      (kbd "M-j") 'org-shiftleft
-      (kbd "M-k") 'org-shiftright
-      (kbd "M-l") 'org-metaright
-      (kbd "M-H") 'org-metaleft
-      (kbd "M-J") 'org-metadown
-      (kbd "M-K") 'org-metaup
-      (kbd "M-L") 'org-metaright)
-
-    (evil-define-key 'normal orgstruct-mode-map
-      (kbd "RET") 'org-open-at-point
-      "za"        'org-cycle
-      "zA"        'org-shifttab
-      "zm"        'hide-body
-      "zr"        'show-all
-      "zo"        'show-subtree
-      "zO"        'show-all
-      "zc"        'hide-subtree
-      "zC"        'hide-all
-      (kbd "M-h") 'org-metaleft
-      (kbd "M-j") 'org-shiftleft
-      (kbd "M-k") 'org-shiftright
-      (kbd "M-l") 'org-metaright
-      (kbd "M-H") 'org-metaleft
-      (kbd "M-J") 'org-metadown
-      (kbd "M-K") 'org-metaup
-      (kbd "M-L") 'org-metaright)
-
-    (evil-define-key 'insert org-mode-map
-      (kbd "M-h") 'org-metaleft
-      (kbd "M-j") 'org-shiftleft
-      (kbd "M-k") 'org-shiftright
-      (kbd "M-l") 'org-metaright
-      (kbd "M-H") 'org-metaleft
-      (kbd "M-J") 'org-metadown
-      (kbd "M-K") 'org-metaup
-      (kbd "M-L") 'org-metaright)
-
-    (evil-define-key 'insert orgstruct-mode-map
-      (kbd "M-j") 'org-shiftleft
-      (kbd "M-k") 'org-shiftright
-      (kbd "M-H") 'org-metaleft
-      (kbd "M-J") 'org-metadown
-      (kbd "M-K") 'org-metaup
-      (kbd "M-L") 'org-metaright)
-
-    ;; @see http://emacs.stackexchange.com/questions/10350/how-can-i-add-a-new-colon-command-to-evil
-    ;; @see http://stackoverflow.com/questions/12558019/shortcut-to-open-a-specific-file-in-emacs
-    ;; (eval-after-load 'evil-ex
-    ;; '(define-key evil-ex-map "notes" (lambda() (interactive)(find-file "~/notes/home.org"))))
-    ;; '(define-key evil-ex-map "notes" 'helm-buffers-list))
-    )
-
-  (use-package key-chord
-    :ensure t
-    :init
-    (key-chord-mode 1)
-    :config
-    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
-
-  (use-package evil-nerd-commenter
-    :ensure t
-    :init
-    (evilnc-default-hotkeys)
-    :config
-    ;; Emacs key bindings
-    (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-    (global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
-    (global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
-    (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
-
-    (evil-leader/set-key
-      "ci" 'evilnc-comment-or-uncomment-lines
-      "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-      "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-      "cc" 'evilnc-copy-and-comment-lines
-      "cp" 'evilnc-comment-or-uncomment-paragraphs
-      "cr" 'comment-or-uncomment-region
-      "cv" 'evilnc-toggle-invert-comment-line-by-line
-      "\\" 'evilnc-comment-operator ; if you prefer backslash key
-      ))
-
-  (use-package evil-surround
-    :ensure t
-    :after org
-    :init
-    (global-evil-surround-mode 1))
-
-  (use-package evil-goggles
-    :ensure t
-    :after org
-    :config
-    (evil-goggles-mode))
-
-  (use-package evil-search-highlight-persist
-    :ensure t
-    :init
-    (global-evil-search-highlight-persist t))
-#+END_SRC
-
-参考这篇文章重新定义自己的 key bindings：[[https://leiyue.wordpress.com/2012/07/04/use-org-mode-and-taskjuggler-to-manage-to-project-information/][larstvei/dot-emacs - GitHub]]
-#+BEGIN_SRC emacs-lisp :tangle yes
-  ;; (bind-map my-base-leader-map
-  ;;  :keys ("M-m")
-  ;; (bind-map my-elisp-map
-  ;;  :keys ("M-m m" "M-RET")
-  ;;  :major-modes (emacs-lisp-mode
-  ;;                lisp-interaction-mode))
-
-  (use-package bind-key
-    :ensure t)
-
-  ;; (bind-keys :prefix-map itsyc/leader-map :prefix "M-SPC")
-  (use-package bind-map
-    :ensure t
-    :config
-    (bind-map itsyc/leader-map
-      :keys ("M-SPC")
-      :evil-keys ("SPC")
-      :evil-states (normal motion visual))
-    (bind-map-set-keys itsyc/leader-map
-      "tf" 'toggle-frame-fullscreen
-      "tm" 'toggle-frame-maximized
-      "<tab>" 'mode-line-other-buffer
-      "wh" 'windmove-left
-      "wl" 'windmove-right
-      "wk" 'windmove-up
-      "wj" 'windmove-down
-      "w|" 'splict-window-right
-      "w-" 'split-window-below
-      "wc" 'delete-window
-      "b"  'helm-mini
-      "s"  'swiper
-      ;; "bb" 'ido-switch-buffer
-      ;; "jf" 'avy-goto-char-in-line
-      ;; "jc" 'avy-goto-char
-      ;; "jw" 'avy-goto-word-1
-      ;; "jl" 'avy-goto-line
-      "cf" 'helm-recentf))
-
-  ;; (bind-map-set-keys my-base-leader-map
-  ;; "c" 'compile
-  ;; "C" 'check
-  ;; ...
-  ;; )
-  ;; is the same as
-  ;; (define-key my-base-leader-map (kbd "c") 'compile)
-  ;; (define-key my-base-leader-map (kbd "C") 'check)
-  ;; ...
-
-  ;; (bind-map-set-key-defaults my-base-leader-map
-  ;; "c" 'compile
-  ;; ...
-  ;; )
-  ;; is the same as
-  ;; (unless (lookup-key my-base-leader-map (kbd "c"))
-  ;;   (define-key my-base-leader-map (kbd "c") 'compile))
-  ;; ...
-
-  ;; mac switch meta key
-  (defun itsyc/mac-switch-meta nil
-    "switch meta between Option and Command"
-    (interactive)
-    (if (eq mac-option-modifier nil)
-        (progn
-          (setq mac-option-modifier 'meta)
-          (setq mac-command-modifier 'hyper)
-          )
-      (progn
-        (setq mac-option-modifier nil)
-        (setq mac-command-modifier 'meta)
-        )
-      )
-    )
-
-  ;; switch meta key
-  (setq mac-option-key-is-meta nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier nil)
-
-  ;; 修改后的设定 Mark 的绑定，由于经常忘了放住 Control 键，就给这个功能两个绑定了
-  (global-set-key (kbd "M-n") 'set-mark-command)
-
-  (use-package which-key
-    :ensure t
-    :config
-    (which-key-mode)
-    (which-key-setup-side-window-bottom)
-    (setq which-key-side-window-location 'bottom)
-    (which-key-setup-minibuffer)
-    ;; (setq which-key-popup-type 'minibuffer)
-    (add-to-list 'which-key-key-replacement-alist '("TAB" . "↹"))
-    (add-to-list 'which-key-key-replacement-alist '("RET" . "⏎"))
-    (add-to-list 'which-key-key-replacement-alist '("DEL" . "⇤"))
-    (add-to-list 'which-key-key-replacement-alist '("SPC" . "␣"))
-    (setq which-key-sort-order 'which-key-key-order))
-
-  ;; use 'keyfreq-show'
-  ;; @see https://github.com/dacap/keyfreq
-  (use-package keyfreq
-    :ensure t
-    :init
-    (keyfreq-mode 1)
-    (keyfreq-autosave-mode 1))
-#+END_SRC
-
-* orgmode
+* Org
 *orgmode 配置参考：*
 - [[https://emacs.lujianmei.com/03-editing/init-org-mode.html][Orgmode 写文档]]
 - [[https://emacs.lujianmei.com/03-editing/init-gtd-management.html][Orgmode 个人时间管理]]
@@ -1806,10 +1648,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (require 'org)
-  ;;;; use-package org
-  ;; (use-package org
-  ;;   :ensure t
-  ;;   :init
   (setq org-directory "~/notes/")
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
   (setq org-src-fontify-natively t)
@@ -1830,9 +1668,7 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
                                ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
                                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
          (base-font-color     (face-foreground 'default nil 'default))
-         ;; (headline           `(:inherit default :foreground ,base-font-color))
          (headline           `(:inherit default))
-         ;; (headline-1         `(:inherit default :weight bold :foreground ,base-font-color)))
          (headline-1         `(:inherit default :weight bold)))
 
     (set-face-attribute 'default nil :font "Source Code Pro 14")
@@ -1841,20 +1677,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
       (set-fontset-font (frame-parameter nil 'font)
                         charset (font-spec :family "Hiragino Sans GB" :size 16)))
 
-    ;; (custom-theme-set-faces 'user
-    ;; `(org-level-8 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-7 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-6 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-5 ((t (,@headline ,@variable-tuple))))
-    ;; `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-    ;; `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-    ;; `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-    ;; `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-    ;; `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
-
-    ;; (set-face-attribute 'org-level-1 nil :height 1.6 :bold t)
-    ;; (set-face-attribute 'org-level-2 nil :height 1.4 :bold t)
-    ;; (set-face-attribute 'org-level-3 nil :height 1.2 :bold t)))
     (custom-theme-set-faces 'user
                             `(org-level-8 ((t (,@headline ,@variable-tuple))))
                             `(org-level-7 ((t (,@headline ,@variable-tuple))))
@@ -1866,12 +1688,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
                             `(org-level-1 ((t (,@headline-1 ,@variable-tuple :height 1.5))))
                             `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))
                             `(org-link ((t (:underline t))))
-                            ;;                                              `(org-block-begin-line ((t (:background ,"grey98" :foreground ,"grey85" :weight bold))))
-                            ;;                                                  `(org-block-end-line ((t (:background ,"grey98" :foreground ,"grey85" :weight bold))))
-                            ;; `(org-todo ((t (:weight bold))))
-                            ;; `(org-done ((t (:weight bold))))
-                            ;; `(org-block ((,'((class color) (min-colors 89)) (:background ,"grey98"))))
-                            ;; `(org-block-background ((,class (:background ,"grey98" :foreground ,"grey20"))))
                             ))
   ;; Keep the headlines expanded in Org-Mode
   ;; @see http://emacs.stackexchange.com/questions/9709/keep-the-headlines-expanded-in-org-mode
@@ -1879,17 +1695,10 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
   ;; Disabling underscore-to-subscript in Emacs Org-Mode export
   ;; @see http://stackoverflow.com/questions/698562/disabling-underscore-to-subscript-in-emacs-org-mode-export/701201#701201
   (setq org-export-with-sub-superscripts nil)
-   ;;;; use-package org
-  ;; :config
   (defcustom org-indent-indentation-per-level 4
     "Indentation per level in number of characters."
     :group 'org-indent
     :type 'integer)
-  ;; (setq org-todo-keywords
-  ;;       '((sequence "TODO" "IN-PROGRESS" "DONE" "CANCELED" "WAITING" "|")))
-  ;; @see -> https://ccdevote.github.io/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/org-mode-basic-4.html
-  ;; (setq org-todo-keywords
-  ;;       '((sequence "TODO(t)" "STARTED" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")
                 (sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "MAYBE(m)" "|" "DONE(d!/!)")
@@ -1922,9 +1731,7 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
   (set-register ?s (cons 'file "~/notes/draft.org"))
   (set-register ?g (cons 'file "~/notes/diary.org"))
 
-  (setq org-goto-interface 'outline-path-completion
-        org-goto-max-level 10)
-  ;; )  ;; end--> use-package org
+  (setq org-goto-interface 'outline-path-completion org-goto-max-level 10)
 
   (use-package org-bullets
     :ensure t
@@ -1937,7 +1744,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
 
   (use-package htmlize :ensure t)
 
-  ;;(require 'org-publish)
   (setq org-publish-project-alist
         '(
           ("org-blog-content" ;; 博客内容
@@ -1996,7 +1802,7 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
 
   ;; Paste an image on clipboard to Emacs Org mode file
   ;; @see http://stackoverflow.com/questions/17435995/paste-an-image-on-clipboard-to-emacs-org-mode-file-without-saving-it
-  (defun my-org-screenshot ()
+  (defun itsyc/org-screenshot ()
     "Take a screenshot into a time stamped unique-named file in the
       same directory as the org-buffer and insert a link to this file."
     (interactive)
@@ -2021,7 +1827,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
   ;; @see http://orgmode.org/worg/org-hacks.html#orgheadline126
   (defun ogrep (search &optional context)
     "Search for word in org files.
-
       Prefix argument determines number of lines."
     (interactive "sSearch for: \nP")
     (let ((grep-find-ignored-files '("#*" ".#*"))
@@ -2097,8 +1902,6 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
   (setq org-capture-templates
         '(("t" "todo [inbox]" entry (file+headline "gtd/inbox.org" "Tasks")
            "* TODO %i%?\n%U\n" :clock-in t :clock-resume t :prepend t :empty-lines 1)
-          ;; ("t" "TODO" entry (file (concat org-directory "gtd/inbox.org"))
-          ;;  "* TODO %?\n%u\n%a\nDEADLINE: %t" :clock-in t :clock-resume t)
           ("T" "Tickler" entry (file+headline "gtd/tickler.org" "Tickler")
            "* %i%? \n %U")
           ("w" "Work TODO" entry (file+olp "gtd/inbox.org" "Work" "Tasks")
@@ -2166,6 +1969,20 @@ company-mode 是 Emacs 的自动完成插件，与 auto-complete 插件功能类
     (add-hook 'org-add-hook 'modify-org-done-face))
 #+END_SRC
 
+** set org-code-block color
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (custom-set-faces
+   '(org-block-begin-line
+     ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+   '(org-block-end-line
+     ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+   '(org-block
+     ((t (:background "#333333"))))
+   '(org-block-background
+     ((t (:background "#333333"))))
+   )
+#+END_SRC
+
 ** MobileOrg
 #+BEGIN_SRC emacs-lisp :tangle yes
   ;; Set to the name of the file where new notes will be stored
@@ -2189,19 +2006,6 @@ TODO: 具体配置参考这个：
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package outline-toc
     :ensure t)
-#+END_SRC
-
-* smex
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package smex
-    :ensure t
-    :init
-    (smex-initialize)
-    :config
-    (global-set-key (kbd "M-x") 'smex)
-    (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-    ;; This is your old M-x.
-    (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
 #+END_SRC
 
 * Highlight & Search and Replace
@@ -2258,25 +2062,6 @@ mapping key to =C-c f= .
 
 ** helm
 #+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package helm
-    :ensure t
-    :config
-    (helm-mode 1)
-    (helm-fuzzier-mode 1)
-    (helm-autoresize-mode 1)
-    (setq helm-buffers-fuzzy-matching t)
-    (setq helm-autoresize-mode t)
-    (setq helm-buffer-max-length 100)
-    (set-face-attribute 'helm-selection nil
-                        :background "yellow"
-                        :foreground "black")
-    (define-key helm-map (kbd "C-j") 'helm-next-line)
-    (define-key helm-map (kbd "C-k") 'helm-previous-line)
-    (define-key helm-map (kbd "C-h") 'helm-next-source)
-    (define-key helm-map (kbd "C-S-h") 'describe-key)
-    (define-key helm-map (kbd "C-l") (kbd "RET"))
-    (define-key helm-map [escape] 'helm-keyboard-quit))
-
   (use-package swoop
     :ensure t)
 
@@ -2314,61 +2099,42 @@ mapping key to =C-c f= .
 ** swiper
 关于 ivy 的使用：https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html#fnr.1
 #+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package ivy
-    :ensure t)
+    (use-package ivy
+      :ensure t
+      :diminish "")
 
-  (use-package swiper
-    :ensure t
-    :config
-    (progn
-      (ivy-mode 1)
-      (setq ivy-use-virtual-buffers t)
-      (global-set-key "\C-s" 'swiper)
-      (global-set-key (kbd "C-c u") 'swiper-all)
-      ;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
-      ;; (global-set-key (kbd "<f6>") 'ivy-resume)
-      ;; (global-set-key (kbd "M-x") 'counsel-M-x)
-      ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-      ;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-      ;; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-      ;; (global-set-key (kbd "<f1> l") 'counsel-load-library)
-      ;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-      ;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-      ;; (global-set-key (kbd "C-c g") 'counsel-git)
-      ;; (global-set-key (kbd "C-c j") 'counsel-git-grep)
-      ;; (global-set-key (kbd "C-c k") 'counsel-ag)
-      ;; (global-set-key (kbd "C-x l") 'counsel-locate)
-      ;; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-      ;; (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-      ))
+    (use-package swiper
+      :ensure t
+      :config
+      (progn
+        (ivy-mode 1)
+        (setq ivy-use-virtual-buffers t)
+        (global-set-key "\C-s" 'helm-swoop)
+        (global-set-key (kbd "C-c u") 'swiper-all)
+        ))
 
-  (use-package counsel-projectile
-    :ensure t
-    :config
-    (counsel-projectile-on))
+    (use-package counsel-projectile
+      :ensure t
+      :config
+      (counsel-projectile-on))
 
-  (use-package ag
-    :ensure t)
+    (use-package ag
+      :ensure t)
 #+END_SRC
 
 ** helm-ag
 #+BEGIN_SRC emacs-lisp :tangle yes
  (use-package helm-ag
       :ensure t
-      :defer t
-      :bind ("M-s s" . helm-ag))
+      :defer t)
 #+END_SRC
 
-** ace-jump
+** jump
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package avy
     :ensure t
     :init
     (setq avy-background t))
-
-  (use-package ace-jump-mode
-    :ensure t
-    :bind ("C-c SPC" . ace-jump-mode))
 #+END_SRC
 
 ** highlight and search current word
@@ -2457,7 +2223,6 @@ https://github.com/kaz-yos/emacs/blob/master/init.d/500_highlight-search-replace
 
 * Term
 参考这篇文章配置 multi-term：[[http://paralambda.org/2012/07/02/using-gnu-emacs-as-a-terminal-emulator/][Using GNU Emacs as a terminal emulator]]
-
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package multi-term
     :ensure t
@@ -2553,7 +2318,8 @@ https://github.com/kaz-yos/emacs/blob/master/init.d/500_highlight-search-replace
     :commands (scratch))
 #+END_SRC
 
-* pdf 导出设置
+* tools
+** pdf 导出设置
 这里的内容是采用 Emacs+orgmode+LaTeX 导出 pdf 相关的。
 需要系统安装 xelatex 用于导出带有中文的 pdf。
 1. 需要先安装 MacTeX
@@ -2657,93 +2423,9 @@ org-mode 默认调用的是 pdflatex, 因此需要重新设置编译引擎为 xe
                         ("\\.jpg\\'" . "kde-open %s")))
 #+END_SRC
 
-* beamer
-#+BEGIN_SRC emacs-lisp :tangle yes
-  ;; allow for export=>beamer by placing
+** beamer
 
-  ;; #+LaTeX_CLASS: beamer in org files
-  ;; (unless (boundp 'org-export-latex-classes)
-  ;;   (setq org-export-latex-classes nil))
-  ;; (add-to-list 'org-export-latex-classes
-  ;;              ;; beamer class, for presentations
-  ;;              '("beamer"
-  ;;                "\\documentclass[11pt]{beamer}\n
-  ;;       \\mode<{{{beamermode}}}>\n
-  ;;       \\usetheme{{{{beamertheme}}}}\n
-  ;;       \\usecolortheme{{{{beamercolortheme}}}}\n
-  ;;       \\beamertemplateballitem\n
-  ;;       \\setbeameroption{show notes}
-  ;;       \\usepackage[utf8]{inputenc}\n
-  ;;       \\usepackage[T1]{fontenc}\n
-  ;;       \\usepackage{hyperref}\n
-  ;;       \\usepackage{color}
-  ;;       \\usepackage{listings}
-  ;;       \\lstset{numbers=none,language=[ISO]C++,tabsize=4,
-  ;;   frame=single,
-  ;;   basicstyle=\\small,
-  ;;   showspaces=false,showstringspaces=false,
-  ;;   showtabs=false,
-  ;;   keywordstyle=\\color{blue}\\bfseries,
-  ;;   commentstyle=\\color{red},
-  ;;   }\n
-  ;;       \\usepackage{verbatim}\n
-  ;;       \\institute{{{{beamerinstitute}}}}\n
-  ;;        \\subject{{{{beamersubject}}}}\n"
-  ;;                ("\\section{%s}" . "\\section*{%s}")
-  ;;                ("\\begin{frame}[fragile]\\frametitle{%s}"
-  ;;                 "\\end{frame}"
-  ;;                 "\\begin{frame}[fragile]\\frametitle{%s}"
-  ;;                 "\\end{frame}")))
-  ;; (add-to-list 'org-export-latex-classes
-  ;;              ;; beamer class, for presentations
-  ;;              '("beamer"
-  ;;                "\\documentclass[11pt,professionalfonts]{beamer}
-  ;; \\mode
-  ;; \\usetheme{{{{Warsaw}}}}
-  ;; %\\usecolortheme{{{{beamercolortheme}}}}
-  ;; \\beamertemplateballitem
-  ;; \\setbeameroption{show notes}
-  ;; \\usepackage{graphicx}
-  ;; \\usepackage{tikz}
-  ;; \\usepackage{xcolor}
-  ;; \\usepackage{xeCJK}
-  ;; \\usepackage{amsmath}
-  ;; \\usepackage{lmodern}
-  ;; \\usepackage{fontspec,xunicode,xltxtra}
-  ;; \\usepackage{polyglossia}
-  ;; \\setmainfont{Times New Roman}
-  ;; \\setCJKmainfont{DejaVu Sans YuanTi}
-  ;; \\setCJKmonofont{DejaVu Sans YuanTi Mono}
-  ;; \\usepackage{verbatim}
-  ;; \\usepackage{listings}
-  ;; \\institute{{{{beamerinstitute}}}}
-  ;; \\subject{{{{beamersubject}}}}"
-  ;;                ("\\section{%s}" . "\\section*{%s}")
-  ;;                ("\\begin{frame}[fragile]\\frametitle{%s}"
-  ;;                 "\\end{frame}"
-  ;;                 "\\begin{frame}[fragile]\\frametitle{%s}"
-  ;;                 "\\end{frame}")))
-
-  ;; (setq ps-paper-type 'a4
-  ;;       ps-font-size 16.0
-  ;;       ps-print-header nil
-  ;;       ps-landscape-mode nil)
-
-  ;; letter class, for formal letters
-  ;; (add-to-list 'org-export-latex-classes
-  ;;              '("letter"
-  ;;                "\\documentclass[11pt]{letter}\n
-  ;;       \\usepackage[utf8]{inputenc}\n
-  ;;       \\usepackage[T1]{fontenc}\n
-  ;;       \\usepackage{color}"
-  ;;                ("\\section{%s}" . "\\section*{%s}")
-  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-#+END_SRC
-
-* 使用 PlantUML
+** 使用 PlantUML
 需要依赖 Java 环境及 plantuml.jar（[[http://plantuml.com/download][下载]]）。
 #+BEGIN_SRC emacs-lisp :tangle yes
   (setq plantuml-java-args (expand-file-name "~/.emacs.d/bin/plantuml.jar"))
@@ -2778,7 +2460,7 @@ org-mode 默认调用的是 pdflatex, 因此需要重新设置编译引擎为 xe
       (error nil)))
 #+END_SRC
 
-* hexo 博客系统
+** hexo 博客系统
 我的 hexo 设置
 #+BEGIN_SRC emacs-lisp :tangle yes
   (require 'ox-publish)

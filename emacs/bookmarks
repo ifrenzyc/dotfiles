@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("org-refile-last-stored"
+ (filename . "~/notes/gtd/gtd.org")
+ (front-context-string . "** CANCELLED 安排周")
+ (rear-context-string . "43862196635462\n\n")
+ (position . 2260))
+("org-capture-last-stored"
+ (filename . "~/notes/gtd/inbox.org")
+ (front-context-string . "** TODO 报销通讯费\n:L")
+ (rear-context-string . "方面等。*\n\n* Tasks\n\n")
+ (position . 147))
+)
