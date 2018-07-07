@@ -1,51 +1,16 @@
 
 ;; ----- smex-history -----
 (
- counsel-find-file
- package-list-packages
- package-autoremove
- helm-descbinds
- eval-buffer
- helm-find-files
- describe-key
+ ag
+ cd
+ 5x5
+ arp
+ dbx
+ dig
+ erc
 )
 
 ;; ----- smex-data -----
 (
- (multi-term . 8)
- (multi-term-prev . 1)
- (describe-key . 10)
- (package-list-packages . 20)
- (org-publish-current-file . 6)
- (gofmt . 2)
- (package-autoremove . 8)
- (go . 9)
- (org-version . 1)
- (ace-jump-mode . 1)
- (itsyc/dired-open-in-filemanager . 4)
- (ivy-avy . 2)
- (swiper-avy . 4)
- (swiper . 1)
- (swoop . 1)
- (helm-ag . 1)
- (avy-isearch . 2)
- (outline-mode . 1)
- (org-mode . 1)
- (outline-toc-mode . 2)
- (helm-swoop . 1)
- (helm-M-x . 2)
- (highlight-symbol . 2)
- (ace-window . 3)
- (emacs-uptime . 2)
- (describe-symbol . 1)
- (neotree-hidden-file-toggle . 2)
- (ng2-html-mode . 1)
- (ng2-mode . 1)
- (avy-goto-line . 1)
- (evil-avy-goto-char . 1)
- (helm-find-files . 1)
- (eval-buffer . 1)
- (helm-descbinds . 1)
- (counsel-find-file . 1)
- (counsel-jedi . 1)
+ 
 )

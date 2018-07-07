@@ -1,9 +1,15 @@
 (when (>= emacs-major-version 25)
   (require 'package)
   (setq package-enable-at-startup nil)
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("gnu" . "http://elpa.gnu.org/packages/")
-                           ("org" . "http://orgmode.org/elpa/")))
+  (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+			   ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+  ;; (setq package-archives
+  ;;       '(("elpy" . "http://jorgenschaefer.github.io/packages/")
+  ;;         ("org"         . "http://orgmode.org/elpa/")
+  ;;         ("gnu"         . "http://elpa.gnu.org/packages/")
+  ;;         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+  ;;         ("melpa" . "http://melpa.org/packages/")))
   (package-initialize)
 
   ;; Bootstrap `use-package'
@@ -13,12 +19,6 @@
     (package-install 'use-package)
     (setq use-package-always-ensure t))
 
-  ;;----------------------------------------------------------------------------
-  ;; Allow access from emacsclient
-  ;;----------------------------------------------------------------------------
-  (require 'server)
-  (unless (server-running-p)
-    (server-start))
 
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -33,17 +33,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (company-anaconda anaconda-mode elpy swoop keyfreq zoom-window yascroll yaml-mode which-key web-mode use-package typescript try tide sublimity smooth-scrolling smex smartparens smart-mode-line-powerline-theme selected scratch rainbow-delimiters quasi-monochrome-theme powerline-evil plantuml-mode phoenix-dark-mono-theme paper-theme pangu-spacing outline-toc org-super-agenda org-bullets nyan-mode ng2-mode neotree markdown-toc markdown-mode+ magit logstash-conf linum-relative key-chord json-mode js2-mode js-comint indent-guide ido-vertical-mode ido-ubiquitous htmlize highlight-symbol highlight-indentation helm-swoop helm-projectile helm-mt helm-fuzzier helm-descbinds helm-ag hc-zenburn-theme gruvbox-theme go-snippets go-projectile go-impl go-gopath go-errcheck go-direx go-complete gitignore-mode gitconfig-mode git-gutter flycheck-pos-tip flx-ido expand-region exec-path-from-shell evil-surround evil-search-highlight-persist evil-nerd-commenter evil-leader evil-goggles evil-easymotion emmet-mode eink-theme diredful dashboard counsel-projectile company-go clojure-mode bind-map basic-theme base16-theme auto-package-update auto-dim-other-buffers angular-snippets all-the-icons airline-themes ag ace-window ace-jump-mode))))
+   '(mdi anzu vimish-fold org-src scratch-ext company-shell unicode-fonts pcache restart-emacs edit-server desktop+ eyebrowse winum hydras zoom-window yascroll yapfify yaml-mode which-key web-mode use-package typescript tide swoop spaceline-all-the-icons smooth-scrolling smex smartparens selected scratch rainbow-delimiters pyenv-mode py-isort powerline-evil plantuml-mode paradox pangu-spacing outline-toc outline-magic org-super-agenda org-bullets ob-restclient nyan-mode ng2-mode neotree markdownfmt markdown-toc markdown-mode+ magit logstash-conf keyfreq key-chord json-mode js2-mode js-comint iedit ido-vertical-mode ido-completing-read+ htmlize highlight-symbol helm-swoop helm-pydoc helm-projectile helm-mt helm-fuzzier helm-descbinds helm-ag gruvbox-theme go-snippets go-projectile go-impl go-gopath go-errcheck go-direx go-complete gitignore-mode gitconfig-mode git-gutter general fuzzy flycheck-pos-tip flx-ido expand-region exec-path-from-shell evil-surround evil-search-highlight-persist evil-nerd-commenter evil-goggles evil-collection emmet-mode elpy easy-hugo doom-themes dokuwiki-mode dokuwiki diminish dashboard counsel-tramp counsel-projectile company-tern company-statistics company-restclient company-quickhelp company-go company-anaconda clojure-mode beacon auto-package-update angular-snippets ag ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-block ((t (:background "#333333"))))
- '(org-block-background ((t (:background "#333333"))))
- '(org-block-begin-line ((t (:underline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
- '(org-block-end-line ((t (:overline "#A7A6AA" :foreground "#3D4A41" :background "#9EAC8C" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-block ((t (:background "#F2E4BE"))))
+ '(org-block-background ((t (:background "#F2E4BE"))))
+ '(org-block-begin-line ((t (:underline "#A7A6AA" :foreground "#666666" :background "#EBDAB4" :height 0.9 :slant italic :weight semi-bold))))
+ '(org-block-end-line ((t (:overline "#A7A6AA" :foreground "#666666" :background "#EBDAB4" :height 0.9 :slant italic :weight semi-bold))))
  '(org-document-title ((t (:inherit default :font "Lucida Grande" :height 1.5 :underline nil))))
  '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
  '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))

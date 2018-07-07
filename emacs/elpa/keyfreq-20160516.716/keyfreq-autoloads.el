@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "keyfreq" "keyfreq.el" (0 0 0 0))
-;;; Generated autoloads from keyfreq.el
+;;;### (autoloads nil "keyfreq" "../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq.el"
+;;;;;;  "c389dfb0d5c213118cdf11c578cf8b8d")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq.el
 
 (defvar keyfreq-mode nil "\
 Non-nil if Keyfreq mode is enabled.
@@ -47,8 +48,20 @@ and when emacs is killed.
 Save keyfreq data now.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "keyfreq" "../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keyfreq" '("keyfreq-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/keyfreq-20160516.716/keyfreq.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

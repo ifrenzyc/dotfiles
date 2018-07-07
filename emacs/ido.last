@@ -2,288 +2,108 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/Users/yangc/.dotfiles/emacs/elpa/" . "ag-20170713.649/")
  ("/Users/yangc/.dotfiles/emacs/" . "elpa/")
- ("/Users/yangc/src/yangc/" . "learning_python/")
- ("/Users/yangc/src/2017_itrace/" . "itrace_startup/")
- ("/Users/yangc/src/go/src/github.com/ifrenzyc/" . "2017_itrace_section1/")
- ("/Users/yangc/.dotfiles/spacemacs/layers/+completion/auto-completion/" . "local/")
- ("/Users/yangc/.dotfiles/spacemacs/layers/+completion/" . "auto-completion/")
- ("/Users/yangc/.dotfiles/spacemacs/layers/+lang/" . "python/")
- ("/Users/yangc/.dotfiles/spacemacs/layers/" . "+lang/")
- ("/Users/yangc/.dotfiles/spacemacs/" . "layers/")
- ("/Users/yangc/src/opensource/bootstrap/" . "ace/")
- ("/Users/yangc/src/opensource/" . "bootstrap/")
- ("/Users/yangc/src/go/src/github.com/khala/gopub/" . "gopub-views/")
- ("/Users/yangc/src/go/src/github.com/gogits/" . "gogs/")
- ("/Users/yangc/src/angularjs/" . "angularjs2-by-cli/")
- ("/Users/yangc/src/" . "go/")
- ("/Users/yangc/src/go/src/github.com/khala/" . "gopub/")
- ("/Users/yangc/src/go/src/github.com/lisijie/" . "gopub/")
- ("/Users/yangc/src/go/src/github.com/" . "ifrenzyc/")
- ("/Users/yangc/src/go/src/" . "github.com/")
- ("/Users/yangc/src/go/" . "src/")
- ("/Users/yangc/.dotfiles/emacs.d/" . "lisp/")
- ("/Users/yangc/.dotfiles/emacs_bak/" . "lisp/")
- ("/Users/yangc/.dotfiles/" . "spacemacs/")
- ("/Users/yangc/notes/00_Notes/" . "Clojure/")
- ("/Users/yangc/notes/" . "01_Projects/")
- ("/Users/yangc/" . ".emacs.d/")
+ ("/Users/yangc/.emacs.d/elpa/" . "hydra-20180508.1008/")
+ ("/Users/yangc/.emacs.d/" . "elpa/")
+ ("/Users/yangc/Library/Rime/" . "build/")
+ ("/Library/Input Methods/Squirrel.app/Contents/" . "MacOS/")
+ ("/Library/Input Methods/Squirrel.app/" . "Contents/")
+ ("/Library/Input Methods/" . "Squirrel.app/")
+ ("/Library/" . "Input Methods/")
+ ("/" . "Library/")
+ ("/Users/yangc/Desktop/" . "Rime/")
+ ("/Users/yangc/Library/" . "Rime/")
+ ("/Users/yangc/GitBook/Library/Import/" . "udal-manual/")
+ ("/Users/yangc/GitBook/Library/" . "Import/")
+ ("/Users/yangc/GitBook/" . "Library/")
+ ("/Users/yangc/.dotfiles/" . "emacs/")
+ ("/Users/yangc/" . "Library/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/yangc/.emacs.d/"
- "/Users/yangc/.dotfiles/emacs/elpa/ag-20170713.649/"
- "/Users/yangc/src/2017_itrace/itrace_startup_in_python/"
+ "/Users/yangc/Library/Rime/"
+ "/Users/yangc/Library/"
  "/Users/yangc/Desktop/"
- "/Users/yangc/"
- "/Users/yangc/notes/gtd/"
- "/Users/yangc/.dotfiles/spacemacs/layers/+lang/python/"
  "/Users/yangc/.dotfiles/emacs/"
- "/Users/yangc/src/go/src/github.com/ifrenzyc/2017_itrace_section1/"
- "/Users/yangc/src/yangc/learning_python/"
- "/Users/yangc/notes/01_Projects/"
- "/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/"
- "/Users/yangc/src/2017_itrace/itrace_startup/"
- "/Users/yangc/src/2017_itrace/itrace/"
- "/Users/yangc/src/go/src/github.com/ifrenzyc/simplest-webapp-startup/"
- "/Users/yangc/.dotfiles/spacemacs/layers/+completion/auto-completion/"
- "/Users/yangc/.dotfiles/spacemacs/layers/+lang/go/"
- "/Users/yangc/.dotfiles/spacemacs/"
- "/Users/yangc/.dotfiles/spacemacs/core/"
- "/Users/yangc/.dotfiles/emacs-ng/"
- "/Users/yangc/notes/00_Notes/Clojure/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/app/application/"
- "/Users/yangc/src/opensource/bootstrap/ace/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/"
- "/Users/yangc/notes/00_Notes/"
- "/Users/yangc/src/go/src/github.com/gogits/gogs/"
- "/Users/yangc/src/angularjs/angularjs2-by-cli/"
- "/Users/yangc/src/angularjs/demo1/"
- "/Users/yangc/.ssh/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/views/app/"
- "/Users/yangc/notes/00_Notes/Git/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/app/controllers/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/views/project/"
- "/Users/yangc/src/go/src/github.com/khala/gopub/"
- "/Users/yangc/src/go/src/github.com/lisijie/gopub/views/project/"
- "/Users/yangc/src/go/src/github.com/lisijie/gopub/"
- "/Users/yangc/notes/00_Notes/Golang/"
+ "/Users/yangc/.emacs.d/elpa/hydra-20180508.1008/"
+ "/Users/yangc/Library/Rime/build/"
+ "/Users/yangc/Desktop/Rime/"
+ "/Users/yangc/GitBook/Library/Import/udal-manual/"
  "/Users/yangc/notes/"
- "/Users/yangc/.dotfiles/emacs_bak/lisp/"
- "/Users/yangc/.dotfiles/emacs.d/lisp/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "emacs.org"
- "ag.el"
- "README.md"
- "MySQL 安装部署.md"
- ".my.cnf"
- "gtd.org_archive"
- "service.txt"
- "packages.el"
- "section01.py"
- "main.go"
+ "installation.yaml"
+ "custom_phrase.txt"
+ "Rime.tar.gz"
+ "规划.txt"
+ "云平台sso及各组件的https地址.xlsx"
+ "init.el"
+ "hydra.el"
+ "hydra-examples.el"
+ "default.yaml"
+ "default.custom.yaml"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/yangc/.emacs.d/" (22959 38433 0 0) "snippets/" "smex-items" "recentf" "projectile.cache" "projectile-bookmarks.eld" "places" "network-security.data" "lisp/" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "company-statistics-cache.el" "bookmarks" "bin/" "auto-save-list/" ".org-id-locations" ".last-package-update-day" ".DS_Store" ".cache/" "../" "./")
+ ("/Users/yangc/Library/Rime/" (23357 58041 573786 952000) "luna_pinyin.userdb/" "custom_phrase.txt" "easy_en.userdb/" "luna_pinyin_fluency.schema.yaml" "stroke.dict.yaml" "double_pinyin.custom.yaml" "double_pinyin.schema.yaml" "symbols.yaml" "easy_en.dict.yaml" "build/" "pinyin_simp.schema.yaml" "luna_pinyin.sgmain.dict.yaml" "double_pinyin_flypy.schema.yaml" "user.yaml" "double_pinyin_flypy.custom.yaml" "default.custom.yaml" "luna_pinyin.cn_en.dict.yaml" "wubi_pinyin.schema.yaml" "luna_pinyin.custom.yaml" "opencc/" "wubi_trad.schema.yaml" "wubi_pinyin.custom.yaml" "luna_pinyin.schema.yaml" ".#double_pinyin.custom.yaml" "squirrel.custom.yaml" "README.md" "stroke.schema.yaml" "luna_pinyin.extended.dict.yaml" "luna_pinyin.dict.yaml" "wubi86.schema.yaml" "luna_pinyin.kaomoji.dict.yaml" "wubi86.dict.yaml" ".DS_Store" "luna_pinyin_simp.custom.yaml" "easy_en.schema.yaml" "squirrel.yaml" "luna_pinyin_simp.schema.yaml" "luna_pinyin.poetry.dict.yaml" "installation.yaml" "pinyin_simp.dict.yaml" "../" "./")
 
- ("/Users/yangc/" (22959 38434 0 0) "work/" "VMs/" "Vagrant/" "tmp/" "src/" "Public/" "Pictures/" "oradiag_yangc/" "notes/" "Music/" "Movies/" "Library/" "Google Drive/" "GitBook/" "eshore/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc" ".zshenv" ".zsh_history" ".zsh-update" ".zprofile" ".zcompdump-itsyc-5.2" ".z" ".yjp/" ".ycm_extra_conf.pyc" ".wiznote/" ".wget-hsts" ".vscode/" ".viminfo" ".vim/" ".vagrant.d/" ".vagrant/" ".Trash/" ".tmux.conf/" ".swt/" ".subversion/" ".ssh/" ".SpaceVim.d/" ".SpaceVim/" ".spacemacs.d/" ".spacemacs" ".sogouinput/" ".ShadowsocksX-NG/" ".ShadowsocksX/" ".session.vim" ".rustup/" ".rediscli_history" ".rally/" ".python_history" ".profile" ".pentaho/" ".p2/" ".org-timestamps/" ".oracle_jre_usage/" ".oh-my-zsh/" ".nvimlog" ".npmrc" ".npm/" ".node_repl_history" ".node-gyp/" ".ngrok/" ".NERDTreeBookmarks" ".mysql_history" ".my.cnf" ".multirust/" ".matplotlib/" ".m2/" ".local/" ".lesshst" ".lein/" ".kettle/" ".jspm/" ".jprofiler9/" ".jenv/" ".jenkins/" ".java_history" ".java-version" ".IntelliJIdea15/" ".ideaLibSources/" ".httpie/" ".hgignore_global" ".gradle/" ".gitignore_global" ".gitconfig" ".git-credential-cache/" ".gem/" ".emacs.keyfreq" ".emacs.d/" ".electron/" ".eclipse/" ".dubbo/" ".DS_Store" ".dropbox/" ".dotfiles/" ".docker/" ".dlv/" ".dbus-keyrings/" ".data/" ".cscope.vim/" ".cow/" ".config/" ".cmake/" ".clj_completions" ".CFUserTextEncoding" ".cargo/" ".cache/" ".bundle/" ".black-screen-state" ".berkshelf/" ".bastetrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".ansible/" ".android/" ".499481.padl" "../" "./")
+ ("/Users/yangc/Library/" (23357 54794 56442 326000) "Caches/" "snowplowEvents.sqlite" "CoreFollowUp/" "Keyboard/" "Thunderbird/" "texlive/" "Services/" "Cookies/" "Input Methods/" "SafariSafeBrowsing/" "Spelling/" "CallServices/" "Screen Savers/" "Metadata/" "KeyboardServices/" "XMind/" "Fonts/" "Frameworks/" "Containers/" "Dictionaries/" "Group Containers/" "LaunchAgents/" ".SavedStamps/" "Suggestions/" "PubSub/" "Mobile Documents/" "Dropbox/" "FileProvider/" "Scripts/" "PreferencePanes/" "Colors/" "Safari/" "Accounts/" "Voices/" "Internet Plug-Ins/" "Logs/" "Keyboard Layouts/" "Audio/" "SyncedPreferences/" "Printers/" "Eudb_en_free/" "com.apple.internal.ck/" "Personas/" "Sounds/" "Speech/" "FontCollections/" "VirtualBox/" "Private Documents/" "CoreData/" "iMovie/" "iTunes/" "PDF Expert/" "Workflows/" "Family/" "Edraw/" "Passes/" "Alipay/" "Favorites/" "LanguageModeling/" "Google/" "GameKit/" "Compositions/" "Mail/" "Rime/" ".localized" "Assistants/" "Application Scripts/" "ColorSync/" "UWST/" "ColorPickers/" "Sharing/" ".DS_Store" "Keychains/" "DES/" "autojump/" "Messages/" "TeX/" "PDF Services/" "Preferences/" "Calendars/" "Mozilla/" "Rime.tar.gz" "Developer/" "WebKit/" "IdentityServices/" "Saved Application State/" "Autosave Information/" "Assistant/" "StickiesDatabase" "Maps/" "Application Support/" "TeXShop/" "../" "./")
 
- ("/Users/yangc/src/go/src/github.com/ifrenzyc/hellogo/" (22951 30163 0 0) "vars_default_val.go" "vars.go" "vars" "temp.go" "main.tmpl" "int_to_string.go" "hello_web.go" "hello_beego.go" "hello_beego" "hello.go" "hello" "2d_array.go" ".idea/" "../" "./")
+ ("/Users/yangc/" (23357 56569 423543 477000) ".jenkins/" "src/" ".gitbook/" ".cmake/" ".httpie/" ".yjp/" ".viminfo" ".bash_history" ".zooinspector/" "VMs/" ".gitconfig" ".cache/" "tmp/" ".python_history" "Downloads/" ".dbus-keyrings/" ".bastetrc" ".rediscli_history" ".oh-my-zsh/" ".ngrok/" ".gem/" ".bash_profile" ".m2/" ".spacemacs" ".black-screen-state" ".vscode/" ".cow/" ".mysql_history" ".git-credential-cache/" "GitBook/" ".vim-bookmarks" ".cscope.vim/" ".swt/" "Documents/" ".npm/" ".Trash/" ".kettle/" "Dropbox/" ".zsh-update" ".data/" ".z.31733" ".gradle/" ".jenv/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" ".viminfo.tmp.b" ".clj_completions" ".ansible/" "work/" ".zshenv" "notes/" ".dropbox/" "Public/" ".lein/" "Google Drive/" ".bash_sessions/" ".gitignore_global" ".dlv/" ".android/" ".cargo/" ".node_repl_history" "eshore/" ".emacs.d/" ".dotfiles/" ".ShadowsocksX-NG/" ".oracle_jre_usage/" ".berkshelf/" ".lesshst" ".ycm_extra_conf.pyc" ".electron/" ".matplotlib/" ".npmrc" "Library/" "Desktop/" ".p2/" ".zsh_history" ".vagrant/" ".spacemacs.d/" ".rally/" ".java-version" ".bundle/" ".authinfo" ".zprofile" ".atom/" ".multirust/" "Pictures/" ".NERDTreeBookmarks" ".local/" ".ideaLibSources/" "Vagrant/" ".IntelliJIdea15/" ".nvimlog" ".zshrc" ".pentaho/" ".subversion/" ".vagrant.d/" ".wiznote/" ".sogouinput/" ".z" "bin/" ".jprofiler9/" ".tooling/" ".wget-hsts" ".hgignore_global" ".CFUserTextEncoding" ".tmux.conf" ".ShadowsocksX/" ".499481.padl" ".jspm/" ".emacs.keyfreq" ".viminfo.tmp.a" ".DS_Store" ".vim/" ".node-gyp/" ".docker/" ".zcompdump-itsyc-5.3" ".my.cnf" ".session.vim" ".java_history" "Music/" ".config/" ".eclipse/" ".zcompdump-itsyc-5.2" ".dubbo/" ".zcompdump-itsyc-5.3.itsyc.lan.1229" ".org-timestamps/" "../" "./")
 
- ("/Users/yangc/.dotfiles/emacs/elpa/ag-20170713.649/" (22943 35446 0 0) "ag.elc" "ag.el" "ag-pkg.el" "ag-autoloads.el" "../" "./")
+ ("/Users/yangc/Dropbox/" (23310 52747 510092 0) ".dropbox.cache/" "应用/" ".dropbox" "OmegaOptions.bak" "Icon" ".DS_Store" "itsycnotesgtd.org" "itsycnotes/" "../" "./")
 
- ("/Users/yangc/.dotfiles/emacs/elpa/" (22957 65048 0 0) "zoom-window-20170302.1627/" "yasnippet-20170828.1908/" "yascroll-20170316.306/" "yaml-mode-20170727.1531/" "with-editor-20170817.1240/" "which-key-20170817.1107/" "web-mode-20170830.1210/" "web-mode-20170828.1221/" "use-package-20170812.2256/" "undo-tree-20170706.246/" "typescript-mode-20170831.619/" "typescript-mode-20170830.515/" "typescript-mode-20170823.1000/" "typescript-0.1.1/" "try-20170227.5/" "tide-20170831.2047/" "tide-20170824.2230/" "swoop-20160120.915/" "swiper-20170817.1000/" "sublimity-20170820.827/" "smooth-scrolling-20161003.349/" "smex-20151213.609/" "smartparens-20170723.1205/" "smart-mode-line-powerline-theme-20170709.417/" "smart-mode-line-20170709.417/" "selected-20170222.1634/" "scratch-20170615.501/" "s-20170429.126/" "rich-minority-20170813.622/" "rainbow-delimiters-20160501.1458/" "quasi-monochrome-theme-20170124.1736/" "pyvenv-20170826.812/" "pythonic-20160221.1123/" "projectile-20170827.2053/" "powerline-evil-20151112.2310/" "powerline-20170709.542/" "pos-tip-20150318.2313/" "popup-20160709.2229/" "plantuml-mode-20170819.1033/" "pkg-info-20160912.2311/" "phoenix-dark-mono-theme-20170729.706/" "pcre2el-20161120.1303/" "paper-theme-20160101.132/" "pangu-spacing-20170317.1657/" "page-break-lines-20170829.157/" "outline-toc-20170730.430/" "org-super-agenda-20170823.151/" "org-bullets-20140919.237/" "org-20170904/" "org-20170828/" "nyan-mode-20170423.1540/" "ng2-mode-20170505.1119/" "neotree-20170522.2258/" "multi-term-20170405.2356/" "memoize-20170720.1802/" "markdown-toc-20170712.349/" "markdown-mode-20170830.829/" "markdown-mode-20170830.2131/" "markdown-mode-20170825.613/" "markdown-mode+-20170321.504/" "magit-popup-20170824.1130/" "magit-20170829.1128/" "magit-20170821.2057/" "logstash-conf-20170525.329/" "linum-relative-20160510.1618/" "keyfreq-20160516.716/" "key-chord-20170405.2347/" "json-snatcher-20150512.1147/" "json-reformat-20161027.2207/" "json-mode-20170719.2205/" "js2-mode-20170815.1415/" "js-comint-20170808.527/" "ivy-20170902.234/" "ivy-20170817.1000/" "indent-guide-20170224.1743/" "ido-vertical-mode-20160430.137/" "ido-ubiquitous-20170819.1045/" "ido-completing-read+-20170819.1045/" "htmlize-20161211.1019/" "ht-20161016.1045/" "highlight-symbol-20160103.409/" "highlight-indentation-readme.txt" "highlight-indentation-20170502.1543/" "highlight-indent-guides-readme.txt" "highlight-20170702.2232/" "hexrgb-20170305.413/" "helm-swoop-20160620.53/" "helm-projectile-20170613.1514/" "helm-mt-20160918.1252/" "helm-fuzzier-20160606.545/" "helm-descbinds-20160916.2213/" "helm-core-20170902.2335/" "helm-core-20170828.2343/" "helm-ag-20170220.910/" "helm-20170903.117/" "helm-20170830.1201/" "helm-20170827.2246/" "hc-zenburn-theme-readme.txt" "hc-zenburn-theme-20150929.33/" "gruvbox-theme-20170828.144/" "goto-chg-20131228.2259/" "go-snippets-20170831.2302/" "go-snippets-20151122.1457/" "go-rename-20170502.158/" "go-projectile-20170303.905/" "go-mode-20170726.555/" "go-impl-20170125.2352/" "go-guru-20170718.1046/" "go-gopath-20160705.1834/" "go-errcheck-20160723.843/" "go-eldoc-20170305.2227/" "go-direx-20151127.1555/" "go-complete-20151015.1728/" "gitignore-mode-20170627.2354/" "gitconfig-mode-20170627.854/" "git-gutter-20161105.2156/" "git-commit-20170823.2103/" "font-lock+-20170223.955/" "flycheck-pos-tip-20170505.604/" "flycheck-20170902.312/" "flycheck-20170823.1732/" "flx-ido-20160318.331/" "flx-20160318.331/" "find-file-in-project-20170903.2000/" "fill-column-indicator-20170829.907/" "f-20170404.1039/" "expand-region-20170515.409/" "exec-path-from-shell-20170508.1504/" "evil-surround-20170621.1957/" "evil-search-highlight-persist-20170522.2034/" "evil-nerd-commenter-20170829.353/" "evil-nerd-commenter-20170827.138/" "evil-leader-20140606.2043/" "evil-goggles-20170830.2329/" "evil-goggles-20170808.404/" "evil-find-char-pinyin-readme.txt" "evil-easymotion-20170111.1206/" "evil-20170902.759/" "evil-20170815.1422/" "epl-20150517.1933/" "emmet-mode-20161114.1358/" "elpy-20170903.143/" "eink-theme-20170717.807/" "ebib-handy-readme.txt" "direx-20170422.2127/" "diredful-20160530.544/" "diminish-20170420.136/" "dashboard-20170901.2/" "dashboard-20170810.1025/" "dash-20170810.137/" "counsel-projectile-20170816.200/" "counsel-20170830.1025/" "counsel-20170817.1000/" "company-statistics-0.2.3/" "company-quickhelp-20170429.1052/" "company-go-20170825.943/" "company-go-20170701.214/" "company-anaconda-20160809.705/" "company-20170828.414/" "clojure-mode-20170819.2159/" "bind-map-20161207.2311/" "bind-key-20170711.334/" "basic-theme-20160817.1628/" "base16-theme-20170824.1656/" "avy-20170819.1039/" "autothemer-20170113.524/" "auto-package-update-20170803.1005/" "auto-dim-other-buffers-20161004.2039/" "async-20170823.2116/" "archives/" "angular-snippets-20140514.1323/" "anaconda-mode-20170405.301/" "all-the-icons-20170817.642/" "airline-themes-readme.txt" "airline-themes-20170624.140/" "ag-20170713.649/" "ace-window-20170801.1334/" "ace-jump-mode-20140616.1615/" ".DS_Store" "../" "./")
+ ("/Users/yangc/Dropbox/itsycnotes/" (23357 56222 426025 681000) "99_Diary/" "00_Notes/" ".git/" "draft.org" "gtd.org" ".gitignore" "footer.org" "01_Projects/" "styles/" "setup.org" "03_Life/" "home.org" "02_Blog/" "04_PPT/" "refile-beorg.org" ".DS_Store" "05_Docs/" "index.html" "gtd.org_archive" "../" "./")
 
- ("/Users/yangc/.dotfiles/emacs/" (22958 26097 0 0) "snippets/" "smex-items" "recentf" "projectile.cache" "projectile-bookmarks.eld" "places" "network-security.data" "lisp/" "init.el" "ido.last" "emacs.org" "emacs.el" "elpa/" "company-statistics-cache.el" "bookmarks" "bin/" "auto-save-list/" ".org-id-locations" ".last-package-update-day" ".DS_Store" ".cache/" "../" "./")
+ ("/Users/yangc/Dropbox/itsycnotes/00_Notes/" (23351 9984 178522 844000) "LVS + Keepalived.org" "09_软件工程.org" "VPS.org" "我的 Rime 输入设置.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Git/" "Kindle.org" "Maven.org" "Zabbix 安装使用笔记.org" "Jenkins.org" "ESB.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "Vim vs Emacs.org" "_VIM/" "Jenkins/" "AngularJS.org" "_Elastic Stack/" "Best Practices for Code Review.org" "APM.org" "Gogs.org" "Druid.org" "Zookeeper.org" "PostgreSQL.org" "Emacs.org" "nginx.org" "Linux/" "Zookeeper disconnected troubleshooting.org" "分布式事务.org" "MySQL.org" "Ansible.org" "macOS.org" "Hugo.org" "我的 VPS 设置.org" "大数据学习.org" "Jira & Confluence.org" "Logstash 安装及配置笔记.org" "VirtualBox/" "MySQL 安装部署.md" "Java/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Elastic Stack.org" "_macOS/" "Hadoop.org" "Golang/" "Axure RP.org" "Clojure/" "Python/" "VIM.org" ".DS_Store" "Dubbo.org" "tools/" "_PostgreSQL/" "_大数据学习/" "Linux 下部署 SVN.org" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace_startup_in_python/" (22958 27534 0 0) "service.txt" "section02.pyc" "section02.py" "section01.py" "README.md" "LICENSE" ".gitignore" ".git/" "../" "./")
+ ("/Users/yangc/Desktop/" (23357 48202 488149 483000) "CRM 表空间及数据量分析.rar" "规划.txt" "云平台sso及各组件的https地址.xlsx" "CRM/" "CRM-1/" "cbs.rar" "缓存、消息、udal、dcos组件管理平台支持https升级指引.docx" ".DS_Store" "修数平台逻辑梳理.pptx" "cbs/" "../" "./")
 
- ("/Users/yangc/notes/gtd/" (22958 23379 0 0) "tickler.org" "someday.org" "inbox.org" "gtd.org_archive" "gtd.org" ".DS_Store" ".#inbox.org" "#inbox.org#" "../" "./")
+ ("/Users/yangc/Dropbox/itsycnotes/01_Projects/" (23355 22095 130049 818000) "13_2018 MSS 电子档案系统云化.org" "00_海量关系型数据库分库分表中间件/" "06_CRM+.org" "07_开发平台.org" "14_集团合规性入网测试.org" "08_发布中心.org" "04_分布式配置中心.org" "gogs.org" "_10_智慧运营 BSS/" "微服务生态.org" "dbpool.org" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "_04_分布式配置中心/" "12_2018 物联网 OSS 支撑.org" "11_集团研发中心 IT 云服务平台/" "mesos.org" "open-falcon.org" "_06_CRM+/" "_Khala/" "_14_集团合规性入网测试/" "09_2017 年广东公司 IT 运营创新技能竞赛.org" "02_udal/" "05_机器学习和数据挖掘.org" "01_2016 集团大数据平台入网测试配合/" ".DS_Store" "Khala.org" "10_智慧运营 BSS.org" "../" "./")
 
- ("/Users/yangc/Desktop/" (22958 22383 0 0) "硬件需求20170831_3.0.xlsx" "mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz" "MySQL 安装部署.pdf" "MySQL 安装部署.md" ".tmp/" ".DS_Store" "../" "./")
+ ("/Users/yangc/.dotfiles/emacs/elpa/" (23356 34272 475271 10000) "yaml-mode-20180408.2307/" "flx-ido-20180117.719/" "goto-chg-20180105.1033/" "helm-fuzzier-20160605.1445/" "logstash-conf-20170524.1229/" "go-projectile-20170302.1705/" "outline-magic-20180619.1119/" "helm-mt-20160917.2152/" "evil-surround-20180102.601/" "smooth-scrolling-20161002.1249/" "go-eldoc-20170305.627/" "popup-20160709.729/" "highlight-symbol-20160102.1209/" "js-comint-20171129.2056/" "ox-hugo-readme.txt" "company-quickhelp-20180525.303/" "know-your-http-well-20160208.1504/" "magit-20180630.1235/" "swiper-20180615.1400/" "dokuwiki-mode-20170223.501/" "multi-term-20160619.233/" "easy-hugo-20180531.221/" "org-bullets-20171127.526/" "org-capture-pop-frame-20160518.308/" "company-statistics-20170210.1133/" "go-impl-20170125.752/" "pythonic-20180624.2212/" "helm-descbinds-20180429.756/" "smartparens-20180701.1250/" "autothemer-20170112.1324/" "js2-mode-20180627.744/" "powerline-evil-20151112.710/" "magit-popup-20180618.1602/" "pangu-spacing-20170317.157/" "company-go-20170907/" "all-ext-readme.txt" "helm-projectile-20180620.935/" "usql-readme.txt" "org-20180702/" "auto-package-update-20180620.1806/" "nyan-mode-20170423.40/" "yapfify-20180105.1447/" "f-20180106.122/" "plantuml-mode-20170819.1033/" "ivy-20180703.844/" "dimmer.el/" "dash-functional-20180107.818/" "ido-completing-read+-20180627.1944/" "go-snippets-20180112.2211/" "helm-swoop-20170923.2127/" "smex-20151212.1409/" "web-mode-20180628.422/" "gitignore-mode-20180318.1256/" "ng2-mode-20180520.1731/" "json-snatcher-20150511.2047/" "go-direx-20150315.1843/" "exec-path-from-shell-20180224.1916/" "evil-search-highlight-persist-20170522.2034/" "evil-surround-20171210.838/" "markdownfmt-readme.txt" "pkg-info-20150517.443/" "xml-rpc-20160430.1458/" "highlight-indentation-20171218.137/" "spaceline-all-the-icons.el/" "restclient-20180316.851/" "s-20180406.108/" "markdown-toc-20170711.1249/" "spinner-1.7.3/" "git-gutter-20161105.656/" "go-gopath-20160705.334/" "gruvbox-theme-20180623.2009/" "page-break-lines-20171210.31/" "angular-snippets-20140513.2223/" "py-isort-20160925.318/" "counsel-tramp-20180311.2327/" "typescript-mode-20180605.1414/" "scratch-20170614.1401/" "with-editor-20180618.1602/" "json-mode-20170719.2205/" "yasnippet-20180620.1750/" "beacon-20180627.1028/" "pyenv-mode-20170801.1648/" "general-20180628.1112/" "evil-collection-20180630.2150/" "emmet-mode-20180612.2041/" "ghub-20180607.2101/" "dash-20180413.30/" "yascroll-20170315.1206/" "ace-flyspell-readme.txt" "flycheck-pos-tip-20180610.915/" "go-complete-20151015.228/" "ac-html-angular-readme.txt" "go-rename-20180626.2348/" "ht-20180129.1434/" "airline-themes-readme.txt" "expand-region-20180625.939/" "markdown-mode-20180619.1015/" "evil-20180517.1300/" "org-super-agenda-20180608.1619/" "pos-tip-20150318.813/" "company-quickhelp-20180323.1200/" "go-errcheck-20160722.1743/" "use-package-20180613.2219/" "git-commit-20180607.906/" "blog-admin-readme.txt" "neotree-20180616.903/" "elpy-20180629.513/" "company-tern-20161004.1147/" "async-20180527.1030/" "counsel-20180703.840/" "git-timemachine-20180607.120/" "archives/" "goto-chg-20171231.312/" "keyfreq-20160516.716/" "json-reformat-20160212.53/" "helm-pydoc-20160917.2242/" "ido-vertical-mode-20180618.1401/" "swoop-20160120.915/" "avy-20180615.801/" "highlight-20180131.1216/" "projectile-20180630.111/" "all-the-icons-20180125.757/" "doom-themes-20180703.328/" "helm-core-20180703.448/" "company-20180615.1508/" "ag-20180225.240/" "memoize-20180614.1230/" "cakecrumbs-readme.txt" "tide-20180608.239/" "helm-swoop-20180215.354/" "company-quickhelp-20170429.1052/" "htmlize-20180412.1244/" "yaml-mode-20180212.1556/" "ac-html-readme.txt" "flx-20151030.1112/" "diminish-20170419.1036/" "ob-restclient-20180703.902/" "find-file-in-project-20180626.1809/" "tern-20170925.1333/" "dokuwiki-20180101.1659/" "paradox-20180216.334/" "typescript-0.1.1/" "winum-20171028.702/" "bind-key-20180512.2130/" "markdown-mode+-20170320.1404/" "epl-20180205.1249/" "flycheck-20180614.1235/" "spaceline-all-the-icons-20170829.120/" "0blayout-readme.txt" "clojure-mode-20180703.829/" "company-anaconda-20180610.2321/" "outline-toc-20170730.430/" "pyvenv-20180629.514/" "counsel-projectile-20180621.755/" "zoom-window-20170302.27/" "which-key-20180621.1238/" "evil-nerd-commenter-20180411.640/" "highlight-indentation-20170502.43/" "yaml-mode-20180204.2333/" "hexo-readme.txt" "spaceline-20180628.46/" "exec-path-from-shell-20180323.1904/" "anaconda-mode-20180620.1546/" "dokuwiki-20170213.122/" "ace-window-20180607.1223/" "exec-path-from-shell-0/" "selected-20170222.34/" "key-chord-20160227.438/" ".DS_Store" "go-guru-20180628.310/" "fuzzy-20150729.2037/" "pcre2el-20161120.1303/" "hydra-20180703.802/" "helm-20180703.228/" "evil-goggles-20180702.353/" "iedit-20180207.219/" "dashboard-20180328.807/" "yapfify-20170519.115/" "helm-ag-20170209.745/" "rainbow-delimiters-20170929.432/" "company-restclient-20151202.401/" "go-mode-20180327.830/" "gitconfig-mode-20180318.1256/" "direx-20170422.627/" "undo-tree-20170706.246/" "iedit-20170916.1024/" "powerline-20180321.1948/" "delight-readme.txt" "markdownfmt-20160609.541/" "../" "./")
 
- ("/Users/yangc/.dotfiles/spacemacs/layers/+lang/python/" (22947 46953 0 0) "README.org" "packages.el" "local/" "img/" "funcs.el" "config.el" "../" "./")
+ ("/Users/yangc/notes/" (23357 32148 349463 543000) "99_Diary/" "00_Notes/" ".git/" "draft.org" "gtd.org" ".gitignore" "footer.org" "01_Projects/" "styles/" "setup.org" "03_Life/" "home.org" "02_Blog/" "04_PPT/" "refile-beorg.org" ".DS_Store" "05_Docs/" "index.html" "gtd.org_archive" "../" "./")
 
- ("/Users/yangc/.dotfiles/" (22952 54053 0 0) "vim/" "tmux/" "spacemacs-for-zilongshanren/" "spacemacs/" "sam217pa/" "README.md" "purcell/" "prelude/" "myvimrc_2013/" "git/" "emagicians-starter-kit/" "emacs24-starter-kit/" "emacs/" "aaronbieber/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+ ("/Users/yangc/Library/Rime/build/" (23346 16825 466521 51000) "luna_pinyin.extended.table.bin" "default.yaml" "luna_pinyin_fluency.prism.bin" "luna_pinyin.reverse.bin" "luna_pinyin_fluency.schema.yaml" "luna_pinyin.table.bin" "pinyin_simp.schema.yaml" "double_pinyin_flypy.prism.bin" "double_pinyin_flypy.schema.yaml" "wubi_pinyin.prism.bin" "pinyin_simp.reverse.bin" "wubi86.table.bin" "pinyin_simp.prism.bin" "wubi_pinyin.schema.yaml" "pinyin_simp.table.bin" "luna_pinyin.extended.reverse.bin" "stroke.schema.yaml" "easy_en.reverse.bin" "easy_en.prism.bin" "easy_en.table.bin" "stroke.prism.bin" "stroke.table.bin" "wubi86.reverse.bin" "easy_en.schema.yaml" "squirrel.yaml" "luna_pinyin_simp.schema.yaml" "luna_pinyin_simp.prism.bin" "stroke.reverse.bin" "../" "./")
 
- ("/Users/yangc/src/yangc/learning_python/" (22953 134 0 0) "test_lambda.py" "test_func.py" "2017_itrace_a.py" "10.txt" "../" "./")
+ ("/Users/yangc/.dotfiles/emacs/" (23357 32243 575700 917000) ".last-package-update-day" "company-statistics-cache.el" "emacs.el" "elpa/" "recentf" "emacs.org" ".org-id-locations" "bookmarks" "init.el" "auto-save-list/" "projectile.cache" "projectile-bookmarks.eld" "places" "bin/" "smex-items" ".DS_Store" "lisp/" "ido.last" "snippets/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/" (22956 51758 0 0) "simplest-webapp-startup-spring-boot/" "simplest-webapp-startup-jersey/" "itrace_startup_in_python/" "itrace_startup/" ".DS_Store" "../" "./")
+ ("/Users/yangc/.emacs.d/elpa/hydra-20180508.1008/" (23356 17837 986678 25000) "hydra-examples.el" "hydra-pkg.el" "hydra-ox.el" "hydra-autoloads.el" "hydra.el" "lv.el" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/" (22950 30433 0 0) "target/" "src/" "simplest-webapp-startup.iws" "simplest-webapp-startup.ipr" "simplest-webapp-startup.iml" "pom.xml" "mvnw.cmd" "mvnw" ".mvn/" ".gitignore" ".DS_Store" "../" "./")
+ ("/Users/yangc/.emacs.d/" (23356 17815 188889 981000) ".last-package-update-day" "company-statistics-cache.el" "emacs.el" "elpa/" "recentf" "emacs.org" ".org-id-locations" "bookmarks" "init.el" "auto-save-list/" "projectile.cache" "projectile-bookmarks.eld" "places" "bin/" "smex-items" ".DS_Store" "lisp/" "ido.last" "snippets/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/" (22948 52658 0 0) "test/" "main/" ".DS_Store" "../" "./")
+ ("/Users/yangc/.emacs.d/elpa/" (23355 22246 81343 455000) "yaml-mode-20180408.2307/" "flx-ido-20180117.719/" "goto-chg-20180105.1033/" "helm-fuzzier-20160605.1445/" "logstash-conf-20170524.1229/" "go-projectile-20170302.1705/" "outline-magic-20180619.1119/" "helm-mt-20160917.2152/" "evil-surround-20180102.601/" "helm-core-20180626.1000/" "smooth-scrolling-20161002.1249/" "go-eldoc-20170305.627/" "popup-20160709.729/" "highlight-symbol-20160102.1209/" "js-comint-20171129.2056/" "ox-hugo-readme.txt" "company-quickhelp-20180525.303/" "know-your-http-well-20160208.1504/" "magit-20180630.1235/" "swiper-20180615.1400/" "dokuwiki-mode-20170223.501/" "multi-term-20160619.233/" "easy-hugo-20180531.221/" "org-bullets-20171127.526/" "org-capture-pop-frame-20160518.308/" "company-statistics-20170210.1133/" "go-impl-20170125.752/" "pythonic-20180624.2212/" "helm-descbinds-20180429.756/" "smartparens-20180701.1250/" "autothemer-20170112.1324/" "js2-mode-20180627.744/" "powerline-evil-20151112.710/" "magit-popup-20180618.1602/" "pangu-spacing-20170317.157/" "company-go-20170907/" "all-ext-readme.txt" "helm-projectile-20180620.935/" "usql-readme.txt" "org-20180702/" "auto-package-update-20180620.1806/" "nyan-mode-20170423.40/" "yapfify-20180105.1447/" "f-20180106.122/" "plantuml-mode-20170819.1033/" "dimmer.el/" "dash-functional-20180107.818/" "ido-completing-read+-20180627.1944/" "go-snippets-20180112.2211/" "helm-swoop-20170923.2127/" "smex-20151212.1409/" "web-mode-20180628.422/" "gitignore-mode-20180318.1256/" "ng2-mode-20180520.1731/" "json-snatcher-20150511.2047/" "go-direx-20150315.1843/" "exec-path-from-shell-20180224.1916/" "evil-search-highlight-persist-20170522.2034/" "evil-surround-20171210.838/" "markdownfmt-readme.txt" "pkg-info-20150517.443/" "xml-rpc-20160430.1458/" "highlight-indentation-20171218.137/" "spaceline-all-the-icons.el/" "restclient-20180316.851/" "s-20180406.108/" "markdown-toc-20170711.1249/" "spinner-1.7.3/" "git-gutter-20161105.656/" "go-gopath-20160705.334/" "gruvbox-theme-20180623.2009/" "page-break-lines-20171210.31/" "angular-snippets-20140513.2223/" "py-isort-20160925.318/" "counsel-tramp-20180311.2327/" "typescript-mode-20180605.1414/" "scratch-20170614.1401/" "with-editor-20180618.1602/" "json-mode-20170719.2205/" "yasnippet-20180620.1750/" "beacon-20180627.1028/" "pyenv-mode-20170801.1648/" "general-20180628.1112/" "evil-collection-20180630.2150/" "emmet-mode-20180612.2041/" "ghub-20180607.2101/" "dash-20180413.30/" "yascroll-20170315.1206/" "ace-flyspell-readme.txt" "flycheck-pos-tip-20180610.915/" "go-complete-20151015.228/" "ac-html-angular-readme.txt" "go-rename-20180626.2348/" "ht-20180129.1434/" "airline-themes-readme.txt" "expand-region-20180625.939/" "markdown-mode-20180619.1015/" "evil-20180517.1300/" "org-super-agenda-20180608.1619/" "pos-tip-20150318.813/" "company-quickhelp-20180323.1200/" "go-errcheck-20160722.1743/" "use-package-20180613.2219/" "clojure-mode-20180629.1500/" "git-commit-20180607.906/" "blog-admin-readme.txt" "neotree-20180616.903/" "elpy-20180629.513/" "company-tern-20161004.1147/" "async-20180527.1030/" "archives/" "goto-chg-20171231.312/" "keyfreq-20160516.716/" "json-reformat-20160212.53/" "helm-pydoc-20160917.2242/" "ido-vertical-mode-20180618.1401/" "swoop-20160120.915/" "avy-20180615.801/" "highlight-20180131.1216/" "projectile-20180630.111/" "all-the-icons-20180125.757/" "ivy-20180626.1345/" "company-20180615.1508/" "ag-20180225.240/" "memoize-20180614.1230/" "doom-themes-20180625.1700/" "cakecrumbs-readme.txt" "tide-20180608.239/" "helm-swoop-20180215.354/" "company-quickhelp-20170429.1052/" "htmlize-20180412.1244/" "yaml-mode-20180212.1556/" "ac-html-readme.txt" "flx-20151030.1112/" "diminish-20170419.1036/" "find-file-in-project-20180626.1809/" "tern-20170925.1333/" "dokuwiki-20180101.1659/" "paradox-20180216.334/" "typescript-0.1.1/" "winum-20171028.702/" "bind-key-20180512.2130/" "markdown-mode+-20170320.1404/" "counsel-20180625.634/" "ob-restclient-20160323.2305/" "epl-20180205.1249/" "flycheck-20180614.1235/" "spaceline-all-the-icons-20170829.120/" "0blayout-readme.txt" "company-anaconda-20180610.2321/" "outline-toc-20170730.430/" "pyvenv-20180629.514/" "counsel-projectile-20180621.755/" "zoom-window-20170302.27/" "which-key-20180621.1238/" "evil-nerd-commenter-20180411.640/" "highlight-indentation-20170502.43/" "yaml-mode-20180204.2333/" "helm-20180702.701/" "hexo-readme.txt" "spaceline-20180628.46/" "exec-path-from-shell-20180323.1904/" "anaconda-mode-20180620.1546/" "hydra-20180508.1008/" "dokuwiki-20170213.122/" "ace-window-20180607.1223/" "exec-path-from-shell-0/" "selected-20170222.34/" "key-chord-20160227.438/" ".DS_Store" "go-guru-20180628.310/" "fuzzy-20150729.2037/" "pcre2el-20161120.1303/" "evil-goggles-20180702.353/" "iedit-20180207.219/" "dashboard-20180328.807/" "yapfify-20170519.115/" "helm-ag-20170209.745/" "rainbow-delimiters-20170929.432/" "company-restclient-20151202.401/" "go-mode-20180327.830/" "gitconfig-mode-20180318.1256/" "direx-20170422.627/" "undo-tree-20170706.246/" "iedit-20170916.1024/" "powerline-20180321.1948/" "delight-readme.txt" "markdownfmt-20160609.541/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/main/" (22948 23822 0 0) "resources/" "java/" "../" "./")
+ ("/Library/Input Methods/Squirrel.app/Contents/MacOS/" (23273 25448 530126 315000) "Squirrel" "rime_deployer" "rime_dict_manager" "rime-install" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/main/java/" (22948 23822 0 0) "me/" "../" "./")
+ ("/Library/Input Methods/Squirrel.app/Contents/" (23273 25448 611007 426000) "PkgInfo" "Info.plist" "Frameworks/" "SharedSupport/" "Resources/" "MacOS/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/main/java/me/" (22948 23822 0 0) "itsyc/" "../" "./")
+ ("/Library/Input Methods/Squirrel.app/" (23273 25448 528119 878000) "Contents/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/main/java/me/itsyc/" (22948 23822 0 0) "sws/" "../" "./")
+ ("/Library/Input Methods/" (23273 25448 527846 593000) "Squirrel.app/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/simplest-webapp-startup-spring-boot/src/main/java/me/itsyc/sws/" (22948 53252 0 0) "service/" "dao/" "controller/" "Bootstrap.java" "../" "./")
+ ("/Library/" (23095 25194 484119 858000) "Caches/" "GPUBundles/" "Filesystems/" "OpenDirectory/" "Widgets/" "Ruby/" "Input Methods/" "Screen Savers/" "Fonts/" "Graphics/" "LaunchDaemons/" "Frameworks/" "Contextual Menu Items/" "LaunchAgents/" "Scripts/" "PreferencePanes/" "User Pictures/" "SystemProfiler/" "Sandbox/" "Internet Plug-Ins/" "Logs/" "Keyboard Layouts/" "CoreMediaIO/" "SystemMigration/" "Audio/" "Printers/" "Components/" "WebServer/" "Extensions/" "Speech/" "Updates/" "ScriptingAdditions/" "Java/" "CoreAnalytics/" "PrivilegedHelperTools/" "Desktop Pictures/" "Perl/" "StagedExtensions/" "Google/" "QuickTime/" "Compositions/" "Security/" ".localized" "Python/" "QuickLook/" "MessageTracer/" "ColorSync/" "ColorPickers/" "Keychains/" "Spotlight/" "Messages/" "TeX/" "PDF Services/" "DropboxHelperTools/" "Preferences/" "Video/" "Documentation/" "Developer/" "Modem Scripts/" "StartupItems/" "DirectoryServices/" "Application Support/" "Receipts/" "Image Capture/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace_startup/" (22955 64545 0 0) "target/" "src/" "README.md" "pom.xml" "mvnw.cmd" "mvnw" "LICENSE" ".mvn/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+ ("/Users/" (23002 14253 999784 828000) "Guest/" "Shared/" ".localized" "yangc/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/" (22955 64284 0 0) "target/" "src/" "README.md" "pom.xml" "mvnw.cmd" "mvnw" ".mvn/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+ ("/Users/yangc/Desktop/Rime/" (23345 47449 0 0) "luna_pinyin.userdb/" "custom_phrase.txt" "easy_en.userdb/" "flypy.dict.yaml" "luna_pinyin_fluency.schema.yaml" "symbols.yaml" "sync/" "easy_en.dict.yaml" "build/" "pinyin_simp.schema.yaml" "luna_pinyin.sgmain.dict.yaml" "double_pinyin_flypy.schema.yaml" "user.yaml" "double_pinyin_flypy.custom.yaml" "default.custom.yaml" "luna_pinyin.cn_en.dict.yaml" "luna_pinyin.custom.yaml" "luna_pinyin.schema.yaml" "squirrel.custom.yaml" "stroke.schema.yaml" "luna_pinyin.hanyu.dict.yaml" "luna_pinyin.emoji.dict.yaml" "rime_dict_manager" "trash/" "flypy_simp.dict.yaml" "luna_pinyin.extended.dict.yaml" "emoji.schema.yaml" "luna_pinyin.userdb.kct" "luna_pinyin_tw.schema.yaml" "flypy.schema.yaml" "emoji.userdb.kct" "luna_pinyin.kaomoji.dict.yaml" ".DS_Store" "luna_quanpin.prism.bin" "luna_pinyin_simp.custom.yaml" "easy_en.schema.yaml" "luna_pinyin.poetry.dict.yaml" "installation.yaml" "flypy.extended.dict.yaml" "../" "./")
 
- ("/Users/yangc/src/go/src/github.com/ifrenzyc/2017_itrace_section1/" (22952 64891 0 0) "service.txt" "main.go" "itrace_a.go" "itrace_a/" ".DS_Store" "../" "./")
+ ("/Users/yangc/GitBook/Library/Import/udal-manual/" (23226 1754 209297 191000) "reference/" "tech/" "other-unit/" ".git/" "_book/" ".gitignore" "manual/" "README.md" "book.json" "node_modules/" "SUMMARY.md" "develop/" ".DS_Store" "monitor/" "operation/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/src/" (22952 61494 0 0) "test/" "main/" ".DS_Store" "../" "./")
+ ("/Users/yangc/GitBook/Library/Import/" (23136 7304 695221 882000) "splan-datahub-user-doc/" "itsyc/" "kconf-dev-book/" "ds-schedule-user-book/" "udal-manual/" "kconf-book/" "udal-book2.0/" "udal-dev-book/" "udal-book/" "oplan-monitor-user-doc/" "mule_esb/" ".DS_Store" "udal-dev-book2.0/" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/src/test/" (22950 928 0 0) "java/" "../" "./")
+ ("/Users/yangc/GitBook/Library/" (22775 12161 0 0) "index.json" "Import/" "udal/" ".DS_Store" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/src/test/java/" (22950 928 0 0) "me/" "../" "./")
+ ("/Users/yangc/GitBook/" (22304 37585 0 0) "Library/" "settings.json" ".DS_Store" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/src/test/java/me/" (22950 928 0 0) "itsyc/" "../" "./")
+ ("/Users/yangc/Dropbox/itsycnotes/00_Notes/Python/" (22962 16027 0 0) "搭建 Emacs 开发环境.org" "Python.org" "../" "./")
 
- ("/Users/yangc/src/2017_itrace/itrace/src/test/java/me/itsyc/" (22950 928 0 0) "itrace/" "../" "./")
-
- ("/Users/yangc/src/2017_itrace/itrace/src/test/java/me/itsyc/itrace/" (22950 29969 0 0) "ItraceBootstrapTests.java" "../" "./")
-
- ("/Users/yangc/src/yangc/" (22950 30537 0 0) "Xshell/" "sqlparser/" "mynotes/" "my-cros-test/" "learning_python/" "khala_wiki/" "java/" "itsycnotes/" "itsycblog/" "itsyc.io/" "itsyc-sample/" "hardseed/" "crt/" "crmplus-eye/" "clojure/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/Golang/" (22945 42311 0 0) "搭建 Emacs 开发环境.org" "go.org" "../" "./")
-
- ("/Users/yangc/notes/01_Projects/" (22948 51336 0 0) "微服务生态.org" "open-falcon.org" "mesos.org" "Khala.org" "gogs.org" "dbpool.org" "_images/" "09_2017 年广东公司 IT 运营创新技能竞赛.org" "08_发布中心.org" "07_开发平台.org" "06_CRM+.org" "05_机器学习和数据挖掘.org" "04_分布式配置中心.org" "03_2017 广东省公共资源交易信息化平台建设项目（二期项目）/" "02_udal/" "01_2016 集团大数据平台入网测试配合/" "00_海量关系型数据库分库分表中间件/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/core/" (22952 12672 0 0) "tools/" "templates/" "libs/" "info/" "core-use-package-ext.el" "core-transient-state.el" "core-toggle.el" "core-themes-support.el" "core-spacemacs.el" "core-spacemacs-buffer.el" "core-release-management.el" "core-micro-state.el" "core-load-paths.el" "core-keybindings.el" "core-jump.el" "core-funcs.el" "core-fonts-support.el" "core-emacs-backports.el" "core-dotspacemacs.el" "core-documentation.el" "core-display-init.el" "core-debug.el" "core-configuration-layer.el" "core-command-line.el" "core-auto-completion.el" "banners/" "aprilfool/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/+lang/go/" (22952 13021 0 0) "README.org" "packages.el" "local/" "img/" "funcs.el" "config.el" ".DS_Store" "#packages.el#" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/+completion/auto-completion/" (22950 28550 0 0) "README.org" "packages.el" "local/" "funcs.el" "config.el" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/" (22951 26937 0 0) "yayua/" "urfave/" "Unknwon/" "ugorji/" "twinj/" "tpng/" "toolkits/" "syndtr/" "stretchr/" "sqs/" "siddontang/" "shurcooL/" "sergi/" "satori/" "russross/" "rogpeppe/" "ramya-rao-a/" "pkg/" "pingcap/" "petar/" "open-falcon/" "nsf/" "ngaut/" "nfnt/" "msteinert/" "mingzhehao/" "microcosm-cc/" "mcuadros/" "mattn/" "mailgun/" "lisijie/" "lib/" "kr/" "kniren/" "klauspost/" "kisielk/" "khala/" "juju/" "jstemmer/" "josharian/" "jaytaylor/" "issue9/" "ifrenzyc/" "gorilla/" "google/" "gonum/" "golang/" "gogits/" "go-xorm/" "go-sql-driver/" "go-macaron/" "flike/" "featen/" "fatih/" "emicklei/" "dougm/" "cweill/" "coreos/" "coraldane/" "codegangsta/" "bradfitz/" "boltdb/" "beego/" "astaxie/" "alecthomas/" "acroca/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/ifrenzyc/" (22950 35654 0 0) "simplest-webapp-startup/" "hellogo/" "2017_itrace_section1/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/ifrenzyc/simplest-webapp-startup/" (22951 61022 0 0) "views/" "tests/" "static/" "simplest-webapp-startup" "routers/" "models/" "main.go" "controllers/" "conf/" ".idea/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/" (22952 12744 0 0) "tests/" "spacemacs.mk" "smex-items" "recentf" "README.md" "private/" "places" "news/" "layers/" "init.el" "ido.last" "elpa/" "doc/" "core/" "CONTRIBUTING.org" "COMMUNITY.org" "CHANGELOG.org" "assets/" ".travis.yml" ".travis-build.sh" ".projectile" ".gitignore" ".github/" ".git/" ".DS_Store" ".cache/" "../" "./")
-
- ("/Users/yangc/src/gogs/" (22377 28404 0 0) "gogs_v0.9.13_linux_amd64.tar.gz" "gogs_udal/" "gogs_master.tar.gz" "gogs_dev_new.tar.gz" "gogs_dev.tar.gz" "gogs_bak20160518.tar.gz" "gogs/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/" (22950 29761 0 0) "YCM-Generator/" "yangc/" "webpack/" "txc-yun-sample/" "opensource/" "ncrm-web/" "mule/" "ks/" "kmas/" "gogs/" "go/" "ggzy/" "eshore/" "ec_proj/" "docker/" "config-server/" "commons-dbcp/" "AnypointStudio/" "angularjs/" "2017_itrace/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/+completion/auto-completion/local/" (22947 46953 0 0) "snippets/" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/+completion/" (22948 49742 0 0) "ivy/" "helm/" "auto-completion/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/" (22949 25161 0 0) "views/" "service.sh" "screenshot.png" "README.md" "pack.sh" "main.go" "logs/" "install.sql" "gopub.pid" "gopub-views/" "gopub" "docker-compose.yaml" "docker/" "data/" "conf/" "assets/" "app/" ".gitignore" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/+lang/" (22948 49655 0 0) "yaml/" "windows-scripts/" "vimscript/" "typescript/" "swift/" "sql/" "sml/" "shell-scripts/" "shaders/" "scheme/" "scala/" "rust/" "ruby/" "racket/" "python/" "purescript/" "plantuml/" "php/" "octave/" "ocaml/" "nim/" "markdown/" "lua/" "latex/" "javascript/" "java/" "ipython-notebook/" "idris/" "html/" "haskell/" "graphviz/" "go/" "fsharp/" "faust/" "extra-langs/" "ess/" "erlang/" "emacs-lisp/" "elm/" "elixir/" "d/" "csv/" "csharp/" "common-lisp/" "clojure/" "c-c++/" "bibtex/" "autohotkey/" "asm/" "asciidoc/" "agda/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/spacemacs/layers/" (22948 49648 0 0) "LAYERS.org" "auto-layer.el" ".DS_Store" "+web-services/" "+vim/" "+tools/" "+themes/" "+tags/" "+spacemacs/" "+source-control/" "+pair-programming/" "+os/" "+misc/" "+lang/" "+intl/" "+fun/" "+frameworks/" "+email/" "+emacs/" "+distributions/" "+completion/" "+checkers/" "+chat/" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/easy-deploy/" (22949 25245 0 0) "views/" "utils/" "store/" "static/" "sql/" "README.md" "models/" "model/" "main.go" "LICENSE" "http/" "g/" "easy-deploy" "db/" "database.db" "control" "cfg.json" "cache/" ".gitignore" ".github/" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs-ng/" (22945 7770 0 0) "init.el" "emacs.org" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/app/controllers/" (22942 45692 0 0) "user.go" "types.go" "task.go" "server.go" "role.go" "review.go" "project.go" "main.go" "mailtpl.go" "env.go" "base.go" "app_test.go" "app.go" "agent.go" "#project.go#" "../" "./")
-
- ("/Users/yangc/.ssh/" (22940 1922 0 0) "sshp_pass" "known_hosts" "id_rsa.pub" "id_rsa" "config" "authorized_keys" "../" "./")
-
- ("/Users/yangc/src/angularjs/demo1/" (22940 57418 0 0) "todo.js" "todo.css" "index.html" "../" "./")
-
- ("/Users/yangc/src/angularjs/angularjs2-by-cli/" (22941 15605 0 0) "tslint.json" "tsconfig.json" "src/" "README.md" "protractor.conf.js" "package.json" "package-lock.json" "node_modules/" "karma.conf.js" "e2e/" ".idea/" ".gitignore" ".git/" ".editorconfig" ".angular-cli.json" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/" (22942 46066 0 0) "tslint.json" "tsconfig.json" "src/" "README.md" "protractor.conf.js" "package.json" "package-lock.json" "node_modules/" "karma.conf.js" "e2e/" ".idea/" ".gitignore" ".editorconfig" ".DS_Store" ".angular-cli.json" "../" "./")
-
- ("/Users/yangc/src/opensource/bootstrap/ace/" (22942 42428 0 0) "wysiwyg.html" "widgets.html" "typography.html" "two-menu-2.html" "two-menu-1.html" "treeview.html" "top-menu.html" "timeline.html" "tables.html" "search.html" "README.md" "profile.html" "pricing.html" "nestable-list.html" "mobile-menu-3.html" "mobile-menu-2.html" "mobile-menu-1.html" "login.html" "LICENSE.md" "jquery-ui.html" "jqgrid.html" "invoice.html" "index.html" "inbox.html" "grid.html" "gallery.html" "form-wizard.html" "form-elements.html" "form-elements-2.html" "faq.html" "error-500.html" "error-404.html" "email.html" "email-newsletter.html" "email-navbar.html" "email-contrast.html" "email-confirmation.html" "elements.html" "dropzone.html" "content-slider.html" "calendar.html" "buttons.html" "blank.html" "assets/" ".gitignore" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/app/application/" (22942 48597 0 0) "application.service.ts" "application.service.spec.ts" "application.component.ts" "application.component.spec.ts" "application.component.html" "application.component.css" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/Clojure/" (22943 61644 0 0) "安装 Clojure 开发环境.org" "../" "./")
-
- ("/Users/yangc/notes/03_Life/" (22933 3435 0 0) "猪肚鸡.org" "02_惠州双月湾旅游攻略.org" "01_Badminton.org" "00_GTD & PKM.org" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/" (22943 61757 0 0) "我的 Rime 输入设置.org" "大数据学习.org" "基于 Jenkins + JMeter + Ant 搭建持续集成的自动化性能测试环境.org" "分布式事务.org" "一致哈希算法在 MySQL 分布存储中的使用.org" "Zookeeper disconnected troubleshooting.org" "Zabbix 安装使用笔记.org" "VirtualBox/" "VIM.org" "Vim vs Emacs.org" "tools/" "Python/" "PostgreSQL.org" "nginx.org" "MySQL.org" "Maven.org" "macOS.org" "Logstash 安装及配置笔记.org" "Linux/" "Kindle.org" "Jenkins/" "Java/" "Hadoop.org" "Golang/" "Git/" "fuck-gfw.org" "Emacs中Dired的基本用法和扩展.org" "Emacs.org" "Elastic Stack.org" "Dubbo.org" "Clojure/" "Best Practices for Code Review.org" "Axure RP.org" "Ansible.org" "AngularJS.org" "_大数据学习/" "_images/" "_Elastic Stack/" "634px-PostgreSQL 架构.jpg" "09_软件工程.org" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/opensource/bootstrap/" (22942 10646 0 0) "ace/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/opensource/" (22942 9840 0 0) "zookeeper-benchmark/" "zookeeper/" "zkui/" "zktop/" "z/" "word-to-markdown/" "WizNote-Plugins/" "WizMdEditor/" "vim-themes/" "tpcc-mysql/" "tomcat/" "styleguide/" "sql-parser/" "spring-test-dbunit/" "spring-framework/" "SOHU-DBProxy/" "snakerflow/" "slf4j-1.7.5.zip" "slf4j-1.7.5/" "shadowsocks/" "seq/" "remacs/" "python-mysql-replication/" "phantomjs/" "phabricator/" "pf4j/" "otter/" "org-todoist/" "org-minimal-html-theme/" "org-html-themes/" "opensesame/" "open-replicator/" "Oceanus/" "nmon/" "mysql-server/" "mysql-connector-j/" "mysql-binlog-connector-java/" "myfox-query-module/" "myfox-load-module/" "MariaDB-server/" "maria/" "log4jdbc-log4j2/" "log4jdbc/" "JSqlParser/" "JMPjct/" "jetty-spring-mvc-jar/" "jetty-demo/" "iBase4J/" "hive/" "hazelcast/" "hadoop/" "guava/" "grammars-v4/" "fix-macosx.py" "firebreath-dev/" "exhibitor/" "elastic/" "dubbo/" "druid_bak/" "druid-ha/" "druid-extension/" "druid/" "db-shardings/" "datax/" "cobertura/" "chnroutes/" "checkstyle/" "cerebro/" "canal/" "c3p0-0.9.5-pre6.bin.zip" "bootstrap/" "asm-4.0-bin.zip" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/" (22942 13144 0 0) "typings.d.ts" "tsconfig.spec.json" "tsconfig.app.json" "test.ts" "styles.css" "polyfills.ts" "main.ts" "index.html" "favicon.ico" "environments/" "assets/" "app/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/app/" (22942 15852 0 0) "user/" "task/" "server/" "role/" "review/" "project/" "log/" "layout/" "error/" "env/" "app.module.ts" "app.component.ts" "app.component.spec.ts" "app.component.html" "app.component.css" "app/" "agent/" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/app/layout/" (22941 42113 0 0) "sidebar/" "navbar/" "header/" "footer/" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/src/app/layout/sidebar/" (22942 20913 0 0) "sidebar.service.ts" "sidebar.service.spec.ts" "sidebar.component.ts" "sidebar.component.spec.ts" "sidebar.component.html" "sidebar.component.css" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/gopub-views/e2e/" (22941 34888 0 0) "tsconfig.e2e.json" "app.po.ts" "app.e2e-spec.ts" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/views/layout/" (22934 64894 0 0) "sections/" "layout.html" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/gogits/gogs/" (22940 60480 0 0) "vendor/" "templates/" "scripts/" "routes/" "README_ZH.md" "README.md" "public/" "pkg/" "packager/" "models/" "Makefile" "LICENSE" "gogs.go" "Dockerfile.rpihub" "Dockerfile.rpi" "Dockerfile.aarch64" "Dockerfile" "docker/" "conf/" "cmd/" "appveyor.yml" ".travis.yml" ".pkgr.yml" ".mailmap" ".gopmfile" ".gitignore" ".github/" ".gitattributes" ".git/" ".editorconfig" ".dockerignore" ".codebeatsettings" ".codebeatignore" ".bra.toml" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/gogits/" (22940 60408 0 0) "gogs/" "go-gogs-client/" "git-module/" "cron/" "chardet/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/Unknwon/" (22934 63013 0 0) "paginater/" "i18n/" "goconfig/" "com/" "cae/" "../" "./")
-
- ("/Users/yangc/src/angularjs/angularjs2-by-cli/src/" (22940 58122 0 0) "typings.d.ts" "tsconfig.spec.json" "tsconfig.app.json" "test.ts" "styles.css" "polyfills.ts" "main.ts" "index.html" "favicon.ico" "environments/" "assets/" "app/" "../" "./")
-
- ("/Users/yangc/src/angularjs/angularjs2-by-cli/src/app/" (22940 59482 0 0) "app.module.ts" "app.component.ts" "app.component.spec.ts" "app.component.html" "app.component.css" "../" "./")
-
- ("/Users/yangc/src/angularjs/" (22940 58122 0 0) "official-quickstart/" "demo3/" "demo2/" "demo1/" "angularjs2-by-cli/" "angular2-quickstart/" "angular-phonecat/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/angularjs/angular2-quickstart/" (22940 57710 0 0) "../" "./")
-
- ("/Users/yangc/src/AnypointStudio/" (22681 6305 0 0) "studio_id.xml" ".mule/" ".metadata/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/angularjs/demo2/" (22940 57661 0 0) "project.js" "list.html" "index.html" "detail.html" "bootstrap.css" "../" "./")
-
- ("/Users/yangc/.dotfiles/vim/" (22506 46809 0 0) "vimrc" "tags/" "README.md" "init.vim/" "colors/" "bundle/" "autoload/" ".netrwhist" ".DS_Store" "../" "./")
-
- ("/Users/yangc/notes/00_Notes/Git/" (22938 39344 0 0) "git.org" "git-fen-zhi-guang-li-chang-yong-cao-zuo.org" "git-de-kai-fa-tuan-dui-liu-cheng.org" ".DS_Store" ".#git.org" "#git.org#" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/views/app/" (22939 58535 0 0) "list.html" "add.html" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/easy-deploy/http/api/" (22929 19064 0 0) "heartbeat_controller.go" "health_controller.go" "frame_controller.go" "config_controller.go" "api_routes.go" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs.d/" (22939 36006 0 0) "lisp/" "init.el" ".DS_Store" "../" "./")
-
- ("/Users/yangc/work/" (22928 3394 0 0) "鹰眼/" "大型网站/" "团队/" "分布式数据库/" "zookeeper/" "Zabbix/" "Tomcat/" "Storm/" "Spark/" "Rime/" "Redis/" "Python/" "otter/" "nmon/" "MySQL/" "MyCat/" "mule/" "MQ/" "maven/" "JMeter/" "Jetty/" "Jenkins/" "Java/" "iptables/" "Hazelcast/" "Hadoop/" "Greenplum/" "Golang/" "Git/" "Elastic Stack/" "Dubbo(X)/" "Clojure/" "antlr4-4.5.3/" "Ansible/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/app/service/" (22938 37115 0 0) "user.go" "task.go" "system.go" "server.go" "role.go" "repository.go" "project.go" "mail.go" "init.go" "env.go" "deploy_job.go" "deploy.go" "auth.go" "app.go" "action.go" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/lisijie/gopub/views/project/" (22938 21657 0 0) "new.html" "listnew.html" "list.html" "edit.html" "add.html" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/app/entity/" (22938 33462 0 0) "user.go" "task.go" "server.go" "role.go" "project.go" "perm.go" "mail_tpl.go" "log.go" "env.go" "action.go" ".#server.go" "#server.go#" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/views/" (22934 63008 0 0) "user/" "task/" "server/" "role/" "review/" "project/" "main/" "mailtpl/" "log/" "layout/" "error/" "env/" "agent/" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/gopub/views/project/" (22938 21657 0 0) "new.html" "listnew.html" "list.html" "edit.html" "add.html" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/" (22938 22171 0 0) "ops-updater/" "gopub/" "easy-deploy-common_bak/" "easy-deploy/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/lisijie/" (22938 22168 0 0) "gopub/" "gomail/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/lisijie/gopub/" (22938 21549 0 0) "views/" "service.sh" "screenshot.png" "README.md" "pack.sh" "main.go" "logs/" "install.sql" "gopub.pid" "gopub" "docker-compose.yaml" "docker/" "data/" "conf/" "assets/" "app/" ".gitignore" ".git/" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs.d/lisp/" (22936 24504 0 0) "init-projectile.el" "init-packages.el" "init-neotree.el" "init-macosx.el" "init-keys.el" "init-ido.el" "init-helm.el" "init-avy.el" "init-ag.el" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs_bak/lisp/" (22936 24518 0 0) "init-swiper.el" "init-panguspacing.el" "init-neotree.el" "init-magit.el" "init-keys.el" "init-indent-guide.el" "init-ido.el" "init-helm.el" "init-gui.el" "init-font.el" "init-evil.el" ".DS_Store" "../" "./")
-
- ("/Users/yangc/notes/" (22938 15227 0 0) "todolist.org" "styles/" "setup.org" "index.html" "home.org" "gtd/" "footer.org" "draft.org" "diary.org" "_images/" "_attachments/" "99_Diary/" "04_PPT/" "03_Life/" "02_Blog/" "01_Projects/" "00_Notes/" ".gitignore" ".git/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/.dotfiles/emacs_bak/" (22936 19010 0 0) "lisp/" "init.el" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/" (22440 17319 0 0) "src/" "pkg/" "bin/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/" (22933 447 0 0) "sourcegraph.com/" "gopkg.in/" "golang.org/" "github.com/" "9fans.net/" ".DS_Store" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/easy-deploy/models/" (22934 60297 0 0) "user.go" "rel_endpoint_group.go" "rel_agent_group.go" "query_dto.go" "pagination.go" "host_group.go" "endpoint_agent.go" "endpoint.go" "dto.go" "deploy_config.go" "default.go" "agent.go" "../" "./")
-
- ("/Users/yangc/src/go/src/github.com/khala/easy-deploy/http/admin/" (22934 47412 0 0) "rel_endpoint_group_controller.go" "rel_agent_group_controller.go" "host_group_controller.go" "endpoint_controller.go" "endpoint_agent_controller.go" "deploy_controller.go" "agent_controller.go" "admin_routes.go" ".#admin_routes.go" "#admin_routes.go#" "../" "./")
+ ("/Users/yangc/.dotfiles/" (23203 41621 455553 465000) "git/" "SpaceVim.d/" ".git/" "prelude/" "spacemacs-for-zilongshanren/" "spacemacs/" "tmux/" "sam217pa/" "SpaceVim/" ".gitignore" "purcell/" "README.md" "emacs/" "myvimrc_2013/" "emacs24-starter-kit/" "emacs_bak/" "emagicians-starter-kit/" ".DS_Store" "aaronbieber/" "doom-emacs.d/" "vim/" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

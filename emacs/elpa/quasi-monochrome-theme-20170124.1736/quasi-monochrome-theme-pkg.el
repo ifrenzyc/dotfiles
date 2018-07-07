@@ -1,1 +1,0 @@
-(define-package   "quasi-monochrome-theme"   "20170124.1736"   "Quasi Monochrome theme"   'nil   :keywords '("color" "theme" "monochrome"))

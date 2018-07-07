@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "outline-toc" "outline-toc.el" (0 0 0 0))
-;;; Generated autoloads from outline-toc.el
+;;;### (autoloads nil "outline-toc" "../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc.el"
+;;;;;;  "b1e6ea42a2772777735df1a335009710")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc.el
 
 (defvar outline-toc-mode nil "\
 Non-nil if Outline-Toc mode is enabled.
@@ -23,8 +24,21 @@ or call the function `outline-toc-mode'.")
 Toggle outline-toc mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "outline-toc"
+;;;;;;  "../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "outline-toc" '("outline-toc-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/outline-toc-20170730.430/outline-toc.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -1,1 +1,1 @@
-/Users/yangc/.vimrc
+/Users/yangc/.vim/vimrc

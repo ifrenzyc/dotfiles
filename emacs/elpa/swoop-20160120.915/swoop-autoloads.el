@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "swoop" "swoop.el" (0 0 0 0))
-;;; Generated autoloads from swoop.el
+;;;### (autoloads nil "swoop" "../../../../.emacs.d/elpa/swoop-20160120.915/swoop.el"
+;;;;;;  "e3a7c3aff5d10243bdcffedbbf1305a1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/swoop-20160120.915/swoop.el
 
 (autoload 'swoop "swoop" "\
 Search through words within the current buffer.
@@ -50,26 +51,39 @@ Currently c-mode only.
 During evil-search, switch over to swoop.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "swoop" "../../../../.emacs.d/elpa/swoop-20160120.915/swoop.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/swoop-20160120.915/swoop.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "swoop" '("swoop-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "swoop-edit" "swoop-edit.el" (0 0 0 0))
-;;; Generated autoloads from swoop-edit.el
+;;;### (autoloads "actual autoloads are elsewhere" "swoop-edit" "../../../../.emacs.d/elpa/swoop-20160120.915/swoop-edit.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/swoop-20160120.915/swoop-edit.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "swoop-edit" '("swoop-")))
 
 ;;;***
 
-;;;### (autoloads nil "swoop-lib" "swoop-lib.el" (0 0 0 0))
-;;; Generated autoloads from swoop-lib.el
+;;;### (autoloads "actual autoloads are elsewhere" "swoop-lib" "../../../../.emacs.d/elpa/swoop-20160120.915/swoop-lib.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/swoop-20160120.915/swoop-lib.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "swoop-lib" '("swoop-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("swoop-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/swoop-20160120.915/swoop-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/swoop-20160120.915/swoop-edit.el"
+;;;;;;  "../../../../.emacs.d/elpa/swoop-20160120.915/swoop-lib.el"
+;;;;;;  "../../../../.emacs.d/elpa/swoop-20160120.915/swoop-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/swoop-20160120.915/swoop.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

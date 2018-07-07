@@ -1,0 +1,67 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Jul  7 16:29:18 2018
+;; Desktop file format version 208
+;; Emacs version 27.0.50
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23360 31198 846382 0) (desktop . "208") "yangc@adsl-99-99-99-25.dsl.lsan03.sbcglobal.net" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#282828") (background-color . "#f2e5bc") (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (undecorated) (ns-appearance . unbound) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen . fullboth) (display-type . color) (background-mode . light) (cursor-color . "DarkCyan") (environment) (powerline-cache) (last-focus-update) (eyebrowse-last-slot . 1) (eyebrowse-current-slot . 1) (eyebrowse-window-configs (1 (((min-height . 4) (min-width . 20) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 160) (min-pixel-height-ignore . 54) (min-pixel-width-ignore . 64) (min-pixel-height-safe . 18) (min-pixel-width-safe . 32)) hc (pixel-width . 1389) (pixel-height . 834) (total-width . 174) (total-height . 46) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 693) (pixel-height . 834) (total-width . 87) (total-height . 46) (normal-height . 1.0) (normal-width . 0.5) (buffer "*dashboard*" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (leaf (last . t) (pixel-width . 696) (pixel-height . 834) (total-width . 87) (total-height . 46) (normal-height . 1.0) (normal-width . 0.5) (buffer "*Warnings*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 74) (start . 1)))) "itsyc")) (fullscreen-restore . maximized) (frameset--id . "91E5-0CC9-2CBE-0D5D") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "adsl-99-99-99-9.dsl.lsan03.sbcglobal.net") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 49) (width . 177) (left . 2) (top . 7)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 72) (min-pixel-width . 80) (min-pixel-height-ignore . 54) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 18) (min-pixel-width-safe . 16)) leaf (pixel-width . 1432) (pixel-height . 864) (total-width . 179) (total-height . 48) (normal-height . 1.0) (normal-width . 1.0) (buffer "emacs.org" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 1) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 118329) (start . 380))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring '("frame" "simple" #("ob-src" 0 6 (isearch-case-fold-search t)) #("auto-fill-mode" 0 14 (isearch-case-fold-search t)) "rainbow" "hydra" "vimish-fold" "org-src"))
+(setq register-alist '((48 . #("     \"wc\" 'delete-window\n" 0 10 (fontified t yank-handler (evil-yank-line-handler nil t)) 10 24 (face (highlight-symbol-face) fontified t yank-handler (evil-yank-line-handler nil t)) 24 25 (fontified t yank-handler (evil-yank-line-handler nil t)))) (103 file . "/Users/yangc/Dropbox/itsycnotes/diary.org") (115 file . "/Users/yangc/Dropbox/itsycnotes/draft.org") (110 file . "/Users/yangc/Dropbox/itsycnotes/home.org")))
+(setq file-name-history '(#("/sshx:udal@132.121.196.40:/data/udal/dbproxy_smartbss_prod_fs_crm_cust_crm_18001/logs/dbproxy.2018-07-06.log" 27 31 (face flx-highlight-face) 32 36 (face flx-highlight-face)) "~/Dropbox/itsycnotes/gtd.org" "~/.dotfiles/emacs/emacs.org" "~/Dropbox/itsycnotes/01_Projects/10_智慧运营 BSS.org" "~/.dotfiles/emacs/ido.last" "~/.emacs.d/ido.last" "~/.dotfiles/emacs/init.el" "~/.dotfiles/emacs/bookmarks" "~/.emacs.d/bookmarks" "~/.emacs.d/elpa/scratch-ext-20140103.2116/scratch-ext-autoloads.el" "~/.emacs.d/elpa/company-shell-20170517.2241/company-shell-autoloads.el" "~/.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts-autoloads.el" "~/.emacs.d/elpa/font-utils-20150806.1051/font-utils-autoloads.el" "~/.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils-autoloads.el" "~/.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft-autoloads.el" "~/.emacs.d/elpa/list-utils-20160414.702/list-utils-autoloads.el" "~/.emacs.d/elpa/pcache-20170105.1414/pcache-autoloads.el" "~/.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs-autoloads.el" "~/.emacs.d/elpa/edit-server-20180120.752/edit-server-autoloads.el" "~/Desktop/UDAL 生产环境及帐号.txt" "~/.emacs.d/elpa/desktop+-20170107.1332/desktop+-autoloads.el" "~/Dropbox/itsycnotes/00_Notes/tools/tmux.org" "~/Library/Rime/installation.yaml" "~/Library/Rime/custom_phrase.txt" "~/Library/Rime/README.md" "~/Library/Rime/user.yaml" "~/Library/Rime/squirrel.custom.yaml" "~/Library/Rime/luna_pinyin.extended.dict.yaml" "~/Library/Rime/luna_pinyin.dict.yaml" "~/Library/Rime/luna_pinyin.cn_en.dict.yaml" "~/Library/Rime/luna_pinyin.custom.yaml" "~/Library/Rime/double_pinyin_flypy.schema.yaml" "~/Library/Rime/easy_en.dict.yaml" "~/Library/Rime/easy_en.schema.yaml" "~/Dropbox/itsycnotes/00_Notes/我的 Rime 输入设置.org" "~/.emacs.d/elpa/ob-go-20170731.1057/ob-go-autoloads.el" "~/.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse-autoloads.el" "~/.emacs.d/elpa/git-timemachine-20180607.120/git-timemachine-autoloads.el" "~/Dropbox/应用/MobileOrg/mobileorg.org" "~/.emacs.d/elpa/winum-20171028.702/winum-autoloads.el" "~/Dropbox/itsycnotes/00_Notes/Java/使用 GC 排查问题过程.org" "~/Dropbox/itsycnotes/00_Notes/Zookeeper disconnected troubleshooting.org" "~/Dropbox/itsycnotes/00_Notes/Zookeeper.org" "~/Library/Rime/default.custom.yaml" "~/Library/Rime/build/default.yaml" "~/Library/Rime/symbols.yaml" "~/Library/Rime/double_pinyin.custom.yaml" "~/Library/Rime/luna_pinyin_simp.custom.yaml" "~/Library/Rime/squirrel.yaml" "~/Dropbox/itsycnotes/00_Notes/Linux/linux.org" "~/Dropbox/itsycnotes/01_Projects/_Khala/银汇 3 楼 IP 设置.png" "~/Dropbox/itsycnotes/01_Projects/Khala.org" "~/.emacs.d/elpa/org-capture-pop-frame-20160518.308/org-capture-pop-frame-autoloads.el" "~/notes/gtd.org" "~/GitBook/Library/Import/udal-manual/develop/env-platform-testing.md" "~/GitBook/Library/Import/udal-manual/develop/env-cbs-production.md" "~/GitBook/Library/Import/udal-manual/develop/env-cbs-test-new.md" "~/GitBook/Library/Import/udal-manual/develop/env-cbs-test.md" "~/GitBook/Library/Import/udal-manual/develop/env-crm-test-new.md" "~/GitBook/Library/Import/udal-manual/develop/env.md" "~/GitBook/Library/Import/udal-manual/develop/env-dev.md" "~/GitBook/Library/Import/udal-manual/README.md" "~/Dropbox/itsycnotes/draft.org" "~/Dropbox/itsycnotes/00_Notes/MySQL.org" "~/Dropbox/itsycnotes/00_Notes/Python/Python.org" "~/Dropbox/itsycnotes/00_Notes/tools/intellij_idea.org"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/yangc/.dotfiles/emacs/emacs.org"
+  "emacs.org"
+  'org-mode
+  '(auto-fill-mode visual-line-mode global-whitespace-mode beacon-mode undo-tree-mode smartparens-mode override-global-mode pangu-spacing-mode which-key-mode evil-goggles-mode projectile-mode ivy-mode company-mode yas-minor-mode flycheck-mode helm-mode flx-ido-mode git-gutter-mode org-indent-mode anzu-mode highlight-symbol-mode)
+  118329
+  '(24424 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 23360 31163 938676 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring (24424 33065 32512 118720 2 1 67379 92623 67279 67245 67210 109854 3260 22288 22365 22275))))
+
+(desktop-create-buffer 208
+  "/Users/yangc/Dropbox/itsycnotes/01_Projects/10_智慧运营 BSS.org"
+  "10_智慧运营 BSS.org"
+  'org-mode
+  '(auto-fill-mode visual-line-mode global-whitespace-mode beacon-mode undo-tree-mode smartparens-mode override-global-mode pangu-spacing-mode which-key-mode evil-goggles-mode projectile-mode ivy-mode company-mode yas-minor-mode flycheck-mode helm-mode flx-ido-mode git-gutter-mode org-indent-mode anzu-mode)
+  18017
+  '(18017 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 23360 31163 938239 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring (18017 2874 2899 1 180650 1339 2029 11741 9341 1053))))
+
+(desktop-create-buffer 208
+  "/Users/yangc/Dropbox/itsycnotes/gtd.org"
+  "gtd.org"
+  'org-mode
+  '(auto-fill-mode visual-line-mode global-whitespace-mode beacon-mode undo-tree-mode smartparens-mode override-global-mode pangu-spacing-mode which-key-mode evil-goggles-mode projectile-mode ivy-mode company-mode yas-minor-mode flycheck-mode helm-mode flx-ido-mode git-gutter-mode org-indent-mode anzu-mode)
+  37484
+  '(37484 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 23360 31155 480295 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring (7861 487 495 489 107 101 91 nil))))
+
+(desktop-create-buffer 208
+  "/Users/yangc/.dotfiles/emacs/ido.last"
+  "ido.last"
+  'fundamental-mode
+  '(visual-line-mode global-whitespace-mode beacon-mode undo-tree-mode smartparens-mode override-global-mode pangu-spacing-mode which-key-mode evil-goggles-mode projectile-mode ivy-mode company-mode yas-minor-mode helm-mode flx-ido-mode git-gutter-mode org-indent-mode anzu-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 23359 13726 661159 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring nil)))
+
