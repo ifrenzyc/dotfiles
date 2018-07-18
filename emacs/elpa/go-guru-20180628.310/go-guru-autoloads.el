@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "go-guru" "go-guru.el" (0 0 0 0))
-;;; Generated autoloads from go-guru.el
+;;;### (autoloads nil "go-guru" "../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru.el"
+;;;;;;  "fee4b5952b0fda939d514f9607023eaa")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru.el
 
 (autoload 'go-guru-set-scope "go-guru" "\
 Set the scope for the Go guru, prompting the user to edit the previous scope.
@@ -105,8 +106,20 @@ Highlight instances of the identifier at point after a short
 timeout.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "go-guru" "../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-guru" '("go-guru-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/go-guru-20180628.310/go-guru.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

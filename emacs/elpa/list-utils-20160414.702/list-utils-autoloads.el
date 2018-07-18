@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "list-utils" "list-utils.el" (0 0 0 0))
-;;; Generated autoloads from list-utils.el
+;;;### (autoloads nil "list-utils" "../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils.el"
+;;;;;;  "c2091d4e5e86dcad7429aa1e6a4d5661")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils.el
 
 (let ((loads (get 'list-utils 'custom-loads))) (if (member '"list-utils" loads) nil (put 'list-utils 'custom-loads (cons '"list-utils" loads))))
 
@@ -481,8 +482,20 @@ to be sure to use the new value.
 This functionality overlaps with the undocumented `cl-do-remf'.
 
 \(fn PLIST PROP)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "list-utils" "../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "list-utils" '("list-utils-htt-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/list-utils-20160414.702/list-utils.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

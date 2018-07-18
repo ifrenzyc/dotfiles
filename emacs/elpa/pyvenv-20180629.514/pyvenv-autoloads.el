@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "pyvenv" "pyvenv.el" (0 0 0 0))
-;;; Generated autoloads from pyvenv.el
+;;;### (autoloads nil "pyvenv" "../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv.el"
+;;;;;;  "da6efa06c4ca7778a2153f7258bc7a8a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv.el
 
 (autoload 'pyvenv-activate "pyvenv" "\
 Activate the virtual environment in DIRECTORY.
@@ -37,6 +38,11 @@ or call the function `pyvenv-mode'.")
 (autoload 'pyvenv-mode "pyvenv" "\
 Global minor mode for pyvenv.
 
+If called interactively, enable Pyvenv mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
+
 Will show the current virtualenv in the mode line, and respect a
 `pyvenv-workon' setting in files.
 
@@ -55,6 +61,11 @@ or call the function `pyvenv-tracking-mode'.")
 (autoload 'pyvenv-tracking-mode "pyvenv" "\
 Global minor mode to track the current virtualenv.
 
+If called interactively, enable Pyvenv-Tracking mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
+
 When this mode is active, pyvenv will activate a buffer-specific
 virtualenv whenever the user switches to a buffer with a
 buffer-local `pyvenv-workon' or `pyvenv-activate' variable.
@@ -65,8 +76,20 @@ buffer-local `pyvenv-workon' or `pyvenv-activate' variable.
 Restart Python inferior processes.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "pyvenv" "../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pyvenv" '("pyvenv-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/pyvenv-20180629.514/pyvenv.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

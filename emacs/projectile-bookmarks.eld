@@ -1,1 +1,1 @@
-("~/.dotfiles/" "~/Dropbox/itsycnotes/" "~/GitBook/Library/Import/udal-manual/")
+("~/.dotfiles/" "~/Dropbox/itsycnotes/")

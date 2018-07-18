@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "multi-term" "multi-term.el" (0 0 0 0))
-;;; Generated autoloads from multi-term.el
+;;;### (autoloads nil "multi-term" "../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term.el"
+;;;;;;  "47e03406dc602bb942ecb2a932d76e88")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term.el
 
 (autoload 'multi-term "multi-term" "\
 Create new term buffer.
@@ -42,8 +43,20 @@ Toggle dedicated `multi-term' window.
 Select the `multi-term' dedicated window.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "multi-term" "../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "multi-term" '("multi-term-" "term-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/multi-term-20160619.233/multi-term.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

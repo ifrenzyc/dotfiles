@@ -6,16 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "spaceline" "spaceline.el" (0 0 0 0))
-;;; Generated autoloads from spaceline.el
+;;;### (autoloads "actual autoloads are elsewhere" "spaceline" "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "spaceline" '("spaceline-")))
 
 ;;;***
 
-;;;### (autoloads nil "spaceline-config" "spaceline-config.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from spaceline-config.el
+;;;### (autoloads nil "spaceline-config" "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-config.el"
+;;;;;;  "f74a33caa332d3f2e2e685e80dfafbe9")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-config.el
 
 (autoload 'spaceline-spacemacs-theme "spaceline-config" "\
 Install the modeline used by Spacemacs.
@@ -64,20 +65,33 @@ Customize the mode-line in info.
 This minor mode requires info+.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "spaceline-config"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-config.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-config.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "spaceline-config" '("spaceline--")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "spaceline-segments" "spaceline-segments.el"
+;;;### (autoloads "actual autoloads are elsewhere" "spaceline-segments"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-segments.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from spaceline-segments.el
+;;; Generated autoloads from ../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-segments.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "spaceline-segments" '("spaceline-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("spaceline-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-config.el"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline-segments.el"
+;;;;;;  "../../../../.emacs.d/elpa/spaceline-20180628.46/spaceline.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

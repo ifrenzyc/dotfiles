@@ -3,8 +3,9 @@
     (pcre2el "1.5")
     (async "1.1")
     (emacs "24"))
-  :url "https://github.com/ShingoFukuyama/emacs-swoop" :keywords
-  '("swoop" "inner" "buffer" "search" "navigation"))
+  :keywords
+  '("swoop" "inner" "buffer" "search" "navigation")
+  :url "https://github.com/ShingoFukuyama/emacs-swoop")
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:

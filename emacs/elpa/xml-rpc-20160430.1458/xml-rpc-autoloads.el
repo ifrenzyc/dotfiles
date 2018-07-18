@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "xml-rpc" "xml-rpc.el" (0 0 0 0))
-;;; Generated autoloads from xml-rpc.el
+;;;### (autoloads "actual autoloads are elsewhere" "xml-rpc" "../../../../.emacs.d/elpa/xml-rpc-20160430.1458/xml-rpc.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/xml-rpc-20160430.1458/xml-rpc.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "xml-rpc" '("xml-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/xml-rpc-20160430.1458/xml-rpc-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/xml-rpc-20160430.1458/xml-rpc.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

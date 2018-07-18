@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "js-comint" "js-comint.el" (0 0 0 0))
-;;; Generated autoloads from js-comint.el
+;;;### (autoloads nil "js-comint" "../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint.el"
+;;;;;;  "4c10801a7e3231103d0f3a73f75d3f5e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint.el
 
 (autoload 'js-do-use-nvm "js-comint" "\
 Enable nvm.
@@ -91,8 +92,20 @@ Load FILE into the javascript interpreter.
 
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "js-comint" "../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "js-comint" '("js-" "switch-to-js" "run-js")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "js-comint" '("js-" "run-js" "switch-to-js")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/js-comint-20171129.2056/js-comint.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

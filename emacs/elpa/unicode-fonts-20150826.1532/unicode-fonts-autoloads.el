@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "unicode-fonts" "unicode-fonts.el" (0 0 0 0))
-;;; Generated autoloads from unicode-fonts.el
+;;;### (autoloads nil "unicode-fonts" "../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts.el"
+;;;;;;  "25651f9d1ef06e6c07a7e34ea8ba4529")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts.el
 
 (let ((loads (get 'unicode-fonts 'custom-loads))) (if (member '"unicode-fonts" loads) nil (put 'unicode-fonts 'custom-loads (cons '"unicode-fonts" loads))))
 
@@ -57,8 +58,21 @@ Optional REGENERATE requests that the disk cache be invalidated
 and regenerated.
 
 \(fn &optional FONTSET-NAMES REGENERATE)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "unicode-fonts"
+;;;;;;  "../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "unicode-fonts" '("persistent-softest-" "unicode-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/unicode-fonts-20150826.1532/unicode-fonts.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

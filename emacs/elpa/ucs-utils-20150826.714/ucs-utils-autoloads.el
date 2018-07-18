@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "ucs-utils" "ucs-utils.el" (0 0 0 0))
-;;; Generated autoloads from ucs-utils.el
+;;;### (autoloads nil "ucs-utils" "../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils.el"
+;;;;;;  "4b14ff857c788abbcda64e4dddc3df44")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils.el
 
 (let ((loads (get 'ucs-utils 'custom-loads))) (if (member '"ucs-utils" loads) nil (put 'ucs-utils 'custom-loads (cons '"ucs-utils" loads))))
 
@@ -230,12 +231,21 @@ The following aliases will be installed:
     `ucs-eval'                  for   `ucs-utils-eval'
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ucs-utils" "../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ucs-utils" '("character-name-history" "persistent-soft" "ucs-utils-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("ucs-utils-6.0-delta.el" "ucs-utils-pkg.el")
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils-6.0-delta.el"
+;;;;;;  "../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/ucs-utils-20150826.714/ucs-utils.el")
 ;;;;;;  (0 0 0 0))
 
 ;;;***

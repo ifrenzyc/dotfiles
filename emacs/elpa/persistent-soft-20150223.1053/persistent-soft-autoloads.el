@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "persistent-soft" "persistent-soft.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from persistent-soft.el
+;;;### (autoloads nil "persistent-soft" "../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft.el"
+;;;;;;  "d32c2f3765748879c92b46eb09d386fc")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft.el
 
 (let ((loads (get 'persistent-soft 'custom-loads))) (if (member '"persistent-soft" loads) nil (put 'persistent-soft 'custom-loads (cons '"persistent-soft" loads))))
 
@@ -58,8 +58,21 @@ Returns a true value if storage was successful.  Returns nil
 on failure, without throwing an error.
 
 \(fn SYMBOL VALUE LOCATION &optional EXPIRATION)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "persistent-soft"
+;;;;;;  "../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "persistent-soft" '("persistent-soft-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/persistent-soft-20150223.1053/persistent-soft.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

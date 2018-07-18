@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "font-utils" "font-utils.el" (0 0 0 0))
-;;; Generated autoloads from font-utils.el
+;;;### (autoloads nil "font-utils" "../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils.el"
+;;;;;;  "f32c94316d10d9b50558649314b55efd")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils.el
 
 (let ((loads (get 'font-utils 'custom-loads))) (if (member '"font-utils" loads) nil (put 'font-utils 'custom-loads (cons '"font-utils" loads))))
 
@@ -102,8 +103,20 @@ member of FONT-NAMES.  Otherwise, the family name is extracted
 from the XLFD returned by `font-info'.
 
 \(fn FONT-NAMES &optional NO-NORMALIZE)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "font-utils" "../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "font-utils" '("font-" "persistent-softest-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/font-utils-20150806.1051/font-utils.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

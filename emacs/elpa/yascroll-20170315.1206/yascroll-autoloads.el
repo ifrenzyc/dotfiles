@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "yascroll" "yascroll.el" (0 0 0 0))
-;;; Generated autoloads from yascroll.el
+;;;### (autoloads nil "yascroll" "../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll.el"
+;;;;;;  "d7ffbde166c6cd67344ba72e26e0fcf1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll.el
 
 (autoload 'yascroll:show-scroll-bar "yascroll" "\
 Show scroll bar in BUFFER.
@@ -45,8 +46,20 @@ Yascroll-Bar mode is enabled in all buffers where
 See `yascroll-bar-mode' for more information on Yascroll-Bar mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "yascroll" "../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "yascroll" '("yascroll:")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/yascroll-20170315.1206/yascroll.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

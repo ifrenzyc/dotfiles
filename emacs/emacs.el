@@ -13,7 +13,10 @@
 (prefer-coding-system 'utf-8) ; with sugar on top
 (set-language-environment 'utf-8)
 
-;; 设置个人信息
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook
+          '(lambda() (set-fill-column 80)))
+
 (setq user-full-name "Yang Chuang")
 (setq user-mail-address "ifrenzyc@gmail.com")
 
@@ -31,6 +34,47 @@
 (setq recentf-max-saved-items 1000) ;; just 20 is too recent
 
 (save-place-mode 1)
+
+;; avoid problems with files newer than their byte-compiled counterparts
+;; it's better a lower startup than load an outdated and maybe bugged package
+(setq load-prefer-newer t)
+
+(when (>= emacs-major-version 25)
+  (require 'package)
+  (setq package-enable-at-startup nil)
+  ;; (setq package-archives '(("gnu"          . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+  ;;                          ("melpa"        . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+  ;;                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+  ;;                          ("org"          . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+  ;; (setq package-archives '(("gnu"          . "http://elpa.emacs-china.org/elpa/gnu/")
+  ;;                          ("melpa"        . "http://elpa.emacs-china.org/elpa/melpa/")
+  ;;                          ("melpa-stable" . "http://elpa.emacs-china.org/elpa/melpa-stable/")
+  ;;                          ("org"          . "http://elpa.emacs-china.org/elpa/org/")))
+
+  (setq package-archives
+        '(("elpy"         . "http://jorgenschaefer.github.io/packages/")
+          ("gnu"          . "http://elpa.gnu.org/packages/")
+          ("melpa"        . "http://melpa.org/packages/")
+          ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+          ("org"          . "http://orgmode.org/elpa/")))
+  )
+
+;; initialize the packages and create the packages list if not exists
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; install use-package if not exists
+;; Bootstrap `use-package'
+;; 更新本地仓库里面的 package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package)
+  (setq use-package-always-ensure t))
+
+(eval-when-compile
+  (require 'use-package))
+(use-package diminish :ensure t)   ;; if you use :diminish
+(require 'bind-key)                ;; if you use any :bind variant
 
 (use-package paradox
   :ensure t
@@ -90,40 +134,8 @@ _q_ quit            _p_ list            _s_ list
 
 (global-visual-line-mode nil)
 (setq word-wrap t)
-(setq truncate-lines t)
-
-;; @see http://ergoemacs.org/emacs/whitespace-mode.html
-;; @see http://xahlee.info/comp/unicode_arrows.html
-;; “·”, MIDDLE DOT, 183
-;; “¶”, PILCROW SIGN, 182
-;; “↵”, DOWNWARDS ARROW WITH CORNER LEFTWARDS, 8629
-;; “▷”, WHITE RIGHT POINTING TRIANGLE, 9655
-;; “▶”, BLACK RIGHT-POINTING TRIANGLE, 9654
-;; “→”, RIGHTWARDS ARROW, 8594
-;; “↦”, RIGHTWARDS ARROW FROM BAR, 8614
-;; “⇥”, RIGHTWARDS ARROW TO BAR, 8677
-
-;; lines lines-tail newline trailing space-before-tab space-afte-tab empty
-;; indentation-space indentation indentation-tab tabs spaces
-(use-package whitespace
-  :ensure t
-  :diminish ""
-  :init
-  (setq whitespace-style '(face trailing))
-
-  (setq whitespace-line-column 120)
-
-  (global-whitespace-mode t)
-  (if window-system (progn
-                      (set-cursor-color "Gray")
-                      ;; make it delete trailing whitespace
-                      (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-                      (add-hook 'after-init-hook
-                                (lambda () (set-face-attribute 'whitespace-newline nil
-                                                               :foreground "#AAA"
-                                                               :weight 'bold)))
-                      )))
+(setq truncate-lines nil)
+(auto-fill-mode nil) ;; 不要自动将内容换行
 
 ;; 取消滚动栏
 (use-package yascroll
@@ -171,10 +183,74 @@ _q_ quit            _p_ list            _s_ list
                           (projects . 5)
                           (bookmarks . 5))))
 
-(add-to-list 'load-path (expand-file-name "elpa/dimmer.el" user-emacs-directory))
-(require 'dimmer)
-(dimmer-activate)
-(setq dimmer-percent 0.40)
+;; @see http://ergoemacs.org/emacs/whitespace-mode.html
+;; @see http://xahlee.info/comp/unicode_arrows.html
+;; “·”, MIDDLE DOT, 183
+;; “¶”, PILCROW SIGN, 182
+;; “↵”, DOWNWARDS ARROW WITH CORNER LEFTWARDS, 8629
+;; “▷”, WHITE RIGHT POINTING TRIANGLE, 9655
+;; “▶”, BLACK RIGHT-POINTING TRIANGLE, 9654
+;; “→”, RIGHTWARDS ARROW, 8594
+;; “↦”, RIGHTWARDS ARROW FROM BAR, 8614
+;; “⇥”, RIGHTWARDS ARROW TO BAR, 8677
+
+;; lines lines-tail newline trailing space-before-tab space-afte-tab empty
+;; indentation-space indentation indentation-tab tabs spaces
+(use-package whitespace
+  :ensure t
+  :diminish ""
+  :init
+  (setq whitespace-style '(face tabs tab-mark trailing))
+  :config
+  (setq whitespace-line-column 120)
+  (global-whitespace-mode t)
+  (if window-system (progn
+                      (set-cursor-color "Gray")
+                      ;; make it delete trailing whitespace
+                      (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+                      (add-hook 'after-init-hook
+                                (lambda () (set-face-attribute 'whitespace-newline nil
+                                                               :foreground "#AAA"
+                                                               :weight 'bold)))
+                      )))
+
+;;; START TABS CONFIG
+;; Enable tabs and set prefered indentation width in spaces
+;; (In this case the indent size is 2-spaces wide)
+(setq-default indent-tabs-mode nil)
+(setq-default standard-indent 4)
+(setq-default tab-width 4)
+
+;; Make the backspace properly erase the tab instead of
+;; removing 1 space at a time.
+(setq backward-delete-char-untabify-method 'hungry)
+
+;; (OPTIONAL) Shift width for evil-mode users
+;; For the vim-like motions of ">>" and "<<".
+(setq-default evil-shift-width 4)
+
+;; Visualize tabs as a pipe character - "|"
+;; This will also show trailing characters as they are useful to spot.
+(setq whitespace-style '(face tabs tab-mark trailing))
+(custom-set-faces
+ '(whitespace-tab ((t (:foreground "#636363")))))
+(setq whitespace-display-mappings
+      '((tab-mark 9 [124 9] [92 9]))) ; 124 is the ascii ID for '\|'
+(global-whitespace-mode) ; Enable whitespace mode everywhere
+
+;; Disable tabs and use spaces instead on Lisp and ELisp
+;; (defun disable-tabs () (setq indent-tabs-mode nil))
+;; (add-hook 'lisp-mode-hook 'disable-tabs)
+;; (add-hook 'emacs-lisp-mode-hook 'disable-tabs)
+;;; END TABS CONFIG
+
+(use-package dimmer
+  :ensure t
+  :init
+  (dimmer-activate)
+  :config
+  (setq dimmer-percent 0.40))
 
 ;; @see https://github.com/gorakhargosh/emacs.d/blob/master/themes/color-theme-less.el
 ;; (use-package hc-zenburn-theme
@@ -237,6 +313,102 @@ _q_ quit            _p_ list            _s_ list
   :demand t
   :load-path "lisp/mdi/")
 
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'visual-line-mode "↩️ "))
+
+(use-package autorevert
+  :diminish (auto-revert-mode . "🔂 "))
+
+(column-number-mode 1)
+(line-number-mode 1)
+(size-indication-mode t)
+
+;;  (defun yc/powerline-theme ()
+;;    "Setup the default mode-line."
+;;    (interactive)
+;;    (setq-default mode-line-format
+;;                  '("%e"
+;;                    (:eval
+;;                     (let* ((active (powerline-selected-window-active))
+;;                            (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
+;;                            (mode-line (if active 'mode-line 'mode-line-inactive))
+;;                            (face1 (if active 'powerline-active1 'powerline-inactive1))
+;;                            (face2 (if active 'powerline-active2 'powerline-inactive2))
+;;                            (separator-left (intern (format "powerline-%s-%s"
+;;                                                            (powerline-current-separator)
+;;                                                            (car powerline-default-separator-dir))))
+;;                            (separator-right (intern (format "powerline-%s-%s"
+;;                                                             (powerline-current-separator)
+;;                                                             (cdr powerline-default-separator-dir))))
+;;                            (lhs (list (powerline-raw "%*" mode-line 'l)
+;;                                       (powerline-buffer-size mode-line 'l)
+;;                                       (powerline-buffer-id mode-line-buffer-id 'l)
+;;                                       (powerline-raw " ")
+;;                                       (funcall separator-left mode-line face1)
+;;                                       (powerline-narrow face1 'l)
+;;                                       (powerline-vc face1)))
+;;                            (rhs (list (powerline-raw global-mode-string face1 'r)
+;;                                       (powerline-raw "%4l" face1 'r)
+;;                                       (powerline-raw ":" face1)
+;;                                       (powerline-raw "%3c" face1 'r)
+;;                                       (funcall separator-right face1 mode-line)
+;;                                       (powerline-raw " ")
+;;                                       (powerline-raw "%6p" mode-line 'r)
+;;                                       (powerline-hud face2 face1)))
+;;                            (center (list (powerline-raw " " face1)
+;;                                          (funcall separator-left face1 face2)
+;;                                          (when (and (boundp 'erc-track-minor-mode) erc-track-minor-mode)
+;;                                            (powerline-raw erc-modified-channels-object face2 'l))
+;;                                          (powerline-major-mode face2 'l)
+;;                                          (powerline-process face2)
+;;                                          (powerline-raw " :" face2)
+;;                                          (powerline-minor-modes face2 'l)
+;;                                          (powerline-raw " " face2)
+;;                                          (funcall separator-right face2 mode-line)
+;;                                          (powerline-raw " " mode-line)
+;;                                          (nyan-create)
+;;                                          (funcall separator-right mode-line face2)
+;;                                          (powerline-raw " " face2)
+;;                                          (funcall separator-right face2 face1))))
+;;                       (concat (powerline-render lhs)
+;;                               (powerline-fill-center face1 (/ (powerline-width center) 2.0))
+;;                               (powerline-render center)
+;;                               (powerline-fill face1 (powerline-width rhs))
+;;                               (powerline-render rhs)))))))
+;;
+;;  (defun yc/powerline-separator (&optional random-state)
+;;    "Sets the powerline separator to a random one that is cool."
+;;    (let ((r-state (or random-state
+;;                       (make-random-state t)))
+;;          (faves '(arrow brace butt chamfer curve rounded roundstub zigzag))
+;;          (day-of-year (string-to-number (format-time-string "%j"))))
+;;      (nth (% day-of-year
+;;              (length faves))
+;;           faves)))
+;;
+;;  (defun yc/set-random-powerline-separator ()
+;;    "Set the powerline separator to something randomly cool"
+;;    (setq powerline-default-separator (yc/powerline-separator)))
+;;
+;;  (use-package powerline
+;;               :ensure t
+;;               :demand
+;;               :init
+;;               (yc/set-random-powerline-separator)
+;;               (yc/powerline-theme))
+;;
+;;  (use-package smart-mode-line
+;;  :ensure t
+;;  :config
+;;  (progn
+;;    (tool-bar-mode -1)
+;;    (setq sml/theme 'respectful)
+;;    (setq sml/name-width 40)
+;;    (setq sml/mode-width 'full)
+;;    (set-face-attribute 'mode-line nil :box nil)))
+
 (use-package powerline
   :ensure t
   :config (progn
@@ -261,7 +433,9 @@ _q_ quit            _p_ list            _s_ list
   :init
   (progn
     (nyan-mode)
-    (setq nyan-wavy-trail t))
+    (setq nyan-animate-nyancat t)
+    (setq nyan-wavy-trail t)
+    (setq nyan-bar-length 10))
   :config (nyan-start-animation))
 
 ;; 目前这个有 bug，会导致 emacs 卡死，但不知道具体原因
@@ -272,28 +446,34 @@ _q_ quit            _p_ list            _s_ list
 (use-package spaceline
   :ensure t
   :config (progn (use-package spaceline-config
-  :ensure spaceline
-  :config
-  (spaceline-helm-mode 1)
-  (spaceline-emacs-theme))
-            (require 'spaceline-segments)
-            (spaceline-spacemacs-theme)
-            (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-            ))
+                   :ensure spaceline
+                   :config
+                   (spaceline-helm-mode 1)
+                   (spaceline-spacemacs-theme)
+                   ;; (spaceline-emacs-theme)
+                   )
+                 (require 'spaceline-segments)
+                 (spaceline-spacemacs-theme)
+                 (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+                 ))
 
-(add-to-list 'load-path (expand-file-name "elpa/spaceline-all-the-icons.el" user-emacs-directory))
-(require 'spaceline-all-the-icons)
-(winum-mode)
-(spaceline-all-the-icons-theme)
-(spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
-(spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
-(spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
-(spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
-(spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line)
-;; (use-package spaceline-all-the-icons
-;;   :after spaceline
-;;   :config
-;;   )
+(use-package spaceline-all-the-icons
+  :ensure t
+  :after spaceline
+  :config
+  (spaceline-all-the-icons-theme)
+  (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
+  (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
+  (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
+  (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
+  (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line)
+  )
+
+(use-package all-the-icons-ivy
+  :ensure t
+  :after ivy
+  :config
+  (all-the-icons-ivy-setup))
 
 ;; (defface my-pl-segment1-active
 ;;   '((t (:foreground "#000000" :background "#E1B61A")))
@@ -382,9 +562,6 @@ _q_ quit            _p_ list            _s_ list
 ;;   (air--powerline-default-theme)
 ;;   )
 
-;; (use-package powerline-evil
-;;  :ensure t)
-
 (use-package smartparens
   :ensure t
   :diminish ""
@@ -446,23 +623,6 @@ _q_ quit            _p_ list            _s_ list
   :ensure t
   :bind ("C-x o" . ace-window))
 
-(use-package winum
-  :ensure t
-  :init
-  (setq winum-keymap
-        (let ((map (make-sparse-keymap)))
-          (define-key map (kbd "C-`") 'winum-select-window-by-number)
-          (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
-          (define-key map (kbd "M-1") 'winum-select-window-1)
-          (define-key map (kbd "M-2") 'winum-select-window-2)
-          (define-key map (kbd "M-3") 'winum-select-window-3)
-          (define-key map (kbd "M-4") 'winum-select-window-4)
-          (define-key map (kbd "M-5") 'winum-select-window-5)
-          (define-key map (kbd "M-6") 'winum-select-window-6)
-          (define-key map (kbd "M-7") 'winum-select-window-7)
-          (define-key map (kbd "M-8") 'winum-select-window-8)
-          map)))
-
 (use-package eyebrowse
   :ensure t
   :defer 1
@@ -497,6 +657,26 @@ _q_ quit            _c_ create          _<_ previous
 
 (when (fboundp 'winner-mode)
       (winner-mode 1))
+
+(use-package winum
+  :ensure t
+  :init
+  (winum-mode)
+  (setq winum-keymap
+        (let ((map (make-sparse-keymap)))
+          (define-key map (kbd "C-`") 'winum-select-window-by-number)
+          (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+          (define-key map (kbd "M-1") 'winum-select-window-1)
+          (define-key map (kbd "M-2") 'winum-select-window-2)
+          (define-key map (kbd "M-3") 'winum-select-window-3)
+          (define-key map (kbd "M-4") 'winum-select-window-4)
+          (define-key map (kbd "M-5") 'winum-select-window-5)
+          (define-key map (kbd "M-6") 'winum-select-window-6)
+          (define-key map (kbd "M-7") 'winum-select-window-7)
+          (define-key map (kbd "M-8") 'winum-select-window-8)
+          map))
+  :config
+  (setq winum-auto-setup-mode-line nil))
 
 (use-package rainbow-mode
   :hook prog-mode
@@ -552,8 +732,6 @@ _q_ quit            _c_ create          _<_ previous
   (add-hook 'org-mode-hook
             '(lambda ()
                (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
-
-(use-package diminish :ensure t)
 
 (use-package autothemer :ensure t)
 
@@ -766,9 +944,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   :init
   (global-evil-search-highlight-persist t))
 
-(use-package evil-collection
-  :ensure t)
-
 ;; mac switch meta key
 (defun yc/mac-switch-meta nil
   "switch meta between Option and Command"
@@ -887,6 +1062,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
    "w/" 'split-window-right
    "w-" 'split-window-below
    "wc" 'delete-window
+   "wd" 'delete-frame
    "t"   '(:ignore t :which-key "toggles")
    "tC"  '(:ignore t :which-key "colors")
    "tE"  '(:ignore t :which-key "editing-styles")
@@ -931,7 +1107,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (use-package projectile
   :ensure t
   :commands (projectile-project-root)
-  :init (projectile-global-mode)
+  ;; :init (projectile-global-mode)
   :config (progn (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
 
                  (setq projectile-enable-caching t)
@@ -1046,8 +1222,7 @@ https://github.com/jaypei/emacs-neotree/pull/110"
                    :commands company-go
                    :if (executable-find "gocode")
                    :init (add-hook 'after-init-hook
-                                   (lambda ()(add-to-list 'company-backends 'company-go)))
-                   )
+                                   (lambda ()(add-to-list 'company-backends 'company-go))))
                  (use-package go-direx
                    :ensure t
                    :after go-mode
@@ -1087,7 +1262,7 @@ https://github.com/jaypei/emacs-neotree/pull/110"
                  (add-hook 'go-mode-hook
                            (lambda ()
                              (setq tab-width 4)
-                             (setq indent-tabs-mode 1))))
+                             (setq indent-tabs-mode nil))))
   )
 
 (use-package go-complete
@@ -1202,8 +1377,11 @@ https://github.com/jaypei/emacs-neotree/pull/110"
  "mr" '(:ignore t :which-key "rename")
  "mrn" 'go-rename)
 
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 (defun yc/run-current-file ()
   "Execute the current file.
@@ -1405,8 +1583,7 @@ Version 2017-07-31"
 (setq js-indent-level 2)
 (setq typescript-indent-level 2)
 
-(use-package typescript
-  :ensure t)
+;; (use-package typescript :ensure t)
 
 (use-package ng2-mode
   :ensure t)
@@ -1592,7 +1769,12 @@ Version 2017-07-31"
   :config
   ;; Turn on flyspell mode when editing markdown files
   (add-hook 'markdown-mode-hook 'flyspell-mode)
-  (add-hook 'gfm-mode-hook 'flyspell-mode))
+  (add-hook 'gfm-mode-hook 'flyspell-mode)
+  :preface
+  (defun yc/markdown-set-ongoing-hydra-body ()
+    (setq yc/ongoing-hydra-body #'hydra-markdown/body))
+  :hook (markdown-mode . yc/markdown-set-ongoing-hydra-body)
+  )
 
 (use-package markdown-toc :ensure t)
 (use-package markdown-mode+ :ensure t)
@@ -1603,12 +1785,6 @@ Version 2017-07-31"
   ;; (add-hook 'markdown-mode-hook #'markdownfmt-enable-on-save)
   :bind
   (:map markdown-mode-map ("C-c C-f" . markdownfmt-format-buffer)))
-
-(use-package simple
-  :ensure t
-  :hook
-  ((prog-mode . turn-on-auto-fill)
-   (text-mode . turn-on-auto-fill)))
 
 (use-package smex
   :ensure t
@@ -1625,7 +1801,6 @@ Version 2017-07-31"
   :diminish ""
   :config
   (helm-mode 1)
-  (helm-fuzzier-mode 1)
   (helm-autoresize-mode 1)
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-autoresize-mode t)
@@ -1689,13 +1864,21 @@ Version 2017-07-31"
 
 (use-package fuzzy :defer t)
 
+;; (use-package company-box
+;;   :ensure t
+;;   :after company
+;;   :diminish
+;;   :hook (company-mode . company-box-mode))
+
 (use-package company-quickhelp
   :ensure t
+  :after company
   :config
   (company-quickhelp-mode t))
 
 (use-package company-statistics
   :ensure t
+  :after company
   :config
   (company-statistics-mode))
 
@@ -1762,6 +1945,16 @@ In that case, insert the number."
 
 (require 'org)
 (require 'org-mouse)
+
+(use-package org
+  :ensure nil
+  :delight org-mode "Org"
+  :preface
+  (defun yc/org-set-ongoing-hydra-body ()
+    (setq yc/ongoing-hydra-body #'hydra-org/body))
+  :hook
+  (org-mode . yc/org-set-ongoing-hydra-body)
+)
 (setq org-directory "/Users/yangc/Dropbox/itsycnotes")
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-src-fontify-natively t)
@@ -1849,12 +2042,14 @@ In that case, insert the number."
 
 (use-package org-bullets
   :ensure t
+  :after org
   :init
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; "◎" "○" "►" "◇" "⊛" "✪" "☯" "⊙" "✪" "➲" "●" "⬤" "⚉"  "⸖" "ͼ" "ͽ" "⚬" "◌""￮""""⚫"
   ;; "☉" "⦾" "◦" "∙" "∘" "⚪" "◯" "⦿" "⌾" "◉"
-  (setq org-bullets-bullet-list '("❂" "⊚" "❍")))
+  ;; (setq org-bullets-bullet-list '("❂" "⊚" "❍"))
+  (setq org-bullets-bullet-list '("◉" "❂" "✸" "✿" "☼" "⚬")))
 
 (use-package htmlize :ensure t)
 
@@ -1903,7 +2098,7 @@ In that case, insert the number."
     (previous-line 2)
     (org-edit-src-code)))
 
-(defun org-toggle-link-display ()
+(defun yc/org-toggle-link-display ()
   "Toggle the literal or descriptive display of links."
   (interactive)
   (if org-descriptive-links
@@ -1937,6 +2132,10 @@ In that case, insert the number."
                                         ; insert into file if correctly taken
   (if (file-exists-p filename)
       (insert (concat "[[file:" filename "]]"))))
+
+(setq org-image-actual-width 800)
+
+(use-package org-attach-screenshot :ensure t)
 
 ;; @see http://orgmode.org/worg/org-hacks.html#orgheadline126
 (defun ogrep (search &optional context)
@@ -2160,7 +2359,7 @@ In that case, insert the number."
   (setq projectile-enable-caching t)
   )
 
-(use-package helm-fuzzier :ensure t
+(use-package helm-fuzzier
   :ensure t
   :config
   (helm-fuzzier-mode 1)
@@ -2294,6 +2493,13 @@ In that case, insert the number."
 (use-package hydra
   :ensure t
   :defer 2
+  :preface
+  (defvar-local yc/ongoing-hydra-body nil)
+  (defun yc/ongoing-hydra ()
+    (interactive)
+    (if yc/ongoing-hydra-body
+        (funcall yc/ongoing-hydra-body)
+      (user-error "yc/ongoing-hydra: yc/ongoing-hydra-body is not set")))
   :config
   (defun hydra-move-splitter-left (arg)
     "Move window splitter left."
@@ -2327,16 +2533,16 @@ In that case, insert the number."
         (shrink-window arg)
       (enlarge-window arg)))
   :bind
-  ;; ("C-c <tab>" . hydra-fold/body)
-  ;; ("C-c d" . hydra-dates/body)
+  ("C-c <tab>" . hydra-fold/body)
+  ("C-c d" . hydra-dates/body)
   ("C-c e" . hydra-eyebrowse/body)
   ;; ("C-c f" . hydra-flycheck/body)
   ;; ("C-c g" . hydra-magit/body)
-  ;; ("C-c h" . hydra-helm/body)
-  ;; ("C-c o" . me/ongoing-hydra)
+  ("C-c h" . hydra-helm/body)
+  ("C-c o" . yc/ongoing-hydra)
   ;; ("C-c p" . hydra-projectile/body)
-  ("C-c s" . hydra-system/body)
-  ;; ("C-c w" . hydra-windows/body)
+  ("C-c p" . hydra-system/body)
+  ("C-c w" . hydra-windows/body)
 )
 
 (defhydra hydra-zoom (global-map "<f2>")
@@ -2446,7 +2652,124 @@ In that case, insert the number."
   ("o" org-clock-out)
   ("r" org-clock-report))
 
-(setq-default shell-file-name "/bin/zsh")
+(defhydra hydra-helm (:hint nil :color pink)
+        "
+                                                                          ╭──────┐
+   Navigation   Other  Sources     Mark             Do             Help   │ Helm │
+  ╭───────────────────────────────────────────────────────────────────────┴──────╯
+        ^_k_^         _K_       _p_   [_m_] mark         [_v_] view         [_H_] helm help
+        ^^↑^^         ^↑^       ^↑^   [_t_] toggle all   [_d_] delete       [_s_] source help
+    _h_ ←   → _l_     _c_       ^ ^   [_u_] unmark all   [_f_] follow: %(helm-attr 'follow)
+        ^^↓^^         ^↓^       ^↓^    ^ ^               [_y_] yank selection
+        ^_j_^         _J_       _n_    ^ ^               [_w_] toggle windows
+  --------------------------------------------------------------------------------
+        "
+        ("<tab>" helm-keyboard-quit "back" :exit t)
+        ("<escape>" nil "quit")
+        ("\\" (insert "\\") "\\" :color blue)
+        ("h" helm-beginning-of-buffer)
+        ("j" helm-next-line)
+        ("k" helm-previous-line)
+        ("l" helm-end-of-buffer)
+        ("g" helm-beginning-of-buffer)
+        ("G" helm-end-of-buffer)
+        ("n" helm-next-source)
+        ("p" helm-previous-source)
+        ("K" helm-scroll-other-window-down)
+        ("J" helm-scroll-other-window)
+        ("c" helm-recenter-top-bottom-other-window)
+        ("m" helm-toggle-visible-mark)
+        ("t" helm-toggle-all-marks)
+        ("u" helm-unmark-all)
+        ("H" helm-help)
+        ("s" helm-buffer-help)
+        ("v" helm-execute-persistent-action)
+        ("d" helm-persistent-delete-marked)
+        ("y" helm-yank-selection)
+        ("w" helm-toggle-resplit-and-swap-windows)
+        ("f" helm-follow-mode))
+
+(defhydra hydra-fold (:color pink)
+  "
+^
+^Fold^              ^Do^                ^Jump^              ^Toggle^
+^────^──────────────^──^────────────────^────^──────────────^──────^────────────
+_q_ quit            _f_ fold            _<_ previous        _<tab>_ current
+^^                  _k_ kill            _>_ next            _S-<tab>_ all
+^^                  _K_ kill all        ^^                  ^^
+^^                  ^^                  ^^                  ^^
+"
+  ("q" nil)
+  ("<tab>" vimish-fold-toggle)
+  ("S-<tab>" vimish-fold-toggle-all)
+  ("<" vimish-fold-previous-fold)
+  (">" vimish-fold-next-fold)
+  ("f" vimish-fold)
+  ("k" vimish-fold-delete)
+  ("K" vimish-fold-delete-all))
+
+(defhydra hydra-dates (:color blue)
+  "
+^
+^Dates^             ^Insert^            ^Insert with Time^
+^─────^─────────────^──────^────────────^────────────────^──
+_q_ quit            _d_ short           _D_ short
+^^                  _i_ iso             _I_ iso
+^^                  _l_ long            _L_ long
+^^                  ^^                  ^^
+"
+  ("q" nil)
+  ("d" me/date-short)
+  ("D" me/date-short-with-time)
+  ("i" me/date-iso)
+  ("I" me/date-iso-with-time)
+  ("l" me/date-long)
+  ("L" me/date-long-with-time))
+
+(defhydra hydra-markdown (:color pink)
+  "
+^
+^Markdown^          ^Table Columns^     ^Table Rows^
+^────────^──────────^─────────────^─────^──────────^────────
+_q_ quit            _c_ insert          _r_ insert
+^^                  _C_ delete          _R_ delete
+^^                  _M-<left>_ left     _M-<down>_ down
+^^                  _M-<right>_ right   _M-<up>_ up
+^^                  ^^                  ^^
+"
+  ("q" nil)
+  ("c" markdown-table-insert-column)
+  ("C" markdown-table-delete-column)
+  ("r" markdown-table-insert-row)
+  ("R" markdown-table-delete-row)
+  ("M-<left>" markdown-table-move-column-left)
+  ("M-<right>" markdown-table-move-column-right)
+  ("M-<down>" markdown-table-move-row-down)
+  ("M-<up>" markdown-table-move-row-up))
+
+(defhydra hydra-windows (:color pink)
+  "
+^
+^Windows^           ^Window^            ^Zoom^
+^───────^───────────^──────^────────────^────^──────────────
+_q_ quit            _b_ balance         _-_ out
+^^                  _i_ heighten        _+_ in
+^^                  _j_ narrow          _=_ reset
+^^                  _k_ lower           ^^
+^^                  _l_ widen           ^^
+^^                  ^^                  ^^
+"
+  ("q" nil)
+  ("b" balance-windows)
+  ("i" enlarge-window)
+  ("j" shrink-window-horizontally)
+  ("k" shrink-window)
+  ("l" enlarge-window-horizontally)
+  ("-" text-scale-decrease)
+  ("+" text-scale-increase)
+  ("=" (text-scale-increase 0)))
+
+(setq-default shell-file-name "/bin/bash")
 
 (use-package multi-term
   :ensure t
@@ -2504,6 +2827,11 @@ In that case, insert the number."
      eshell-directory-name (expand-file-name "eshell" yc/cache-dir)
      eshell-prefer-lisp-functions t
      eshell-prompt-function #'yc/eshell-prompt-function))
+
+(use-package better-shell
+    :ensure t
+    :bind (("C-'" . better-shell-shell)
+           ("C-;" . better-shell-remote-open)))
 
 (use-package tramp
   :init
@@ -2582,6 +2910,12 @@ In that case, insert the number."
   :after scratch
   :config
   (setq scratch-ext-log-directory (expand-file-name ".scratch" yc/cache-dir)))
+
+(use-package ox-reveal
+  :ensure ox-reveal
+  :config
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0")
+  (setq org-reveal-mathjax t))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2017/bin/x86_64-darwin/"))
 (setq exec-path (append exec-path '("/usr/local/texlive/2017/bin/x86_64-darwin/")))

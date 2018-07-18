@@ -6,12 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "company-quickhelp" "company-quickhelp.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from company-quickhelp.el
+;;;### (autoloads nil "company-quickhelp" "../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp.el"
+;;;;;;  "24e74d145f1653233cea25f5ff830d84")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp.el
 
 (autoload 'company-quickhelp-local-mode "company-quickhelp" "\
 Provides documentation popups for `company-mode' using `pos-tip'.
+
+If called interactively, enable Company-Quickhelp-Local mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -36,8 +41,21 @@ Company-Quickhelp-Local mode is enabled in all buffers where
 See `company-quickhelp-local-mode' for more information on Company-Quickhelp-Local mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "company-quickhelp"
+;;;;;;  "../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-quickhelp" '("company-quickhelp-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/company-quickhelp-20180525.303/company-quickhelp.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

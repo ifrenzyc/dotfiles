@@ -6,10 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "go-projectile" "go-projectile.el" (0 0 0 0))
-;;; Generated autoloads from go-projectile.el
+;;;### (autoloads "actual autoloads are elsewhere" "go-projectile"
+;;;;;;  "../../../../.emacs.d/elpa/go-projectile-20170302.1705/go-projectile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/go-projectile-20170302.1705/go-projectile.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-projectile" '("go-projectile-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/go-projectile-20170302.1705/go-projectile-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/go-projectile-20170302.1705/go-projectile.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -25,6 +25,11 @@ Statistical sorting for company-mode.  Ranks completion candidates by
 the frequency with which they have been chosen in recent (as given by
 `company-statistics-size') history.
 
+If called interactively, enable Company-Statistics mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
+
 Turning this mode on and off preserves the statistics.  They are also
 preserved automatically between Emacs sessions in the default
 configuration.  You can customize this behavior with

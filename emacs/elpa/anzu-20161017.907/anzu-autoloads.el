@@ -6,11 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "anzu" "anzu.el" (0 0 0 0))
-;;; Generated autoloads from anzu.el
+;;;### (autoloads nil "anzu" "../../../../.emacs.d/elpa/anzu-20161017.907/anzu.el"
+;;;;;;  "03484cdf6ce4e2f7b974c66f05576344")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/anzu-20161017.907/anzu.el
 
 (autoload 'anzu-mode "anzu" "\
 minor-mode which display search information in mode-line.
+
+If called interactively, enable Anzu mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -70,8 +76,20 @@ anzu version of `isearch-query-replace'.
 anzu version of `isearch-query-replace-regexp'.
 
 \(fn ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "anzu" "../../../../.emacs.d/elpa/anzu-20161017.907/anzu.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/anzu-20161017.907/anzu.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "anzu" '("anzu-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/anzu-20161017.907/anzu-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/anzu-20161017.907/anzu.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "restart-emacs" "restart-emacs.el" (0 0 0 0))
-;;; Generated autoloads from restart-emacs.el
+;;;### (autoloads nil "restart-emacs" "../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs.el"
+;;;;;;  "c533b666618be8e05f034c2fe32ee6a7")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs.el
 
 (autoload 'restart-emacs-handle-command-line-args "restart-emacs" "\
 Handle the --restart-emacs-desktop command line argument.
@@ -35,8 +36,21 @@ When called non-interactively ARGS should be a list of arguments
 with which Emacs should be restarted.
 
 \(fn &optional ARGS)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "restart-emacs"
+;;;;;;  "../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "restart-emacs" '("restart-emacs-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/restart-emacs-20180601.331/restart-emacs.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

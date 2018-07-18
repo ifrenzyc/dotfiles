@@ -6,11 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "selected" "selected.el" (0 0 0 0))
-;;; Generated autoloads from selected.el
+;;;### (autoloads nil "selected" "../../../../.emacs.d/elpa/selected-20170222.34/selected.el"
+;;;;;;  "648e65d6b93257e741a72a94e49fb45e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/selected-20170222.34/selected.el
 
 (autoload 'selected-minor-mode "selected" "\
 If enabled activates the `selected-keymap' when the region is active.
+
+If called interactively, enable Selected minor mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -35,8 +41,20 @@ Selected minor mode is enabled in all buffers where
 See `selected-minor-mode' for more information on Selected minor mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "selected" "../../../../.emacs.d/elpa/selected-20170222.34/selected.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/selected-20170222.34/selected.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "selected" '("selected-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/selected-20170222.34/selected-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/selected-20170222.34/selected.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

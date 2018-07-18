@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "evil-nerd-commenter" "evil-nerd-commenter.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from evil-nerd-commenter.el
+;;;### (autoloads nil "evil-nerd-commenter" "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter.el"
+;;;;;;  "66321b9f1208ab97ceb2e7c7093d2f18")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter.el
 
 (autoload 'evilnc-comment-or-uncomment-paragraphs "evil-nerd-commenter" "\
 Comment or uncomment NUM paragraph(s).
@@ -102,28 +102,42 @@ If NO-EVIL-KEYBINDINGS is t, we don't define keybindings in EVIL.
 Imenu function find comments.
 
 \(fn)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "evil-nerd-commenter"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-nerd-commenter" '("evilnc-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "evil-nerd-commenter-operator" "evil-nerd-commenter-operator.el"
+;;;### (autoloads "actual autoloads are elsewhere" "evil-nerd-commenter-operator"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-operator.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from evil-nerd-commenter-operator.el
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-operator.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-nerd-commenter-operator" '("evilnc-")))
 
 ;;;***
 
-;;;### (autoloads nil "evil-nerd-commenter-sdk" "evil-nerd-commenter-sdk.el"
+;;;### (autoloads "actual autoloads are elsewhere" "evil-nerd-commenter-sdk"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-sdk.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from evil-nerd-commenter-sdk.el
+;;; Generated autoloads from ../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-sdk.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-nerd-commenter-sdk" '("evilnc-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("evil-nerd-commenter-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-operator.el"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter-sdk.el"
+;;;;;;  "../../../../.emacs.d/elpa/evil-nerd-commenter-20180411.640/evil-nerd-commenter.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

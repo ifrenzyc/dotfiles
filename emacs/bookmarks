@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/Dropbox/itsycnotes/gtd.org")
- (front-context-string . "** TODO 梳理本日系统运行")
+ (front-context-string . "** TODO 问研发中心，迁移")
  (rear-context-string . "方面等。*\n\n* Tasks\n\n")
  (position . 100))
 )

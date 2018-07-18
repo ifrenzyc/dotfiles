@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "angular-snippets" "angular-snippets.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from angular-snippets.el
+;;;### (autoloads nil "angular-snippets" "../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets.el"
+;;;;;;  "5e7d6e58c59ec2f0e785ccb05ca7e1fa")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets.el
 
 (autoload 'ng-snip-show-docs-at-point "angular-snippets" "\
 
@@ -21,12 +21,22 @@
 \(fn)" nil nil)
 
 (eval-after-load "yasnippet" '(angular-snippets-initialize))
+
+;;;### (autoloads "actual autoloads are elsewhere" "angular-snippets"
+;;;;;;  "../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "angular-snippets" '("ng-" "-aget")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "angular-snippets" '("-aget" "ng-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil nil ("angular-snippets-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/angular-snippets-20140513.2223/angular-snippets.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

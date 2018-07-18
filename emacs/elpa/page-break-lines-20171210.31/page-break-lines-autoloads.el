@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "page-break-lines" "page-break-lines.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from page-break-lines.el
+;;;### (autoloads nil "page-break-lines" "../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines.el"
+;;;;;;  "45471e8977dc18d37c26db016d0dacbc")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines.el
 
 (defvar page-break-lines-char 9472 "\
 Character used to render page break lines.")
@@ -29,7 +29,7 @@ Modes in which to enable `page-break-lines-mode'.")
 Face used to colorize page break lines.
 If using :bold or :italic, please ensure `page-break-lines-char'
 is available in that variant of your font, otherwise it may be
-displayed as a junk character." :group (quote page-break-lines))
+displayed as a junk character." :group 'page-break-lines)
 
 (autoload 'page-break-lines-mode "page-break-lines" "\
 Toggle Page Break Lines mode.
@@ -69,8 +69,21 @@ Page-Break-Lines mode is enabled in all buffers where
 See `page-break-lines-mode' for more information on Page-Break-Lines mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "page-break-lines"
+;;;;;;  "../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "page-break-lines" '("page-break-lines--update-display-table")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/page-break-lines-20171210.31/page-break-lines.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

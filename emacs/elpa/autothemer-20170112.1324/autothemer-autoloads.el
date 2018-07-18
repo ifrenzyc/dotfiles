@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "autothemer" "autothemer.el" (0 0 0 0))
-;;; Generated autoloads from autothemer.el
+;;;### (autoloads nil "autothemer" "../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer.el"
+;;;;;;  "ed3b133ab685c739d3f92778ccd5d105")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer.el
 
 (autoload 'autothemer-deftheme "autothemer" "\
 Define a theme NAME with description DESCRIPTION.
@@ -26,8 +27,20 @@ palette used in the most recent invocation of
 `autothemer-deftheme'.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "autothemer" "../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "autothemer" '("autothemer--")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/autothemer-20170112.1324/autothemer.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

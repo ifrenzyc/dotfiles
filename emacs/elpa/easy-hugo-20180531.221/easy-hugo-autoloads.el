@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "easy-hugo" "easy-hugo.el" (0 0 0 0))
-;;; Generated autoloads from easy-hugo.el
+;;;### (autoloads nil "easy-hugo" "../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo.el"
+;;;;;;  "32cfe702085f4944af027b5094c0ca52")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo.el
 
 (autoload 'easy-hugo-article "easy-hugo" "\
 Open a list of articles written in hugo with dired.
@@ -149,8 +150,20 @@ Auto-complete categories from your posts.
 Easy hugo mode.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "easy-hugo" "../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "easy-hugo" '("easy-hugo-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/easy-hugo-20180531.221/easy-hugo.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

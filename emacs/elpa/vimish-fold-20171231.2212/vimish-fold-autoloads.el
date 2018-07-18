@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "vimish-fold" "vimish-fold.el" (0 0 0 0))
-;;; Generated autoloads from vimish-fold.el
+;;;### (autoloads nil "vimish-fold" "../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold.el"
+;;;;;;  "3a90128560694be8559a6784236615f2")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold.el
 
 (autoload 'vimish-fold "vimish-fold" "\
 Fold active region staring at BEG, ending at END.
@@ -108,8 +109,21 @@ Vimish-Fold mode is enabled in all buffers where
 See `vimish-fold-mode' for more information on Vimish-Fold mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "vimish-fold"
+;;;;;;  "../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "vimish-fold" '("vimish-fold-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/vimish-fold-20171231.2212/vimish-fold.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

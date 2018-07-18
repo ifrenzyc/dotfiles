@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "go-snippets" "go-snippets.el" (0 0 0 0))
-;;; Generated autoloads from go-snippets.el
+;;;### (autoloads nil "go-snippets" "../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets.el"
+;;;;;;  "b8202b57c190797e58ac029dc0f1b9d0")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets.el
 
 (autoload 'go-snippets-initialize "go-snippets" "\
 
@@ -15,12 +16,22 @@
 \(fn)" nil nil)
 
 (eval-after-load 'yasnippet '(go-snippets-initialize))
+
+;;;### (autoloads "actual autoloads are elsewhere" "go-snippets"
+;;;;;;  "../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-snippets" '("go-snippets-dir")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("go-snippets-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/go-snippets-20180112.2211/go-snippets.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

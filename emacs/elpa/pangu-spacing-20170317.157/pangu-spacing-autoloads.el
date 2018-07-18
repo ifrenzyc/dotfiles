@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "pangu-spacing" "pangu-spacing.el" (0 0 0 0))
-;;; Generated autoloads from pangu-spacing.el
+;;;### (autoloads nil "pangu-spacing" "../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing.el"
+;;;;;;  "1d149215b9d8014979941a4fe7dbe9bf")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing.el
 
 (autoload 'pangu-spacing-space-current-buffer "pangu-spacing" "\
 Space current buffer.
@@ -42,8 +43,21 @@ Pangu-Spacing mode is enabled in all buffers where
 See `pangu-spacing-mode' for more information on Pangu-Spacing mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "pangu-spacing"
+;;;;;;  "../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pangu-spacing" '("turn-on-pangu-spacing" "pangu-spacing-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pangu-spacing" '("pangu-spacing-" "turn-on-pangu-spacing")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/pangu-spacing-20170317.157/pangu-spacing.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

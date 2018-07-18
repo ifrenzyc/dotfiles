@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "markdown-mode+" "markdown-mode+.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from markdown-mode+.el
+;;;### (autoloads nil "markdown-mode+" "../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+.el"
+;;;;;;  "952e7ecb8cc13385f9d49d1cecfdf31f")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+.el
 
 (autoload 'markdown-export-latex "markdown-mode+" "\
 Output the Markdown file as LaTeX.
@@ -42,12 +42,22 @@ Render markdown and copy as RTF.
 Process file with multimarkdown, copy it to the clipboard, and paste in safari's selected textarea.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "markdown-mode+"
+;;;;;;  "../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "markdown-mode+" '("markdown-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("markdown-mode+-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/markdown-mode+-20170320.1404/markdown-mode+.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

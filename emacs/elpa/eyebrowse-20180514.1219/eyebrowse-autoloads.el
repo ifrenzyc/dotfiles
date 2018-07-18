@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "eyebrowse" "eyebrowse.el" (0 0 0 0))
-;;; Generated autoloads from eyebrowse.el
+;;;### (autoloads nil "eyebrowse" "../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse.el"
+;;;;;;  "67022aff88248af40da645f776d283bd")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse.el
 
 (autoload 'eyebrowse-setup-evil-keys "eyebrowse" "\
 Set up key bindings specific to Evil.
@@ -41,8 +42,20 @@ switching window configurations.  It tries mimicking the tab
 behaviour of `ranger`, a file manager.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "eyebrowse" "../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eyebrowse" '("eyebrowse-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/eyebrowse-20180514.1219/eyebrowse.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "helm-ag" "helm-ag.el" (0 0 0 0))
-;;; Generated autoloads from helm-ag.el
+;;;### (autoloads nil "helm-ag" "../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag.el"
+;;;;;;  "9b3a2020ae2acacdefc8b2c638c2ca3d")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag.el
 
 (autoload 'helm-ag-pop-stack "helm-ag" "\
 
@@ -58,8 +59,20 @@
 
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "helm-ag" "../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-ag" '("helm-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/helm-ag-20170209.745/helm-ag.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

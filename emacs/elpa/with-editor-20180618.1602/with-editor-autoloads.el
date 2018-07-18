@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "with-editor" "with-editor.el" (0 0 0 0))
-;;; Generated autoloads from with-editor.el
+;;;### (autoloads nil "with-editor" "../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor.el"
+;;;;;;  "cd32684d1d75aa3b27459105cf073988")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor.el
 
 (autoload 'with-editor-export-editor "with-editor" "\
 Teach subsequent commands to use current Emacs instance as editor.
@@ -39,6 +40,11 @@ for a description of this minor mode.")
 
 (autoload 'shell-command-with-editor-mode "with-editor" "\
 Teach `shell-command' to use current Emacs instance as editor.
+
+If called interactively, enable Shell-Command-With-Editor mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 Teach `shell-command', and all commands that ultimately call that
 command, to use the current Emacs instance as editor by executing
@@ -81,12 +87,22 @@ If COMMAND ends with \"&\" behave like the latter,
 else like the former.
 
 \(fn COMMAND &optional OUTPUT-BUFFER ERROR-BUFFER ENVVAR)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "with-editor"
+;;;;;;  "../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "with-editor" '("server-" "shell-command--shell-command-with-editor-mode" "start-file-process--with-editor-process-filter" "with-editor")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("with-editor-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/with-editor-20180618.1602/with-editor.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

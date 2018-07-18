@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "winum" "winum.el" (0 0 0 0))
-;;; Generated autoloads from winum.el
+;;;### (autoloads nil "winum" "../../../../.emacs.d/elpa/winum-20171028.702/winum.el"
+;;;;;;  "230301e239b5edd62c67db459eb78005")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/winum-20171028.702/winum.el
 
 (defvar winum-mode nil "\
 Non-nil if Winum mode is enabled.
@@ -132,8 +133,20 @@ WINDOW: if specified, the window of which we want to know the number.
         returned.
 
 \(fn &optional WINDOW)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "winum" "../../../../.emacs.d/elpa/winum-20171028.702/winum.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/winum-20171028.702/winum.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "winum" '("winum-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/winum-20171028.702/winum-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/winum-20171028.702/winum.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

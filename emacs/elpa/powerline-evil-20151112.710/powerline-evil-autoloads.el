@@ -6,22 +6,29 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "powerline-evil" "powerline-evil.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from powerline-evil.el
+;;;### (autoloads nil "powerline-evil" "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil.el"
+;;;;;;  "989e248c3aed5fbe550564ca2850bd38")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil.el
 
 (autoload 'powerline-evil-face "powerline-evil" "\
 Function to select appropriate face based on `evil-state'.
 
 \(fn)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "powerline-evil"
+;;;;;;  "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "powerline-evil" '("powerline-evil-tag")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "powerline-evil-themes" "powerline-evil-themes.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from powerline-evil-themes.el
+;;;### (autoloads nil "powerline-evil-themes" "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil-themes.el"
+;;;;;;  "4e741d487b02f3b91e9a7c88e8639477")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil-themes.el
 
 (autoload 'powerline-evil-center-color-theme "powerline-evil-themes" "\
 Powerline's center-evil them with the evil state in color.
@@ -40,7 +47,11 @@ Powerline's Vim-like mode-line with evil state at the beginning in color.
 
 ;;;***
 
-;;;### (autoloads nil nil ("powerline-evil-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil-themes.el"
+;;;;;;  "../../../../.emacs.d/elpa/powerline-evil-20151112.710/powerline-evil.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

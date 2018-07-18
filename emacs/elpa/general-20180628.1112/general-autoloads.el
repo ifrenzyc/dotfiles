@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "general" "general.el" (0 0 0 0))
-;;; Generated autoloads from general.el
+;;;### (autoloads nil "general" "../../../../.emacs.d/elpa/general-20180628.1112/general.el"
+;;;;;;  "0fb999ec132af3754779a63fdbc774e4")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/general-20180628.1112/general.el
 
 (autoload 'general-define-key "general" "\
 The primary key definition function provided by general.el.
@@ -359,8 +360,20 @@ Specifying SHORT-NAMES as non-nil will create non-prefixed function
 aliases such as `nmap' for `general-nmap'.
 
 \(fn &optional SHORT-NAMES _)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "general" "../../../../.emacs.d/elpa/general-20180628.1112/general.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/general-20180628.1112/general.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "general" '("general-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/general-20180628.1112/general-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/general-20180628.1112/general.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

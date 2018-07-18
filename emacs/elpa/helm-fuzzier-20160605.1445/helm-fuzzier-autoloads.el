@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "helm-fuzzier" "helm-fuzzier.el" (0 0 0 0))
-;;; Generated autoloads from helm-fuzzier.el
+;;;### (autoloads nil "helm-fuzzier" "../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier.el"
+;;;;;;  "034c4b5a00e5b7c910647c5f0426a86b")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier.el
 
 (defvar helm-fuzzier-mode nil "\
 Non-nil if Helm-Fuzzier mode is enabled.
@@ -22,9 +23,27 @@ or call the function `helm-fuzzier-mode'.")
 (autoload 'helm-fuzzier-mode "helm-fuzzier" "\
 helm-fuzzier minor mode
 
+If called interactively, enable Helm-Fuzzier mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "helm-fuzzier"
+;;;;;;  "../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-fuzzier" '("helm-fuzzier-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/helm-fuzzier-20160605.1445/helm-fuzzier.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

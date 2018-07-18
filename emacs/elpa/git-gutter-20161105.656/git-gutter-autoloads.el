@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "git-gutter" "git-gutter.el" (0 0 0 0))
-;;; Generated autoloads from git-gutter.el
+;;;### (autoloads nil "git-gutter" "../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter.el"
+;;;;;;  "a70fa00a9b29cfff98a0268c9711047e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter.el
 
 (autoload 'git-gutter:linum-setup "git-gutter" "\
 Setup for linum-mode.
@@ -16,6 +17,11 @@ Setup for linum-mode.
 
 (autoload 'git-gutter-mode "git-gutter" "\
 Git-Gutter mode
+
+If called interactively, enable Git-Gutter mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -50,8 +56,20 @@ Show diff information in gutter
 Toggle to show diff information.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "git-gutter" "../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git-gutter" '("git-gutter")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/git-gutter-20161105.656/git-gutter.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

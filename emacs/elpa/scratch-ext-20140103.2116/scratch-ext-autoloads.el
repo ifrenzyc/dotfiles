@@ -6,10 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "scratch-ext" "scratch-ext.el" (0 0 0 0))
-;;; Generated autoloads from scratch-ext.el
+;;;### (autoloads "actual autoloads are elsewhere" "scratch-ext"
+;;;;;;  "../../../../.emacs.d/elpa/scratch-ext-20140103.2116/scratch-ext.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/scratch-ext-20140103.2116/scratch-ext.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "scratch-ext" '("scratch-ext-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/scratch-ext-20140103.2116/scratch-ext-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/scratch-ext-20140103.2116/scratch-ext.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
